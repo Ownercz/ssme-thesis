@@ -95,7 +95,7 @@
 %timeline
 \usepackage{xcolor}
 \newcommand\ytl[2]{
-\parbox[b]{8em}{\hfill{\color{cyan}\bfseries\sffamily #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{4.5cm}{\vspace{7pt}\color{red!40!black!80}\raggedright\sffamily #2.\\[7pt]}\\[-3pt]}
+\parbox[b]{8em}{\hfill{\color{cyan}\bfseries\sffamily #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{.7\linewidth}{\vspace{7pt}\color{red!40!black!80}\raggedright\sffamily #2.\\[7pt]}\\[-3pt]}
 
 \begin{document}
 
@@ -125,26 +125,43 @@ Hlavními důvody pro tento způsob vývojového cyklu jsou:
 \end{itemize}
 Celkově došlo prozatím k 20 jednotlivých vydání Monera, přičemž 
  \begin{table}
-\caption{Timeline of something.}
+
 \centering
-\begin{minipage}[t]{.7\linewidth}
+\begin{minipage}[t]{\linewidth}
 \color{gray}
 \rule{\linewidth}{1pt}
 \ytl{03.03.2014}{ByteCoin - publikování na GitHub}
 \ytl{17.04.2014}{Fork ByteCoinu - vznik BitMonero kryptoměny}
 \ytl{23.07.2014}{Fork BitMonera - vznik Monero kryptoměny}
-\ytl{22.03.2016}{Monero v2 - úprava ringsize, blocktime na 120 sekund}
-\ytl{21.09.2016}{Monero v3}
-\ytl{05.01.2017}{Monero v4}
-\ytl{15.04.2017}{Monero v5}
-\ytl{16.09.2017}{Monero v6}
-\ytl{06.04.2018}{Monero v7 - aktuální verze protokolu, kdy došlo ke změně CryptoNight algoritmu na verzi 1 kvůli ASICům na síti.}
-\ytl{--.10.2018}{Bude upřesněno.}
+\ytl{22.03.2016}{Monero v2 - úprava ringsize, čas bloku 120 sekund}
+\ytl{21.09.2016}{Monero v3 - rozdělení transakce na více částek}
+\ytl{05.01.2017}{Monero v4 - souběh normálních a RingCT transakcí}
+\ytl{15.04.2017}{Monero v5 - aktualizace velikosti bloku a algoritmu pro poplatky}
+\ytl{16.09.2017}{Monero v6 - vynucení RingCT transakcí s ringsize =>5}
+\ytl{06.04.2018}{Monero v7 - změna CryptoNight algoritmu kvůli ASIC, ringsize =>7}
+\ytl{--.10.2018}{Příští aktualizace sítě}
 \bigskip
 \rule{\linewidth}{1pt}%
 \end{minipage}%
+\color{black}\caption{Vývoj Monera}
 \end{table}
 \subsection{Alternativy}
+\begin{figure}[H]
+\center
+\begin{tabular}{lllllllll}
+Název kryptoměny & Vznik                         & PoW              & Block Time & Stealth Address & Transakce                             & Způsob podpisu transakce & Decentralizace & Zdroj                  \\
+Aeon             & Forkem Monera v prosinci 2017 & CryptoNote-Light & 240s       & Ano             & Anonymní s možností veřejné transakce & Ring Signature           & Ano            & https://www.aeon.cash/ \\
+ByteCoin         & Březen 2014                   &                  &            &                 &                                       &                          &                &                        \\
+DASH             &                               &                  &            &                 &                                       &                          &                &                        \\
+Monero (XMR)     &                               & CryptoNote       &            & Ano             & Anonymní včetně částky                & RingCT                   & Ano            &                        \\
+PIVX             &                               &                  &            &                 &                                       &                          &                &                        \\
+Verge (XVG)      &                               &                  &            &                 &                                       &                          &                &                        \\
+Zcash (ZEC)      &                               &                  &            &                 &                                       &                          &                &                        \\
+Zcoin            &                               &                  &            &                 &                                       &                          &                &                       
+\end{tabular}
+\caption{Přehled alternativ Monera}
+\label{monero-alternatives}
+\end{figure}
 \section{Blockchain technologie}
 \subsection{Block}
 \subsection{Návaznost a provázanost bloků}
@@ -165,7 +182,7 @@ Celkově došlo prozatím k 20 jednotlivých vydání Monera, přičemž
 \subsection{Vstupy, výstupy, mixing}
 \subsection{Průběh transakce}
 \subsection{Sledování transakcí na síti}
-
+\subsection{Kovri}
 
 \chapter{Používání monera}
 \section{Pěněženky}
