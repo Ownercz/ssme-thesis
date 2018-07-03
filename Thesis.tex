@@ -89,24 +89,61 @@
 
 %packages
 \usepackage{float} 
+\usepackage{hyperref}
+\usepackage[strings]{underscore}
+
+%timeline
+\usepackage{xcolor}
+\newcommand\ytl[2]{
+\parbox[b]{8em}{\hfill{\color{cyan}\bfseries\sffamily #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{4.5cm}{\vspace{7pt}\color{red!40!black!80}\raggedright\sffamily #2.\\[7pt]}\\[-3pt]}
+
 \begin{document}
 
 \chapter{Úvod}
 \chapter{Kryptoměna Monero}
-Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. Znamná to tedy, že jednotlivé transakce a zůstatek nemohou být bez vědomí dohledány \cite{moneroprojectgithub}.
+Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.
 \section{Původ a zaměření kryptoměny}
-Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna vzniklá implementací protokolu CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
+Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
 % CryptoNote implementace ByteCoin -> https://github.com/monero-project/monero/commit/296ae46ed8f8f6e5f986f978febad302e3df231a
-Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou \cite{}
+
+Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou. Zde se jednalo o vytěžení 82\% mincí před zveřejněním této měny \cite{fluffyponyonbytecoin}.
 % Duvod forku https://coinmetrics.io/papers/dissertation.pdf premine xx procent
+Toto byl důvod pro komunitu okolo anonymních kryptoměn, aby udělali hardfork a tím vytvořili kryptoměnu novou, BitMonero \cite{bitmonero}.
 % Fork Bytecoin -> BitMonero https://github.com/monero-project/monero/commit/1a8f5ce89a990e54ec757affff01f27d449640bc
 
-% Monero attack https://lab.getmonero.org/pubs/MRL-0002.pdf
- 
-V roce 2014 došlo k založení projektu Monero jako měny, která je postavená na CryptoNote protokolu s cílem přinést škálovatelnou, decentralizovanou a soukromí ochraňující digitální měnu \cite{monerohistory}. 
-\newpage
- 
+Důležitou změnou bylo oddělení hlavní části vývojářů a vytvoření samostatného forku s názvem Monero dne 23.06.2014 . Tím vznikla kryptoměna, která měla od počátku veřejně známý blockchain, jasně definovaný cíl a motivovaný tým vývojářů \cite{monerofork}.
+% Fork BitMonero -> Monero https://github.com/monero-project/monero/commit/003b1f909d416ab2c869b76176380c5f133bdad4#diff-c47c7c7383225ab55ff591cb59c41e6b
+
 \subsection{Současný vývoj}
+Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
+% Monero attack https://lab.getmonero.org/pubs/MRL-0002.pdf
+Hlavními důvody pro tento způsob vývojového cyklu jsou:
+\begin{itemize}\itemsep0em
+\item Komunita očekává pravidelné aktualizace.
+\item Možnost upravovat mining algoritmus pro ASIC-resistance.
+\item Prostor pro pravidelná vylepšení.
+\end{itemize}
+Celkově došlo prozatím k 20 jednotlivých vydání Monera, přičemž 
+ \begin{table}
+\caption{Timeline of something.}
+\centering
+\begin{minipage}[t]{.7\linewidth}
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{03.03.2014}{ByteCoin - publikování na GitHub}
+\ytl{17.04.2014}{Fork ByteCoinu - vznik BitMonero kryptoměny}
+\ytl{23.07.2014}{Fork BitMonera - vznik Monero kryptoměny}
+\ytl{22.03.2016}{Monero v2 - úprava ringsize, blocktime na 120 sekund}
+\ytl{21.09.2016}{Monero v3}
+\ytl{05.01.2017}{Monero v4}
+\ytl{15.04.2017}{Monero v5}
+\ytl{16.09.2017}{Monero v6}
+\ytl{06.04.2018}{Monero v7 - aktuální verze protokolu, kdy došlo ke změně CryptoNight algoritmu na verzi 1 kvůli ASICům na síti.}
+\ytl{--.10.2018}{Bude upřesněno.}
+\bigskip
+\rule{\linewidth}{1pt}%
+\end{minipage}%
+\end{table}
 \subsection{Alternativy}
 \section{Blockchain technologie}
 \subsection{Block}
@@ -173,6 +210,7 @@ V roce 2014 došlo k založení projektu Monero jako měny, která je postavená
 \section{PoW Monera}
 \section{Mining pooly, solo mining}
 \section{Web mining, botnet mining}
+% Web mining: https://arxiv.org/pdf/1806.01994.pdf
 \section{Cloud mining}
 \section{Systémy pro těžbu - ASIC, dodávané}
 \section{Software používaný k těžbě}
