@@ -148,18 +148,25 @@ Celkově došlo prozatím k 20 jednotlivých vydání Monera, přičemž
 \subsection{Alternativy}
 \begin{figure}[H]
 \center
-\begin{tabular}{lllllllll}
-Název kryptoměny & Vznik                         & PoW              & Block Time & Stealth Address & Transakce                             & Způsob podpisu transakce & Decentralizace & Zdroj                  \\
-Aeon             & Forkem Monera v prosinci 2017 & CryptoNote-Light & 240s       & Ano             & Anonymní s možností veřejné transakce & Ring Signature           & Ano            & https://www.aeon.cash/ \\
-ByteCoin         & Březen 2014                   &                  &            &                 &                                       &                          &                &                        \\
-DASH             &                               &                  &            &                 &                                       &                          &                &                        \\
-Monero (XMR)     &                               & CryptoNote       &            & Ano             & Anonymní včetně částky                & RingCT                   & Ano            &                        \\
-PIVX             &                               &                  &            &                 &                                       &                          &                &                        \\
-Verge (XVG)      &                               &                  &            &                 &                                       &                          &                &                        \\
-Zcash (ZEC)      &                               &                  &            &                 &                                       &                          &                &                        \\
-Zcoin            &                               &                  &            &                 &                                       &                          &                &                       
+\begin{tabular}{p{0.2\linewidth}p{0.2\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.2\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
+Název        & Protokol                & Block Time {[}s{]} & Stealth Address          & Anonymní transakce & Podpis trans.  & Multisig \\
+Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature & Ano      \\
+ByteCoin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature & Ano      \\
+DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            & Ano      \\
+Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         & Ano      \\
+PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              & Ano      \\
+Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     & Ano      \\
+Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano s zk-SNARKS    & x              & Ano      \\
+Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint\&spend   & Ring Signature & Ano     
+         
 \end{tabular}
 \caption{Přehled alternativ Monera}
+%dash https://bitcointalk.org/index.php?topic=1562109.0
+%ďash https://docs.dash.org/en/latest/introduction/information.html
+%pivx https://github.com/PIVX-Project/PIVX
+%pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
+%zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
+%zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 \label{monero-alternatives}
 \end{figure}
 \section{Blockchain technologie}
