@@ -99,6 +99,12 @@
 
 %caption
 \usepackage{caption}
+
+%branches
+\usepackage{tikz}
+%
+\usetikzlibrary{trees}
+
 \begin{document}
 
 \chapter{Úvod}
@@ -107,10 +113,10 @@ Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu
 
 Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.Hlavními body, kterými se Monero oproti jiným kryptoměnám liší, jsou:
 \begin{itemize}\itemsep0em
-\item Blockchain je veřejný, většina jeho částí je ovšem šifrována \ref{sec:blockchain}.
-\item Odesílatel transakce je skrytý díky Ring Signatures \ref{sec:ringsignatures}.
-\item Množství odesílané měny je šifrováno \ref{sec:ringct}.
-\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses) \ref{sec:stealthaddresses}.
+\item Blockchain je veřejný, většina jeho částí je ovšem šifrována, více v kapitole o blockchainu \ref{sec:blockchain}.
+\item Odesílatel transakce je skrytý díky Ring Signatures, které jsou popsány v kapitole \ref{sec:ringsignatures}.
+\item Množství odesílané měny je šifrováno pomocí RingCT popsaném v \ref{sec:ringct}.
+\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses), kterým se věnuje kapitola \ref{sec:stealthaddresses}.
 \end{itemize}
 \section{Původ a zaměření kryptoměny}
 Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
@@ -161,19 +167,19 @@ Hlavními důvody pro tento způsob vývojového cyklu jsou:
 %\end{table}
 \color{black}\caption{Časová osa vývoje Monera}
 \label{monero-timeline}
-\end{figure}
+\end{figure} \newpage
 Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
 \begin{itemize}
-\item Spam attack 
+\item \textbf{Spam attack }
 \begin{itemize}
 \item Šlo o zahlcení sítě při posílání transakcí kvůli poplatku za transakci 0.005 XMR. Rychlou opravou bylo úprava poplatku na 0.1XMR. Toto vedlo k implementaci dynamického poplatku za transakci, který je založený na zvolené prioritě platby \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
-\item Split chain attack
+\item \textbf{Split chain attack}
 \begin{itemize}
 \item Cílené využití zranitelnosti ve výpočtu základu Merkle tree vedla k vytvoření dvou bloků se stejnou výškou a hashem na síti, lišily se ovšem 2 transakcemi na konci bloků \cite{macheta2014counterfeiting}. Tím vznikly dva různé chainy Monera. Chyba se týkala celého protokolu Cryptonote a všech kryptoměn na něm založených, v případě Monera komunita zastavila pohyb transakcí na burzách do dalšího dne, kdy byla vydána oprava \cite{cryptonotemerkletree}.
 \end{itemize}
-\item Analýza transakcí v blockchainu Monera
+\item \textbf{Analýza transakcí v blockchainu Monera}
 \begin{itemize}
 \item Výzkum provedený v roce 2017 ukázal z pohledu anonymity problémy se systémem, jakým probíhají transakce. Nejdůležitějším z nich bylo objevení faktu, že při nastavení velikosti ring signature na nule můžeme v blockchainu vysledovat částku na výstupu transakce.
 \item Tento problém byl vyřešen vývojovým týmem záhy díky nasazení technologie RingCT při kterých zároveň nastavili na síti podmínku, při které velikost ring signature musí být 
@@ -182,7 +188,7 @@ Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně 
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 
-
+\newpage
 \subsection{Alternativy}
 Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
 \begin{figure}[H]
@@ -209,6 +215,30 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano               
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \end{figure}
+Zdroje informací použitých k tabulce \ref{table:monero-alternatives} a obrázku \ref{pict:monero-alternatives-codebase}\\
+Aeon, ByteCoin, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero, Pivx, Verge, Zcash, Zcoin
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[sibling distance=10em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {Bytecoin}
+	child { node {DASH} 
+	child { node {PIVX}}}
+    child { node {BitMonero}
+      child { node {Monero}
+        child { node {AEON} } } };
+      \node[xshift=21mm]{Verge};
+        \node[xshift=4cm] {Bitcoin}
+	child[xshift=25mm] { node {Zcash}}
+	child[xshift=0cm] { node {Zcoin}};  
+\end{tikzpicture}
+\caption{Přehled codebase vybraných projektů kryptoměn}
+\label{pict:monero-alternatives-codebase}
+\end{figure}
+
+%verge ma svoji codebase "non-bitcoin coin" viz prvni commit https://github.com/PIVX-Project/PIVX/commit/4405b78d6059e536c36974088a8ed4d9f0f29898
 
 %\section{CryptoNote protokol}
 %\subsection{Verzování a aktualizace}
@@ -342,9 +372,9 @@ Měsíc     & Task                                              \\
 \printbibliography[heading=bibintoc]
 
 \appendix %% Start the appendices.
-\chapter{Zdroje k tabulce 2.2}
-dash https://bitcointalk.org/index.php?topic=1562109.0
-ďash https://docs.dash.org/en/latest/introduction/information.html
+%\chapter{Zdroje k tabulce 2.2}
+%dash https://bitcointalk.org/index.php?topic=1562109.0
+%dash https://docs.dash.org/en/latest/introduction/information.html
 pivx https://github.com/PIVX-Project/PIVX
 pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
 zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
