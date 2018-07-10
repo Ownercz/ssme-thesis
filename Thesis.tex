@@ -103,7 +103,15 @@
 
 \chapter{Úvod}
 \chapter{Kryptoměna Monero}
-Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.
+Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. 
+
+Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.Hlavními body, kterými se Monero oproti jiným kryptoměnám liší, jsou:
+\begin{itemize}\itemsep0em
+\item Blockchain je veřejný, většina jeho částí je ovšem šifrována \ref{sec:blockchain}.
+\item Odesílatel transakce je skrytý díky Ring Signatures \ref{sec:ringsignatures}.
+\item Množství odesílané měny je šifrováno \ref{sec:ringct}.
+\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses) \ref{sec:stealthaddresses}.
+\end{itemize}
 \section{Původ a zaměření kryptoměny}
 Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
 % CryptoNote implementace ByteCoin -> https://github.com/monero-project/monero/commit/296ae46ed8f8f6e5f986f978febad302e3df231a
@@ -165,6 +173,12 @@ Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně 
 \begin{itemize}
 \item Cílené využití zranitelnosti ve výpočtu základu Merkle tree vedla k vytvoření dvou bloků se stejnou výškou a hashem na síti, lišily se ovšem 2 transakcemi na konci bloků \cite{macheta2014counterfeiting}. Tím vznikly dva různé chainy Monera. Chyba se týkala celého protokolu Cryptonote a všech kryptoměn na něm založených, v případě Monera komunita zastavila pohyb transakcí na burzách do dalšího dne, kdy byla vydána oprava \cite{cryptonotemerkletree}.
 \end{itemize}
+\item Analýza transakcí v blockchainu Monera
+\begin{itemize}
+\item Výzkum provedený v roce 2017 ukázal z pohledu anonymity problémy se systémem, jakým probíhají transakce. Nejdůležitějším z nich bylo objevení faktu, že při nastavení velikosti ring signature na nule můžeme v blockchainu vysledovat částku na výstupu transakce.
+\item Tento problém byl vyřešen vývojovým týmem záhy díky nasazení technologie RingCT při kterých zároveň nastavili na síti podmínku, při které velikost ring signature musí být 
+\end{itemize}
+%zdroj https://eprint.iacr.org/2017/338.pdf
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 
@@ -196,29 +210,37 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano               
 
 \end{figure}
 
-\section{Blockchain technologie}
-Blockchain
-\subsection{Block}
-\subsection{Návaznost a provázanost bloků}
-\section{CryptoNote protokol}
-\subsection{Verzování a aktualizace}
-\subsection{Proof-of-Work}
+%\section{CryptoNote protokol}
+%\subsection{Verzování a aktualizace}
+%\subsection{Proof-of-Work}
 \section{Prvky sítě}
-\subsection{Peněženky}
+Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
 \subsection{Nodes}
 \subsection{Miners}
 \subsection{Pools}
+\subsection{Blockchain}
+\label{sec:blockchain}
+\subsection{Peněženky}
+
 \section{Adresování v síti}
 \subsection{Typy adres}
 \subsection{Transakční adresa}
 \subsection{View klíč}
 \section{Transakce}
 \subsection{Struktura}
+\subsection{PoW}
 \subsection{Vstupy, výstupy, mixing}
 \subsection{Průběh transakce}
 \subsection{Sledování transakcí na síti}
 \subsection{Kovri}
-
+\section{Technologie}
+\subsection{Stealth Address}
+\label{sec:stealthaddresses} 
+\subsection{Ring Signatures}
+\label{sec:ringsignatures}
+\subsection{RingCT}
+%zdroje https://eprint.iacr.org/2015/1098.pdf https://getmonero.org/resources/moneropedia/ringCT.html
+\label{sec:ringct}
 \chapter{Používání monera}
 \section{Pěněženky}
 \subsection{Hot wallet}
