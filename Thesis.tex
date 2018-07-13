@@ -110,18 +110,34 @@
 \chapter{Úvod}
 %% Komentář Vlasta 10.7.: tady někde (možná samostatná kapitola) bude nutné nadefinovat pojmy. Nazvat to "Kryptoměny" a popsat tam myšlenku, z čeho se skládají, co je blockchain, co to znamená fork... a tak.
 %% Komentář Vlasta 10.7.: Nechceš to psát anglicky? Myslím, že by sis tím ušetřil hromadu práce s překlady. Dotazník bude v jakém jazyce?
-\chapter{Kryptoměna Monero}
-Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. 
 
-Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}. Hlavními body, kterými se Monero oproti jiným kryptoměnám liší, jsou:
+%% Komentář Radim 13.07: Kapitola s pojmy - udělám zvlášť krátkou, ve které popíšu tyto základní principy, ještě tedy před Monero Cryptocurrency kapitolou. Monero specific věci pak budou popsány už pod Monerem.
+%% Komentář Radim 13.07: Po domluvě mailem tedy začnu psát Anglicky. Dotazníky budou ve dvou jazykových mutacích - ENG a CZ. Hlavně kvůli CZ komunitě těžařů a pool operátorům - https://bohemianpool.com/#/home bych dal i tu češtinu.
+\chapter{Monero Cryptocurrency}
+%Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. 
+
+Monero is an open-source cryptocurrency that is developed under the Monero project in order to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over own funds.
+
+%Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.Hlavními body, kterými se Monero oproti jiným kryptoměnám liší, jsou:
+
+Meaning that every single digital transaction and the exact number of coins in users wallet cannot be traced back to the user without sharing the view key of the transaction \cite{moneroprojectgithub}.  Main distinctive points compared to other cryptocurrencies are:
+
+%\begin{itemize}\itemsep0em
+%\item Blockchain je veřejný, většina jeho částí je ovšem šifrována, více v kapitole o blockchainu \ref{sec:blockchain}.
+%\item Odesílatel transakce je skrytý díky Ring Signatures, které jsou popsány v kapitole \ref{sec:ringsignatures}.
+%\item Množství odesílané měny je šifrováno pomocí RingCT popsaném v \ref{sec:ringct}.
+%\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses), kterým se věnuje kapitola \ref{sec:stealthaddresses}.
+%\end{itemize}
+
 \begin{itemize}\itemsep0em
-\item Blockchain je veřejný, většina jeho částí je ovšem šifrována, více v kapitole o blockchainu \ref{sec:blockchain}.
-\item Odesílatel transakce je skrytý díky Ring Signatures, které jsou popsány v kapitole \ref{sec:ringsignatures}.
-\item Množství odesílané měny je šifrováno pomocí RingCT popsaném v \ref{sec:ringct}.
-\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses), kterým se věnuje kapitola \ref{sec:stealthaddresses}.
+\item The blockchain is public, but a large part of it is encrypted - more at chapter \ref{sec:blockchain}.
+\item The sender of the transaction is hidden by using Ring Signatures explained in chapter  \ref{sec:ringsignatures}.
+\item The exact amount of transferred coins is encrypted using RingCT as described in \ref{sec:ringct}.
+\item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in chapter \ref{sec:stealthaddresses}.
 \end{itemize}
-\section{Původ a zaměření kryptoměny}
-Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
+\section{Origin and main focus}
+Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. Cryptonote was published by the start of the year 2014 \cite{githubbytecoin}.
+%Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
 % CryptoNote implementace ByteCoin -> https://github.com/monero-project/monero/commit/296ae46ed8f8f6e5f986f978febad302e3df231a
 
 Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou. Zde se jednalo o vytěžení 82\% mincí před zveřejněním této měny \cite{fluffyponyonbytecoin}.
