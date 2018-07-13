@@ -135,61 +135,103 @@ Meaning that every single digital transaction and the exact number of coins in u
 \item The exact amount of transferred coins is encrypted using RingCT as described in \ref{sec:ringct}.
 \item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in chapter \ref{sec:stealthaddresses}.
 \end{itemize}
+
 \section{Origin and main focus}
-Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. Cryptonote was published by the start of the year 2014 \cite{githubbytecoin}.
-%Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}.
+Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. CryptoNote was published by the start of the year 2014 \cite{githubbytecoin}.
+
+%Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}
 % CryptoNote implementace ByteCoin -> https://github.com/monero-project/monero/commit/296ae46ed8f8f6e5f986f978febad302e3df231a
 
-Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou. Zde se jednalo o vytěžení 82\% mincí před zveřejněním této měny \cite{fluffyponyonbytecoin}.
+%Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou. Zde se jednalo o vytěžení 82\% mincí před zveřejněním této měny \cite{fluffyponyonbytecoin}.
 % Duvod forku https://coinmetrics.io/papers/dissertation.pdf premine xx procent
-Toto byl důvod pro komunitu okolo anonymních kryptoměn, aby udělali hardfork a tím vytvořili kryptoměnu novou, BitMonero \cite{bitmonero}.
+
+Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}.
+
+%Toto byl důvod pro komunitu okolo anonymních kryptoměn, aby udělali hardfork a tím vytvořili kryptoměnu novou, BitMonero \cite{bitmonero}.
 % Fork Bytecoin -> BitMonero https://github.com/monero-project/monero/commit/1a8f5ce89a990e54ec757affff01f27d449640bc
 
-Důležitou změnou bylo oddělení hlavní části vývojářů a vytvoření samostatného forku s názvem Monero dne 23.06.2014 . Tím vznikla kryptoměna, která měla od počátku veřejně známý blockchain, jasně definovaný cíl a motivovaný tým vývojářů \cite{monerofork}.
+That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
+
+%Důležitou změnou bylo oddělení hlavní části vývojářů a vytvoření samostatného forku s názvem Monero dne 23.06.2014 . Tím vznikla kryptoměna, která měla od počátku veřejně známý blockchain, jasně definovaný cíl a motivovaný tým vývojářů \cite{monerofork}.
 % Fork BitMonero -> Monero https://github.com/monero-project/monero/commit/003b1f909d416ab2c869b76176380c5f133bdad4#diff-c47c7c7383225ab55ff591cb59c41e6b
 % \begin{table}
 
 %\centering
 %\begin{minipage}[t]{\linewidth}
 
+Next important moment was when a significant part of the developers decided to abandon the project in favor of creating a new fork named Monero in 23.06.2014. By this action, Monero cryptocurrency was created with publicly known blockchain from the start, strictly defined goals and motivated team of developers \cite{monerofork}.
+
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
 
 
-\subsection{Současný vývoj}
-Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
+\subsection{Current development}
+%Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
+
 %% Komentář Vlasta 10.7.: Trochu popiš jak moc je Monero rozšířené. Pro představu v porovnání s dalšími kryptoměnami. Aby bylo jasné, že to není nějaká obskurní kryptoměna.
 
+Monero development cycle is based upon planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions.
 
 % Monero attack https://lab.getmonero.org/pubs/MRL-0002.pdf
-Hlavními důvody pro tento způsob vývojového cyklu jsou:
+%Hlavními důvody pro tento způsob vývojového cyklu jsou:
+%\begin{itemize}\itemsep0em
+%\item Komunita očekává pravidelné aktualizace.
+%\item Možnost upravovat mining algoritmus pro ASIC-resistance.
+%\item Prostor pro pravidelná vylepšení.
+%\end{itemize}
+
 \begin{itemize}\itemsep0em
-\item Komunita očekává pravidelné aktualizace.
-\item Možnost upravovat mining algoritmus pro ASIC-resistance.
-\item Prostor pro pravidelná vylepšení.
+\item The community knows that updating is the way forward.
+\item Enhanced ASIC resistance by changing the mining algorithm.
+\item There is always an opportunity to push updated code and improvements in a biannual cycle.
 \end{itemize}
+
+
+%\begin{figure}[H]
+%\center
+%\color{gray}
+%\rule{\linewidth}{1pt}
+%\ytl{03.03.2014}{ByteCoin - publikování na GitHub}
+%\ytl{17.04.2014}{Fork ByteCoinu - vznik BitMonero kryptoměny}
+%\ytl{23.07.2014}{Fork BitMonera - vznik Monero kryptoměny}
+%\ytl{22.03.2016}{Monero v2 - úprava ringsize, čas bloku 120 sekund}
+%\ytl{21.09.2016}{Monero v3 - rozdělení transakce na více částek}
+%\ytl{05.01.2017}{Monero v4 - souběh normálních a RingCT transakcí}
+%\ytl{15.04.2017}{Monero v5 - aktualizace velikosti bloku a algoritmu pro poplatky}
+%\ytl{16.09.2017}{Monero v6 - vynucení RingCT transakcí s ringsize =>5}
+%\ytl{06.04.2018}{Monero v7 - změna CryptoNight algoritmu kvůli ASIC, ringsize =>7}
+%\ytl{--.10.2018}{Příští aktualizace sítě}
+%\bigskip
+%\rule{\linewidth}{1pt}%
+%\end{minipage}%
+%\color{black}\caption{Vývoj Monera}
+%\end{table}
+%\color{black}\caption{Časová osa vývoje Monera}
+%\label{monero-timeline}
+%\end{figure} \newpage
 
 \begin{figure}[H]
 \center
 \color{gray}
 \rule{\linewidth}{1pt}
-\ytl{03.03.2014}{ByteCoin - publikování na GitHub}
-\ytl{17.04.2014}{Fork ByteCoinu - vznik BitMonero kryptoměny}
-\ytl{23.07.2014}{Fork BitMonera - vznik Monero kryptoměny}
-\ytl{22.03.2016}{Monero v2 - úprava ringsize, čas bloku 120 sekund}
-\ytl{21.09.2016}{Monero v3 - rozdělení transakce na více částek}
+\ytl{03.03.2014}{Bytecoin - published on GitHub.}
+\ytl{17.04.2014}{ByteCoin fork - the creation of BitMonero cryptocurrency.}
+\ytl{23.07.2014}{BitMonero Fork - the creation of Monero cryptocurrency.}
+\ytl{22.03.2016}{Monero v2 - ring size change, block time set to 120 seconds.}
+\ytl{21.09.2016}{Monero v3 - transactions are split into smaller amounts.}
 \ytl{05.01.2017}{Monero v4 - souběh normálních a RingCT transakcí}
-\ytl{15.04.2017}{Monero v5 - aktualizace velikosti bloku a algoritmu pro poplatky}
-\ytl{16.09.2017}{Monero v6 - vynucení RingCT transakcí s ringsize =>5}
-\ytl{06.04.2018}{Monero v7 - změna CryptoNight algoritmu kvůli ASIC, ringsize =>7}
-\ytl{--.10.2018}{Příští aktualizace sítě}
+\ytl{15.04.2017}{Monero v5 - block size update and fee algorithm adjustments.}
+\ytl{16.09.2017}{Monero v6 - RingCT forced on the network with ring size => 5.}
+\ytl{06.04.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7.}
+\ytl{--.10.2018}{Future network update.}
 \bigskip
 \rule{\linewidth}{1pt}%
 %\end{minipage}%
 %\color{black}\caption{Vývoj Monera}
 %\end{table}
-\color{black}\caption{Časová osa vývoje Monera}
+\color{black}\caption{Monero development timeline.}
 \label{monero-timeline}
 \end{figure} \newpage
+
 Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
 \begin{itemize}
 \item \textbf{Spam attack }
