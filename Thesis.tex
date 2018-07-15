@@ -25,10 +25,10 @@
 \usepackage[resetfonts]{cmap} %% We need to load the T2A font encoding
 \usepackage[T1,T2A]{fontenc}  %% to use the Cyrillic fonts with Russian texts.
 \usepackage[
-  main=czech, %% By using `czech` or `slovak` as the main locale
+  main=english, %% By using `czech` or `slovak` as the main locale
                 %% instead of `english`, you can typeset the thesis
                 %% in either Czech or Slovak, respectively.
-  german, russian, czech, slovak, english %% The additional keys allow
+  german, russian, czech, slovak %% The additional keys allow
 ]{babel}        %% foreign texts to be typeset as follows:
 %%
 %%   \begin{otherlanguage}{german}  ... \end{otherlanguage}
@@ -50,8 +50,8 @@
     author        = Bc. Radim Lipovčan,
     gender        = m,
     advisor       = RNDr. Vlasta Šťavová,
-    title         = {Používání a získávání kryptoměny Monero z pohledu použitelné bezpečnosti},
-    TeXtitle      = {Používání a získávání kryptoměny Monero z pohledu použitelné bezpečnosti},
+    title         = {Monero usage and mining from usable security view},
+    TeXtitle      = {Monero usage and mining from usable security view},
     keywords      = {Monero, usable security, cryptocurrency, mining, pool, blockchain},
     TeXkeywords   = {Monero, usable security, cryptocurrency, mining, pool, blockchain},
 }
@@ -213,16 +213,16 @@ Monero development cycle is based upon planned network updates that occur every 
 \center
 \color{gray}
 \rule{\linewidth}{1pt}
-\ytl{03.03.2014}{Bytecoin - published on GitHub.}
-\ytl{17.04.2014}{ByteCoin fork - the creation of BitMonero cryptocurrency.}
-\ytl{23.07.2014}{BitMonero Fork - the creation of Monero cryptocurrency.}
-\ytl{22.03.2016}{Monero v2 - ring size change, block time set to 120 seconds.}
-\ytl{21.09.2016}{Monero v3 - transactions are split into smaller amounts.}
+\ytl{03.03.2014}{Bytecoin - published on GitHub}
+\ytl{17.04.2014}{ByteCoin fork - the creation of BitMonero cryptocurrency}
+\ytl{23.07.2014}{BitMonero Fork - the creation of Monero cryptocurrency}
+\ytl{22.03.2016}{Monero v2 - ring size change, block time set to 120 seconds}
+\ytl{21.09.2016}{Monero v3 - transactions are split into smaller amounts}
 \ytl{05.01.2017}{Monero v4 - souběh normálních a RingCT transakcí}
-\ytl{15.04.2017}{Monero v5 - block size update and fee algorithm adjustments.}
-\ytl{16.09.2017}{Monero v6 - RingCT forced on the network with ring size => 5.}
-\ytl{06.04.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7.}
-\ytl{--.10.2018}{Future network update.}
+\ytl{15.04.2017}{Monero v5 - block size update and fee algorithm adjustments}
+\ytl{16.09.2017}{Monero v6 - RingCT forced on the network with ring size => 5}
+\ytl{06.04.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7}
+\ytl{--.10.2018}{Future network update}
 \bigskip
 \rule{\linewidth}{1pt}%
 %\end{minipage}%
@@ -232,45 +232,67 @@ Monero development cycle is based upon planned network updates that occur every 
 \label{monero-timeline}
 \end{figure} \newpage
 
-Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
+%Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
+
+Updates are meant to improve and enhance the already established codebase as well as fixing already existing bugs that are continuously being resolved. Known problems in Monero history were:
+
+%\begin{itemize}
+%\item \textbf{Spam attack}
+%\begin{itemize}
+%\item Šlo o zahlcení sítě při posílání transakcí kvůli poplatku za transakci 0.005 XMR. Rychlou opravou bylo úprava poplatku na 0.1XMR. Toto vedlo k implementaci dynamického poplatku za transakci, který je založený na zvolené prioritě platby \cite{monerospamattack}.
+%zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
+%\end{itemize}
+%\item \textbf{Split chain attack}
+%\begin{itemize}
+%\item Cílené využití zranitelnosti ve výpočtu základu Merkle tree vedla k vytvoření dvou bloků se stejnou výškou a hashem na síti, lišily se ovšem 2 transakcemi na konci bloků \cite{macheta2014counterfeiting}. Tím vznikly dva různé chainy Monera. Chyba se týkala celého protokolu Cryptonote a všech kryptoměn na něm založených, v případě Monera komunita zastavila pohyb transakcí na burzách do dalšího dne, kdy byla vydána oprava \cite{cryptonotemerkletree}.
+%\end{itemize}
+%\item \textbf{Analýza transakcí v blockchainu Monera}
+%\begin{itemize}
+%\item Výzkum provedený v roce 2017 ukázal z pohledu anonymity problémy se systémem, jakým probíhají transakce. Nejdůležitějším z nich bylo objevení faktu, že při nastavení velikosti ring signature na nule můžeme v blockchainu vysledovat částku na výstupu transakce.
+%\item Tento problém byl vyřešen vývojovým týmem záhy díky nasazení technologie RingCT při kterých zároveň nastavili na síti podmínku, při které velikost ring signature musí být 
+%\end{itemize}
+%zdroj https://eprint.iacr.org/2017/338.pdf
+%\end{itemize}
+%zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
+
 \begin{itemize}
-\item \textbf{Spam attack }
+\item \textbf{Spam attack}
 \begin{itemize}
-\item Šlo o zahlcení sítě při posílání transakcí kvůli poplatku za transakci 0.005 XMR. Rychlou opravou bylo úprava poplatku na 0.1XMR. Toto vedlo k implementaci dynamického poplatku za transakci, který je založený na zvolené prioritě platby \cite{monerospamattack}.
+\item Was aimed to oversaturate the Moneros network by sending very small transactions and leveraging cheap transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority  \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
 \item \textbf{Split chain attack}
 \begin{itemize}
-\item Cílené využití zranitelnosti ve výpočtu základu Merkle tree vedla k vytvoření dvou bloků se stejnou výškou a hashem na síti, lišily se ovšem 2 transakcemi na konci bloků \cite{macheta2014counterfeiting}. Tím vznikly dva různé chainy Monera. Chyba se týkala celého protokolu Cryptonote a všech kryptoměn na něm založených, v případě Monera komunita zastavila pohyb transakcí na burzách do dalšího dne, kdy byla vydána oprava \cite{cryptonotemerkletree}.
+\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit was applicable to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
 \end{itemize}
-\item \textbf{Analýza transakcí v blockchainu Monera}
+\item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
-\item Výzkum provedený v roce 2017 ukázal z pohledu anonymity problémy se systémem, jakým probíhají transakce. Nejdůležitějším z nich bylo objevení faktu, že při nastavení velikosti ring signature na nule můžeme v blockchainu vysledovat částku na výstupu transakce.
-\item Tento problém byl vyřešen vývojovým týmem záhy díky nasazení technologie RingCT při kterých zároveň nastavili na síti podmínku, při které velikost ring signature musí být 
+\item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a large portion of transactions used a ring signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain.
+\item This issue was resolved by Monero team already in 2016 with Monero v2, where ring signature was set to =>3. Soon after the paper was released, Monero got its v6 update with the mandatory usage of RingCT in transactions.
 \end{itemize}
 %zdroj https://eprint.iacr.org/2017/338.pdf
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
-
 \newpage
-\subsection{Alternativy}
-Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
-\begin{figure}[H]
-\centering
-\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
-\textbf{Název}        & \textbf{Protokol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymní transakce} & \textbf{Podpis transakce}  \\
-Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature \\
-Byte-Coin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature \\
-DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            \\
-Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         \\
-PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              \\
-Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     \\
-Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano pomocí SNARKS    & x              \\
-Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint \& spend   & Ring Signature
+\subsection{Monero competitors}
+%Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
+Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+%\begin{figure}[H]
+%\centering
+%\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
+%\textbf{Název}        & \textbf{Protokol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymní transakce} & \textbf{Podpis transakce}  \\
+%Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature \\
+%Byte-Coin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature \\
+%DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            \\
+%Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         \\
+%PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              \\
+%Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     \\
+%Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano pomocí SNARKS    & x              \\
+%Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint \& spend   & Ring Signature
 
-\end{tabular}
-\captionof{table}{Přehled kryptoměn se zaměřením na anonymitu}
-\label{table:monero-alternatives}
+%\end{tabular}
+%\captionof{table}{Přehled kryptoměn se zaměřením na anonymitu}
+%\label{table:monero-alternatives}
 %dash https://bitcointalk.org/index.php?topic=1562109.0
 %ďash https://docs.dash.org/en/latest/introduction/information.html
 %pivx https://github.com/PIVX-Project/PIVX
@@ -278,8 +300,25 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano               
 %zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
+\begin{figure}[H]
+\centering
+\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
+\textbf{Name}        & \textbf{Protocol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymous transactions} & \textbf{Transaction signing}  \\
+Aeon         & CryptoNote-Light        & 240                & Yes                      & Yes                & Ring Signature \\
+Byte-Coin     & CryptoNote              & 120                & Yes                      & Yes                & Ring Signature \\
+DASH         & X11                     & 150                & No                       & Not fully           & Yes            \\
+Monero (XMR) & CryptoNote              & 120                & Yes                      & Yes                & RingCT         \\
+PIVX         & Zerocoin                & 60                 & Only partially & Yes                & x              \\
+Verge (XVG)  & Scrypt                  & 150                & Yes                      & Ne, TOR\&I2P       & RingCT WIP     \\
+Zcash (ZEC)  & Zerocash                & 150                & Shielded addresses  & Yes by SNARKS    & x              \\
+Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes                      & Yes by minting \& spending  & Ring Signature
+
+\end{tabular}
+\captionof{table}{Comparison of Anonymous Cryptocurrencies and their features.}
+\label{table:monero-alternatives}
+
 \end{figure}
-Zdroje informací použitých k tabulce \ref{table:monero-alternatives} a obrázku \ref{pict:monero-alternatives-codebase}:\\
+Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
 Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
 \begin{figure}[H]
 \centering
@@ -298,7 +337,7 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 	child[xshift=25mm] { node {Zcash}}
 	child[xshift=0cm] { node {Zcoin}};  
 \end{tikzpicture}
-\caption{Přehled codebase vybraných projektů kryptoměn}
+\caption{Codebase overview of the selected cryptocurrencies.}
 \label{pict:monero-alternatives-codebase}
 \end{figure}
 
@@ -307,14 +346,14 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 %\section{CryptoNote protokol}
 %\subsection{Verzování a aktualizace}
 %\subsection{Proof-of-Work}
-\section{Prvky sítě}
+\section{Monero Network Structure}
 Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
 \subsection{Nodes}
 \subsection{Miners}
 \subsection{Pools}
 \subsection{Blockchain}
 \label{sec:blockchain}
-\subsection{Peněženky}
+\subsection{Wallets}
 
 \section{Adresování v síti}
 \subsection{Typy adres}
