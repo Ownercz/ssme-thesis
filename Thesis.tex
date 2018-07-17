@@ -151,7 +151,7 @@ Meaning that every single digital transaction and the exact number of coins in u
 %\end{itemize}
 
 \begin{itemize}\itemsep0em
-\item The blockchain is public, but a large part of it is encrypted - more at chapter \ref{sec:blockchain}.
+\item The blockchain is public, but a large part of it is encrypted.
 \item The sender of the transaction is hidden by using Ring Signatures explained in chapter  \ref{sec:ringsignatures}.
 \item The exact amount of transferred coins is encrypted using RingCT as described in \ref{sec:ringct}.
 \item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in chapter \ref{sec:stealthaddresses}.
@@ -182,13 +182,14 @@ Next important moment was when a significant part of the developers decided to a
 
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
 
-
-\subsection{Current development}
+\section{Monero cryptocurrency market share}
+\newpage
+\section{Development cycle}
 %Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
 
 %% Komentář Vlasta 10.7.: Trochu popiš jak moc je Monero rozšířené. Pro představu v porovnání s dalšími kryptoměnami. Aby bylo jasné, že to není nějaká obskurní kryptoměna.
 
-Monero development cycle is based upon planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions.
+Monero development cycle is based upon planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions \cite{mccorry2017atomically}.
 
 % Monero attack https://lab.getmonero.org/pubs/MRL-0002.pdf
 %Hlavními důvody pro tento způsob vývojového cyklu jsou:
@@ -197,12 +198,13 @@ Monero development cycle is based upon planned network updates that occur every 
 %\item Možnost upravovat mining algoritmus pro ASIC-resistance.
 %\item Prostor pro pravidelná vylepšení.
 %\end{itemize}
-
+\iffalse
 \begin{itemize}\itemsep0em
 \item The community knows that updating is the way forward.
 \item Enhanced ASIC resistance by changing the mining algorithm.
 \item There is always an opportunity to push updated code and improvements in a biannual cycle.
 \end{itemize}
+\fi
 
 
 %\begin{figure}[H]
@@ -253,7 +255,7 @@ Monero development cycle is based upon planned network updates that occur every 
 
 %Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
 
-Updates are meant to improve and enhance the already established codebase as well as fixing already existing bugs that are continuously being resolved. Known problems in Monero history were:
+Updates are meant to improve and enhance the previously established codebase as well as fixing already existing bugs that are continuously being resolved. Known problems in Monero history were:
 
 %\begin{itemize}
 %\item \textbf{Spam attack}
@@ -293,7 +295,7 @@ Updates are meant to improve and enhance the already established codebase as wel
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 \newpage
-\subsection{Monero competitors}
+\section{Monero competitors}
 %Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
 Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
 %\begin{figure}[H]
@@ -369,49 +371,115 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
 
 
-\section{Adresování v síti}
-\subsection{Typy adres}
-\subsection{Transakční adresa}
-\subsection{View klíč}
-\section{Transakce}
-\subsection{Struktura}
-\subsection{PoW}
-\subsection{Vstupy, výstupy, mixing}
-\subsection{Průběh transakce}
-\subsection{Sledování transakcí na síti}
-\subsection{Kovri}
-\section{Technologie}
-\subsection{Stealth Address}
-\label{sec:stealthaddresses} 
-\subsection{Ring Signatures}
-\label{sec:ringsignatures}
-\subsection{RingCT}
+%\section{Adresování v síti}
+%\subsection{Typy adres}
+%\subsection{Transakční adresa}
+%\subsection{View klíč}
+%\section{Transakce}
+%\subsection{Struktura}
+%\subsection{PoW}
+%\subsection{Vstupy, výstupy, mixing}
+%\subsection{Průběh transakce}
+%\subsection{Sledování transakcí na síti}
+%\subsection{Kovri}
+%\section{Technologie}
+%\subsection{Stealth Address}
+%\label{sec:stealthaddresses} 
+%\subsection{Ring Signatures}
+%\label{sec:ringsignatures}
+%\subsection{RingCT}
 %zdroje https://eprint.iacr.org/2015/1098.pdf https://getmonero.org/resources/moneropedia/ringCT.html
-\label{sec:ringct}
-\chapter{Používání monera}
-\section{Pěněženky}
-\subsection{Hot wallet}
-\subsection{Cold wallet}
-\subsection{View only wallet}
-\subsection{Možnosti útoků na peněženku}
-\subsection{Přehled bezpečnosti úložných způsobů}
-\section{Software pro práci s kryptopenězi}
-\subsection{Vytvoření peněženky}
-\subsection{Fullnode, remote node}
-\subsection{Multisig}
-\subsection{Srovnání wallet softwaru}
-\subsection{Exchanges}
-\section{Scamy v prostředí kryptoměny}
-\subsection{Online portály}
-\subsection{Mining pooly}
-\subsection{Cílený malware}
-\subsection{Delivery chain}
+%\label{sec:ringct}
+\section{Principle of anonymity}
 
-\section{Monero usecase}
-\subsection{Darknet Markety}
-\subsection{Monero Markety}
-\subsection{Úskalí tradingu anonymní měny}
-\subsection{Srovnání s ostatními kryptoměnami}
+\subsection{System of transactions}
+
+\subsection{Wallets and keys}
+
+\subsection{Proof of Work}
+
+\subsection{Transaction traceability}
+
+\section{Technology and principles used in Monero}
+
+\subsection{Stealth Addresses}
+
+\subsection{Ring Signatures}
+
+\subsection{RingCT}
+
+\subsection{Kovri}
+
+
+%\chapter{Používání monera}
+%\section{Pěněženky}
+%\subsection{Hot wallet}
+%\subsection{Cold wallet}
+%\subsection{View only wallet}
+%\subsection{Možnosti útoků na peněženku}
+%\subsection{Přehled bezpečnosti úložných způsobů}
+%\section{Software pro práci s kryptopenězi}
+%\subsection{Vytvoření peněženky}
+%\subsection{Fullnode, remote node}
+%\subsection{Multisig}
+%\subsection{Srovnání wallet softwaru}
+%\subsection{Exchanges}
+%\section{Scamy v prostředí kryptoměny}
+%\subsection{Online portály}
+%\subsection{Mining pooly}
+%\subsection{Cílený malware}
+%\subsection{Delivery chain}
+\chapter{Monero usage}
+
+\section{Wallets}
+
+\subsection{Hot wallet}
+
+\subsection{Cold wallet}
+
+\subsection{View-only wallet}
+
+\subsection{Attacking the wallet}
+
+\subsection{Overview of wallet storage methods}
+
+\subsection{Cryptocurrency wallet software}
+
+%\subsection{Creating a wallet}
+
+\subsection{Full and remote node}
+
+\subsection{Multisig implementation}
+
+\subsection{Wallet software comparison}
+
+\subsection{Exchanges}
+
+\section{Problems in Monero environment}
+
+\subsection{Monero scam list}
+
+\subsection{Targeted malware}
+
+\subsection{Delivery chain disruption}
+
+
+%\section{Monero usecase}
+%\subsection{Darknet Markets}
+%\subsection{Monero Markets}
+%\subsection{Úskalí tradingu anonymní měny}
+%\subsection{Srovnání s ostatními kryptoměnami}
+
+\section{Monero use case}
+
+\subsection{Darknet markets}
+
+\subsection{Monero markets}
+
+\subsection{Trading problems associated with anonymity}
+
+\subsection{Usage comparison with other cryptocurrencies}
+
 
 \section{Anonymita při užívání}
 
