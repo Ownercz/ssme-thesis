@@ -114,24 +114,26 @@
 %% Komentář Radim 13.07: Kapitola s pojmy - udělám zvlášť krátkou, ve které popíšu tyto základní principy, ještě tedy před Monero Cryptocurrency kapitolou. Monero specific věci pak budou popsány už pod Monerem.
 %% Komentář Radim 13.07: Po domluvě mailem tedy začnu psát Anglicky. Dotazníky budou ve dvou jazykových mutacích - ENG a CZ. Hlavně kvůli CZ komunitě těžařů a pool operátorům - https://bohemianpool.com/#/home bych dal i tu češtinu.
 \chapter{Cryptocurrency}
-\textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralisation is established by using distributed blockchain that functions as a transaction database within the currency. First and also best-known cryptocurrency available was Bitcoin \cite{farell2015analysis}.
+\textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralisation is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
 
 \textbf{Altcoin} is a term used for every cryptocurrency that is not Bitcoin as it is a direct concurrent for the first of the cryptocurrency.
+
+The \textbf{fork} happens when developers create a copy of existing project codebase and start their individual path of development with it. 
 
 \textbf{Market Cap} is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
 
 \textbf{The blockchain} is a technology responsible for storing every transaction that has ever been processed in the cryptocurrency, also often called as a ledger. The main purpose of the blockchain is to ensure the validity of completed transactions.
 
-\textbf{Transactions} within cryptocurrency are processed together as blocks that are verified by miners.
+\textbf{Transactions} within cryptocurrency are processed together as blocks that are verified by miners and then added to the blockchain as a new mined block.
 
-\textbf{Mining} process done by miners that verifies transactions on the network and adds them to the blockchain together in form of a block which results in new coins being emitted as a reward for block solving.
+\textbf{The wallet} is a storage medium that holds private and public keys by which user can access, send and receive funds. Wallet effectively does not have the coins but is rather a key to access them from the blockchain.
 
 \textbf{Node} is a computer connected to the cryptocurrency network. Node is often referred to as a full node which means that the computer maintains a full copy of blockchain. This results in node downloading every block and transaction and checking them against cryptocurrency rules, especially whether the transaction has correct signatures, data format and the right number of emitted coins per block.
 
-Fork\\
-Pools\\
-Blockchain\\
-Wallets\\
+\textbf{Mining} process done by miners that verifies transactions on the network and adds them to the blockchain together in form of a block which results in new coins being emitted as a reward for block solving.
+
+\textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
+
 \chapter{Monero Cryptocurrency}
 %Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. 
 
@@ -165,10 +167,8 @@ Monero started its way by forking from Bytecoin, which was proof-of-concept cryp
 % Duvod forku https://coinmetrics.io/papers/dissertation.pdf premine xx procent
 
 Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}.
-
 %Toto byl důvod pro komunitu okolo anonymních kryptoměn, aby udělali hardfork a tím vytvořili kryptoměnu novou, BitMonero \cite{bitmonero}.
 % Fork Bytecoin -> BitMonero https://github.com/monero-project/monero/commit/1a8f5ce89a990e54ec757affff01f27d449640bc
-
 That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
 
 %Důležitou změnou bylo oddělení hlavní části vývojářů a vytvoření samostatného forku s názvem Monero dne 23.06.2014 . Tím vznikla kryptoměna, která měla od počátku veřejně známý blockchain, jasně definovaný cíl a motivovaný tým vývojářů \cite{monerofork}.
