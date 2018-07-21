@@ -130,7 +130,7 @@ The \textbf{fork} happens when developers create a copy of existing project code
 
 \textbf{Node} is a computer connected to the cryptocurrency network. Node is often referred to as a full node which means that the computer maintains a full copy of blockchain. This results in node downloading every block and transaction and checking them against cryptocurrency rules, especially whether the transaction has correct signatures, data format and the right number of emitted coins per block.
 
-\textbf{Mining} process done by miners that verifies transactions on the network and adds them to the blockchain together in form of a block which results in new coins being emitted as a reward for block solving.
+\textbf{Mining} process is done by miners that verifies transactions on the network and adds them to the blockchain together in form of a block which results in new coins being emitted as a reward for block solving.
 
 \textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
 
@@ -182,8 +182,109 @@ Next important moment was when a significant part of the developers decided to a
 
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
 
-\section{Monero cryptocurrency market share}
+\section{Monero market cap}
+ As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against top 5 cryptocurrencies.
+
+In order to compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\\begin{center}
+ \textit{\textit{Market Cap = Circulating Supply * Price} }
+\end{center}
+
+\textbf{Privacy} in cryptocurrency is a feature that assures that amount of coin user owns, sends or receives cannot be seen on the blockchain.
+
+\textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that there is no supernode that can override how transactions are being processed as well as there is no single entity to control it.
+
+\textbf{Fungibility} means that every coin ever emitted has the same value as the others and cannot be traced back thus there cannot be coin blacklist.
+
+\begin{figure}[H]
+\centering\begin{tabular}{{p{0.06\linewidth}p{0.13\linewidth}p{0.17\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}}
+\textbf{Rank} & \textbf{Name} & \textbf{Transactions per day} & \textbf{Privacy}               & \textbf{Decentra-lization} & \textbf{Fungibility}            \\
+1    & Bitcoin        & 225039          & No & Yes              & No  \\
+2    & Ethereum       & 610953          & No &   Yes               & No                       \\
+3    & XRP            & 633974          & No                      &     No	             &                       Varies \\
+4    & Bitcoin Cash   & 125404          & No &        Yes          &          No              \\
+5    & EOS            & 406380          &      No                 &                 Yes &                 Varies       \\
+13   & Monero         & 4010             &     Yes                  &                 Yes &      Yes                                                                                      
+\end{tabular}
+\captionof{table}{Monero features in top 5 cryptocurrencies.}
+\label{table:monero-top5}
+\end{figure}
+%Zdroj transaction volume: https://bitinfocharts.com/monero/
+%Zdroj Bitcoin: https://bitcoin.org/en/protect-your-privacy
+%Zdroj Ethereum: https://ieeexplore.ieee.org/document/8356459/
+%Zdroj XRP: https://ieeexplore.ieee.org/document/8356459/
+%https://ripple.com/insights/xrp-compares-btc-eth/
+%https://bitcoinist.com/not-decentralized-ripple-freezes-1m-user-funds/
 \newpage
+\section{Monero competitors}
+%Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
+Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+
+%\begin{figure}[H]
+%\centering
+%\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
+%\textbf{Název}        & \textbf{Protokol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymní transakce} & \textbf{Podpis transakce}  \\
+%Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature \\
+%Byte-Coin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature \\
+%DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            \\
+%Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         \\
+%PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              \\
+%Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     \\
+%Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano pomocí SNARKS    & x              \\
+%Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint \& spend   & Ring Signature
+
+%\end{tabular}
+%\captionof{table}{Přehled kryptoměn se zaměřením na anonymitu}
+%\label{table:monero-alternatives}
+%dash https://bitcointalk.org/index.php?topic=1562109.0
+%ďash https://docs.dash.org/en/latest/introduction/information.html
+%pivx https://github.com/PIVX-Project/PIVX
+%pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
+%zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
+%zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
+
+\begin{figure}[H]
+\centering
+\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
+\textbf{Name}        & \textbf{Protocol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymous transactions} & \textbf{Transaction signing}  \\
+Aeon         & CryptoNote-Light        & 240                & Yes                      & Yes                & Ring Signature \\
+Byte-Coin     & CryptoNote              & 120                & Yes                      & Yes                & Ring Signature \\
+DASH         & X11                     & 150                & No                       & Not fully           & Yes            \\
+Monero (XMR) & CryptoNote              & 120                & Yes                      & Yes                & RingCT         \\
+PIVX         & Zerocoin                & 60                 & Only partially & Yes                & x              \\
+Verge (XVG)  & Scrypt                  & 150                & Yes                      & Ne, TOR\&I2P       & RingCT WIP     \\
+Zcash (ZEC)  & Zerocash                & 150                & Shielded addresses  & Yes by SNARKS    & x              \\
+Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes                      & Yes by minting \& spending  & Ring Signature
+
+\end{tabular}
+\captionof{table}{Comparison of Anonymous Cryptocurrencies and their features.}
+\label{table:monero-alternatives}
+
+\end{figure}
+Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
+Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[sibling distance=10em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {Bytecoin}
+	child { node {DASH} 
+	child { node {PIVX}}}
+    child { node {BitMonero}
+      child { node {Monero}
+        child { node {AEON} } } };
+      \node[xshift=21mm]{Verge};
+        \node[xshift=4cm] {Bitcoin}
+	child[xshift=25mm] { node {Zcash}}
+	child[xshift=0cm] { node {Zcoin}};  
+\end{tikzpicture}
+\caption{Codebase overview of the selected cryptocurrencies.}
+\label{pict:monero-alternatives-codebase}
+\end{figure}
+
+%verge ma svoji codebase "non-bitcoin coin" viz prvni commit https://github.com/PIVX-Project/PIVX/commit/4405b78d6059e536c36974088a8ed4d9f0f29898
+
 \section{Development cycle}
 %Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
 
@@ -295,75 +396,6 @@ Updates are meant to improve and enhance the previously established codebase as 
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 \newpage
-\section{Monero competitors}
-%Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
-Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
-%\begin{figure}[H]
-%\centering
-%\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
-%\textbf{Název}        & \textbf{Protokol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymní transakce} & \textbf{Podpis transakce}  \\
-%Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature \\
-%Byte-Coin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature \\
-%DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            \\
-%Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         \\
-%PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              \\
-%Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     \\
-%Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano pomocí SNARKS    & x              \\
-%Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint \& spend   & Ring Signature
-
-%\end{tabular}
-%\captionof{table}{Přehled kryptoměn se zaměřením na anonymitu}
-%\label{table:monero-alternatives}
-%dash https://bitcointalk.org/index.php?topic=1562109.0
-%ďash https://docs.dash.org/en/latest/introduction/information.html
-%pivx https://github.com/PIVX-Project/PIVX
-%pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
-%zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
-%zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
-
-\begin{figure}[H]
-\centering
-\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
-\textbf{Name}        & \textbf{Protocol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymous transactions} & \textbf{Transaction signing}  \\
-Aeon         & CryptoNote-Light        & 240                & Yes                      & Yes                & Ring Signature \\
-Byte-Coin     & CryptoNote              & 120                & Yes                      & Yes                & Ring Signature \\
-DASH         & X11                     & 150                & No                       & Not fully           & Yes            \\
-Monero (XMR) & CryptoNote              & 120                & Yes                      & Yes                & RingCT         \\
-PIVX         & Zerocoin                & 60                 & Only partially & Yes                & x              \\
-Verge (XVG)  & Scrypt                  & 150                & Yes                      & Ne, TOR\&I2P       & RingCT WIP     \\
-Zcash (ZEC)  & Zerocash                & 150                & Shielded addresses  & Yes by SNARKS    & x              \\
-Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes                      & Yes by minting \& spending  & Ring Signature
-
-\end{tabular}
-\captionof{table}{Comparison of Anonymous Cryptocurrencies and their features.}
-\label{table:monero-alternatives}
-
-\end{figure}
-Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
-Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[sibling distance=10em,
-  every node/.style = {shape=rectangle, rounded corners,
-    draw, align=center,
-    top color=white, bottom color=blue!20}]]
-  \node {Bytecoin}
-	child { node {DASH} 
-	child { node {PIVX}}}
-    child { node {BitMonero}
-      child { node {Monero}
-        child { node {AEON} } } };
-      \node[xshift=21mm]{Verge};
-        \node[xshift=4cm] {Bitcoin}
-	child[xshift=25mm] { node {Zcash}}
-	child[xshift=0cm] { node {Zcoin}};  
-\end{tikzpicture}
-\caption{Codebase overview of the selected cryptocurrencies.}
-\label{pict:monero-alternatives-codebase}
-\end{figure}
-
-%verge ma svoji codebase "non-bitcoin coin" viz prvni commit https://github.com/PIVX-Project/PIVX/commit/4405b78d6059e536c36974088a8ed4d9f0f29898
-
 %\section{CryptoNote protokol}
 %\subsection{Verzování a aktualizace}
 %\subsection{Proof-of-Work}
