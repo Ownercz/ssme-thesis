@@ -157,7 +157,7 @@ Meaning that every single digital transaction and the exact number of coins in u
 \item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in chapter \ref{sec:stealthaddresses}.
 \end{itemize}
 
-\section{Origin and main focus}
+\section{Origin and the main focus}
 Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. CryptoNote was published by the start of the year 2014 \cite{githubbytecoin}.
 
 %Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}
@@ -380,7 +380,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 \begin{itemize}
 \item \textbf{Spam attack}
 \begin{itemize}
-\item Was aimed to oversaturate the Moneros network by sending very small transactions and leveraging cheap transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority  \cite{monerospamattack}.
+\item Was aimed to oversaturate the Moneros network by sending very small transactions and leveraging cheap transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
 \item \textbf{Split chain attack}
@@ -400,7 +400,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 %\subsection{Verzování a aktualizace}
 %\subsection{Proof-of-Work}
 \section{Monero Network Structure}
-Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
+%Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
 
 
 %\section{Adresování v síti}
@@ -513,74 +513,74 @@ Síť zajišťující fungování Monera jako kryptoměny s transakcemi má dece
 \subsection{Usage comparison with other cryptocurrencies}
 
 
-\section{Anonymita při užívání}
+\section{Usage anonymity}
 
-\chapter{Výzkum uživatelů kryptoměny}
-\section{Definice, výzkumné otázky}
-\section{Na jakém vzorku}
-\section{Vyhodnocení international, CZ}
+\chapter{Monero user research}
+\section{Definition, research questions}
+\section{Participants selection}
+\section{Results international, CZ}
 
-\chapter{Best practices pro usage a storage Monera}
-\section{Návrh bezpečného úložného systému}
-\section{Návrh pro používání kryptoměny}
-\section{Portál nabízející služby pro bezpečné používání kryptoměny}
+\chapter{Monero usage and storage best practices}
+\section{Designing a secure storage system}
+\section{Secure usage pattern}
+\section{Secure crypto portal}
 
 
 
-\chapter{Získávání Monera a zajištění chodu sítě}
-\section{PoW Monera}
-\section{Mining pooly, solo mining}
+\chapter{Obtaining Monero and running the network}
+\section{Monero Proof-of-work}
+\section{Mining pools, solo mining}
 \section{Web mining, botnet mining}
 % Web mining: https://arxiv.org/pdf/1806.01994.pdf
 \section{Cloud mining}
-\section{Systémy pro těžbu - ASIC, dodávané}
-\section{Software používaný k těžbě}
-\section{Srovnání způsobů pro získávání kryptoměny}
+\section{Systems for mining - ASIC, prebuilds}
+\section{Mining software}
+\section{XMR obtaining comparison}
 
-\chapter{Průzkum způsobů těžby}
-\section{Definice, výzkumné otázky}
-\section{Na jakém vzorku}
-\section{Vyhodnocení international, CZ}
+\chapter{Research done on miners}
+\section{Definition, research questions}
+\section{Participants selection}
+\section{Results international, CZ}
 
 
 
-\chapter{Průzkum operátorů sítě}
-\section{Definice, výzkumné otázky}
-\section{Na jakém vzorku}
-\section{Vyhodnocení international, CZ}
+\chapter{Pool owners research}
+\section{Definition, research questions}
+\section{Participants selection}
+\section{Results international, CZ}
 
  
 \chapter{Mining malware}
-\section{Prevence, detekce a recovery}
-\subsection{Server část}
+\section{Prevention, detection and recovery}
+\subsection{Systems administrators perspective}
 %kitty https://www.incapsula.com/blog/crypto-me0wing-attacks-kitty-cashes-in-on-monero.html
-\subsection{Běžní uživatelé}
+\subsection{Regular users}
 
 
-\chapter{Návrh bezpečného těžebního systému}
-\section{Linux-based řešení}
+\chapter{Designing secure mining environment}
+\section{Linux-based solution}
 Ansible, Centos 7
-\section{Windows-based řešení}
-Windows 10 ISO unattended install, Powershell scripty, stažení a instalace Stak XMR
+\section{Windows-based solution}
+Windows 10 ISO unattended install, Powershell scripts, XMR-stak
 
-\chapter{Plán}
+\chapter{Plan}
 
 \begin{figure}[H]
 \center
 \begin{tabular}{ll}
-Měsíc     & Task                                              \\
-1.7.2018  & Kryptoměna Monero; Používání Monera               \\
-1.8.2018  & Návrh výzkumu uživatelů;Průzkumu těžby;Operátorů  \\
-1.9.2018  & Sběr dat; Získávání Monera a zajištění chodu sítě \\
-1.10.2018 & Vyhodnocení dat                                   \\
-1.11.2018 & Best practices pro usage a storage                \\
-1.12.2018 & Mining malware; Vytvoření těžebního systému       \\
-1.1.2019  & Cryptocore.cz jako výstup poznatků                \\
-1.2.2019  & Rezerva                                           \\
-1.3.2019  & Měsíc na odladění                                 \\
-1.4.2019  & Finální verze + tisk                             
+Month     & Task                                              \\
+1.7.2018  & Monero cryptocurrency; Monero Usage              \\
+1.8.2018  & Research design  \\
+1.9.2018  & Data collection; Monero mining and running the network \\
+1.10.2018 & Data summary                                   \\
+1.11.2018 & Best practices for usage and storage                \\
+1.12.2018 & Mining malware; Secure mining system design     \\
+1.1.2019  & Cryptocore.cz web            \\
+1.2.2019  & Spare time                                           \\
+1.3.2019  & Month for completion                                 \\
+1.4.2019  & Final version + print                            
 \end{tabular}
-\caption{Plán práce na diplomce}
+\caption{Diploma thesis plan}
 \label{ssme-thesis-plan}
 \end{figure}
 
