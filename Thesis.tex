@@ -392,8 +392,8 @@ Updates are meant to improve and enhance the previously established codebase as 
 \end{itemize}
 \item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
-\item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a large portion of transactions used a ring signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain.
-\item This issue was resolved by Monero team already in 2016 with Monero v2, where ring signature was set to =>3. Soon after the paper was released, Monero got its v6 update with the mandatory usage of RingCT in transactions.
+\item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a large portion of transactions used a ring signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain \cite{moser2018empirical}.
+\item This issue was resolved by Monero team already in 2016 with Monero v2, where ring signature was set to =>3 \cite{monerov2release}. Soon after the paper was released, Monero got its v6 update with enforced use of ringCT technology for all transaction outputs \cite{monerov6release}.
 \end{itemize}
 %zdroj https://eprint.iacr.org/2017/338.pdf
 \end{itemize}
@@ -402,7 +402,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 %\section{CryptoNote protokol}
 %\subsection{Verzování a aktualizace}
 %\subsection{Proof-of-Work}
-\section{Monero Network Structure}
+%\section{Monero Network Structure}
 %Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
 
 
@@ -425,26 +425,27 @@ Updates are meant to improve and enhance the previously established codebase as 
 %\subsection{RingCT}
 %zdroje https://eprint.iacr.org/2015/1098.pdf https://getmonero.org/resources/moneropedia/ringCT.html
 %\label{sec:ringct}
-\section{Principle of anonymity}
+%\subsection{Principle of anonymity}
+%\subsection{System of transactions}
+%\subsection{Wallets and keys}
+%\subsection{Proof of Work}
+%\subsection{Transaction traceability}
+%\section{Technology and principles used in Monero}
+\section{Transactions in Monero network}
+Monero uses a distributed peer-to-peer concensus network to record transaction outputs in a blockchain. That means that balance is not stored in a wallet, but is represented by control over outputs of transactions accesible with wallet keys.
 
-\subsection{System of transactions}
-
-\subsection{Wallets and keys}
-
-\subsection{Proof of Work}
-
-\subsection{Transaction traceability}
-
-\section{Technology and principles used in Monero}
-
+By that when user A wants to send funds to user B, transaction happens in a way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle how coins are transfered between wallets Monero uses aditional technology to make transactions private.
 \subsection{Stealth Addresses}
+For every transaction one time public key (stealth address) is generated and recorded as part of the transaction in order to set the controller of the output of the transaction \cite{seguias2018monero}.
 
+
+By this noone from outside can link nor wallet addresses nor people involved to particular transaction by scanning the blockchain as there is not asociation with recievers adress.
 \subsection{Ring Signatures}
-
+\cite{mercer2016privacy}
 \subsection{RingCT}
-
+\cite{noether2015ring} \cite{sun2017ringct}
 \subsection{Kovri}
-
+\cite{monerokovri}
 
 %\chapter{Používání monera}
 %\section{Pěněženky}
