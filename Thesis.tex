@@ -185,13 +185,12 @@ Next important moment was when a significant part of the developers decided to a
 \section{Monero market cap}
  As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against top 5 cryptocurrencies.
 
-In order to compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\\begin{center}
- \textit{\textit{Market Cap = Circulating Supply * Price} }
-\end{center}
-
+In order to compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\ \centerline{
+ \textit{\textit{Market Cap = Circulating Supply * Price} }}
+ 
 \textbf{Privacy} in cryptocurrency is a feature that assures that amount of coin user owns, sends or receives cannot be seen on the blockchain.
 
-\textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that there is no supernode that can override how transactions are being processed as well as there is no single entity to control it.
+\textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that there is no supernode that can override how transactions are being processed as well as there is no single entity in control.
 
 \textbf{Fungibility} means that every coin ever emitted has the same value as the others and cannot be traced back thus there cannot be coin blacklist.
 
@@ -208,6 +207,9 @@ In order to compare different cryptocurrency projects, market capitalization (ma
 \captionof{table}{Monero features in top 5 cryptocurrencies.}
 \label{table:monero-top5}
 \end{figure}
+As can be seen from data in table \ref{table:monero-top5}, coins that are most popular by market cap metrics, are not centered around privacy. Altought it is often believed that using cryptography means anonymity, it isn't true in most cryptocurrencies especially in Bitcoin \cite{conti2018survey}. 
+
+XRP and EOS are in special position compared to typical cryptocurrency as they offer a crypto platform with contracts, so privacy implementation and fungibility varies from contract to contract \cite{domingues2018allvor}.
 %Zdroj transaction volume: https://bitinfocharts.com/monero/
 %Zdroj Bitcoin: https://bitcoin.org/en/protect-your-privacy
 %Zdroj Ethereum: https://ieeexplore.ieee.org/document/8356459/
@@ -250,7 +252,7 @@ Aeon         & CryptoNote-Light        & 240                & Yes               
 Byte-Coin     & CryptoNote              & 120                & Yes                      & Yes                & Ring Signature \\
 DASH         & X11                     & 150                & No                       & Not fully           & Yes            \\
 Monero (XMR) & CryptoNote              & 120                & Yes                      & Yes                & RingCT         \\
-PIVX         & Zerocoin                & 60                 & Only partially & Yes                & x              \\
+PIVX         & Zerocoin                & 60                 & Partialy & Yes                & x              \\
 Verge (XVG)  & Scrypt                  & 150                & Yes                      & Ne, TOR\&I2P       & RingCT WIP     \\
 Zcash (ZEC)  & Zerocash                & 150                & Shielded addresses  & Yes by SNARKS    & x              \\
 Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes                      & Yes by minting \& spending  & Ring Signature
@@ -262,6 +264,7 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes               
 \end{figure}
 Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
 Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
+\iffalse
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[sibling distance=10em,
@@ -282,7 +285,7 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 \caption{Codebase overview of the selected cryptocurrencies.}
 \label{pict:monero-alternatives-codebase}
 \end{figure}
-
+\fi
 %verge ma svoji codebase "non-bitcoin coin" viz prvni commit https://github.com/PIVX-Project/PIVX/commit/4405b78d6059e536c36974088a8ed4d9f0f29898
 
 \section{Development cycle}
