@@ -105,6 +105,8 @@
 %
 \usetikzlibrary{trees}
 
+%ringct
+\usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
 \begin{document}
 
 \chapter{Introduction}
@@ -444,23 +446,33 @@ It is visible on the blockchain and by this receiving party is able to scan the 
 
 By this, no one from outside can link nor wallet addresses nor people involved in a particular transaction by scanning the blockchain as there is no association with receivers address.
 
-In order to prove that funds were sent from one wallet to another, the sender has to disclose:
-\begin{itemize}\itemsep0em
-\item The transaction ID.
-\item Receivers address.
-\item Transaction's key.
-\end{itemize} 
+In order to prove that funds were sent from one wallet to another, the sender has to disclose transactions ID, receivers address and transactions key.
+%\begin{itemize}\itemsep0em
+%\item The transaction ID.
+%\item Receivers address.
+%\item Transaction's key.
+%\end{itemize} 
 
 \subsection{Ring Signatures}
 
 Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party can't identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
 
-To prevent double spending \cite{miller2017empirical}.
+To prevent double spending, there is a cryptographic key image derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there are is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
 
 \subsection{RingCT}
-%Zdroje: \cite{noether2015ring} \cite{sun2017ringct}
+So far, senders anonymity is ensured by ring signatures, receivers anonymity relies on stealth addresses, but the amount of Monero transferred would be still visible on the blockchain. In order to hide transaction amounts, Ring Confidential Transactions are implemented \cite{noether2015ring}.
+
+As one output cannot be spent twice, the sender has to spend entire output in the transaction. This typically results in a transaction having two outputs, one for the receiver and one for the original wallet, where the excess amount of coins is returned.	 
+
+To prevent manipulation during a transaction, the total input amount must equal the output amount of coins in each transaction. As one could exploit this by committing to value less than a zero, range proofs are there to ensure cryptographic proof of amounts used in transactions is greater than zero and falls into valid transaction amount range. 
+
+To confirm the transaction, sender reveals the masked amount of coins being sent in the transaction to the network that is later verified by miners \cite{sun2017ringct}. 
+
+By that, amounts transferred between wallets in form of outputs of transactions are hidden and the network can still confirm that transaction is valid.
+
 \subsection{Kovri}
+Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where users IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
 %Zdroje: \cite{monerokovri}
 
 %\chapter{Používání monera}
