@@ -220,6 +220,7 @@ XRP and EOS are in special position compared to typical cryptocurrency as they o
 %https://bitcoinist.com/not-decentralized-ripple-freezes-1m-user-funds/
 \newpage
 \section{Monero competitors}
+\label{sec:monero-timeline}
 %Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
 Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
 
@@ -494,30 +495,121 @@ Kovri is a C++ implementation of the I2P anonymous network under heavy developme
 %\subsection{Cílený malware}
 %\subsection{Delivery chain}
 \chapter{Monero usage}
-
+As pointed out in section \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. And because of that not only underlying technology of the network is different to other cryptocurrency projects but user side as well. 
 \section{Wallets}
+The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software.
 
-\subsection{Hot wallet}
+Monero wallet contains information that is necessary  to send and receive Monero currency. Each wallet is encrypted by the password set in the creation process. Typical wallet created using Monero software named \textit{example-wallet} consists of:
+\begin{itemize}\itemsep0em
+\item \textbf{example-wallet.keys file}
+\begin{itemize}\itemsep0em
+\item Is an encrypted file containing private \textbf{spend key} and \textbf{view key} together with \textbf{wallet address}.
+\item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the point the wallet was created.
+\item Using this file, the user can restore wallet by using the monero-wallet-cli command: monero-wallet-cli --generate-from-keys
+\end{itemize}
+\item \textbf{example-wallet file}
+\begin{itemize}\itemsep0em
+\item Acts as an encrypted cache for wallet software that contains:
+\begin{itemize}\itemsep0em
+\item List of outputs of transactions that are associated with the wallet as it does not need to scan the blockhain every time after startup.
+\item History of transactions with metadata containing tx keys.
+\end{itemize}
+\end{itemize}
+\item \textbf{example-wallet.address.txt file}
+\begin{itemize}\itemsep0em
+\item Stores \textbf{unencrypted} information containing generated wallet address.
+\item With recent address-based attacks that swap wallet addresses found in clipboard or files on the hard drive for the attacker's wallet address, this poses a security risk \cite{cryptoshuffler}.
+\end{itemize}
+\item \textbf{Mnemonic seed}
+\begin{itemize}\itemsep0em
+\item Mnemonic seed is a 25-word phrase which the last word is being used as a checksum. Together they represent a 256-bit integer that is the accounts private spend key.
+\item By having accounts private spend key, wallet software can derive private view key by hashing private key with Keccak-256. This produces another 256-bit integer that represents private view key.
+\item Both public keys are then derived from newly recovered private keys.
+\end{itemize}
+\end{itemize}
+Example of Monero wallet address and mnemonic seed:
+\begin{itemize}\itemsep0em
+\item \textbf{Wallet address}
+\begin{itemize}\itemsep0em
+\item 461TWLQhsxrR9dD4CXk4p1RRxAAQ3YCEDhNiGCQjj5\\QA33ohhZPnCX6346EyEwC7TiRSB3XB8KgNaJ4vThd5N\\pQqRkGab66
+\end{itemize}
+\item \textbf{Mnemonic seed}
+\begin{itemize}\itemsep0em
+\item serving odometer nifty flippant worry sphere were thorn putty bogeys lyrics feast fawns input biscuit hobby outbreak rash tucks dwelt liquid azure inexact isolated liquid
+\end{itemize}
+\end{itemize}
+\subsection{Wallet types}
+As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which user needs to store in the safe place in order to keep account under own control. In order to do that, there exist two main types of wallets:
+\begin{itemize}\itemsep0em
+\item \textbf{Hot wallet}
+\begin{itemize}\itemsep0em
+\item Refers to wallet software running on a computer that is connected to the internet, thus Monero network. By being online, the user can verify incoming transactions, spend from the wallet and check balance as well.
+\item As this type of wallet is not air-gapped, this poses an external intrusion risk.
+\item The hot wallet can also refer also to web-based and exchanged wallet that is explained further in this section.
+%\begin{itemize}\itemsep0em
+%\item Web based wallet (explained below)
+%\item Exchange hosted wallet (explained below)
+%\end{itemize}
+\end{itemize}
+\item \textbf{View-only wallet}
+\begin{itemize}\itemsep0em
+\item Is a wallet containing only private view key pair in order to see transactions associated with the wallet.
+\item As this is a view-only wallet, the user is able to see incoming transactions but is not able to spend, sign or view outgoing transactions. This results in incorrect balance when the wallet is used for sending funds.
+\end{itemize}
+\item \textbf{Cold wallet}
+\begin{itemize}\itemsep0em
+\item Is an offline solution to storing wallet seed or private keys on storage media. Using method, media storing wallet information have no direct access to the internet. This can be represented by an external hard drive, air-gapped computer as well as paper with wallet seed written on it.
+\item This comes with increased security from the IT standpoint, but the usability of the cryptocurrency suffers. This is mainly due to the hassle of working with funds when the user wants to spend them as it requires:
+\begin{itemize}\itemsep0em
+\item Cold wallet imported into wallet software in the air-gapped computer.
+\item A view-only wallet that is imported in wallet software and fully synced with the network. 
+\end{itemize}
+\item This way,the user can generate an unsigned transaction on the view-only wallet, transfer it for signing to the air-gapped computer and then back to submit transfer to the Monero network.
+\end{itemize}
+\item \textbf{Exchange hosted wallet}
+\begin{itemize}\itemsep0em
+\item In exchange wallet, users funds are stored under a online account in an online exchange. 
+\item As opposed to a regular wallet, there is no wallet software or seed required as the whole balance and transaction system is ran by the third party.
+Funds can be controlled through users online account that accessible by traditional username and password. 
+\item This poses a risk as the third party has complete access to users funds and the the account's security is directly dependent on exchanges security measures as 2FA implementation, IP restriction or email verification.
+\end{itemize}
+\item \textbf{Web-based wallet}
+\begin{itemize}\itemsep0em
+\item Web wallet represents server based Monero client that is served to the user in the browser. By using a web wallet, the user can access funds from any internet connected device by sharing:
+\begin{itemize}\itemsep0em
+\item Mnemonic seed or private spend and view key in order to send and receive funds.
+\item Public view key and wallet address to view incoming transactions to the wallet.
+\end{itemize}
+\end{itemize}
+\item \textbf{Hardware wallet}
+\begin{itemize}\itemsep0em
+\item Dedicated hardware solution like Ledger is still in its beta phase \cite{ledgermonero}.
+\item Due to lack of real hardware wallet, the community around Monero recommends as the alternative a USB drive with a live distribution of Linux coupled with persistent storage where Monero client and users private key pairs are stored. 
+\item Note that although this alternate solution effectively rules out host operating system, there is still a way to capture viable information when interacting with the untrusted machine, for example, GPU output or usage of hardware keylogger.
 
-\subsection{Cold wallet}
-
-\subsection{View-only wallet}
+\end{itemize}
+\end{itemize} 
 
 \subsection{Attacking the wallet}
-
-\subsection{Overview of wallet storage methods}
-
+Hot wallet
+Cold wallet
+View-only wallet
+Exchange hosted wallet
+Web-based wallet
+Hardware wallet
 \subsection{Cryptocurrency wallet software}
+
+
+%\subsection{Overview of wallet storage methods}
+
 
 %\subsection{Creating a wallet}
 
-\subsection{Full and remote node}
+\section{Full and remote node}
 
-\subsection{Multisig implementation}
+\section{Multisig implementation}
 
-\subsection{Wallet software comparison}
-
-\subsection{Exchanges}
+%\subsection{Wallet software comparison}
 
 \section{Problems in Monero environment}
 
