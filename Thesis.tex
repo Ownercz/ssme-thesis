@@ -137,20 +137,9 @@ The \textbf{fork} happens when developers create a copy of existing project code
 \textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
 
 \chapter{Monero Cryptocurrency}
-%Monero je opensource kryptoměnou, která je vyvíjená v rámci Monero projektu za účelem vytvoření decentralizované a anonymní měny. Hlavním cílem je dát uživateli plnou kontrolu nad předstředky, kterými disponuje. 
-
 Monero is an open-source cryptocurrency that is developed under the Monero project in order to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over own funds.
 
-%Znamná to tedy, že jednotlivé digitální transakce a počet peněz v pěněžence nelze dohledat bez vygenerování pohledu uživatelem \cite{moneroprojectgithub}.Hlavními body, kterými se Monero oproti jiným kryptoměnám liší, jsou:
-
 Meaning that every single digital transaction and the exact number of coins in users wallet cannot be traced back to the user without sharing the view key of the transaction \cite{moneroprojectgithub}.  Main distinctive points compared to other cryptocurrencies are:
-
-%\begin{itemize}\itemsep0em
-%\item Blockchain je veřejný, většina jeho částí je ovšem šifrována, více v kapitole o blockchainu \ref{sec:blockchain}.
-%\item Odesílatel transakce je skrytý díky Ring Signatures, které jsou popsány v kapitole \ref{sec:ringsignatures}.
-%\item Množství odesílané měny je šifrováno pomocí RingCT popsaném v \ref{sec:ringct}.
-%\item Transakční historie a příjemce je neveřejný použitím skrytých adres (stealth addresses), kterým se věnuje kapitola \ref{sec:stealthaddresses}.
-%\end{itemize}
 
 \begin{itemize}\itemsep0em
 \item The blockchain is public, but a large part of it is encrypted.
@@ -162,27 +151,13 @@ Meaning that every single digital transaction and the exact number of coins in u
 \section{Origin and the main focus}
 Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. CryptoNote was published by the start of the year 2014 \cite{githubbytecoin}.
 
-%Cesta vzniku samotného Monera je složená z několika forků a předcházejících projektů. Prvním z nich byl Bytecoin jakožto proof-of-concept kryptoměna používající jako první protokol CryptoNote, který byl publikován na začátku roku 2014 \cite{githubbytecoin}
-% CryptoNote implementace ByteCoin -> https://github.com/monero-project/monero/commit/296ae46ed8f8f6e5f986f978febad302e3df231a
-
-%Bytecoin měl ovšem problém s tzv. preminem, tedy stavem, kdy kryptoměna publikovaná na veřejnost má již velkou část peněz předem vytěženou. Zde se jednalo o vytěžení 82\% mincí před zveřejněním této měny \cite{fluffyponyonbytecoin}.
-% Duvod forku https://coinmetrics.io/papers/dissertation.pdf premine xx procent
-
-Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}.
-%Toto byl důvod pro komunitu okolo anonymních kryptoměn, aby udělali hardfork a tím vytvořili kryptoměnu novou, BitMonero \cite{bitmonero}.
-% Fork Bytecoin -> BitMonero https://github.com/monero-project/monero/commit/1a8f5ce89a990e54ec757affff01f27d449640bc
-That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
-
-%Důležitou změnou bylo oddělení hlavní části vývojářů a vytvoření samostatného forku s názvem Monero dne 23.06.2014 . Tím vznikla kryptoměna, která měla od počátku veřejně známý blockchain, jasně definovaný cíl a motivovaný tým vývojářů \cite{monerofork}.
-% Fork BitMonero -> Monero https://github.com/monero-project/monero/commit/003b1f909d416ab2c869b76176380c5f133bdad4#diff-c47c7c7383225ab55ff591cb59c41e6b
-% \begin{table}
-
-%\centering
-%\begin{minipage}[t]{\linewidth}
+Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}. That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
 
 Next important moment was when a significant part of the developers decided to abandon the project in favor of creating a new fork named Monero in 23.06.2014. By this action, Monero cryptocurrency was created with publicly known blockchain from the start, strictly defined goals and motivated team of developers \cite{monerofork}.
 
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
+
+%% Komentář Radim 4.8.: Tabulku jsem udělal, akorát ještě musím zakomponovat sloupec, který ukazuje samotný market cap. Spíš jsem se totiž nejdříve zaměřil, jak top5 crypto vypadá z hlediska privacy features. Tzn. dávám si tu DOPLNIT .
 
 \section{Monero market cap}
  As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against top 5 cryptocurrencies.
@@ -221,31 +196,7 @@ XRP and EOS are in unique position compared to typical cryptocurrency as they of
 \newpage
 \section{Monero competitors}
 \label{sec:monero-timeline}
-%Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
 Monero is not the only one cryptocurrency that aims at privacy and anonymity features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
-
-%\begin{figure}[H]
-%\centering
-%\begin{tabular}{p{0.1\linewidth}p{0.16\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
-%\textbf{Název}        & \textbf{Protokol}                & \textbf{Block Time {[}s{]}} & \textbf{Stealth Address    }      & \textbf{Anonymní transakce} & \textbf{Podpis transakce}  \\
-%Aeon         & CryptoNote-Light        & 240                & Ano                      & Ano                & Ring Signature \\
-%Byte-Coin     & CryptoNote              & 120                & Ano                      & Ano                & Ring Signature \\
-%DASH         & X11                     & 150                & Ne                       & Ne zcela           & Ano            \\
-%Monero (XMR) & CryptoNote              & 120                & Ano                      & Ano                & RingCT         \\
-%PIVX         & Zerocoin                & 60                 & Ne přímo                 & Ano                & x              \\
-%Verge (XVG)  & Scrypt                  & 150                & Ano                      & Ne, TOR\&I2P       & RingCT WIP     \\
-%Zcash (ZEC)  & Zerocash                & 150                & Vlastní shielded address & Ano pomocí SNARKS    & x              \\
-%Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Ano                      & Ano, mint \& spend   & Ring Signature
-
-%\end{tabular}
-%\captionof{table}{Přehled kryptoměn se zaměřením na anonymitu}
-%\label{table:monero-alternatives}
-%dash https://bitcointalk.org/index.php?topic=1562109.0
-%ďash https://docs.dash.org/en/latest/introduction/information.html
-%pivx https://github.com/PIVX-Project/PIVX
-%pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
-%zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
-%zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \begin{figure}[H]
 \centering
@@ -263,6 +214,14 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes               
 \end{tabular}
 \captionof{table}{Comparison of Anonymous Cryptocurrencies and their features.}
 \label{table:monero-alternatives}
+
+%Zdroje:
+%dash https://bitcointalk.org/index.php?topic=1562109.0
+%ďash https://docs.dash.org/en/latest/introduction/information.html
+%pivx https://github.com/PIVX-Project/PIVX
+%pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
+%zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
+%zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \end{figure}
 Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
@@ -292,50 +251,9 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 %verge ma svoji codebase "non-bitcoin coin" viz prvni commit https://github.com/PIVX-Project/PIVX/commit/4405b78d6059e536c36974088a8ed4d9f0f29898
 
 \section{Development cycle}
-%Vývoj Monera je postaven na vydáních, která jsou plánovány na každých 6 měsíců. Přitom na rozdíl od jiných kryptoměn jde o pravidelné aktualizace, které vývojáři nechtějí spojovat s termínem hardfork.
-
 %% Komentář Vlasta 10.7.: Trochu popiš jak moc je Monero rozšířené. Pro představu v porovnání s dalšími kryptoměnami. Aby bylo jasné, že to není nějaká obskurní kryptoměna.
 
 Monero development cycle is based upon planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions \cite{mccorry2017atomically}.
-
-% Monero attack https://lab.getmonero.org/pubs/MRL-0002.pdf
-%Hlavními důvody pro tento způsob vývojového cyklu jsou:
-%\begin{itemize}\itemsep0em
-%\item Komunita očekává pravidelné aktualizace.
-%\item Možnost upravovat mining algoritmus pro ASIC-resistance.
-%\item Prostor pro pravidelná vylepšení.
-%\end{itemize}
-\iffalse
-\begin{itemize}\itemsep0em
-\item The community knows that updating is the way forward.
-\item Enhanced ASIC resistance by changing the mining algorithm.
-\item There is always an opportunity to push updated code and improvements in a biannual cycle.
-\end{itemize}
-\fi
-
-
-%\begin{figure}[H]
-%\center
-%\color{gray}
-%\rule{\linewidth}{1pt}
-%\ytl{03.03.2014}{ByteCoin - publikování na GitHub}
-%\ytl{17.04.2014}{Fork ByteCoinu - vznik BitMonero kryptoměny}
-%\ytl{23.07.2014}{Fork BitMonera - vznik Monero kryptoměny}
-%\ytl{22.03.2016}{Monero v2 - úprava ringsize, čas bloku 120 sekund}
-%\ytl{21.09.2016}{Monero v3 - rozdělení transakce na více částek}
-%\ytl{05.01.2017}{Monero v4 - souběh normálních a RingCT transakcí}
-%\ytl{15.04.2017}{Monero v5 - aktualizace velikosti bloku a algoritmu pro poplatky}
-%\ytl{16.09.2017}{Monero v6 - vynucení RingCT transakcí s ringsize =>5}
-%\ytl{06.04.2018}{Monero v7 - změna CryptoNight algoritmu kvůli ASIC, ringsize =>7}
-%\ytl{--.10.2018}{Příští aktualizace sítě}
-%\bigskip
-%\rule{\linewidth}{1pt}%
-%\end{minipage}%
-%\color{black}\caption{Vývoj Monera}
-%\end{table}
-%\color{black}\caption{Časová osa vývoje Monera}
-%\label{monero-timeline}
-%\end{figure} \newpage
 
 \begin{figure}[H]
 \center
@@ -353,35 +271,11 @@ Monero development cycle is based upon planned network updates that occur every 
 \ytl{--.10.2018}{Future network update}
 \bigskip
 \rule{\linewidth}{1pt}%
-%\end{minipage}%
-%\color{black}\caption{Vývoj Monera}
-%\end{table}
 \color{black}\caption{Monero development timeline.}
 \label{monero-timeline}
 \end{figure} \newpage
 
-%Zároveň je s těmito vydáními  spojena řada chyb, které jsou průběžně opravovány. Mezi známé problémy Monera v minulosti patřily:
-
 Updates are meant to improve and enhance the previously established codebase as well as fixing already existing bugs that are continuously being resolved. Known problems in Monero history were:
-
-%\begin{itemize}
-%\item \textbf{Spam attack}
-%\begin{itemize}
-%\item Šlo o zahlcení sítě při posílání transakcí kvůli poplatku za transakci 0.005 XMR. Rychlou opravou bylo úprava poplatku na 0.1XMR. Toto vedlo k implementaci dynamického poplatku za transakci, který je založený na zvolené prioritě platby \cite{monerospamattack}.
-%zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
-%\end{itemize}
-%\item \textbf{Split chain attack}
-%\begin{itemize}
-%\item Cílené využití zranitelnosti ve výpočtu základu Merkle tree vedla k vytvoření dvou bloků se stejnou výškou a hashem na síti, lišily se ovšem 2 transakcemi na konci bloků \cite{macheta2014counterfeiting}. Tím vznikly dva různé chainy Monera. Chyba se týkala celého protokolu Cryptonote a všech kryptoměn na něm založených, v případě Monera komunita zastavila pohyb transakcí na burzách do dalšího dne, kdy byla vydána oprava \cite{cryptonotemerkletree}.
-%\end{itemize}
-%\item \textbf{Analýza transakcí v blockchainu Monera}
-%\begin{itemize}
-%\item Výzkum provedený v roce 2017 ukázal z pohledu anonymity problémy se systémem, jakým probíhají transakce. Nejdůležitějším z nich bylo objevení faktu, že při nastavení velikosti ring signature na nule můžeme v blockchainu vysledovat částku na výstupu transakce.
-%\item Tento problém byl vyřešen vývojovým týmem záhy díky nasazení technologie RingCT při kterých zároveň nastavili na síti podmínku, při které velikost ring signature musí být 
-%\end{itemize}
-%zdroj https://eprint.iacr.org/2017/338.pdf
-%\end{itemize}
-%zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 
 \begin{itemize}
 \item \textbf{Spam attack}
@@ -402,38 +296,6 @@ Updates are meant to improve and enhance the previously established codebase as 
 \end{itemize}
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 \newpage
-%\section{CryptoNote protokol}
-%\subsection{Verzování a aktualizace}
-%\subsection{Proof-of-Work}
-%\section{Monero Network Structure}
-%Síť zajišťující fungování Monera jako kryptoměny s transakcemi má decentralizovanou podobu zajištěnou 
-
-
-%\section{Adresování v síti}
-%\subsection{Typy adres}
-%\subsection{Transakční adresa}
-%\subsection{View klíč}
-%\section{Transakce}
-%\subsection{Struktura}
-%\subsection{PoW}
-%\subsection{Vstupy, výstupy, mixing}
-%\subsection{Průběh transakce}
-%\subsection{Sledování transakcí na síti}
-%\subsection{Kovri}
-%\section{Technologie}
-%\subsection{Stealth Address}
-%\label{sec:stealthaddresses} 
-%\subsection{Ring Signatures}
-%\label{sec:ringsignatures}
-%\subsection{RingCT}
-%zdroje https://eprint.iacr.org/2015/1098.pdf https://getmonero.org/resources/moneropedia/ringCT.html
-%\label{sec:ringct}
-%\subsection{Principle of anonymity}
-%\subsection{System of transactions}
-%\subsection{Wallets and keys}
-%\subsection{Proof of Work}
-%\subsection{Transaction traceability}
-%\section{Technology and principles used in Monero}
 \section{Transactions in Monero network}
 Monero uses a distributed peer-to-peer consensus network to record transaction outputs in a blockchain. That means that balance is not stored in a wallet, but is represented by control over outputs of transactions accessible with wallet keys \cite{seguias2018moneroa}.
 
@@ -449,18 +311,12 @@ Stealth address is visible on the blockchain, by this receiving party can scan t
 By this, no one from outside can link nor wallet addresses nor people involved in a particular transaction by scanning the blockchain as there is no association with receivers address.
 
 To prove that funds were sent from one wallet to another, the sender has to disclose transactions ID, receivers address and transactions key.
-%\begin{itemize}\itemsep0em
-%\item The transaction ID.
-%\item Receivers address.
-%\item Transaction's key.
-%\end{itemize} 
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
 Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party can't identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
-
 
 \subsection{RingCT}
 \label{sec:ringct}
@@ -476,26 +332,7 @@ By that, amounts transferred between wallets in the form of outputs of transacti
 
 \subsection{Kovri}
 Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where a user's IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
-%Zdroje: \cite{monerokovri}
 
-%\chapter{Používání monera}
-%\section{Pěněženky}
-%\subsection{Hot wallet}
-%\subsection{Cold wallet}
-%\subsection{View only wallet}
-%\subsection{Možnosti útoků na peněženku}
-%\subsection{Přehled bezpečnosti úložných způsobů}
-%\section{Software pro práci s kryptopenězi}
-%\subsection{Vytvoření peněženky}
-%\subsection{Fullnode, remote node}
-%\subsection{Multisig}
-%\subsection{Srovnání wallet softwaru}
-%\subsection{Exchanges}
-%\section{Scamy v prostředí kryptoměny}
-%\subsection{Online portály}
-%\subsection{Mining pooly}
-%\subsection{Cílený malware}
-%\subsection{Delivery chain}
 \chapter{Monero usage}
 As pointed out in section \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. And because of that not only underlying technology of the network is different to other cryptocurrency projects but user side as well. 
 \section{Wallets}
@@ -548,10 +385,6 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \item Refers to wallet software running on a computer that is connected to the internet, thus Monero network. By being online, the user can verify incoming transactions, spend from the wallet and check balance as well.
 \item As this type of wallet is not air-gapped, this poses an external intrusion risk.
 \item The hot wallet can also refer to web-based and exchanged wallet that is explained further in this section.
-%\begin{itemize}\itemsep0em
-%\item Web based wallet (explained below)
-%\item Exchange hosted wallet (explained below)
-%\end{itemize}
 \end{itemize}
 \item \textbf{View-only wallet}
 \begin{itemize}\itemsep0em
