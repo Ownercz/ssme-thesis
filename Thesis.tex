@@ -591,6 +591,32 @@ Funds can be controlled through users online account that accessible by traditio
 \end{itemize} 
 
 \subsection{Attacking the wallet}
+With rapid expansion of cryptocurrencies from 2014 to 2018, this area became a significant spot for malware development \cite{schaupp2018cryptocurrency}. As there are many attack vectors, this section aims to give info about malicious activites on users wallets.
+
+\textbf{Wallet thieves}\\
+Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Altought in Monero, keys are encrypted while stored on the disk, when running wallet software, keys can be obtained from the memory. This attack can also be performed by distributing malicious wallet client software.
+
+\textbf{Cloud storage}\\
+Cloud storage provides an easy way of sharing files between devices as well as users. As user doesnt need to set up the infrastructure and majority of the services provide free tier, it is usual for people to take this for granted as a safe place to store files \cite{caviglione2017covert}.
+
+This way, users security depends on following factors:
+\begin{itemize}\itemsep0em
+\item Wallet encryption on file level, user password habbits
+\item Account security - login implementation, F2A
+\item Client application implementation for caching and data transfer
+\item Vendors storage system security
+\end{itemize} 
+
+\textbf{Delivery chain}\\
+Hardware wallets like Ledger are built to ensure safety of users coins, therefore owner of such device should be pretty confident when using this device that came with original undisrupted packaging. 
+
+For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when user puts seed to the hardware wallet and begins to store coins in here, vendor has complete access as well as both parties know the seed.
+
+\textbf{Malicious seed generation}\\
+Similliar to Delivery chain attack, attacker in this scenario provides seed that is known by both participating parties through wallet generation web page or standalone software.
+
+
+\newpage
 Hot wallet
 Cold wallet
 View-only wallet
