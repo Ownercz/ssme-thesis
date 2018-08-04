@@ -187,12 +187,12 @@ Next important moment was when a significant part of the developers decided to a
 \section{Monero market cap}
  As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against top 5 cryptocurrencies.
 
-In order to compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\ \centerline{
+To compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\ \centerline{
  \textit{\textit{Market Cap = Circulating Supply * Price} }}
  
 \textbf{Privacy} in cryptocurrency is a feature that assures that amount of coin user owns, sends or receives cannot be seen on the blockchain.
 
-\textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that there is no supernode that can override how transactions are being processed as well as there is no single entity in control.
+\textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that no supernode can override how transactions are being processed as well as there is no single entity in control.
 
 \textbf{Fungibility} means that every coin ever emitted has the same value as the others and cannot be traced back thus there cannot be coin blacklist.
 
@@ -211,7 +211,7 @@ In order to compare different cryptocurrency projects, market capitalization (ma
 \end{figure}
 As can be seen from data in table \ref{table:monero-top5}, coins that are most popular by market cap metrics, are not centered around privacy. Altought it is often believed that using cryptography means anonymity, it isn't true in most cryptocurrencies especially in Bitcoin \cite{conti2018survey}. 
 
-XRP and EOS are in special position compared to typical cryptocurrency as they offer a crypto platform with contracts, so privacy implementation and fungibility varies from contract to contract \cite{domingues2018allvor}.
+XRP and EOS are in unique position compared to typical cryptocurrency as they offer a crypto platform with contracts, so privacy implementation and fungibility varies from contract to contract \cite{domingues2018allvor}.
 %Zdroj transaction volume: https://bitinfocharts.com/monero/
 %Zdroj Bitcoin: https://bitcoin.org/en/protect-your-privacy
 %Zdroj Ethereum: https://ieeexplore.ieee.org/document/8356459/
@@ -222,7 +222,7 @@ XRP and EOS are in special position compared to typical cryptocurrency as they o
 \section{Monero competitors}
 \label{sec:monero-timeline}
 %Mimo Monero se snaží o anonymní vlastnosti měny i řada dalších projektů. Nejblíže Moneru je ByteCoin, ze kterého Monero vychází, má ovšem špatné jméno v krypto komunitě kvůli 82\% premine měny. Alternativu k Moneru se zachováním řady vlastností nabízí jeho fork Aeon, který využívá méně náročnou implementaci za cenu nižšího stupně anonymity.
-Monero is not the only one cryptocurrency that aims at privacy and anonymity features, there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+Monero is not the only one cryptocurrency that aims at privacy and anonymity features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
 
 %\begin{figure}[H]
 %\centering
@@ -386,16 +386,16 @@ Updates are meant to improve and enhance the previously established codebase as 
 \begin{itemize}
 \item \textbf{Spam attack}
 \begin{itemize}
-\item Was aimed to oversaturate the Moneros network by sending very small transactions and leveraging cheap transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority \cite{monerospamattack}.
+\item Was aimed to oversaturate the Moneros network by sending minimal transactions and leveraging low transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
 \item \textbf{Split chain attack}
 \begin{itemize}
-\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit was applicable to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
+\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit applied to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
 \end{itemize}
 \item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
-\item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a large portion of transactions used a ring signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain \cite{moser2018empirical}.
+\item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a substantial portion of transactions used a ring signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain \cite{moser2018empirical}.
 \item This issue was resolved by Monero team already in 2016 with Monero v2, where ring signature was set to =>3 \cite{monerov2release}. Soon after the paper was released, Monero got its v6 update with enforced use of ringCT technology for all transaction outputs \cite{monerov6release}.
 \end{itemize}
 %zdroj https://eprint.iacr.org/2017/338.pdf
@@ -437,17 +437,18 @@ Updates are meant to improve and enhance the previously established codebase as 
 \section{Transactions in Monero network}
 Monero uses a distributed peer-to-peer consensus network to record transaction outputs in a blockchain. That means that balance is not stored in a wallet, but is represented by control over outputs of transactions accessible with wallet keys \cite{seguias2018moneroa}.
 
-By that when user A wants to send funds to user B, the transaction happens in a way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle how coins are transferred between wallets Monero uses additional technology to make transactions private.
+By that when user A wants to send funds to user B, the transaction happens in the way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle how coins are transferred between wallets Monero uses additional technology to make transactions private.
 \subsection{Monero wallet and stealth addresses}
-Monero wallet seed is 95 characters long string that consists of public view and spend key. In order to send funds from one wallet to another, a one-time public key is created, that contains senders public view and spend key as well as randomized data. 
+\label{sec:stealthaddresses}
+Monero wallet seed is 95 characters long string that consists of public view and spend key. To send funds from one wallet to another, a one-time public key is created, that contains senders public view and spend key as well as randomized data. 
 
-This one-time public key is also referred to as a stealth address and is generated and recorded as part of the transaction in order to set the controller of the output of the transaction \cite{seguias2018monero}.
+This one-time public key is also referred to as a stealth address and is generated and recorded as part of the transaction to set the controller of the output of the transaction \cite{seguias2018monero}.
 
-It is visible on the blockchain and by this receiving party is able to scan the blockchain to find exact transaction using their private view key. After locating transaction output, wallet software is then able to calculate one-time private key that aligns with one-time public key and can spend this output using private spend key \cite{courtois2017stealth}.
+Stealth address is visible on the blockchain, by this receiving party can scan the blockchain to find exact transaction using their private view key. After locating transaction output, wallet software is then able to calculate one-time private key that aligns with one-time public key and can spend this output using private spend key \cite{courtois2017stealth}.
 
 By this, no one from outside can link nor wallet addresses nor people involved in a particular transaction by scanning the blockchain as there is no association with receivers address.
 
-In order to prove that funds were sent from one wallet to another, the sender has to disclose transactions ID, receivers address and transactions key.
+To prove that funds were sent from one wallet to another, the sender has to disclose transactions ID, receivers address and transactions key.
 %\begin{itemize}\itemsep0em
 %\item The transaction ID.
 %\item Receivers address.
@@ -455,25 +456,26 @@ In order to prove that funds were sent from one wallet to another, the sender ha
 %\end{itemize} 
 
 \subsection{Ring Signatures}
-
+\label{sec:ringsignatures}
 Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party can't identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
 
-To prevent double spending, there is a cryptographic key image derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there are is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
+To prevent double spend, a cryptographic key image is derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
 
 \subsection{RingCT}
-So far, senders anonymity is ensured by ring signatures, receivers anonymity relies on stealth addresses, but the amount of Monero transferred would be still visible on the blockchain. In order to hide transaction amounts, Ring Confidential Transactions are implemented \cite{noether2015ring}.
+\label{sec:ringct}
+So far, senders anonymity is ensured by ring signatures, receivers anonymity relies on stealth addresses, but the amount of Monero transferred would be still visible on the blockchain. To hide transaction amounts, Ring Confidential Transactions are implemented \cite{noether2015ring}.
 
-As one output cannot be spent twice, the sender has to spend entire output in the transaction. This typically results in a transaction having two outputs, one for the receiver and one for the original wallet, where the excess amount of coins is returned.	 
+As one output cannot be spent twice, the sender has to spend entire output in the transaction. That typically results in a transaction having two outputs, one for the receiver and one for the original wallet, where the excess amount of coins is returned.	 
 
-To prevent manipulation during a transaction, the total input amount must equal the output amount of coins in each transaction. As one could exploit this by committing to value less than a zero, range proofs are there to ensure cryptographic proof of amounts used in transactions is greater than zero and falls into valid transaction amount range. 
+To prevent manipulation during a transaction, the total input amount must equal the output amount of coins in each transaction. As one could exploit this by committing to value less than zero, range proofs are there to ensure cryptographic evidence of amounts used in transactions is greater than zero and falls into the valid transaction amount range. 
 
 To confirm the transaction, sender reveals the masked amount of coins being sent in the transaction to the network that is later verified by miners \cite{sun2017ringct}. 
 
-By that, amounts transferred between wallets in form of outputs of transactions are hidden and the network can still confirm that transaction is valid.
+By that, amounts transferred between wallets in the form of outputs of transactions are hidden, and the network can still confirm that transaction is valid.
 
 \subsection{Kovri}
-Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where users IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
+Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where a user's IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
 %Zdroje: \cite{monerokovri}
 
 %\chapter{Používání monera}
@@ -499,7 +501,7 @@ As pointed out in section \ref{sec:monero-timeline}, Monero is one of the crypto
 \section{Wallets}
 The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software.
 
-Monero wallet contains information that is necessary  to send and receive Monero currency. Each wallet is encrypted by the password set in the creation process. Typical wallet created using Monero software named \textit{example-wallet} consists of:
+Monero wallet contains information that is necessary to send and receive Monero currency. Each wallet is encrypted by the password set in the creation process. Typical wallet created using Monero software named \textit{example-wallet} consists of:
 \begin{itemize}\itemsep0em
 \item \textbf{example-wallet.keys file}
 \begin{itemize}\itemsep0em
@@ -511,7 +513,7 @@ Monero wallet contains information that is necessary  to send and receive Monero
 \begin{itemize}\itemsep0em
 \item Acts as an encrypted cache for wallet software that contains:
 \begin{itemize}\itemsep0em
-\item List of outputs of transactions that are associated with the wallet as it does not need to scan the blockhain every time after startup.
+\item List of outputs of transactions that are associated with the wallet as it does not need to scan the blockchain every time after startup.
 \item History of transactions with metadata containing tx keys.
 \end{itemize}
 \end{itemize}
@@ -523,7 +525,7 @@ Monero wallet contains information that is necessary  to send and receive Monero
 \item \textbf{Mnemonic seed}
 \begin{itemize}\itemsep0em
 \item Mnemonic seed is a 25-word phrase which the last word is being used as a checksum. Together they represent a 256-bit integer that is the accounts private spend key.
-\item By having accounts private spend key, wallet software can derive private view key by hashing private key with Keccak-256. This produces another 256-bit integer that represents private view key.
+\item By having accounts private spend key, wallet software can derive private view key by hashing private key with Keccak-256. That produces another 256-bit integer that represents private view key.
 \item Both public keys are then derived from newly recovered private keys.
 \end{itemize}
 \end{itemize}
@@ -539,13 +541,13 @@ Example of Monero wallet address and mnemonic seed:
 \end{itemize}
 \end{itemize}
 \subsection{Wallet types}
-As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which user needs to store in the safe place in order to keep account under own control. In order to do that, there exist two main types of wallets:
+As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which user needs to store in the safe place to keep account under own control. To do that, there exist two main types of wallets:
 \begin{itemize}\itemsep0em
 \item \textbf{Hot wallet}
 \begin{itemize}\itemsep0em
 \item Refers to wallet software running on a computer that is connected to the internet, thus Monero network. By being online, the user can verify incoming transactions, spend from the wallet and check balance as well.
 \item As this type of wallet is not air-gapped, this poses an external intrusion risk.
-\item The hot wallet can also refer also to web-based and exchanged wallet that is explained further in this section.
+\item The hot wallet can also refer to web-based and exchanged wallet that is explained further in this section.
 %\begin{itemize}\itemsep0em
 %\item Web based wallet (explained below)
 %\item Exchange hosted wallet (explained below)
@@ -553,31 +555,31 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \end{itemize}
 \item \textbf{View-only wallet}
 \begin{itemize}\itemsep0em
-\item Is a wallet containing only private view key pair in order to see transactions associated with the wallet.
-\item As this is a view-only wallet, the user is able to see incoming transactions but is not able to spend, sign or view outgoing transactions. This results in incorrect balance when the wallet is used for sending funds.
+\item Is a wallet containing only private view key pair to see transactions associated with the wallet.
+\item As this is a view-only wallet, the user can see incoming transactions but is not able to spend, sign or view outgoing transactions. That results in incorrect balance when the wallet is used for sending funds.
 \end{itemize}
 \item \textbf{Cold wallet}
 \begin{itemize}\itemsep0em
-\item Is an offline solution to storing wallet seed or private keys on storage media. Using method, media storing wallet information have no direct access to the internet. This can be represented by an external hard drive, air-gapped computer as well as paper with wallet seed written on it.
-\item This comes with increased security from the IT standpoint, but the usability of the cryptocurrency suffers. This is mainly due to the hassle of working with funds when the user wants to spend them as it requires:
+\item Is an offline solution to storing wallet seed or private keys on storage media. Using method, media storing wallet information have no direct access to the internet.The storage medium can be represented by an external hard drive, air-gapped computer as well as paper with wallet seed written on it.
+\item That comes with increased security from the IT standpoint, but the usability of the cryptocurrency suffers. That is mainly due to the hassle of working with funds when the user wants to spend them as it requires:
 \begin{itemize}\itemsep0em
 \item Cold wallet imported into wallet software in the air-gapped computer.
 \item A view-only wallet that is imported in wallet software and fully synced with the network. 
 \end{itemize}
-\item This way,the user can generate an unsigned transaction on the view-only wallet, transfer it for signing to the air-gapped computer and then back to submit transfer to the Monero network.
+\item This way, the user can generate an unsigned transaction on the view-only wallet, transfer it for signing to the air-gapped computer and then back to submit transfer to the Monero network.
 \end{itemize}
 \item \textbf{Exchange hosted wallet}
 \begin{itemize}\itemsep0em
-\item In exchange wallet, users funds are stored under a online account in an online exchange. 
+\item In exchange wallet, users funds are stored under an online account in an online exchange. 
 \item As opposed to a regular wallet, there is no wallet software or seed required as the whole balance and transaction system is ran by the third party.
 Funds can be controlled through users online account that accessible by traditional username and password. 
-\item This poses a risk as the third party has complete access to users funds and the the account's security is directly dependent on exchanges security measures as 2FA implementation, IP restriction or email verification.
+\item This poses a risk as the third party has complete access to users funds and the account's security is directly dependent on exchanges security measures as 2FA implementation, IP restriction or email verification.
 \end{itemize}
 \item \textbf{Web-based wallet}
 \begin{itemize}\itemsep0em
 \item Web wallet represents server based Monero client that is served to the user in the browser. By using a web wallet, the user can access funds from any internet connected device by sharing:
 \begin{itemize}\itemsep0em
-\item Mnemonic seed or private spend and view key in order to send and receive funds.
+\item Mnemonic seed or private spend and view key to send and receive funds.
 \item Public view key and wallet address to view incoming transactions to the wallet.
 \end{itemize}
 \end{itemize}
@@ -591,29 +593,29 @@ Funds can be controlled through users online account that accessible by traditio
 \end{itemize} 
 
 \subsection{Attacking the wallet}
-With rapid expansion of cryptocurrencies from 2014 to 2018, this area became a significant spot for malware development \cite{schaupp2018cryptocurrency}. As there are many attack vectors, this section aims to give info about malicious activites on users wallets.
+With the rapid expansion of cryptocurrencies from 2014 to 2018, this area became a significant spot for malware development \cite{schaupp2018cryptocurrency}. As there are many attack vectors, this section aims to give info about malicious activities on users wallets.
 
 \textbf{Wallet thieves}\\
-Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Altought in Monero, keys are encrypted while stored on the disk, when running wallet software, keys can be obtained from the memory. This attack can also be performed by distributing malicious wallet client software.
+Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Although in Monero, keys are encrypted while stored on the disk, when running wallet software, keys can be obtained from memory. This attack can also be performed by distributing malicious wallet client software.
 
 \textbf{Cloud storage}\\
-Cloud storage provides an easy way of sharing files between devices as well as users. As user doesnt need to set up the infrastructure and majority of the services provide free tier, it is usual for people to take this for granted as a safe place to store files \cite{caviglione2017covert}.
+Cloud storage provides an easy way of sharing files between devices as well as users. As the user does not need to set up the infrastructure and the majority of the services provide free tier, it is usual for people to take this for granted as a safe place to store files \cite{caviglione2017covert}.
 
-This way, users security depends on following factors:
+This way, users security depends on the following factors:
 \begin{itemize}\itemsep0em
-\item Wallet encryption on file level, user password habbits
+\item Wallet encryption on the file level, user password habits
 \item Account security - login implementation, F2A
 \item Client application implementation for caching and data transfer
 \item Vendors storage system security
 \end{itemize} 
 
 \textbf{Delivery chain}\\
-Hardware wallets like Ledger are built to ensure safety of users coins, therefore owner of such device should be pretty confident when using this device that came with original undisrupted packaging. 
+Hardware wallets like Ledger are built to ensure the safety of users coins. Therefore owner of such a device should be pretty confident when using this device that came with original undisrupted packaging. 
 
-For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when user puts seed to the hardware wallet and begins to store coins in here, vendor has complete access as well as both parties know the seed.
+For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed.
 
 \textbf{Malicious seed generation}\\
-Similliar to Delivery chain attack, attacker in this scenario provides seed that is known by both participating parties through wallet generation web page or standalone software.
+Similar to Delivery chain attack, the attacker in this scenario provides the seed that is known by both participating parties through the wallet generation web page or standalone software.
 
 
 \newpage
