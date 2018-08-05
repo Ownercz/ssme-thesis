@@ -105,8 +105,15 @@
 %
 \usetikzlibrary{trees}
 
+%flowchart
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+
 %ringct
 \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
+
+%table
+\usepackage{rotating}
 \begin{document}
 
 \chapter{Introduction}
@@ -397,7 +404,7 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \item That comes with increased security from the IT standpoint, but the usability of the cryptocurrency suffers. That is mainly due to the hassle of working with funds when the user wants to spend them as it requires:
 \begin{itemize}\itemsep0em
 \item Cold wallet imported into wallet software in the air-gapped computer.
-\item A view-only wallet that is imported in wallet software and fully synced with the network. 
+\item A view-only wallet connected to the internet. 
 \end{itemize}
 \item This way, the user can generate an unsigned transaction on the view-only wallet, transfer it for signing to the air-gapped computer and then back to submit transfer to the Monero network.
 \end{itemize}
@@ -428,13 +435,15 @@ Funds can be controlled through users online account that accessible by traditio
 \subsection{Attacking the wallet}
 With the rapid expansion of cryptocurrencies from 2014 to 2018, this area became a significant spot for malware development \cite{schaupp2018cryptocurrency}. As there are many attack vectors, this section aims to give info about malicious activities on users wallets.
 
-\textbf{Wallet thieves}\\
+\subsubsection{Wallet thieves}
+
 Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Although in Monero, keys are encrypted while stored on the disk, when running wallet software, keys can be obtained from memory. This attack can also be performed by distributing malicious wallet client software.
 
-\textbf{Cloud storage}\\
+\subsubsection{Cloud storage}
+
 Cloud storage provides an easy way of sharing files between devices as well as users. As the user does not need to set up the infrastructure and the majority of the services provide free tier, it is usual for people to take this for granted as a safe place to store files \cite{caviglione2017covert}.
 
-This way, users security depends on the following factors:
+This way, user's security depends on the following factors:
 \begin{itemize}\itemsep0em
 \item Wallet encryption on the file level, user password habits
 \item Account security - login implementation, F2A
@@ -442,32 +451,93 @@ This way, users security depends on the following factors:
 \item Vendors storage system security
 \end{itemize} 
 
-\textbf{Delivery chain}\\
+\subsubsection{Delivery chain}
+
 Hardware wallets like Ledger are built to ensure the safety of users coins. Therefore owner of such a device should be pretty confident when using this device that came with original undisrupted packaging. 
 
-For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed.
+For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed. Delivery chain attack flow is shown in figure \ref{pict:delivery-chain-attack}.
 
-\textbf{Malicious seed generation}\\
-Similar to Delivery chain attack, the attacker in this scenario provides the seed that is known by both participating parties through the wallet generation web page or standalone software.
+\subsubsection{Malicious seed generation}
 
+Similar to Delivery chain attack, the attacker in this scenario provides service that offers secure seed generation to obtain seed information belonging to the wallet. That is usually done by running a malicious web service that offers secure seed generation for cryptocurrencies or developing a standalone software for download. 
+ 
+After user generates the seed, package with seed data is automatically send to the attackers listening service and then saved to the database. Both parties know the private information and are able to spend funds from the wallet.
 
-\newpage
-Hot wallet
-Cold wallet
-View-only wallet
-Exchange hosted wallet
-Web-based wallet
-Hardware wallet
-\subsection{Cryptocurrency wallet software}
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
+    minimum height=2em]
+\begin{figure}[H]
+\center
+\begin{tikzpicture}[scale=2, node distance = 2cm, auto]
+\shorthandoff{-}
+    % Place nodes
+    \node [block,text width=3cm,minimum width=3cm] (init) {\parbox{3cm}{\centering Expedition from the producer}};
+    \node [cloud, left of=init, node distance=5cm] (expert)    {\parbox{3cm}{\centering Original \\ package  }};
+    \node [block, below of=init, node distance=2.5cm,text width=3cm,minimum width=3cm] (identify) {\parbox{3cm}{\centering Repackaging by reseller}};
+    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by enduser}};
+    \node [cloud, left of=identify, node distance=5cm] (update) {\parbox{3cm}{\centering Malicious scratchpad with seed  }};
+    \node [block, below of=evaluate, node distance=2.5cm,text width=3cm,minimum width=3cm] (attacker) {\parbox{3cm}{\centering Attacker's database of wallets}};
+    % Draw edges
+    \path [line] (init) -- (identify);
+        \path [line] (update) -- (identify);
+    \path [line] (identify) -- (evaluate);
+   \path [line] (expert) -- (init);
+    \path [line,dashed] (update) |- (attacker);
+\end{tikzpicture}
+\caption{Delivery chain attack}
+\label{pict:delivery-chain-attack}
+\end{figure}
+\begin{sidewaystable}[]
+\subsection{Overview of wallet storage methods}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.2\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
+\textbf{Wallet type  }          & \textbf{Recieving}                      & \textbf{Spending}          & \textbf{Online vunerability                                           } & \textbf{System security}                                 & \textbf{Control}            & \textbf{Location}                            & \textbf{Recovery}         & \textbf{Delivery chain attack}         \\
+Hot wallet             & Always ready                   & Always ready      & Vunerable, complete access after breach                        & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
+View-only wallet       & Can see incomming transactions & No, only view-key & Vunerable, attacker then could see incomming transactions      & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
+Cold wallet            & No                             & No                & No, unless system is compromised                               & Under user's control                            & User               & Local storage, paper or other media & Seed             & Wallet software               \\
+Exchange hosted wallet & Yes                            & Yes               & Account breach, MITM, website spoofing                         & Fully dependent on 3rd party                    & User and 3rd party & Someone else's computer             & Account recovery & Website spoofing              \\
+Web-based wallet       & Yes                            & Yes               & Wallet key storing against user's will, MITM, website spoofing & User's security keywise, 3rd party's systemwise & User and 3rd party & Local storage, 3rd party's storage  & Seed             & Website spoofing              \\
+Hardware wallet        & Yes                            & Yes               &                                                                & Hardware dependant                              & User               & Dedicated hardware storage          & Recovery sheet   & Modified firmware, scratchpad
+\end{tabular}%
+}
+\caption{List of wallet types from security view.}
+\label{table:wallettypes}
+\end{sidewaystable}\newpage
 
-
-%\subsection{Overview of wallet storage methods}
-
+%\subsection{Cryptocurrency wallet software}
 
 %\subsection{Creating a wallet}
 
-\section{Full and remote node}
+\section{Local and remote node}
+To spend or view the balance in the wallet, the user is required to have a wallet client software or use third party services to access the Monero network. This section covers the most common type of accessing the funds, hot wallet in combination with official Monero client software available at \url{https://getmonero.org/downloads/}.
 
+Monero client requires to be in sync with the network to show correct balance as well as to work with the funds. That is done by either running a full local node or connecting to the remote node.
+
+\textbf{Node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by monerod, a separate daemon which synchronizes with the network.
+
+\textbf{Local node} is default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
+
+\textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port} , the client connects to the remote node and starts scanning the blockchain as if it was a local one.
+
+\begin{figure}[H]
+\center
+\begin{tabular}{p{0.45\linewidth}p{0.45\linewidth}}
+\textbf{Local node}                                                          & \textbf{Remote node}                                \\
+Blockchain stored on locally                                           & Blockchain stored remotely                          \\
+Observable traffic between nodes                                             & Visible connection to the remote server                 \\
+Default way for desktop clients                                              & Default way for mobile wallets \\
+%Time delay caused by blockchain download & No initial setup needed                             \\
+Requires 45+ GB and connection to keep in sync                               & Requires connection to scan blockchain             
+\end{tabular}
+\caption{Monero node comparison.}
+\label{table:moneronodes}
+\end{figure}
+\newpage
 \section{Multisig implementation}
 
 %\subsection{Wallet software comparison}
