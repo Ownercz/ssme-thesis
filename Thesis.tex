@@ -114,6 +114,18 @@
 
 %table
 \usepackage{rotating}
+
+%code
+\renewcommand{\texttt}[1]{%
+  \begingroup
+  \ttfamily
+  \begingroup\lccode`~=`/\lowercase{\endgroup\def~}{/\discretionary{}{}{}}%
+  \begingroup\lccode`~=`[\lowercase{\endgroup\def~}{[\discretionary{}{}{}}%
+  \begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
+  \catcode`/=\active\catcode`[=\active\catcode`.=\active
+  \scantokens{#1\noexpand}%
+  \endgroup
+}
 \begin{document}
 
 \chapter{Introduction}
@@ -457,12 +469,6 @@ Hardware wallets like Ledger are built to ensure the safety of users coins. Ther
 
 For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed. Delivery chain attack flow is shown in figure \ref{pict:delivery-chain-attack}.
 
-\subsubsection{Malicious seed generation}
-
-Similar to Delivery chain attack, the attacker in this scenario provides service that offers secure seed generation to obtain seed information belonging to the wallet. That is usually done by running a malicious web service that offers secure seed generation for cryptocurrencies or developing a standalone software for download. 
- 
-After user generates the seed, package with seed data is automatically send to the attackers listening service and then saved to the database. Both parties know the private information and are able to spend funds from the wallet.
-
 \tikzstyle{decision} = [diamond, draw, fill=blue!20,
     text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
 \tikzstyle{block} = [rectangle, draw, fill=blue!20,
@@ -491,6 +497,12 @@ After user generates the seed, package with seed data is automatically send to t
 \caption{Delivery chain attack}
 \label{pict:delivery-chain-attack}
 \end{figure}
+\subsubsection{Malicious seed generation}
+
+Similar to Delivery chain attack, the attacker in this scenario provides service that offers secure seed generation to obtain seed information belonging to the wallet. That is usually done by running a malicious web service that offers secure seed generation for cryptocurrencies or developing a standalone software for download. 
+ 
+After user generates the seed, package with seed data is automatically send to the attackers listening service and then saved to the database. Both parties know the private information and are able to spend funds from the wallet.
+
 \begin{sidewaystable}[]
 \subsection{Overview of wallet storage methods}
 \centering
@@ -542,7 +554,109 @@ Requires 45+ GB and connection to keep in sync                               & R
 
 Monero started to support multisignature transactions and addresses by 17th of December 2017 when codebase for this feature was merged into master by Fluffypony \cite{moneromultisig}. Multisig became available in the Lithium Luna release that was released 23rd of July 2018 \cite{moneromultisigrelease}.
 
-This means that although Monero does not support typical multisig transactions where
+Multisig in a cryptocurrency is a feature that requires the multisig transaction to be signed by all keys that are required. For multisig, one can create a multisig wallet that is designed as follow:
+\begin{itemize}\itemsep0em
+\item 1-of-2 
+\begin{itemize}\itemsep0em \item Requires one of two participating parties to sign a transaction. \item This scheme acts as a shared wallet where each of the key holders can spend funds without the other party signing the transaction. \end{itemize}
+\item 2-of-2 \begin{itemize}\itemsep0em \item  Requires both parties to sign a transaction. \item Each side has to agree to spend funds and sign the transaction.\end{itemize}
+\item M-of-N \begin{itemize}\itemsep0em \item  Requires M keys of N to sign a transaction, note that M is a subset of N. \end{itemize}
+\end{itemize}
+
+\subsection{Multisig usage}
+After Lithium Luna release, only Monero wallet CLI software is ready for processing multisig transactions. In figures \ref{pict:multisig-wallet-generation} and \ref{pict:multisig-transaction} example scheme of 2-of-2 is presented with user A as blue and user B as green for wallet generation and transaction using Monero multisig feature. 
+
+
+\newpage
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{userA} = [rectangle, draw, fill=ao(english)!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{userB} = [rectangle, draw, fill=azure(colorwheel)!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{lineuserA} = [draw, very thick, color=ao(english)!80, -latex']
+
+\tikzstyle{lineuserB} = [draw, very thick, color=azure(colorwheel)!80, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
+    minimum height=2em]
+\begin{figure}[H]
+\center
+\begin{tikzpicture}[scale=2, node distance = 2cm, auto]
+\shorthandoff{-}
+    % Place nodes
+    \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Generates new wallet}};
+    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Generates new wallet}};
+    
+    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{prepare_multisig} to generate initialization data}};
+    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Runs \texttt{prepare_multisig} to generate initialization data}};
+    
+    \node [userA, below of=userA2,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA3) {\parbox{5cm}{\centering User exchanges initialization data}}; %, in cli called multisig wallet password
+    \node [userB, below of=userB2, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB3)    {\parbox{5cm}{\centering User exchanges initialization data}}; %, in cli called multisig wallet password
+    
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_B}}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_A}}};
+    
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Multisig wallet is generated with same address for both users}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Multisig wallet is generated with same address for both users}};
+        
+   % \node [block, below of=init, node distance=2.5cm,text width=3cm,minimum width=3cm] (identify) {\parbox{3cm}{\centering Repackaging by reseller}};
+%    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by enduser}};
+ %   \node [cloud, left of=identify, node distance=5cm] (update) {\parbox{3cm}{\centering Malicious scratchpad with seed  }};
+  %  \node [block, below of=evaluate, node distance=2.5cm,text width=3cm,minimum width=3cm] (attacker) {\parbox{3cm}{\centering Attacker's database of wallets}};
+    % Draw edges
+   % \path [line] (init) -- (identify);
+       \path [lineuserA] (userA1) -- (userA2);
+    \path [lineuserA] (userA2) -- (userA3);
+    \path [lineuserA] (userA3) -- (userA4);
+    \path [lineuserB] (userB1) -- (userB2);
+    \path [lineuserB] (userB2) -- (userB3);
+    \path [lineuserB] (userB3) -- (userB4);
+        \path [lineuserA] (userA3) to[in=-165,out=-15,looseness=0]  (userB3);
+        \path [lineuserB] (userB3) to[in=15,out=165,looseness=0]   (userA3);
+   % \path [line] (identify) -- (evaluate);
+   %\path [line] (expert) -- (init);
+   % \path [line,dashed] (update) |- (attacker);
+\end{tikzpicture}
+\caption{Generating a multisig wallet}
+\label{pict:multisig-wallet-generation}
+\begin{tikzpicture}[scale=2, node distance = 2cm, auto]
+\shorthandoff{-}
+    % Place nodes
+    \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import_multisig_info export_multisig_info}}};
+    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import_multisig_info export_multisig_info}}};
+    
+    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{transaction [address] [amount]} to create unsigned transaction}};
+    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Signs transaction \texttt{sign_multisig [transaction_name]} to sign transaction}};
+    
+    \node [below of=userA2,node distance=2.5cm,draw=none] (userA3) {}; %, in cli called multisig wallet password
+    \node [userB, below of=userB2, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB3)    {\parbox{5cm}{\centering Submits tran-saction to Monero network \texttt{submit_multisig [transaction_name]}}}; %, in cli called multisig wallet password
+    
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_B}}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_A}}};
+    
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering User can check transaction in blockchain explorer using txid}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering User can check transaction in blockchain explorer using txid}};
+        
+   % \node [block, below of=init, node distance=2.5cm,text width=3cm,minimum width=3cm] (identify) {\parbox{3cm}{\centering Repackaging by reseller}};
+%    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by enduser}};
+ %   \node [cloud, left of=identify, node distance=5cm] (update) {\parbox{3cm}{\centering Malicious scratchpad with seed  }};
+  %  \node [block, below of=evaluate, node distance=2.5cm,text width=3cm,minimum width=3cm] (attacker) {\parbox{3cm}{\centering Attacker's database of wallets}};
+    % Draw edges
+    \path [lineuserA] (userA1) -- (userA2);
+    \path [lineuserA] (userA2) -- (userA4);
+    \path [lineuserB] (userB1) -- (userB2);
+    \path [lineuserB] (userB2) -- (userB3);
+    \path [lineuserB] (userB3) -- (userB4);
+        \path [lineuserA] (userA1) to[in=-165,out=-15,looseness=0]  (userB1);
+        \path [lineuserB] (userB1) to[in=15,out=165,looseness=0]   (userA1);
+   % \path [line] (identify) -- (evaluate);
+   %\path [line] (expert) -- (init);
+   \path [lineuserA] (userA2) |- (userB2);
+\end{tikzpicture}
+\caption{Multisig transaction}
+\label{pict:multisig-transaction}
+\end{figure}
 %\subsection{Wallet software comparison}
 
 \section{Problems in Monero environment}
