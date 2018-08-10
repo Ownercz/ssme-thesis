@@ -1,1 +1,1 @@
-biber Thesis.bcf
+biber --output_safechars Thesis.bcf

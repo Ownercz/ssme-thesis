@@ -657,22 +657,31 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
 \caption{Multisig transaction}
 \label{pict:multisig-transaction}
 \end{figure}
-%\subsection{Wallet software comparison}
 
 \section{Problems in Monero environment}
+
+Monero privacy features are welcomed not only by privacy savvy users but malware, phishing, and other malicious software creators as well. 
+
+The main reason to use Monero over other cryptocurrencies for them is that Monero is not only harder to trace but when the attack is implemented well, after moving funds in separate batches to multiple wallets an over more extended period, no one will be able to associate the coins with the malicious activity.
+
+There are three main problems concerns in Monero environment :
+\subsubsection{Ransomware}
+Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
+
+As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} avaiable at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
+Because of this targeting, they had to choose another cryptocurrency to solve this problem and the solution was Monero \cite{cusack2018points}.
+
+\subsubsection{Scam portals}
+As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is avaiable at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
+
+Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. Best known example of such service is \url{freewallet.org}, that is strongly criticised for closed source as well as funds that go missing from user's accounts \cite{wijayamonero}.
+\subsubsection{Crypto-jacking attack}\cite{higbee2018role}
+
 
 \subsection{Monero scam list}
 
 \subsection{Targeted malware}
 
-\subsection{Delivery chain disruption}
-
-
-%\section{Monero usecase}
-%\subsection{Darknet Markets}
-%\subsection{Monero Markets}
-%\subsection{Úskalí tradingu anonymní měny}
-%\subsection{Srovnání s ostatními kryptoměnami}
 
 \section{Monero use case}
 
