@@ -126,6 +126,12 @@
   \scantokens{#1\noexpand}%
   \endgroup
 }
+
+%images
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {./images/} }
+
 \begin{document}
 
 \chapter{Introduction}
@@ -675,26 +681,33 @@ Because of this targeting, they had to choose another cryptocurrency to solve th
 As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is avaiable at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
 Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. Best known example of such service is \url{freewallet.org}, that is strongly criticised for closed source as well as funds that go missing from user's accounts \cite{wijayamonero}.
-\subsubsection{Crypto-jacking attack}\cite{higbee2018role}
+\subsubsection{Crypto-jacking attack}
+Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
+Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
+\vspace{-1em}
+\subsubsection{Black Ruby}
+Interesting intersection of ransomware and crypto-jacking category is Black Ruby malware that combines features of both. First, it encrypts files on the target computer and then proceeds to mine Monero using XMRig at full CPU load \cite{blackruby2018}.
 
-
-\subsection{Monero scam list}
-
-\subsection{Targeted malware}
-
-
+\vspace{-1em}
 \section{Monero use case}
+Aside from code quality and features, another important factor in cryptocurrency success are the ways how users can spend the funds. While numerous community around Monero that centers around Reddit \textit{/r/Monero} created \textit{/r/XMRtrader}, there are also projects that support Monero in day-to-day use like \url{https://xmr.to/}.
 
-\subsection{Darknet markets}
+What is most noticeable tough, are darknet markets, that started to support payments by Monero. This results in the rather negative use case of the crypto as payments by Monero are not directly likable to one's wallet as described in section \ref{sec:ringsignatures}.
 
-\subsection{Monero markets}
+\begin{figure}[H]
+\begin{center}
 
-\subsection{Trading problems associated with anonymity}
+    \vspace{-1em}
+ \includegraphics[trim={0.2cm 1.8cm 0 0},clip,width=0.71\textwidth]{Screenshot_360.png}
+    \caption{Darknet market payment options.}
+    \vspace{-1.5em}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
 
-\subsection{Usage comparison with other cryptocurrencies}
 
+Although darknet markets may support Monero, a short inspection of top 10 markets revealed that only 5 of them list Monero as the general way to pay. Rest of them are not forcing the sellers to use Monero. This results at about 40\% availability of Monero payment option on these type of markets.
 
-\section{Usage anonymity}
 
 \chapter{Monero user research}
 \section{Definition, research questions}
