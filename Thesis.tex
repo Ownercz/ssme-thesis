@@ -134,6 +134,12 @@
 
 %pdf
 \usepackage{pdfpages}
+
+%piechart
+\usepackage{pgf-pie}
+
+%multicol
+\usepackage{multicol}
 \begin{document}
 
 \chapter{Introduction}
@@ -758,8 +764,6 @@ Complete survey is attached in chapter \ref{monero-user-study-pdf}.
 \chapter{Obtaining Monero and running the network}
 Monero mining is a process done by miners in order to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
 
-Very often, miners combine their computational resources into one of the pools on the network. Thanks to higher total hash rate, there is a greater chance of solving the block thus gaining the reward of newly emitted coins. After solving each block, the reward is distributed equally to miners connected to the pool according to PPS (per-per-share) or PPLNS (per-per-last-number-of-shares) system.
-
 Network speed is mainly determined by average time between individual blocks. %This results in transaction process that takes up to 130s (transaction request \textless 1s, network broadcast \textless 5s and transaction processing time as a time between submission and next mined block \textless 120 seconds). 
 This results in transaction process that takes up to 130s (request =\textless 1s, broadcast =\textless 5s and max. time between blocks =\textless 120 seconds).  Transaction process is shown in figure \ref{pict:network-processing}.
 
@@ -819,15 +823,73 @@ This results in transaction process that takes up to 130s (request =\textless 1s
 \caption{Monero network processing}
 \label{pict:network-processing}
 \end{figure}
+\newpage
+\section{Mining nodes}
+As was mentioned in chapter 7, mining is the main reason for transaction processing in Monero network, and as the mining process has rewards for successfully solving the block, this encourages many different entities to mine.
+Since Bitcoin started to gain popularity, mining has divided into five categories, that are described in the following sections:  
+\iffalse
+\begin{itemize}\topsep0em\parskip0em\parsep0em
+\begin{minipage}{0.4\linewidth}
+\item Mining in pools
+\item Solo mining
+\item Web mining
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\item Botnet mining
+\item Cloud mining
+\end{minipage}
+\end{itemize}
+\fi
+\subsubsection{Mining in pools}
+Very often, miners combine their computational resources into one of the pools on the network. Due to the higher total hash rate, there is a greater chance of solving the block thus gaining the reward of newly emitted coins. After solving each block, the reward is distributed equally to miners connected to the pool according to PPS (per-per-share) or PPLNS (per-per-last-number-of-shares) system \cite{tarasiewicz2015cryptocurrencies}.
 
-\section{Mining pools, solo mining}
-\section{Web mining, botnet mining}
+As of 29.09.2018 total hash rate of the network was 577.72 Mh/s (100\%), in known pools 530.79 Mh/s (91.88\%) and unknown part of the network 46.93 Mh/s (8.12\%). Unknown part represents either pools that are not listed or solo miners on the network.
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[]
+\tikzstyle{every node}=[font=\footnotesize]
+\pie []
+    {26.79/nanopool.org,
+      19.17/minexmr.com,
+      18.02/supportxmr.com,
+      5.69/miningpoolhub.com,
+      22.21/other pools,
+      8.12/unknown}
+      
+      
+     \end{tikzpicture}
+     \end{center}
+      \caption{Mining pie-chart}
+      \label{chart:range}
+
+\end{figure}
+\subsubsection{Solo mining}
+Represents "all or nothing" approach when it comes to the rewarding system. As solo miner's hash rate has to compete against all other solo miners as well as big pools, the chance of solving the block is rather small \cite{cong2018decentralized}.
+
+On the other side, when solo miner solves the block successfully, the whole block reward is assigned to the mining address. With high-end, multiple GPU setup, the miner can achieve about 3.2 Kh/s; this would mean chance about 0.46 \% of "winning" the block reward. 
+
+\subsubsection{Web mining}
+CryptoNight algorithm mining stands out above others regarding ways, how cryptocurrency can be mined. For Monero there are JavaScript-based miners like CoinHive avaiable, so individual websites can embed this script and start mining with the visitor's resources. This can result up to 300 hashes per second for users with powerful CPUs and is a viable alternative to advertisements when visitors spend more than 10 minutes on the website \cite{papadopoulos2018truth}.
 % Web mining: https://arxiv.org/pdf/1806.01994.pdf
-\section{Cloud mining}
-\section{Systems for mining - ASIC, prebuilds}
+\subsubsection{Botnet mining}
+\subsubsection{Cloud mining}
+\subsection{Systems for mining - ASIC, prebuilds}
 \section{Mining software}
 \section{XMR obtaining comparison}
-
+\begin{figure}[H]
+\center
+\begin{tabular}{p{0.2\linewidth}p{0.16\linewidth}p{0.16\linewidth}p{0.16\linewidth}p{0.16\linewidth}p{0.16\linewidth}}
+\textbf{Mining type} & \textbf{Security} & \textbf{Depenence} & \textbf{Payout} & \textbf{Avaiability} & \textbf{Profitability} \\
+Pool mining          &                   &                    &                 &                      &                        \\
+Solo mining          &                   &                    &                 &                      &                        \\
+Web mining           &                   &                    &                 &                      &                        \\
+Botnet mining        &                   &                    &                 &                      &                        \\
+Cloud mining         &                   &                    &                 &                      &                       
+\end{tabular}
+\caption{Monero network processing}
+\label{pict:network-processing}
+\end{figure}
 \chapter{Monero miners research}
 %tento výzkum jsem nenašel, takže říct, že tam nic dalšího není napsat to tam
 %zobrazování voleb pro multiple choice randomizovat
