@@ -880,13 +880,13 @@ Using other peoples resources for mining, often also called crypto jacking (a mo
 In the current cloud era of computing, this represents vast problems for both service providers and their customers. Providers experience increased power consumption, cooling requirements, customers, on the other hand, are required to pay more for consumed system resources \cite{tahir2017mining}.
 
 \subsubsection{Cloud mining}
-Represents managed services by specialists that offer mining power using cloud service providers. Due to managed service providers (MSP) markup, this way of mining is not as profitable and not recommended among Monero community in general. 
-
-\begin{figure}[H]
-\center
 \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
 \definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}
 \definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
+Represents managed services by specialists that offer mining power using cloud service providers. Due to managed service providers (MSP) markup, this way of mining is not as profitable and not recommended among Monero community in general. \\Arrows indicate flow of the resources:\\ \textcolor{ao(english)} {Payment for service}; \textcolor{azure(colorwheel)}{Payment for compute time}; \textcolor{darkorange}{Delivered hashrate}
+
+\begin{figure}[H]
+\center
 \tikzstyle{decision} = [diamond, draw, fill=blue!20,
     text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
 \tikzstyle{userA} = [rectangle, draw, fill=ao(english)!20,
@@ -926,9 +926,37 @@ Represents managed services by specialists that offer mining power using cloud s
 \label{pict:network-processing}
 \end{figure}
 
-
-\subsection{Systems for mining - ASIC, prebuilds}
 \section{Mining software}
+\subsubsection{Official}
+Can be obtained at the official web of the Monero cryptocurrency project at https://getmonero.org/downloads/ . This is an official wallet software that includes solo mining client and cannot be used for pool mining.
+
+\subsubsection{Community-driven}
+Is a category that incorporates opensource mining software projects that have sourcecode published on the Github. Mostly used are:
+
+\begin{itemize}\itemsep0em
+\item XMR Stak 
+\begin{itemize}\itemsep0em \item Consolidates CPU, AMD and Nvidia GPU mining under one multiplatform application with integrated webserver and autoconfiguration capability. \item Url: \url{https://github.com/fireice-uk/xmr-stak} \end{itemize}
+\item XMRig 
+\begin{itemize}\itemsep0em \item Three separately released miners with autoconfiguration GPU and CPU capability. \item AMD: \url{https://github.com/xmrig/xmrig-amd} 
+ \item Nvidia: \url{https://github.com/xmrig/xmrig-nvidia} \item CPU: \url{https://github.com/xmrig/xmrig} \end{itemize}
+\item CCminer - Nvidia CUDA miner
+\begin{itemize}\itemsep0em \item Url: \url{https://github.com/tpruvot/ccminer/} \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+
+    \vspace{-0.8em}
+ \includegraphics[trim={0 0 0 0},clip,width=0.90\textwidth]{Screenshot_9.png}
+    \caption{XMR-Stak web interface}
+    \vspace{-1.5em}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+    
+\subsubsection{Proprietary}
+Having closed source code that community cant inspect, mining software of this category has less reputation compared to the community-driven. This is caused mainly by the fact that the exact produced hash rate and client reported hash rate differed in the past at least regarding the MinerGate miner available at \url{https://minergate.com/downloads/gui} .
+\iffalse
 \section{XMR obtaining comparison}
 \begin{figure}[H]
 \center
@@ -943,6 +971,7 @@ Cloud mining         &                   &                    &                 
 \caption{Monero network processing}
 \label{pict:network-processing}
 \end{figure}
+\fi
 \chapter{Monero miners research}
 %tento výzkum jsem nenašel, takže říct, že tam nic dalšího není napsat to tam
 %zobrazování voleb pro multiple choice randomizovat
