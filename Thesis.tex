@@ -219,7 +219,7 @@ To compare different cryptocurrency projects, market capitalization (market cap)
 \end{figure}
 As can be seen from data in table \ref{table:monero-top5}, coins that are most popular by market cap metrics, are not centered around privacy. Altought it is often believed that using cryptography means anonymity, it isn't true in most cryptocurrencies especially in Bitcoin \cite{conti2018survey}. 
 
-XRP and EOS are in unique position compared to typical cryptocurrency as they offer a crypto platform with contracts, so privacy implementation and fungibility varies from contract to contract \cite{domingues2018allvor}.
+XRP and EOS are in a unique position compared to typical cryptocurrency as they offer a crypto platform with contracts, so privacy implementation and fungibility varies from contract to contract \cite{domingues2018allvor}.
 %Zdroj transaction volume: https://bitinfocharts.com/monero/
 %Zdroj Bitcoin: https://bitcoin.org/en/protect-your-privacy
 %Zdroj Ethereum: https://ieeexplore.ieee.org/document/8356459/
@@ -286,7 +286,7 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 \section{Development cycle}
 %% Komentář Vlasta 10.7.: Trochu popiš jak moc je Monero rozšířené. Pro představu v porovnání s dalšími kryptoměnami. Aby bylo jasné, že to není nějaká obskurní kryptoměna.
 
-Monero development cycle is based upon planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions \cite{mccorry2017atomically}.
+Monero development cycle is based on planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions \cite{mccorry2017atomically}.
 
 \begin{figure}[H]
 \center
@@ -297,7 +297,7 @@ Monero development cycle is based upon planned network updates that occur every 
 \ytl{07.23.2014}{BitMonero Fork - the creation of Monero cryptocurrency}
 \ytl{03.22.2016}{Monero v2 - ring size change, block time set to 120 seconds}
 \ytl{09.21.2016}{Monero v3 - transactions are split into smaller amounts}
-\ytl{01.05.2017}{Monero v4 - concurrent run of normal and RingCT transactions}
+\ytl{01.05.2017}{Monero v4 - the concurrent run of normal and RingCT transactions}
 \ytl{04.15.2017}{Monero v5 - block size update and fee algorithm adjustments}
 \ytl{09.16.2017}{Monero v6 - RingCT forced on the network with ring size => 5}
 \ytl{04.06.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7}
@@ -347,7 +347,7 @@ To prove that funds were sent from one wallet to another, the sender has to disc
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
-Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party can't identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
+Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party cannot identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
@@ -359,7 +359,7 @@ As one output cannot be spent twice, the sender has to spend entire output in th
 
 To prevent manipulation during a transaction, the total input amount must equal the output amount of coins in each transaction. As one could exploit this by committing to value less than zero, range proofs are there to ensure cryptographic evidence of amounts used in transactions is greater than zero and falls into the valid transaction amount range. 
 
-To confirm the transaction, sender reveals the masked amount of coins being sent in the transaction to the network that is later verified by miners \cite{sun2017ringct}. 
+To confirm the transaction, the sender reveals the masked amount of coins being sent in the transaction to the network that is later verified by miners \cite{sun2017ringct}. 
 
 By that, amounts transferred between wallets in the form of outputs of transactions are hidden, and the network can still confirm that transaction is valid.
 
@@ -367,7 +367,7 @@ By that, amounts transferred between wallets in the form of outputs of transacti
 Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where a user's IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
 
 \chapter{Monero usage}
-As pointed out in section \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. And because of that not only underlying technology of the network is different to other cryptocurrency projects but user side as well. 
+As pointed out in section \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. Moreover, because of that not only the underlying technology of the network is different from other cryptocurrency projects but the user side as well. 
 \section{Wallets}
 The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software.
 
@@ -426,7 +426,7 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \end{itemize}
 \item \textbf{Cold wallet}
 \begin{itemize}\itemsep0em
-\item Is an offline solution to storing wallet seed or private keys on storage media. Using method, media storing wallet information have no direct access to the internet.The storage medium can be represented by an external hard drive, air-gapped computer as well as paper with wallet seed written on it.
+\item Is an offline solution to storing wallet seed or private keys on storage media. Using method, media storing wallet information have no direct access to the internet. The storage medium can be represented by an external hard drive, air-gapped computer as well as paper with wallet seed written on it.
 \item That comes with increased security from the IT standpoint, but the usability of the cryptocurrency suffers. That is mainly due to the hassle of working with funds when the user wants to spend them as it requires:
 \begin{itemize}\itemsep0em
 \item Cold wallet imported into wallet software in the air-gapped computer.
@@ -481,7 +481,7 @@ This way, user's security depends on the following factors:
 
 Hardware wallets like Ledger are built to ensure the safety of users coins. Therefore owner of such a device should be pretty confident when using this device that came with original undisrupted packaging. 
 
-For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed. Delivery chain attack flow is shown in figure \ref{pict:delivery-chain-attack}.
+For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed. Delivery chain attack flow is shown in the figure \ref{pict:delivery-chain-attack}.
 
 \tikzstyle{decision} = [diamond, draw, fill=blue!20,
     text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
@@ -515,19 +515,19 @@ For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchp
 
 Similar to Delivery chain attack, the attacker in this scenario provides service that offers secure seed generation to obtain seed information belonging to the wallet. That is usually done by running a malicious web service that offers secure seed generation for cryptocurrencies or developing a standalone software for download. 
  
-After user generates the seed, package with seed data is automatically send to the attackers listening service and then saved to the database. Both parties know the private information and are able to spend funds from the wallet.
+After the user generates the seed, a package with seed data is automatically sent to the attackers listening service and then saved to the database. Both parties know the private information and can spend funds from the wallet.
 
 \begin{sidewaystable}[]
 \subsection{Overview of wallet storage methods}
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.2\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
-\textbf{Wallet type  }          & \textbf{Recieving}                      & \textbf{Spending}          & \textbf{Online vunerability                                           } & \textbf{System security}                                 & \textbf{Control}            & \textbf{Location}                            & \textbf{Recovery}         & \textbf{Delivery chain attack}         \\
-Hot wallet             & Always ready                   & Always ready      & Vunerable, complete access after breach                        & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
-View-only wallet       & Can see incomming transactions & No, only view-key & Vunerable, attacker then could see incomming transactions      & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
-Cold wallet            & No                             & No                & No, unless system is compromised                               & Under user's control                            & User               & Local storage, paper or other media & Seed             & Wallet software               \\
-Exchange hosted wallet & Yes                            & Yes               & Account breach, MITM, website spoofing                         & Fully dependent on 3rd party                    & User and 3rd party & Someone else's computer             & Account recovery & Website spoofing              \\
-Web-based wallet       & Yes                            & Yes               & Wallet key storing against user's will, MITM, website spoofing & User's security keywise, 3rd party's systemwise & User and 3rd party & Local storage, 3rd party's storage  & Seed             & Website spoofing              \\
+\textbf{Wallet type  }          & \textbf{Receiving}                      & \textbf{Spending}          & \textbf{Online vulnerability} & \textbf{System security}                                 & \textbf{Control}            & \textbf{Location}                            & \textbf{Recovery}         & \textbf{Delivery chain attack}         \\
+Hot wallet             & Always ready                   & Always ready      & Vulnerable, complete access after breach                        & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
+View-only wallet       & Can see incoming transactions & No, only view-key & Vulnerable, the attacker then could see incoming transactions      & Under user's control                            & User               & Local storage                       & Seed             & Wallet software               \\
+Cold wallet            & No                             & No                & No, unless the system is compromised                               & Under user's control                            & User               & Local storage, paper or other media & Seed             & Wallet software               \\
+Exchange hosted wallet & Yes                            & Yes               & Account breach, MITM, website spoofing                         & Fully dependent on third-party                    & User and third party & Someone else's computer             & Account recovery & Website spoofing              \\
+Web-based wallet       & Yes                            & Yes               & Wallet key storing against user's will, MITM, website spoofing & User's security keys, third party's systems & User and third party & Local storage, third party's storage  & Seed             & Website spoofing              \\
 Hardware wallet        & Yes                            & Yes               &                                                                & Hardware dependant                              & User               & Dedicated hardware storage          & Recovery sheet   & Modified firmware, scratchpad
 \end{tabular}%
 }
@@ -542,11 +542,11 @@ Hardware wallet        & Yes                            & Yes               &   
 \section{Local and remote node}
 To spend or view the balance in the wallet, the user is required to have a wallet client software or use third party services to access the Monero network. This section covers the most common type of accessing the funds, hot wallet in combination with official Monero client software available at \url{https://getmonero.org/downloads/}.
 
-Monero client requires to be in sync with the network to show correct balance as well as to work with the funds. That is done by either running a full local node or connecting to the remote node.
+Monero client requires to be in sync with the network to show the correct balance as well as to work with the funds. That is done by either running a full local node or connecting to the remote node.
 
 \textbf{Node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by monerod, a separate daemon which synchronizes with the network.
 
-\textbf{Local node} is default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
+\textbf{The local node} is default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
 
 \textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port} , the client connects to the remote node and starts scanning the blockchain as if it was a local one.
 
@@ -682,13 +682,13 @@ There are three main problems concerns in Monero environment :
 \subsubsection{Ransomware}
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
-As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} avaiable at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
+As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} available at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
 Because of this targeting, they had to choose another cryptocurrency to solve this problem and the solution was Monero \cite{cusack2018points}.
 
 \subsubsection{Scam portals}
-As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is avaiable at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
+As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
-Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. Best known example of such service is \url{freewallet.org}, that is strongly criticised for closed source as well as funds that go missing from user's accounts \cite{wijayamonero}.
+Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. Best known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that go missing from user's accounts \cite{wijayamonero}.
 \subsubsection{Crypto-jacking attack}
 Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
 Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is more profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
@@ -749,12 +749,13 @@ Data collection method was online only and was using the survey website software
 
 In order to reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Monero recovery part stayed hidden in the form if the user selected that he/she had never made any recovery of the seed or wallet keys in the previous part. 
 
-Complete survey is attached in chapter \ref{monero-user-study-pdf}.
+The complete survey is attached in the chapter \ref{monero-user-study-pdf}.
 
 
 \section{Results international, CZ}
 
 \chapter{Monero usage and storage best practices}
+
 \section{Designing a secure storage system}
 \section{Secure usage pattern}
 \section{Secure crypto portal}
@@ -764,7 +765,7 @@ Complete survey is attached in chapter \ref{monero-user-study-pdf}.
 \chapter{Obtaining Monero and running the network}
 Monero mining is a process done by miners in order to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
 
-Network speed is mainly determined by average time between individual blocks. %This results in transaction process that takes up to 130s (transaction request \textless 1s, network broadcast \textless 5s and transaction processing time as a time between submission and next mined block \textless 120 seconds). 
+Network speed is mainly determined by the average time between individual blocks. %This results in transaction process that takes up to 130s (transaction request \textless 1s, network broadcast \textless 5s and transaction processing time as a time between submission and next mined block \textless 120 seconds). 
 This results in transaction process that takes up to 130s (request =\textless 1s, broadcast =\textless 5s and max. time between blocks =\textless 120 seconds).  Transaction process is shown in figure \ref{pict:network-processing}.
 
 \begin{figure}[H]
@@ -931,12 +932,14 @@ Represents managed services by specialists that offer mining power using cloud s
 Can be obtained at the official web of the Monero cryptocurrency project at https://getmonero.org/downloads/ . This is an official wallet software that includes solo mining client and cannot be used for pool mining.
 
 \subsubsection{Community-driven}
-Is a category that incorporates opensource mining software projects that have sourcecode published on the Github. Mostly used are:
+Is a category that incorporates opensource mining software projects that have source code published on the Github. Mostly used are:
 
 \begin{itemize}\itemsep0em
 \item XMR Stak 
 \begin{itemize}\itemsep0em \item Consolidates CPU, AMD and Nvidia GPU mining under one multiplatform application with integrated webserver and autoconfiguration capability. \item Url: \url{https://github.com/fireice-uk/xmr-stak} \end{itemize}
+\setlength\itemsep{1em}
 \item XMRig 
+\setlength\itemsep{0em}
 \begin{itemize}\itemsep0em \item Three separately released miners with autoconfiguration GPU and CPU capability. \item AMD: \url{https://github.com/xmrig/xmrig-amd} 
  \item Nvidia: \url{https://github.com/xmrig/xmrig-nvidia} \item CPU: \url{https://github.com/xmrig/xmrig} \end{itemize}
 \item CCminer - Nvidia CUDA miner
@@ -947,7 +950,7 @@ Is a category that incorporates opensource mining software projects that have so
 \begin{center}
 
     \vspace{-0.8em}
- \includegraphics[trim={0 0 0 0},clip,width=0.90\textwidth]{Screenshot_9.png}
+ \includegraphics[trim={0 0 0 0},clip,width=0.85\textwidth]{Screenshot_9.png}
     \caption{XMR-Stak web interface}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
