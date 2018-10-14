@@ -140,6 +140,31 @@
 
 %multicol
 \usepackage{multicol}
+
+%code
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 \begin{document}
 
 \chapter{Introduction}
@@ -376,7 +401,7 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \item \textbf{example-wallet.keys file}
 \begin{itemize}\itemsep0em
 \item Is an encrypted file containing private \textbf{spend key} and \textbf{view key} together with \textbf{wallet address}.
-\item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the point the wallet was created.
+\item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the wallet creation point.
 \item Using this file, the user can restore wallet by using the monero-wallet-cli command: monero-wallet-cli --generate-from-keys
 \end{itemize}
 \item \textbf{example-wallet file}
@@ -755,8 +780,90 @@ The complete survey is attached in the chapter \ref{monero-user-study-pdf}.
 \section{Results international, CZ}
 
 \chapter{Monero usage and storage best practices}
+Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly in order to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
 
-\section{Designing a secure storage system}
+Following scenarios represent secure and easy to use instructions for a new Monero user.
+
+\section{Generating the keys}
+The software way means using the official client CLI and GUI wallet available at \url{https://getmonero.org/downloads/} by which user generates the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
+
+Note that the security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any hash checking to alert the user of the unauthorized change. 
+
+Although SHA256 has is provided on the website, the user is not instructed to check the hashes beforehand with tools like PowerShell and \texttt{Get-FileHash ./monero-wallet-gui-original.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}.\\
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+Algorithm : SHA256
+Hash      : AF9324151909AC7B9BC6D622210EADFBAE5E66...
+Path      : ./monero-wallet-gui-original.exe
+
+Algorithm : SHA256
+Hash      : DF4EC49E088284ECC78DBBD8B9CEFF00A78085...
+Path      : ./monero-wallet-gui-injected.exe
+\end{lstlisting}
+\caption{Checksum change after code injeciton}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+\newpage    
+
+
+
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+.\monero-wallet-cli.exe
+This is the command line monero wallet. It needs to connect 
+to a monero daemon to work correctly.
+WARNING: Do not reuse your Monero keys on an another fork, 
+UNLESS this fork has key reuse mitigations built in. Doing 
+so will harm your privacy.
+
+Monero 'Lithium Luna' (v0.12.3.0-release)
+Logging to C:\...\monero-wallet-cli.log
+Specify wallet file name (e.g., MyWallet). If the wallet 
+doesn't exist, it will be created.
+Wallet file name (or Ctrl-C to quit): ssme-thesis
+No wallet found with that name. Confirm creation of new 
+wallet named: ssme-thesis
+(Y/Yes/N/No): Y
+Generating new wallet...
+\end{lstlisting}
+\caption{CLI wallet generation}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+    
+    
+    
+\begin{figure}[H]
+\begin{center}
+
+%    \vspace{-0.8em}
+ \includegraphics[trim={0 0 0 0},clip,width=0.85\textwidth]{Screenshot_4.png}
+    \caption{GUI wallet generation}
+  %  \vspace{-1.5em}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+
+There are also alternative approaches to key generation like an offline javascript based monero-wallet-generator that is available at \url{https://github.com/moneromooo-monero/monero-wallet-generator}.\\
+\newpage
+Hardware way is considered to be in the development, but Monero compatibile devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
+
+In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself and user can only export private view key from the device to view the balance in full CLI/GUI client.
+\section{Accessing the wallet}
+\subsection{Using the Windows platform}
+
+\subsection{Using the Android platform}
+
+\subsection{Using the iOS platform}
+
+\subsection{Using the Linux platform}
+
+\section{Secure storage system}
+\subsection{Backups}
+
 \section{Secure usage pattern}
 \section{Secure crypto portal}
 
