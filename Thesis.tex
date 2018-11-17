@@ -799,9 +799,9 @@ The official client offers CLI and GUI wallet management and is available at \ur
 \end{center}
     \end{figure}
 
-Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any hash checking to alert the user of the unauthorized change. 
+Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. Code injection was successfully tested on GUI binary of the official Monero wallet as seen in figure \ref{pic:codeinjectiongui}. 
 
-Although SHA256 has is provided on the website, the user is not instructed to check the hashes beforehand with tools like PowerShell and \texttt{Get-FileHash ./monero-wallet-gui-original.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. Code injection was successfully tested on GUI binary of the official Monero wallet as seen in figure \ref{pic:codeinjectiongui}.
+Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes after downloading with tools like PowerShell and \texttt{Get-FileHash ./monero-wallet-gui-original.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. Moreover GPG-signed list of the hashes is also avaiable on the website but there are no instructions how to verify PGP signature itself.
 \vspace{-0.2em}
 %  Wallet key generation process is shown on examples in figures \ref{pic:cligenerator} and \ref{pic:guigenerator}. \\
 \begin{figure}[H]
@@ -824,12 +824,6 @@ Path      : ./monero-wallet-gui-injected.exe
 \begin{center}
 \begin{lstlisting}
 .\monero-wallet-cli.exe
-This is the command line monero wallet. It needs to connect 
-to a monero daemon to work correctly.
-WARNING: Do not reuse your Monero keys on an another fork, 
-UNLESS this fork has key reuse mitigations built in. Doing 
-so will harm your privacy.
-
 Monero 'Lithium Luna' (v0.12.3.0-release)
 Logging to C:\...\monero-wallet-cli.log
 Specify wallet file name (e.g., MyWallet). If the wallet 
@@ -852,18 +846,32 @@ There are also alternative approaches to key generation like an offline javascri
 
 
 \subsection{Hardware wallet}
-
+\vspace{-0.4em}
 Hardware way is considered to be in the development, but Monero compatibile devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
 
 In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself and user can only export private view key from the device to view the balance in full CLI/GUI client.
 
 This way, user has private spend key always on the device and client PC has only private view key. To sign a transaction, user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of security breach on the host computer, there is no Monero to steal.
 
+\vspace{-1.3em}
+\subsection{Wallet software for mobile devices}
+\vspace{-0.3em}
+Monero has wallet software avaiable for Android as well as iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the users device and restore can be done without third party techsupport.
 
-\subsection{Using the Android platform}
-There are two major wallet apps avaiable on Android, first being the Monerujo app and second is Monero Wallet by Freewallet.org. 
+Biggest closed source provider of wallets is Freewallet.org that provides Monero wallets for both Android and iOS. Overall usability for beginners is in favor of Freewallet's software as user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of service provider, Freewallet.org.\vspace{-0.4em}
+\begin{figure}[H]
+\centering\begin{tabular}{p{0.2\linewidth}p{0.15\linewidth}p{0.1\linewidth}p{0.4\linewidth}}
+Name          & Platform      & Source        & Key mgmt                                                                    \\
+Monerojuro    & Android       & Open Source   & Keypair is stored locally  User has complete control                       \\
+Monero Wallet & Android  iOS & Closed Source & Keypair in cloud storage No control over keys \\
+Cake Wallet   & iOS           & Open Source   & Keypair is stored locally  User has complete control                            
+\end{tabular}
+\captionof{table}{List of avaiable wallets for mobile platforms}
+\label{table:monero-top5}
+\end{figure}
 
-Monerujo is opensource and 
+
+
 \subsection{Using the iOS platform}
 
 \section{Usage summary}
