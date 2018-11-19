@@ -212,6 +212,9 @@ Monero started its way by forking from Bytecoin, which was proof-of-concept cryp
 Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}. That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
 
 Next important moment was when a significant part of the developers decided to abandon the project in favor of creating a new fork named Monero in 06.23.2014. By this action, Monero cryptocurrency was created with publicly known blockchain from the start, strictly defined goals and motivated team of developers \cite{monerofork}.
+%%Komentář Vlasta 15.10.: 
+06.23.2014 je hrozne divny format datumu, koukni sem:
+https://dictionary.cambridge.org/grammar/british-grammar/writing/dates
 
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
 
@@ -372,7 +375,7 @@ To prove that funds were sent from one wallet to another, the sender has to disc
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
-Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party cannot identify exact singer as it is not clear which input was signed by one time spend key\cite{mercer2016privacy}.
+Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
@@ -525,7 +528,7 @@ For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchp
     \node [block,text width=3cm,minimum width=3cm] (init) {\parbox{3cm}{\centering Expedition from the producer}};
     \node [cloud, left of=init, node distance=5cm] (expert)    {\parbox{3cm}{\centering Original \\ package  }};
     \node [block, below of=init, node distance=2.5cm,text width=3cm,minimum width=3cm] (identify) {\parbox{3cm}{\centering Repackaging by reseller}};
-    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by enduser}};
+    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by end user}};
     \node [cloud, left of=identify, node distance=5cm] (update) {\parbox{3cm}{\centering Malicious scratchpad with seed  }};
     \node [block, below of=evaluate, node distance=2.5cm,text width=3cm,minimum width=3cm] (attacker) {\parbox{3cm}{\centering Attacker's database of wallets}};
     % Draw edges
@@ -994,6 +997,7 @@ Since Bitcoin started to gain popularity, mining has divided into five categorie
 Very often, miners combine their computational resources into one of the pools on the network. Due to the higher total hash rate, there is a greater chance of solving the block thus gaining the reward of newly emitted coins. After solving each block, the reward is distributed equally to miners connected to the pool according to PPS (per-per-share) or PPLNS (per-per-last-number-of-shares) system \cite{tarasiewicz2015cryptocurrencies}.
 
 As of 29.09.2018 total hash rate of the network was 577.72 Mh/s (100\%), in known pools 530.79 Mh/s (91.88\%) and unknown part of the network 46.93 Mh/s (8.12\%). Unknown part represents either pools that are not listed or solo miners on the network.
+
 
 \begin{figure}[H]
 \begin{center}
