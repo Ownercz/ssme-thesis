@@ -394,6 +394,7 @@ Kovri is a C++ implementation of the I2P anonymous network under heavy developme
 \chapter{Monero usage}
 As pointed out in section \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. Moreover, because of that not only the underlying technology of the network is different from other cryptocurrency projects but the user side as well. 
 \section{Wallets}
+\label{sec:wallets}
 The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software.
 
 Monero wallet contains information that is necessary to send and receive Monero currency. Each wallet is encrypted by the password set in the creation process. Typical wallet created using Monero software named \textit{example-wallet} consists of:
@@ -436,6 +437,7 @@ Example of Monero wallet address and mnemonic seed:
 \end{itemize}
 \end{itemize}
 \subsection{Wallet types}
+\label{sec:wallettypes}
 As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which user needs to store in the safe place to keep account under own control. To do that, there exist two main types of wallets:
 \begin{itemize}\itemsep0em
 \item \textbf{Hot wallet}
@@ -544,6 +546,7 @@ After the user generates the seed, a package with seed data is automatically sen
 
 \begin{sidewaystable}[]
 \subsection{Overview of wallet storage methods}
+\label{fig:walletstorage}
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.2\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
@@ -785,41 +788,19 @@ Ease of use is one of the critical aspects of every cryptocurrency and although 
 Following scenarios represent secure and easy to use instructions for a new Monero user.
 
 \section{Generating the keys and accessing the wallet}
-One of the first challenges for Monero users is generating a keys and accessing the wallet.
+First challenge for Monero users is generating keypairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As choice of client wallet software is fundamental for users Monero in terms of user experience and security standpoint, following sections are dedicated to avaiable wallet software.
 \subsection{Windows and Linux platform}
 The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using the client users are able to generate the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
-
 \begin{figure}[H]
 \begin{center}
-    \vspace{-0.8em}
+  %  \vspace{-0.8em}
  \includegraphics[trim={0 0 0 0},clip,width=0.85\textwidth]{Screenshot_4.png}
     \caption{GUI wallet generation}
-    \vspace{-1.5em}
+  %  \vspace{-1.5em}
     \label{pic:guigenerator}
 \end{center}
     \end{figure}
 
-Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. Code injection was successfully tested on GUI binary of the official Monero wallet as seen in figure \ref{pic:codeinjectiongui}. 
-
-Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes after downloading with tools like PowerShell and \texttt{Get-FileHash ./monero-wallet-gui-original.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. Moreover GPG-signed list of the hashes is also avaiable on the website but there are no instructions how to verify PGP signature itself.
-\vspace{-0.2em}
-%  Wallet key generation process is shown on examples in figures \ref{pic:cligenerator} and \ref{pic:guigenerator}. \\
-\begin{figure}[H]
-\begin{center}
-\begin{lstlisting}
-Algorithm : SHA256
-Hash      : AF9324151909AC7B9BC6D622210EADFBAE5E66...
-Path      : ./monero-wallet-gui-original.exe
-
-Algorithm : SHA256
-Hash      : DF4EC49E088284ECC78DBBD8B9CEFF00A78085...
-Path      : ./monero-wallet-gui-injected.exe
-\end{lstlisting}
-\caption{Checksum change after code injeciton}
-    \label{pic:codeinjectiongui}
-\end{center}
-    \end{figure}
-\vspace{-3.05em}
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -838,47 +819,93 @@ Generating new wallet...
     \label{pic:cligenerator}
 \end{center}
     \end{figure}
-      \vspace{-2.05em}  
+Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. 
+
+   
+Code injection was successfully tested on GUI binary of the official Monero wallet as seen in figure \ref{pic:codeinjectiongui}. Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes of the downloaded software with tools like PowerShell using \texttt{Get-FileHash ./monero-wallet-gui.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. GPG-signed list of the hashes is avaiable on the website altough there are no instructions how to verify PGP signature itself.
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+Algorithm : SHA256
+Hash      : AF9324151909AC7B9BC6D622210EADFBAE5E66...
+Path      : ./monero-wallet-gui-original.exe
+
+Algorithm : SHA256
+Hash      : DF4EC49E088284ECC78DBBD8B9CEFF00A78085...
+Path      : ./monero-wallet-gui-injected.exe
+\end{lstlisting}
+\caption{Checksum change after code injeciton}
+    \label{pic:codeinjectiongui}
+\end{center}
+    \end{figure}
 
 
-There are also alternative approaches to key generation like an offline javascript based monero-wallet-generator that is available at \url{https://github.com/moneromooo-monero/monero-wallet-generator}.\\
-\newpage
+%  Wallet key generation process is shown on examples in figures \ref{pic:cligenerator} and \ref{pic:guigenerator}. \\
 
+There are also alternative approaches to key generation like an offline javascript based monero-wallet-generator that is available at \url{github.com/moneromooo-monero/monero-wallet-generator}.
 
 \subsection{Hardware wallet}
-\vspace{-0.4em}
+
 Hardware way is considered to be in the development, but Monero compatibile devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
 
 In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself and user can only export private view key from the device to view the balance in full CLI/GUI client.
 
 This way, user has private spend key always on the device and client PC has only private view key. To sign a transaction, user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of security breach on the host computer, there is no Monero to steal.
 
-\vspace{-1.3em}
 \subsection{Wallet software for mobile devices}
-\vspace{-0.3em}
+
 Monero has wallet software avaiable for Android as well as iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the users device and restore can be done without third party techsupport.
 
-Biggest closed source provider of wallets is Freewallet.org that provides Monero wallets for both Android and iOS. Overall usability for beginners is in favor of Freewallet's software as user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of service provider, Freewallet.org.\vspace{-0.4em}
+\textbf{Monerojuro} is an open source Android wallet application that is avaiable on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from sourcecode themselves. Wallet keys storage is based on the device only and the app encourages users to backup their seed.
+
+\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. In terms of overall usability this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed etc. User is instead instructed to create a Freewallet account which acts as a wallet. 
+
+By this, user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of service provider, Freewallet.org. This fact is often emphasised in Monero community as the user that does not control the keys, does not controll the wallet. Also source code is not publicly avaiable for community to review.
+
+\textbf{Cake Wallet} represents open source  Monero wallet for iOS that provides wallet generation and local keypair storage with remote node connection and synchronization.
+
+Guideline for secure wallet access is described in section \ref{sec:wallettypes}. 
+
+\begin{figure}[H]
+\begin{center}
+\vspace{-0.75em}
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.55\textwidth]{Screenshot_1542566492.png}
+    \caption{Monerujo for Android}
+    \vspace{-1.5em}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+ \vspace{-0.9em}
 \begin{figure}[H]
 \centering\begin{tabular}{p{0.2\linewidth}p{0.15\linewidth}p{0.1\linewidth}p{0.4\linewidth}}
-Name          & Platform      & Source        & Key mgmt                                                                    \\
+\textbf{Name}         & \textbf{Platform}      & \textbf{Source}        & \textbf{Wallet keys management} \\
 Monerojuro    & Android       & Open Source   & Keypair is stored locally  User has complete control                       \\
 Monero Wallet & Android  iOS & Closed Source & Keypair in cloud storage No control over keys \\
 Cake Wallet   & iOS           & Open Source   & Keypair is stored locally  User has complete control                            
 \end{tabular}
 \captionof{table}{List of avaiable wallets for mobile platforms}
-\label{table:monero-top5}
+\label{table:monero-mobile}
 \end{figure}
 
 
-
-\subsection{Using the iOS platform}
-
-\section{Usage summary}
-
 \section{Secure storage system}
-\subsection{Backups}
+Wallet keys are everything when it comes to cryptocurrency usage. Who has the keys, controlls the wallet and can view or transfer balance to another addresses. If user looses wallet keys, Monero wallet can still be recovered using mnemonic seed that should be saved on another storage medium. 
 
+This section describes possible ways of backing-up wallet keys. Primary storage media security is compared in figure \ref{fig:walletstorage}.
+\subsubsection{Data characteristics}
+As described in section \ref{sec:wallets}, Monero wallet consists of encrypted \texttt{wallet.keys} file that contains private spend and view keys. Size of this file is less than a few kilobytes. 
+
+Another type of data that is presented to the user is mnemonic seed. Seed can be used for recovery when wallet file is lost and consists of 25 words with the last one being used for checksum. 
+
+In total, Monero wallet requires less than 8 kilobytes for key and seed storage. This results in minimal space requirements for backup storage media.
+
+\subsection{Local storage}
+\subsection{Network storage}
+\subsection{Cloud storage}
+\subsection{Backup rule}
+\subsection{Testing the backups}
+
+\subsubsection{}
 \section{Secure usage pattern}
 \section{Secure crypto portal}
 
