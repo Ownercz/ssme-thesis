@@ -856,13 +856,13 @@ This way, user has private spend key always on the device and client PC has only
 
 Monero has wallet software avaiable for Android as well as iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the users device and restore can be done without third party techsupport.
 
-\textbf{Monerojuro} is an open source Android wallet application that is avaiable on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from sourcecode themselves. Wallet keys storage is based on the device only and the app encourages users to backup their seed.
+\textbf{Monerojuro} is an open source Android wallet application that is avaiable on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from sourcecode themselves. Wallet keys storage is based on the device only and the app encourages users to backup their seed \cite{xmrwalletgithub}.
 
-\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. In terms of overall usability this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed etc. User is instead instructed to create a Freewallet account which acts as a wallet. 
+\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. In terms of overall usability this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed etc. User is instead instructed to create a Freewallet account which acts as a wallet \cite{freewallet}. 
 
 By this, user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of service provider, Freewallet.org. This fact is often emphasised in Monero community as the user that does not control the keys, does not controll the wallet. Also source code is not publicly avaiable for community to review.
 
-\textbf{Cake Wallet} represents open source  Monero wallet for iOS that provides wallet generation and local keypair storage with remote node connection and synchronization.
+\textbf{Cake Wallet} represents open source  Monero wallet for iOS that provides wallet generation and local keypair storage with remote node connection and synchronization \cite{cakewalletgithub}.
 
 Guideline for secure wallet access is described in section \ref{sec:wallettypes}. 
 
@@ -899,17 +899,80 @@ Another type of data that is presented to the user is mnemonic seed. Seed can be
 
 In total, Monero wallet requires less than 8 kilobytes for key and seed storage. This results in minimal space requirements for backup storage media.
 
-\subsection{Local storage}
-\subsection{Network storage}
-\subsection{Cloud storage}
-\subsection{Backup rule}
-\subsection{Testing the backups}
+\subsubsection{Backup strategy}
+Best practice for backups that isn't too demanding on user side is 3-2-1 strategy that is considered in industry as bare minimum for keeping the data safe \cite{storage2012data}. 
+\begin{itemize}
+\itemsep0em
+\item 3 means having at least 3 copies of your data in total.
+\item 2 of them are local, but stored on different media types.
+\begin{itemize}
+\itemsep0em
+\item This can be represented as combination of SSD and tape.
+\end{itemize}
+\item 1 is offsite, geographicaly different location.
+\begin{itemize}
+\itemsep0em
+\item E.g. in the next building, different facility, another city.
+\end{itemize}
+\end{itemize}
+In short, this means when your building with external drive burns down and your notebook gets cryptolocker on the same day, you still have your data safe as you have them in the offsite location.
 
-\subsubsection{}
-\section{Secure usage pattern}
-\section{Secure crypto portal}
+\begin{figure}[H]
+\centering
+\begin{tabular}{p{0.1\linewidth}p{0.4\linewidth}p{0.25\linewidth}p{0.15\linewidth}}
+\textbf{Media type} & \textbf{Available key security}                                    & \textbf{Usage}                                   & \textbf{Average pricing}      \\
+HDD, SSD            & File and volume encryption, can be automated                       & Manual transfer from master to external media    & 20-40 USD                              \\
+Optical media       & File based encryption before creating the media, manual process            & For each copy of data, new disc has to be used   & \textless{}1 USD                       \\
+Tape                & Hardware assisted drive encryption, software based encryption       & Specialised backup tape software                 & 4500 USD (tape + drive) \\
+NAS                 & File based encryption on the client side using encryption software or NAS feature & Manual or automatic transfer to network share    & 200-400 USD                            \\
+Cloud drive       & File based encryption on the client side using encryption software & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
+Paper               & Depends on printout content and physical storage properties        & Hiding a sheet of paper                          & \textless{}1 USD                       \\
+
+\end{tabular}
 
 
+\captionof{table}{Common storage methods with security features}
+\label{table:secure-storage}
+\end{figure}
+
+Data that users need to backup are not changing in day to day usage, but only when user creates new or additional wallet. Meaning that backing up the wallet does not need to be made frequently unlike other user data that are changed frequently e.g. documents. Verification on the other hand is more important as not only users should back up the data, they should be also able to restore them. For ease of use, users can verify integrity of the backup by actually recovering the wallet from the backup media.
+
+\subsubsection{Recommended scheme}
+Following cost effectivity of individual media types together with common backup strategy:
+\begin{itemize}
+\itemsep0em
+\item Total number of copies of data: 5
+\item Primary data source is on client device with wallet software. This source is then copied downstream to backup media.
+\item All copies of the data should be encrypted using file level encryption regardless of the security the device e.g. by popular opensource tool like VeraCrypt.
+\item Local copy
+\begin{itemize}
+\itemsep0em
+\item Located on disk with full volume encryption e.g. by Bitlocker.
+\item Paper backup in secure container at hidden place.
+\end{itemize}
+\item Offsite copy
+\begin{itemize}
+\itemsep0em
+\item Located on the flash drive with full volume encryption.
+\item Located on the DVD as encrypted file.
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Secure Monero usage portal}
+As a result of this chapter and Monero user research, all recommendations for secure Monero usage are compiled within one website \url{https://ownercz.github.io/ssme-thesis-portal/}. %TODO UPDATE LINK.
+
+
+\begin{figure}[H]
+\begin{center}
+
+    
+ \includegraphics[trim={0 0 5px 1px},clip,width=1\textwidth]{Screenshot_7.png}
+    \caption{Monero secure usage portal}
+
+    \label{pic:moneroweb}
+\end{center}
+    \end{figure}
+    
 
 \chapter{Obtaining Monero and running the network}
 Monero mining is a process done by miners in order to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
