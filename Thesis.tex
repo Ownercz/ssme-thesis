@@ -143,6 +143,8 @@
 
 %code
 \usepackage{listings}
+\lstset{escapeinside={<@}{@>}}
+
 \usepackage{color}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -1285,6 +1287,85 @@ Complete survey is attached in chapter \ref{monero-pool-study-pdf}.
 
 \chapter{Designing secure mining environment}
 \section{Linux-based solution}
+\subsection{Kickstart installation media}
+In order to esaily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
+
+First step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into separate folder. From there navigate to \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
+\subsubsection{Isolinux.cfg file}
+Four changes are needed to get the installation process working:
+\begin{itemize}
+\itemsep0em
+\item \texttt{timeout} proprety changed from 600 to 50 (seconds * 10)
+\item Change boot menu to go straight for the install
+\item Edit paths for custom ISO image
+\item Add kickstart file entry
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+<@\textcolor{blue}{timeout 50}@>
+# only relevant part of the file is displayed
+label linux
+  menu label ^Install CentOS 7
+  <@\textcolor{blue}{menu default}@>
+  kernel vmlinuz
+  append initrd=initrd.img <@\textcolor{blue}{inst.ks=hd:LABEL=CENTOS:/ks/ks.cfg inst.stage2=hd:LABEL=CENTOS}@> quiet
+\end{lstlisting}
+\caption{Customised installator entry}
+    \label{pic:codeinjectiongui}
+\end{center}
+    \end{figure}
+\subsection{Kickstart file}
+Kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads required parameters resulting in unattended installation process \cite{leemans2015red}.
+
+Created kickstart file for Centos 7 mining installation media is avaiable at figure \ref{fig:kickstart}. 
+
+\subsection{Generating ISO}
+Specific process of packaging extracted Centos installation media back into the iso file varies by used operating system. In both mentioned scenarios, few specific parameters have to be set:
+\begin{itemize}
+\itemsep0em
+\item Boot image file \texttt{/isolinux/isolinux.bin}
+\item Updated boot information table
+\item Volume label for ISO9660 and UDF set to \texttt{CENTOS} (depends on configuration that is set in \texttt{isolinux.cfg} file).
+\end{itemize}
+\subsubsection{Windows}
+For creating iso image on Windows, opensource Imgburn software was used. 
+
+\iffalse
+\begin{figure}[H]
+\begin{center}
+
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.71\textwidth]{Screenshot_16.png}
+    \caption{Volume label has to correspond with entry in \texttt{isolinux.cfg} file.}
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+\fi
+\begin{figure}[H]
+\begin{center}
+\vspace{-1em}
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.71\textwidth]{Screenshot_17.png}
+    \caption{Boot image selection.}
+
+    \label{pic:withoutresdrawable}
+\end{center}
+    \end{figure}
+
+
+\subsubsection{Linux}
+Once files are prepared, packaging into the iso at linux is done by one liner command:
+
+
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -boot-load-size 4 -boot-info-table -R -J -v -T isolinux/
+\end{lstlisting}
+\caption{ISO packaging under Linux.}
+    \label{pic:codeinjectiongui}
+\end{center}
+    \end{figure}
 Ansible, Centos 7
 \section{Windows-based solution}
 Windows 10 ISO unattended install, Powershell scripts, XMR-stak
@@ -1324,6 +1405,71 @@ Month     & Task                                              \\
 \includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
 \label{monero-pool-study-pdf}
 \includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
+
+\section{Kickstart file}
+\label{kickstart}
+\begin{lstlisting}
+#version=DEVEL
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# Use network installation
+url --url="http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/"
+repo --name="base" --baseurl=http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/
+# Use graphical install
+graphical
+# Run the Setup Agent on first boot
+firstboot --enable
+ignoredisk --only-use=sda
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts='us'
+# System language
+lang en_US.UTF-8
+
+# Network information
+network  --bootproto=dhcp --device=ens192 --ipv6=auto --activate
+network  --bootproto=dhcp --hostname=changeme.lipovcan.cz
+# Reboot after installation
+reboot
+# Root password
+rootpw --iscrypted $6$jtf4WZQD/5Ozocag$5UcoItitnW58zDBA3k.itRf7ozUA391
+# System services
+services --enabled="chronyd"
+# System timezone
+timezone Europe/Prague --isUtc --ntpservers=tik.cesnet.cz
+# System bootloader configuration
+bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=sda
+autopart --type=lvm
+# Clear the Master Boot Record
+zerombr
+# Partition clearing information
+clearpart --all --initlabel
+
+%packages
+@^minimal
+@core
+chrony
+kexec-tools
+kexec-tools
+
+%end
+
+%addon com_redhat_kdump --enable --reserve-mb='auto'
+
+%end
+
+%anaconda
+pwpolicy root --minlen=6 --minquality=50 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=50 --notstrict --nochanges --notempty
+pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
+%end
+\end{lstlisting}
+
+\begin{figure}[H]
+\center
+\caption{Centos 7 kickstart file}
+\label{fig:kickstart}
+\end{figure}
+
  %% Start the appendices.
 %\chapter{Zdroje k tabulce 2.2}
 %dash https://bitcointalk.org/index.php?topic=1562109.0
