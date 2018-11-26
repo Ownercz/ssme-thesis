@@ -1407,16 +1407,37 @@ To provision mining nodes with software and configuration, Ansible get following
   \caption{Ansible prepared roles.}
 \end{figure}
 %\begin{subfigure}{.5\textwidth}
-\texttt{Xmr01.yml} represents a playbook file that defines what group of nodes will be provisioned together with list of roles that will be applied to them. \\
-\texttt{Hosts} file contains groups of hosts with information how Ansible can connect to them.\\
-\texttt{Ansible.cfg} was used only in testing environment where host key checking was disabled.\\
-\texttt{Roles} folder cointains roles that are applied when running the playbook.
- % \label{fig:sub2}
-%\end{subfigure}
-%
-%\label{fig:test}\caption{Ansible playbook and roles.}
-%\end{figure}
+\begin{itemize}
+\itemsep0em
+\item \texttt{Xmr01.yml} represents a playbook file that defines what group of nodes will be provisioned together with list of roles that will be applied to them. \\
+\texttt{Hosts} file contains groups of hosts with information how Ansible can connect to them.
+\item \texttt{Ansible.cfg} was used only in testing environment where host key checking was disabled.
+\item \texttt{Roles} folder contains roles that are applied when running the playbook.
+\end{itemize}
 
+\subsection{Ansible roles}
+In order to making Linux mining nodes usable and secure, following roles were written:
+\subsubsection{ansible-sw-common-apps}
+Common baseline for all mining nodes that consists of following tasks:
+\begin{enumerate}
+\itemsep0em
+\item Ensure EPEL repo is configured or install it.
+\item Install following packages: \texttt{htop, rsync, screen, tmux, iftop, iotop, nano, git, wget, unzip, mc}.
+\end{enumerate}
+\subsubsection{ansible-sw-firewalld}
+Installs and enables firewalld service that has default policy for connections set for public network and accepts incomming connections only for SSH service.
+\subsubsection{ansible-sw-ntp}
+To report correct information through web interface of the mining software, target machine has to be in sync with NTP servers in order to do that, role establishes following:
+\begin{enumerate}
+\itemsep0em
+\item Package \texttt{ntpdate} installed from repo.
+\item Ensures correct timezone using \texttt{timedatectl} interface.
+\item Creates daily cronjob for synchronisation of system time.
+\end{enumerate}
+\subsubsection{ansible-sw-postfix}
+Sets up email gateway for correct email delivery together with internal mail aliases mapped to single outbound address. Email gateway can can deliver email on its own to the recipients server or can also act as relay to Gmail account that is used for sending out emails. 
+
+Using Gmail account is prefered as it limits 500 outbound emails a day for a single account and public facing connection IP of the miners will not get flagged for spam.
 Ansible, Centos 7
 \section{Windows-based solution}
 \subsection{Installation media}
