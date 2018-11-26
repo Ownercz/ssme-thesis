@@ -167,6 +167,12 @@
   breakatwhitespace=true,
   tabsize=3
 }
+
+%dirtree
+\usepackage{dirtree}
+
+%captions
+\usepackage{subcaption}
 \begin{document}
 
 \chapter{Introduction}
@@ -1291,6 +1297,8 @@ Complete survey is attached in chapter \ref{monero-pool-study-pdf}.
 In order to esaily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
 
 First step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into separate folder. From there navigate to \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
+
+For reference \texttt{CentOS-7-x86_64-Minimal-1804.iso} was used in following steps.
 \subsubsection{Isolinux.cfg file}
 Four changes are needed to get the installation process working:
 \begin{itemize}
@@ -1332,25 +1340,26 @@ Specific process of packaging extracted Centos installation media back into the 
 \subsubsection{Windows}
 For creating iso image on Windows, opensource Imgburn software was used. 
 
-\iffalse
+%\iffalse
 \begin{figure}[H]
+\begin{subfigure}{.5\textwidth}
+%\includegraphics[trim=left bottom right top, clip]{file}
 \begin{center}
 
- \includegraphics[trim={0 1.8cm 0 0},clip,width=0.71\textwidth]{Screenshot_16.png}
-    \caption{Volume label has to correspond with entry in \texttt{isolinux.cfg} file.}
+ \includegraphics[trim={9.1cm 3cm 0.4cm 3cm},clip,width=.8\textwidth]{Screenshot_16.png}
+    \caption{Volume label.}
     \label{pic:withoutresdrawable}
-\end{center}
-    \end{figure}
-\fi
-\begin{figure}[H]
+ \label{fig:sub1}\end{center}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
 \begin{center}
-\vspace{-1em}
- \includegraphics[trim={0 1.8cm 0 0},clip,width=0.71\textwidth]{Screenshot_17.png}
+
+ \includegraphics[trim={9.1cm 3cm 0.4cm 3cm},clip,width=.8\textwidth]{Screenshot_17.png}
     \caption{Boot image selection.}
-
-    \label{pic:withoutresdrawable}
 \end{center}
-    \end{figure}
+\end{subfigure}
+\label{fig:test}\caption{Ansible playbook and roles.}
+\end{figure}
 
 
 \subsubsection{Linux}
@@ -1366,8 +1375,57 @@ mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -bo
     \label{pic:codeinjectiongui}
 \end{center}
     \end{figure}
+    
+%Installation to the target mining machine from this media can be done using optical media, USB drive that has the ISO unpackaged (e.g. using Rufus available from \url{rufus.ie}) or PXE boot (e.g. using open source network boot firmware iPXE available from \url{ipxe.org}).
+    
+\subsection{Setting up OS using Ansible}
+Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. After installation of the ISO that was prepared with the kickstart file, target machine is accepting SSH connections under root account using password based authentification. Without proper configuration, this would leave machine open to bruteforce attempts for root account.
+
+To provision mining nodes with software and configuration, Ansible get following set of files:
+
+\begin{figure}[H]
+%\begin{subfigure}{.5\textwidth}
+\dirtree{%
+.1 /.
+.2 xmr01.yml.
+.2 hosts.
+.2 ansible.cfg.
+.2 roles/.
+.3 ansible-sw-common-apps.
+.3 ansible-sw-firewalld.
+.3 ansible-sw-ntp.
+.3 ansible-sw-postfix.
+.3 ansible-sw-sshsec.
+.3 ansible-sw-xmrstak.
+.3 ansible-sys-hostname.
+.3 ansible-user-add.
+.3 ansible-yum-cron.
+.3 ansible-yum-update.
+}
+
+  \label{fig:sub1}
+  \caption{Ansible prepared roles.}
+\end{figure}
+%\begin{subfigure}{.5\textwidth}
+\texttt{Xmr01.yml} represents a playbook file that defines what group of nodes will be provisioned together with list of roles that will be applied to them. \\
+\texttt{Hosts} file contains groups of hosts with information how Ansible can connect to them.\\
+\texttt{Ansible.cfg} was used only in testing environment where host key checking was disabled.\\
+\texttt{Roles} folder cointains roles that are applied when running the playbook.
+ % \label{fig:sub2}
+%\end{subfigure}
+%
+%\label{fig:test}\caption{Ansible playbook and roles.}
+%\end{figure}
+
 Ansible, Centos 7
 \section{Windows-based solution}
+\subsection{Installation media}
+For Windows scenario, Win10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created. There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all instalation steps for Windows 10 installer.
+
+This process of Windows image customisation can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as administrator can bundle applications and drives in the image.
+
+For this guide, generating \texttt{autounattend.xml} file will be done using online xml generator located at \url{windowsafg.com}. Prepared file for installation is located in digital 
+
 Windows 10 ISO unattended install, Powershell scripts, XMR-stak
 
 \chapter{Plan}
