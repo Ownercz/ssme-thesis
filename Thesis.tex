@@ -1292,6 +1292,58 @@ Complete survey is attached in chapter \ref{monero-pool-study-pdf}.
 
 
 \chapter{Designing secure mining environment}
+\section{Automation}
+Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. In order to do that, proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is automated configuration of provisioned nodes using Ansible. Workflow is described in figure \ref{pict:deployment-workflow}.
+\begin{figure}[H]
+\center
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{userA} = [rectangle, draw, fill=ao(english)!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{userB} = [rectangle, draw, fill=azure(colorwheel)!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{userC} = [rectangle, draw, fill=darkorange!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{lineuserA} = [draw, very thick, color=ao(english)!80, -latex']
+
+\tikzstyle{lineuserB} = [draw, very thick, color=azure(colorwheel)!80, -latex']
+\tikzstyle{lineuserC} = [draw, very thick, color=darkorange!80, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
+    minimum height=2em]
+
+\begin{tikzpicture}[scale=2, node distance = 0.4cm, auto]
+\shorthandoff{-}
+    % Place nodes
+    \node [userA,text width=3cm,minimum width=3cm] (userA1) {\parbox{3cm}{\centering Automated OS installation by \texttt{kickstart or unattend} files.}};
+    \node [userB, right of=userA1, node distance=4cm, text width=2.5cm,minimum width=2.5cm] (userB1)    {\parbox{2.5cm}{\centering Software provisioning using Ansible. }};
+    \node [userC, right of=userB1, node distance=4cm, text width=2.5cm,minimum width=2.5cm] (userC1)    {\parbox{2.5cm}{\centering Periodic updates using Ansible. }};
+        
+   % \node [block, below of=init, node distance=2.5cm,text width=3cm,minimum width=3cm] (identify) {\parbox{3cm}{\centering Repackaging by reseller}};
+%    \node [block, below of=identify, node distance=2.5cm,text width=3cm,minimum width=3cm] (evaluate) {\parbox{3cm}{\centering HW wallet bought by enduser}};
+ %   \node [cloud, left of=identify, node distance=5cm] (update) {\parbox{3cm}{\centering Malicious scratchpad with seed  }};
+  %  \node [block, below of=evaluate, node distance=2.5cm,text width=3cm,minimum width=3cm] (attacker) {\parbox{3cm}{\centering Attacker's database of wallets}};
+    % Draw edges
+        \path [lineuserA] (userA1) -- (userB1);
+        %\path [lineuserB] (userB1) to[in=15,out=165,looseness=0]   (userA1);
+        \path [lineuserB] (userB1) --  (userC1);
+        \path [lineuserC] (userC1) to[in=35,out=145,looseness=1.8]   (userC1);
+   % \path [line] (identify) -- (evaluate);
+   %\path [line] (expert) -- (init);
+  % \path [lineuserA] (userA2) |- (userB2);
+\end{tikzpicture}
+\caption{Deployment nodes workflow.}
+\label{pict:deployment-workflow}
+\end{figure}
+\section{Ansible introduction}
+\textbf{Ansible} is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
+\\
+\textbf{Playbook} is an YAML formatted file that provides declaration of hosts and plays that are executed when running the playbook. 
+\\
+\textbf{Hosts} file declares connection information about hosts e.g. IP, login credentials.
+\\
+\texttt{\textbf{ansible-playbook -i hosts xmr01.yml}} is a CLI command that executes  \texttt{xmr01.yml} playbook file and takes connection information about hosts and groups involved from \texttt{hosts} file.
+\newpage
+
 \section{Linux-based solution}
 \subsection{Kickstart installation media}
 In order to esaily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
@@ -1379,7 +1431,8 @@ mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -bo
 %Installation to the target mining machine from this media can be done using optical media, USB drive that has the ISO unpackaged (e.g. using Rufus available from \url{rufus.ie}) or PXE boot (e.g. using open source network boot firmware iPXE available from \url{ipxe.org}).
     
 \subsection{Setting up OS using Ansible}
-Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. After installation of the ISO that was prepared with the kickstart file, target machine is accepting SSH connections under root account using password based authentification. Without proper configuration, this would leave machine open to bruteforce attempts for root account.
+%Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
+After installation of the ISO that was prepared with the kickstart file, target machine is accepting SSH connections under root account using password based authentification. Without proper configuration, this would leave machine open to bruteforce attempts for root account.
 
 To provision mining nodes with software and configuration, Ansible get following set of files:
 
@@ -1437,17 +1490,132 @@ To report correct information through web interface of the mining software, targ
 \subsubsection{ansible-sw-postfix}
 Sets up email gateway for correct email delivery together with internal mail aliases mapped to single outbound address. Email gateway can can deliver email on its own to the recipients server or can also act as relay to Gmail account that is used for sending out emails. 
 
-Using Gmail account is prefered as it limits 500 outbound emails a day for a single account and public facing connection IP of the miners will not get flagged for spam.
-Ansible, Centos 7
+Using Gmail account is prefered as this solucion is internet service provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
+
+Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext. This can be make more secure if credentials file has apropriate permissions e.g. ownership set to root, group to wheel and chmod changed to 0600.
+
+\subsubsection{ansible-sw-sshsec}
+Takes care about incomming SSH connections in case somebody wants to try bruteforce attack on the mining machine. After predefined amount of failed login attempts, incomming IP address is put into "jail". 
+
+Under the hood, fail2ban monitors sshd log for incomming failed attempts and after certain treshold creates firewalld rule to block the IP for predefined amount of time. Default settings for this rule is relatively strict, 3 failed attempts in 10 hour window result in a 10 hour ban for incomming connections from the IP address. 
+
+This role is fork of \texttt{ansible-role-fail2ban} that is available at \url{https://github.com/resmo/ansible-role-fail2ban}.
+
+%TODO prolézt všechny role a zkontrolovat default vars
+\subsubsection{ansible-sw-xmrstak}
+Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
+
+After that, folder structure inside non-priviledged user account is created and XMR-Stak repo is cloned into user directory. With apropriate permissions set, cmake compiles source with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpenCL_ENABLE\newline =OFF} resulting in CPU only miner for Centos.
+
+If mining node would use GPU, apropriate drivers from AMD or Nvidia website are prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU_ENABLE=\{\{ DCPU_ENABLE \}\} -DCUDA_ENABLE=\{\{ \newline DCUDA_ENABLE \}\} -DOpenCL_ENABLE=\{\{ DOpenCL_ENABLE \}\}}
+
+As next step, role copies over to the node cpu, pool and miner configuration and creates crontab entry for automatic miner start. For final touch, hugepages are set to \texttt{vm.nr_hugepages=128} in \texttt{/etc/sysctl.conf} for CPU mining memory allocation and sysctl is reloaded.
+\subsubsection{ansible-sys-hostname}
+Changes system hostname to inventory hostname set in \texttt{hosts} file using \texttt{hostnamectl} Ansible module.
+\subsubsection{ansible-user-add}
+User add role is used for creating the mining user that is not within wheel group (unpriviledged user). 
+\subsubsection{ansible-yum-cron}
+Installs and configures automatic security updates for Centos that are daily checked against online repository. If security update is found, email notification to root is sent.
+\subsubsection{ansible-yum-update}
+All packages including kernel are updated so that mining node is ready to use and won't send update notification on the next day (unless there are new updates in the meantime).
+\subsubsection{Additional notes}
+Roles are installed in order specified in \texttt{xmr01.yml} file as system update is done as first to prevent any problems with XMR-Stak compilation. 
+
+Using root account login on SSH is not recommended as the proper way would be to disable root login in \texttt{/etc/sshd_config} and login to SSH using created non-priviledged user account (ideally using ssh-key based authentification). 
+
+Later if user needs to login as user, this can be done by \texttt{su root} command. To minimize chance of success bruteforce attack of the root account using SSH, fail2ban is set to strict mode. Altough this is not the most secure way to access the system, with above settings this acts as compromise between security and usability of the mining operation.
+
+
+
+
+%Ansible, Centos 7
 \section{Windows-based solution}
 \subsection{Installation media}
-For Windows scenario, Win10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created. There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all instalation steps for Windows 10 installer.
+For Windows scenario, Win10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created.
+
+There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all instalation steps for Windows 10 installer.
+
+
 
 This process of Windows image customisation can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as administrator can bundle applications and drives in the image.
 
-For this guide, generating \texttt{autounattend.xml} file will be done using online xml generator located at \url{windowsafg.com}. Prepared file for installation is located in digital 
+For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file a block of commands that is executed after first logon was added. For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. 
+\begin{figure}[H]
+\begin{center}
+\begin{lstlisting}
+	<SynchronousCommand wcm:action="add">
+   		<CommandLine>powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\ .NetFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -Type DWord"</CommandLine>
+        <Description>Set PowerShell ExecutionPolicy</Description>
+        <Order>42</Order>
+        <RequiresUserInput>true</RequiresUserInput>
+        </SynchronousCommand>
+\end{lstlisting}
+\caption{More than 20 commands are executed after first logon to prepare the environment.}
+    \label{fig:securecrypto}
+\end{center}
+    \end{figure} 
+In default state Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. In order to fix that, one of the commands after first logon is dedicated to this issue as shown in figure \ref{fig:securecrypto}.
 
-Windows 10 ISO unattended install, Powershell scripts, XMR-stak
+After finishing the installation process and provisioning the Windows environment with \texttt{<FirstLogonCommands>} included in the unattended file, Ansible can connect to the Windows machine and set up thing properly. 
+
+Note that installer opens RDP, WinRM, temporarily disables Windows Firewall (which will be properly configured by Ansible later) and sets up self signed WinRM HTTPS certificate using Ansible Powershell file \texttt{ConfigureRemotingForAnsible.ps1} \cite{ansibleremoteps}. Mining node has to be connected to the network to  download all required files poperly.
+
+\subsection{Ansible at Windows}
+Before applying roles in Ansible for Windows, unlike in Ansible with Linux machines, environment for both Windows and Linux controller has to be prepared.
+ 
+\textbf{Windows} needs to have WinRM set up, this is already done as it was part of the installation process where Ansible Powershell script set up HTTPS WinRM environment \cite{windowshostansible}.
+
+\textbf{Linux} doesn't have Ansible modules for Windows in default Ansible install. Those can be install using package manager, e.g.:
+\vspace{-0.7em}
+\begin{itemize}
+\itemsep0em
+\item Ubuntu:
+\begin{itemize}
+\itemsep0em \vspace{-0.7em}
+\item Python 2: apt-get install python-winrm
+\item Python 3: apt-get install python3-winrm
+\end{itemize}
+\item Centos:
+\begin{itemize}
+\itemsep0em \vspace{-0.7em}
+\item With EPEL enabled: yum install python2-winrm
+\end{itemize}
+\item Or using PIP:
+\begin{itemize}
+\itemsep0em  \vspace{-0.7em}
+\item pip install pywinrm
+\end{itemize}
+\end{itemize}
+
+\subsection{Ansible roles}
+Once Ansible is ready to launch \texttt{xmratwin.yml} playbook, following roles are played:
+\begin{figure}[H]
+%\begin{subfigure}{.5\textwidth}
+\dirtree{%
+.1 /.
+.2 xmratwin.yml.
+.2 hosts.
+.2 ansible.cfg.
+.2 roles/.
+.3 ansible-win-sec.
+.3 ansible-win-updates.
+.3 ansible-win-xmrstak.
+}
+
+  \label{fig:sub1}
+  \caption{Ansible roles for Windows.}
+\end{figure}
+\subsubsection{ansible-win-sec}
+Sets up firewall rules for RDP, WinRM and XMR-Stak web interface, enables Windows firewall for all zones.
+\subsubsection{ansible-win-updates}
+Windows update policy is set to download and notify for install as Windows updates are managed by this Ansible role. 
+
+Administrator can be configure which updates category will be included in the updates, in default role install updates from \texttt{SecurityUpdates} and \texttt{CriticalUpdates} category. This can be changed using variable \texttt{UpdateEverything} in playbook.
+\subsubsection{ansible-win-xmrstak}
+Downloads latest release of XMR-Stak from developers GitHub page, configures mining software and downloads required libraries from Microsoft site. It also creates scheduled task under mining user to run with elevated permissions after logon so that UAC can be kept enabled and miner is running normally. 
+
+Also adds exeption in Windows Defender to ignore Desktop folder as binary XMR-Stak file is considered as malicious file for being a mining software.
+
 
 \chapter{Plan}
 
