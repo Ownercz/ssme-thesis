@@ -182,11 +182,11 @@
 %% Komentář Radim 13.07: Kapitola s pojmy - udělám zvlášť krátkou, ve které popíšu tyto základní principy, ještě tedy před Monero Cryptocurrency kapitolou. Monero specific věci pak budou popsány už pod Monerem.
 %% Komentář Radim 13.07: Po domluvě mailem tedy začnu psát Anglicky. Dotazníky budou ve dvou jazykových mutacích - ENG a CZ. Hlavně kvůli CZ komunitě těžařů a pool operátorům - https://bohemianpool.com/#/home bych dal i tu češtinu.
 \chapter{Cryptocurrency}
-\textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralisation is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
+\textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralization is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
 
 \textbf{Altcoin} is a term used for every cryptocurrency that is not Bitcoin as it is a direct concurrent for the first of the cryptocurrency.
 
-The \textbf{fork} happens when developers create a copy of existing project codebase and start their individual path of development with it. 
+The \textbf{fork} happens when developers create a copy of existing project codebase and start their path of development with it. 
 
 \textbf{Market Cap} is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
 
@@ -194,24 +194,24 @@ The \textbf{fork} happens when developers create a copy of existing project code
 
 \textbf{Transactions} within cryptocurrency are processed together as blocks that are verified by miners and then added to the blockchain as a new mined block.
 
-\textbf{The wallet} is a storage medium that holds private and public keys by which user can access, send and receive funds. Wallet effectively does not have the coins but is rather a key to access them from the blockchain.
+\textbf{The wallet} is a storage medium that holds private and public keys by which the user can access, send and receive funds. Wallet effectively does not have the coins but is rather a key to access them from the blockchain.
 
 \textbf{Node} is a computer connected to the cryptocurrency network. Node is often referred to as a full node which means that the computer maintains a full copy of blockchain. This results in node downloading every block and transaction and checking them against cryptocurrency rules, especially whether the transaction has correct signatures, data format and the right number of emitted coins per block.
 
-\textbf{Mining} process is done by miners that verifies transactions on the network and adds them to the blockchain together in form of a block which results in new coins being emitted as a reward for block solving.
+\textbf{The mining} process is done by miners that verify transactions on the network and adds them to the blockchain together in the form of a block which results in new coins being emitted as a reward for block solving.
 
 \textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
 
 \chapter{Monero Cryptocurrency}
-Monero is an open-source cryptocurrency that is developed under the Monero project in order to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over own funds.
+Monero is an open-source cryptocurrency that is developed under the Monero project to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over own funds.
 
 Meaning that every single digital transaction and the exact number of coins in users wallet cannot be traced back to the user without sharing the view key of the transaction \cite{moneroprojectgithub}. Main distinctive points compared to other cryptocurrencies are:
 
 \begin{itemize}\itemsep0em
 \item The blockchain is public, but a large part of it is encrypted.
-\item The sender of the transaction is hidden by using Ring Signatures explained in chapter  \ref{sec:ringsignatures}.
+\item The sender of the transaction is hidden by using Ring Signatures explained in the chapter  \ref{sec:ringsignatures}.
 \item The exact amount of transferred coins is encrypted using RingCT as described in \ref{sec:ringct}.
-\item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in chapter \ref{sec:stealthaddresses}.
+\item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in the chapter \ref{sec:stealthaddresses}.
 \end{itemize}
 
 \section{Origin and the main focus}
@@ -220,9 +220,7 @@ Monero started its way by forking from Bytecoin, which was proof-of-concept cryp
 Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}. That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
 
 Next important moment was when a significant part of the developers decided to abandon the project in favor of creating a new fork named Monero in 06.23.2014. By this action, Monero cryptocurrency was created with publicly known blockchain from the start, strictly defined goals and motivated team of developers \cite{monerofork}.
-%%Komentář Vlasta 15.10.: 
-06.23.2014 je hrozne divny format datumu, koukni sem:
-https://dictionary.cambridge.org/grammar/british-grammar/writing/dates
+%%Komentář Vlasta 15.10.: 06.23.2014 je hrozne divny format datumu, koukni sem: https://dictionary.cambridge.org/grammar/british-grammar/writing/dates
 
 %% Komentář Vlasta 10.7.: Návrh: v téhle kapitole by bylo moc hezká nějaká přehledová tabulka cca 5 největších kryptoměn, kde bys je porovnal podle vybraných kriterii. Třeba kriterium "Množství odesílané měny je šifrováno" by bylo v sloupečku a v pro každou kryptoměnu na řádek vyznačil, zda to splňuje nebo ne. Bylo by pak přehledně vidět čím je Monero tak vyjimečné a jak jsou na tom v těhle kriteriích ostatní kryptoměny.
 
@@ -293,7 +291,7 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes               
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \end{figure}
-Information sources used in table \ref{table:monero-alternatives} and in the picture \ref{pict:monero-alternatives-codebase}:\\
+Information sources used in table \ref{table:monero-alternatives} and the picture \ref{pict:monero-alternatives-codebase}:\\
 Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
 \iffalse
 \begin{figure}[H]
@@ -375,7 +373,7 @@ Monero wallet seed is 95 characters long string that consists of public view and
 
 This one-time public key is also referred to as a stealth address and is generated and recorded as part of the transaction to set the controller of the output of the transaction \cite{seguias2018monero}.
 
-Stealth address is visible on the blockchain, by this receiving party can scan the blockchain to find exact transaction using their private view key. After locating transaction output, wallet software is then able to calculate one-time private key that aligns with one-time public key and can spend this output using private spend key \cite{courtois2017stealth}.
+Stealth address is visible on the blockchain, by this receiving party can scan the blockchain to find exact transaction using their private view key. After locating transaction output, wallet software is then able to calculate one-time private key that aligns with the one-time public key and can spend this output using private spend key \cite{courtois2017stealth}.
 
 By this, no one from outside can link nor wallet addresses nor people involved in a particular transaction by scanning the blockchain as there is no association with receivers address.
 
@@ -383,7 +381,7 @@ To prove that funds were sent from one wallet to another, the sender has to disc
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
-Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
+Ring signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, the outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the ring signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
@@ -722,12 +720,12 @@ There are three main problems concerns in Monero environment :
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
 As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} available at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
-Because of this targeting, they had to choose another cryptocurrency to solve this problem and the solution was Monero \cite{cusack2018points}.
+Because of this targeting, they had to choose another cryptocurrency to solve this problem, and the solution was Monero \cite{cusack2018points}.
 
 \subsubsection{Scam portals}
 As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
-Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. Best known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that go missing from user's accounts \cite{wijayamonero}.
+Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that that are reported as missing from user's accounts \cite{wijayamonero}.
 \subsubsection{Crypto-jacking attack}
 Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
 Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is more profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
@@ -782,11 +780,11 @@ Following this pattern, four research questions were set:
 \section{Participants and survey's background}
 The significant characteristic of Monero is its anonymity, and this feature is not taken by community lightly. Due to this fact, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. In order to allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
+This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Monero groups as well as Cryptocurrency forums.
 
-In order to reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Monero recovery part stayed hidden in the form if the user selected that he/she had never made any recovery of the seed or wallet keys in the previous part. 
+To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Monero recovery part stayed hidden in the form if the user selected that he/she had never made any recovery of the seed or wallet keys in the previous part. 
 
 The complete survey is attached in the chapter \ref{monero-user-study-pdf}.
 
@@ -794,14 +792,14 @@ The complete survey is attached in the chapter \ref{monero-user-study-pdf}.
 \section{Results international, CZ}
 
 \chapter{Monero usage and storage best practices}
-Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly in order to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
+Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
 
 Following scenarios represent secure and easy to use instructions for a new Monero user.
 
 \section{Generating the keys and accessing the wallet}
-First challenge for Monero users is generating keypairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As choice of client wallet software is fundamental for users Monero in terms of user experience and security standpoint, following sections are dedicated to avaiable wallet software.
+The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
 \subsection{Windows and Linux platform}
-The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using the client users are able to generate the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
+The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using the client users can generate the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
 \begin{figure}[H]
 \begin{center}
   %  \vspace{-0.8em}
@@ -833,7 +831,7 @@ Generating new wallet...
 Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. 
 
    
-Code injection was successfully tested on GUI binary of the official Monero wallet as seen in figure \ref{pic:codeinjectiongui}. Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes of the downloaded software with tools like PowerShell using \texttt{Get-FileHash ./monero-wallet-gui.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. GPG-signed list of the hashes is avaiable on the website altough there are no instructions how to verify PGP signature itself.
+Code injection was successfully tested on GUI binary of the official Monero wallet as seen in the figure \ref{pic:codeinjectiongui}. Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes of the downloaded software with tools like PowerShell using \texttt{Get-FileHash ./monero-wallet-gui.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. GPG-signed list of the hashes is available on the website although there are no instructions on how to verify PGP signature itself.
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -857,23 +855,23 @@ There are also alternative approaches to key generation like an offline javascri
 
 \subsection{Hardware wallet}
 
-Hardware way is considered to be in the development, but Monero compatibile devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
+Hardware way is considered to be in the development, but Monero compatible devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
 
-In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself and user can only export private view key from the device to view the balance in full CLI/GUI client.
+In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself, and user can only export private view key from the device to view the balance in full CLI/GUI client.
 
-This way, user has private spend key always on the device and client PC has only private view key. To sign a transaction, user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of security breach on the host computer, there is no Monero to steal.
+This way, the user has private spend key always on the device, and client PC has only private view key. To sign a transaction, the user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of a security breach on the host computer, there is no Monero to steal.
 
 \subsection{Wallet software for mobile devices}
 
-Monero has wallet software avaiable for Android as well as iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the users device and restore can be done without third party techsupport.
+Monero has wallet software available for Android as well as the iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the user's device and restore can be done without third-party tech support.
 
-\textbf{Monerojuro} is an open source Android wallet application that is avaiable on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from sourcecode themselves. Wallet keys storage is based on the device only and the app encourages users to backup their seed \cite{xmrwalletgithub}.
+\textbf{Monerojuro} is an open source Android wallet application that is available on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from source code themselves. Wallet keys storage is based on the device only, and the app encourages users to back up their seed \cite{xmrwalletgithub}.
 
-\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. In terms of overall usability this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed etc. User is instead instructed to create a Freewallet account which acts as a wallet \cite{freewallet}. 
+\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. Regarding overall usability, this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed, etc. The user is instead instructed to create a Freewallet account which acts as a wallet \cite{freewallet}. 
 
-By this, user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of service provider, Freewallet.org. This fact is often emphasised in Monero community as the user that does not control the keys, does not controll the wallet. Also source code is not publicly avaiable for community to review.
+By this, the user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of the service provider, Freewallet.org. This fact is often emphasized in Monero community as the user that does not control the keys does not control the wallet. Also, the source code is not publicly available for the community to review.
 
-\textbf{Cake Wallet} represents open source  Monero wallet for iOS that provides wallet generation and local keypair storage with remote node connection and synchronization \cite{cakewalletgithub}.
+\textbf{Cake Wallet} represents open source Monero wallet for iOS that provides wallet generation and local key pair storage with remote node connection and synchronization \cite{cakewalletgithub}.
 
 Guideline for secure wallet access is described in section \ref{sec:wallettypes}. 
 
@@ -900,27 +898,27 @@ Cake Wallet   & iOS           & Open Source   & Keypair is stored locally  User 
 
 
 \section{Secure storage system}
-Wallet keys are everything when it comes to cryptocurrency usage. Who has the keys, controlls the wallet and can view or transfer balance to another addresses. If user looses wallet keys, Monero wallet can still be recovered using mnemonic seed that should be saved on another storage medium. 
+Wallet keys are everything when it comes to cryptocurrency usage. Who has the keys, controls the wallet and can view or transfer the balance to another address. If user loses wallet keys, Monero wallet can still be recovered using mnemonic seed that should be saved on another storage medium. 
 
-This section describes possible ways of backing-up wallet keys. Primary storage media security is compared in figure \ref{fig:walletstorage}.
+This section describes possible ways of backing-up wallet keys. Primary storage media security is compared in the figure \ref{fig:walletstorage}.
 \subsubsection{Data characteristics}
-As described in section \ref{sec:wallets}, Monero wallet consists of encrypted \texttt{wallet.keys} file that contains private spend and view keys. Size of this file is less than a few kilobytes. 
+As described in the section \ref{sec:wallets}, Monero wallet consists of an encrypted \texttt{wallet.keys} file that contains private spend and view keys. Size of this file is less than a few kilobytes. 
 
 Another type of data that is presented to the user is mnemonic seed. Seed can be used for recovery when wallet file is lost and consists of 25 words with the last one being used for checksum. 
 
 In total, Monero wallet requires less than 8 kilobytes for key and seed storage. This results in minimal space requirements for backup storage media.
 
 \subsubsection{Backup strategy}
-Best practice for backups that isn't too demanding on user side is 3-2-1 strategy that is considered in industry as bare minimum for keeping the data safe \cite{storage2012data}. 
+Best practice for backups that isn't too demanding on the user side is the 3-2-1 strategy that is considered in the industry as a bare minimum for keeping the data safe \cite{storage2012data}. 
 \begin{itemize}
 \itemsep0em
 \item 3 means having at least 3 copies of your data in total.
-\item 2 of them are local, but stored on different media types.
+\item 2 of them are local but stored on different media types.
 \begin{itemize}
 \itemsep0em
-\item This can be represented as combination of SSD and tape.
+\item This can be represented as a combination of SSD and tape.
 \end{itemize}
-\item 1 is offsite, geographicaly different location.
+\item 1 is offsite, geographically different location.
 \begin{itemize}
 \itemsep0em
 \item E.g. in the next building, different facility, another city.
@@ -933,10 +931,10 @@ In short, this means when your building with external drive burns down and your 
 \begin{tabular}{p{0.1\linewidth}p{0.4\linewidth}p{0.25\linewidth}p{0.15\linewidth}}
 \textbf{Media type} & \textbf{Available key security}                                    & \textbf{Usage}                                   & \textbf{Average pricing}      \\
 HDD, SSD            & File and volume encryption, can be automated                       & Manual transfer from master to external media    & 20-40 USD                              \\
-Optical media       & File based encryption before creating the media, manual process            & For each copy of data, new disc has to be used   & \textless{}1 USD                       \\
-Tape                & Hardware assisted drive encryption, software based encryption       & Specialised backup tape software                 & 4500 USD (tape + drive) \\
-NAS                 & File based encryption on the client side using encryption software or NAS feature & Manual or automatic transfer to network share    & 200-400 USD                            \\
-Cloud drive       & File based encryption on the client side using encryption software & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
+Optical media       & File-based encryption before creating the media, manual process            & For each copy of data, new disc has to be used   & \textless{}1 USD                       \\
+Tape                & Hardware assisted drive encryption, software-based encryption       & Specialised backup tape software                 & 4500 USD (tape + drive) \\
+NAS                 & File-based encryption on the client side using encryption software or NAS feature & Manual or automatic transfer to network share    & 200-400 USD                            \\
+Cloud drive       & File-based encryption on the client side using encryption software & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
 Paper               & Depends on printout content and physical storage properties        & Hiding a sheet of paper                          & \textless{}1 USD                       \\
 
 \end{tabular}
@@ -946,26 +944,26 @@ Paper               & Depends on printout content and physical storage propertie
 \label{table:secure-storage}
 \end{figure}
 
-Data that users need to backup are not changing in day to day usage, but only when user creates new or additional wallet. Meaning that backing up the wallet does not need to be made frequently unlike other user data that are changed frequently e.g. documents. Verification on the other hand is more important as not only users should back up the data, they should be also able to restore them. For ease of use, users can verify integrity of the backup by actually recovering the wallet from the backup media.
+Data that users need to backup are not changing in the day to day usage, but only when the user creates a new or additional wallet. Meaning that backing up the wallet does not need to be made frequently unlike other user data that are changed frequently, e.g., documents. Verification, on the other hand, is more important as not only users should back up the data, they should also be able to restore them. For ease of use, users can verify the integrity of the backup by actually recovering the wallet from the backup media.
 
 \subsubsection{Recommended scheme}
 Following cost effectivity of individual media types together with common backup strategy:
 \begin{itemize}
 \itemsep0em
 \item Total number of copies of data: 5
-\item Primary data source is on client device with wallet software. This source is then copied downstream to backup media.
-\item All copies of the data should be encrypted using file level encryption regardless of the security the device e.g. by popular opensource tool like VeraCrypt.
+\item The primary data source is on the client device with wallet software. This source is then copied downstream to backup media.
+\item All copies of the data should be encrypted using file-level encryption regardless of the security the device, e.g., by a popular opensource tool like VeraCrypt.
 \item Local copy
 \begin{itemize}
 \itemsep0em
-\item Located on disk with full volume encryption e.g. by Bitlocker.
-\item Paper backup in secure container at hidden place.
+\item Located on disk with full volume encryption, e.g., by BitLocker.
+\item Paper backup in a secure container at a hidden place.
 \end{itemize}
 \item Offsite copy
 \begin{itemize}
 \itemsep0em
 \item Located on the flash drive with full volume encryption.
-\item Located on the DVD as encrypted file.
+\item Located on the DVD as an encrypted file.
 \end{itemize}
 \end{itemize}
 
@@ -986,10 +984,11 @@ As a result of this chapter and Monero user research, all recommendations for se
     
 
 \chapter{Obtaining Monero and running the network}
-Monero mining is a process done by miners in order to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
+\label{cha:obtaining}
+Monero mining is a process done by miners to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
 
 Network speed is mainly determined by the average time between individual blocks. %This results in transaction process that takes up to 130s (transaction request \textless 1s, network broadcast \textless 5s and transaction processing time as a time between submission and next mined block \textless 120 seconds). 
-This results in transaction process that takes up to 130s (request =\textless 1s, broadcast =\textless 5s and max. time between blocks =\textless 120 seconds).  Transaction process is shown in figure \ref{pict:network-processing}.
+This results in the transaction process that takes up to 130s (request =\textless 1s, broadcast =\textless 5s and max. time between blocks =\textless 120 seconds).  The transaction process is shown in the figure \ref{pict:network-processing}.
 
 \begin{figure}[H]
 \center
@@ -1049,7 +1048,7 @@ This results in transaction process that takes up to 130s (request =\textless 1s
 \end{figure}
 \newpage
 \section{Mining nodes}
-As was mentioned in chapter 7, mining is the main reason for transaction processing in Monero network, and as the mining process has rewards for successfully solving the block, this encourages many different entities to mine.
+As was mentioned in the beginning of the chapter \ref{cha:obtaining}, mining is the main reason for transaction processing in Monero network, and as the mining process has rewards for successfully solving the block, this encourages many different entities to mine.
 Since Bitcoin started to gain popularity, mining has divided into five categories, that are described in the following sections:  
 \iffalse
 \begin{itemize}\topsep0em\parskip0em\parsep0em
@@ -1238,13 +1237,13 @@ Following this pattern, five research questions were set:
 \section{Participants and survey's background}
 As mentioned in chapter \ref{cha:monerouserresearch}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. In order to allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
+This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.
 
-In order to reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
+To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
 
-Complete survey is attached in chapter \ref{monero-miner-study-pdf}.
+The complete survey is attached in chapter \ref{monero-miner-study-pdf}.
 \section{Results international, CZ}
 
 
@@ -1274,13 +1273,13 @@ Following this pattern, four research questions were set:
 \item R4: What are backup solutions do pool operators use?
 \end{itemize}
 \section{Participants and survey's background}
-As mentioned in chapter \ref{cha:monerousersurvey}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
+As mentioned in the chapter \ref{cha:monerousersurvey}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. In order to allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
+This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the captcha before starting the survey.
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on systematic sampling as links for the research were sent to the pool operators only.
 
-Complete survey is attached in chapter \ref{monero-pool-study-pdf}.
+The complete survey is attached in the chapter \ref{monero-pool-study-pdf}.
 \section{Results international, CZ}
 
  
@@ -1293,7 +1292,7 @@ Complete survey is attached in chapter \ref{monero-pool-study-pdf}.
 
 \chapter{Designing secure mining environment}
 \section{Automation}
-Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. In order to do that, proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is automated configuration of provisioned nodes using Ansible. Workflow is described in figure \ref{pict:deployment-workflow}.
+Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is automated configuration of provisioned nodes using Ansible. Workflow is described in the figure \ref{pict:deployment-workflow}.
 \begin{figure}[H]
 \center
 \tikzstyle{decision} = [diamond, draw, fill=blue!20,
@@ -1337,25 +1336,25 @@ Automation is a key aspect for designing and running IT operations that are secu
 \section{Ansible introduction}
 \textbf{Ansible} is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
 \\
-\textbf{Playbook} is an YAML formatted file that provides declaration of hosts and plays that are executed when running the playbook. 
+\textbf{Playbook} is a YAML formatted file that provides the declaration of hosts and plays that are executed when running the playbook. 
 \\
-\textbf{Hosts} file declares connection information about hosts e.g. IP, login credentials.
+\textbf{Hosts} file declares connection information about hosts, e.g., IP and login credentials.
 \\
-\texttt{\textbf{ansible-playbook -i hosts xmr01.yml}} is a CLI command that executes  \texttt{xmr01.yml} playbook file and takes connection information about hosts and groups involved from \texttt{hosts} file.
+\texttt{\textbf{ansible-playbook -i hosts xmr01.yml}} is a CLI command that executes  \texttt{xmr01.yml} playbook file and takes connection information about hosts and groups involved from the \texttt{hosts} file.
 \newpage
 
 \section{Linux-based solution}
 \subsection{Kickstart installation media}
-In order to esaily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
+To easily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
 
-First step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into separate folder. From there navigate to \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
+The first step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into a separate folder. From there navigate to the \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
 
-For reference \texttt{CentOS-7-x86_64-Minimal-1804.iso} was used in following steps.
+For reference, \texttt{CentOS-7-x86_64-Minimal-1804.iso} was used in the following steps.
 \subsubsection{Isolinux.cfg file}
 Four changes are needed to get the installation process working:
 \begin{itemize}
 \itemsep0em
-\item \texttt{timeout} proprety changed from 600 to 50 (seconds * 10)
+\item \texttt{timeout} property changed from 600 to 50 (seconds * 10)
 \item Change boot menu to go straight for the install
 \item Edit paths for custom ISO image
 \item Add kickstart file entry
@@ -1377,20 +1376,20 @@ label linux
 \end{center}
     \end{figure}
 \subsection{Kickstart file}
-Kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads required parameters resulting in unattended installation process \cite{leemans2015red}.
+The kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads the required parameters resulting in the unattended installation process \cite{leemans2015red}.
 
-Created kickstart file for Centos 7 mining installation media is avaiable at figure \ref{fig:kickstart}. 
+Created kickstart file for Centos 7 mining installation media is available at the figure \ref{fig:kickstart}. 
 
 \subsection{Generating ISO}
-Specific process of packaging extracted Centos installation media back into the iso file varies by used operating system. In both mentioned scenarios, few specific parameters have to be set:
+The specific process of packaging extracted CentOS installation media back into the iso file varies by used operating system. In both mentioned scenarios, few specific parameters have to be set:
 \begin{itemize}
 \itemsep0em
 \item Boot image file \texttt{/isolinux/isolinux.bin}
 \item Updated boot information table
-\item Volume label for ISO9660 and UDF set to \texttt{CENTOS} (depends on configuration that is set in \texttt{isolinux.cfg} file).
+\item Volume label for ISO9660 and UDF set to \texttt{CENTOS} (depends on the configuration that is set in the \texttt{isolinux.cfg} file).
 \end{itemize}
 \subsubsection{Windows}
-For creating iso image on Windows, opensource Imgburn software was used. 
+For creating iso image on Windows, opensource ImgBurn software was used. 
 
 %\iffalse
 \begin{figure}[H]
@@ -1415,7 +1414,7 @@ For creating iso image on Windows, opensource Imgburn software was used.
 
 
 \subsubsection{Linux}
-Once files are prepared, packaging into the iso at linux is done by one liner command:
+Once files are prepared, packaging into the iso at Linux is done by one-liner command:
 
 
 \begin{figure}[H]
@@ -1432,7 +1431,7 @@ mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -bo
     
 \subsection{Setting up OS using Ansible}
 %Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
-After installation of the ISO that was prepared with the kickstart file, target machine is accepting SSH connections under root account using password based authentification. Without proper configuration, this would leave machine open to bruteforce attempts for root account.
+After installation of the ISO that was prepared with the kickstart file, the target machine is accepting SSH connections under root account using password-based authentification. Without proper configuration, this would leave machine open to brute force attempts for the root account.
 
 To provision mining nodes with software and configuration, Ansible get following set of files:
 
@@ -1462,68 +1461,68 @@ To provision mining nodes with software and configuration, Ansible get following
 %\begin{subfigure}{.5\textwidth}
 \begin{itemize}
 \itemsep0em
-\item \texttt{Xmr01.yml} represents a playbook file that defines what group of nodes will be provisioned together with list of roles that will be applied to them. \\
+\item \texttt{Xmr01.yml} represents a playbook file that defines what group of nodes will be provisioned together with the list of roles that will be applied to them. \\
 \texttt{Hosts} file contains groups of hosts with information how Ansible can connect to them.
-\item \texttt{Ansible.cfg} was used only in testing environment where host key checking was disabled.
+\item \texttt{Ansible.cfg} was used only in the testing environment where host key checking was disabled.
 \item \texttt{Roles} folder contains roles that are applied when running the playbook.
 \end{itemize}
 
 \subsection{Ansible roles}
-In order to making Linux mining nodes usable and secure, following roles were written:
+To make Linux mining nodes usable and secure, following roles were written:
 \subsubsection{ansible-sw-common-apps}
-Common baseline for all mining nodes that consists of following tasks:
+The common baseline for all mining nodes that consists of the following tasks:
 \begin{enumerate}
 \itemsep0em
 \item Ensure EPEL repo is configured or install it.
 \item Install following packages: \texttt{htop, rsync, screen, tmux, iftop, iotop, nano, git, wget, unzip, mc}.
 \end{enumerate}
 \subsubsection{ansible-sw-firewalld}
-Installs and enables firewalld service that has default policy for connections set for public network and accepts incomming connections only for SSH service.
+Installs and enables firewalld service that has default policy for connections set to \texttt{public network} and accepts incoming connections only for SSH service.
 \subsubsection{ansible-sw-ntp}
-To report correct information through web interface of the mining software, target machine has to be in sync with NTP servers in order to do that, role establishes following:
+To report correct information through the web interface of the mining software, the target machine has to be in sync with NTP servers to do that role establishes the following:
 \begin{enumerate}
 \itemsep0em
-\item Package \texttt{ntpdate} installed from repo.
+\item Package \texttt{ntpdate} installed from the CentOS repository.
 \item Ensures correct timezone using \texttt{timedatectl} interface.
-\item Creates daily cronjob for synchronisation of system time.
+\item Creates daily cronjob for synchronization of system time.
 \end{enumerate}
 \subsubsection{ansible-sw-postfix}
-Sets up email gateway for correct email delivery together with internal mail aliases mapped to single outbound address. Email gateway can can deliver email on its own to the recipients server or can also act as relay to Gmail account that is used for sending out emails. 
+Sets up email gateway for correct email delivery together with internal mail aliases mapped to a single outbound address. Email gateway can deliver email on its own to the recipient's server or can also act as a relay to Gmail account that is used for sending out emails. 
 
-Using Gmail account is prefered as this solucion is internet service provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
+Using Gmail account is preferred as this solution is an internet service provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
 
-Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext. This can be make more secure if credentials file has apropriate permissions e.g. ownership set to root, group to wheel and chmod changed to 0600.
+Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
 
 \subsubsection{ansible-sw-sshsec}
-Takes care about incomming SSH connections in case somebody wants to try bruteforce attack on the mining machine. After predefined amount of failed login attempts, incomming IP address is put into "jail". 
+Takes care about incoming SSH connections in case somebody wants to try brute force attack on the mining machine. After a predefined amount of failed login attempts, incoming IP address is put into "jail". 
 
-Under the hood, fail2ban monitors sshd log for incomming failed attempts and after certain treshold creates firewalld rule to block the IP for predefined amount of time. Default settings for this rule is relatively strict, 3 failed attempts in 10 hour window result in a 10 hour ban for incomming connections from the IP address. 
+Under the hood, fail2ban monitors sshd log for incoming failed attempts and after certain threshold creates a firewalld rule to block the IP for a predefined amount of time. The default setting for this rule is relatively strict, 3 failed attempts in 10-hour window result in a 10-hour ban for incoming connections from the IP address. 
 
-This role is fork of \texttt{ansible-role-fail2ban} that is available at \url{https://github.com/resmo/ansible-role-fail2ban}.
+This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{https://github.com/resmo/ansible-role-fail2ban}.
 
 %TODO prolézt všechny role a zkontrolovat default vars
 \subsubsection{ansible-sw-xmrstak}
 Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, folder structure inside non-priviledged user account is created and XMR-Stak repo is cloned into user directory. With apropriate permissions set, cmake compiles source with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpenCL_ENABLE\newline =OFF} resulting in CPU only miner for Centos.
+After that, folder structure inside non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpenCL_ENABLE\newline =OFF} resulting in CPU only miner for Centos.
 
-If mining node would use GPU, apropriate drivers from AMD or Nvidia website are prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU_ENABLE=\{\{ DCPU_ENABLE \}\} -DCUDA_ENABLE=\{\{ \newline DCUDA_ENABLE \}\} -DOpenCL_ENABLE=\{\{ DOpenCL_ENABLE \}\}}
+If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU_ENABLE=\{\{ DCPU_ENABLE \}\} -DCUDA_ENABLE=\{\{ \newline DCUDA_ENABLE \}\} -DOpenCL_ENABLE=\{\{ DOpenCL_ENABLE \}\}}
 
-As next step, role copies over to the node cpu, pool and miner configuration and creates crontab entry for automatic miner start. For final touch, hugepages are set to \texttt{vm.nr_hugepages=128} in \texttt{/etc/sysctl.conf} for CPU mining memory allocation and sysctl is reloaded.
+As next step, role copies over to the node cpu, pool and miner configuration and creates a crontab entry for automatic miner start. For the final touch, HugePages are set to \texttt{vm.nr_hugepages=128} in \texttt{/etc/sysctl.conf} for CPU mining memory allocation, and sysctl is reloaded.
 \subsubsection{ansible-sys-hostname}
 Changes system hostname to inventory hostname set in \texttt{hosts} file using \texttt{hostnamectl} Ansible module.
 \subsubsection{ansible-user-add}
-User add role is used for creating the mining user that is not within wheel group (unpriviledged user). 
+\texttt{User-add-role} is used for creating the mining user that is not within wheel group (unpriviledged user). 
 \subsubsection{ansible-yum-cron}
-Installs and configures automatic security updates for Centos that are daily checked against online repository. If security update is found, email notification to root is sent.
+Installs and configures automatic security updates for Centos that are daily checked against the online repository. If packages marked for security update are found, email notification to root is sent.
 \subsubsection{ansible-yum-update}
 All packages including kernel are updated so that mining node is ready to use and won't send update notification on the next day (unless there are new updates in the meantime).
 \subsubsection{Additional notes}
-Roles are installed in order specified in \texttt{xmr01.yml} file as system update is done as first to prevent any problems with XMR-Stak compilation. 
+Roles are installed in the order specified in the \texttt{xmr01.yml} file as system update is done as first to prevent any problems with XMR-Stak compilation. 
 
-Using root account login on SSH is not recommended as the proper way would be to disable root login in \texttt{/etc/sshd_config} and login to SSH using created non-priviledged user account (ideally using ssh-key based authentification). 
+Using root account login on SSH is not recommended as the proper way would be to disable root login in \texttt{/etc/sshd_config} and login to SSH using created non-privileged user account (ideally using ssh-key based authentification). 
 
-Later if user needs to login as user, this can be done by \texttt{su root} command. To minimize chance of success bruteforce attack of the root account using SSH, fail2ban is set to strict mode. Altough this is not the most secure way to access the system, with above settings this acts as compromise between security and usability of the mining operation.
+Later if the user needs to login as user, this can be done by \texttt{su root} command. To minimize the chance of success brute force attack of the root account using SSH, fail2ban is set to strict mode. Although this is not the most secure way to access the system, with above settings this acts as a middle ground between security and usability of the mining operation.
 
 
 
@@ -1533,13 +1532,11 @@ Later if user needs to login as user, this can be done by \texttt{su root} comma
 \subsection{Installation media}
 For Windows scenario, Win10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created.
 
-There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all instalation steps for Windows 10 installer.
+There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all installation steps for Windows 10 installer.
 
+This process of Windows image customization can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as the administrator can bundle applications and drives in the image.
 
-
-This process of Windows image customisation can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as administrator can bundle applications and drives in the image.
-
-For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file a block of commands that is executed after first logon was added. For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. 
+For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file, a block of commands that is executed after the first logon, was added. For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. 
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -1554,18 +1551,18 @@ For this guide, generating \texttt{autounattend.xml} file is based on online aut
     \label{fig:securecrypto}
 \end{center}
     \end{figure} 
-In default state Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. In order to fix that, one of the commands after first logon is dedicated to this issue as shown in figure \ref{fig:securecrypto}.
+In the default state, Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. To fix that, one of the commands after the first logon is dedicated to this issue as shown in the figure \ref{fig:securecrypto}.
 
 After finishing the installation process and provisioning the Windows environment with \texttt{<FirstLogonCommands>} included in the unattended file, Ansible can connect to the Windows machine and set up thing properly. 
 
-Note that installer opens RDP, WinRM, temporarily disables Windows Firewall (which will be properly configured by Ansible later) and sets up self signed WinRM HTTPS certificate using Ansible Powershell file \texttt{ConfigureRemotingForAnsible.ps1} \cite{ansibleremoteps}. Mining node has to be connected to the network to  download all required files poperly.
+Note that installer opens RDP, WinRM, temporarily disables Windows Firewall (which will be properly configured by Ansible later) and sets up self-signed WinRM HTTPS certificate using Ansible Powershell file \texttt{ConfigureRemotingForAnsible.ps1} \cite{ansibleremoteps}. Mining node has to be connected to the network to download all required files properly.
 
 \subsection{Ansible at Windows}
 Before applying roles in Ansible for Windows, unlike in Ansible with Linux machines, environment for both Windows and Linux controller has to be prepared.
  
-\textbf{Windows} needs to have WinRM set up, this is already done as it was part of the installation process where Ansible Powershell script set up HTTPS WinRM environment \cite{windowshostansible}.
+\textbf{Windows} needs to have WinRM setup, this is already done as it was part of the installation process where Ansible Powershell script set up HTTPS WinRM environment \cite{windowshostansible}.
 
-\textbf{Linux} doesn't have Ansible modules for Windows in default Ansible install. Those can be install using package manager, e.g.:
+\textbf{Linux} doesn't have Ansible modules for Windows in default Ansible install. Those can be install using the package manager, e.g.:
 \vspace{-0.7em}
 \begin{itemize}
 \itemsep0em
@@ -1610,11 +1607,11 @@ Sets up firewall rules for RDP, WinRM and XMR-Stak web interface, enables Window
 \subsubsection{ansible-win-updates}
 Windows update policy is set to download and notify for install as Windows updates are managed by this Ansible role. 
 
-Administrator can be configure which updates category will be included in the updates, in default role install updates from \texttt{SecurityUpdates} and \texttt{CriticalUpdates} category. This can be changed using variable \texttt{UpdateEverything} in playbook.
+The administrator can configure which updates category will be included in the updates, in default role install updates from \texttt{SecurityUpdates} and \texttt{CriticalUpdates} category. This can be changed using variable \texttt{UpdateEverything} in the playbook.
 \subsubsection{ansible-win-xmrstak}
-Downloads latest release of XMR-Stak from developers GitHub page, configures mining software and downloads required libraries from Microsoft site. It also creates scheduled task under mining user to run with elevated permissions after logon so that UAC can be kept enabled and miner is running normally. 
+Downloads latest release of XMR-Stak from developers GitHub page, configures mining software and downloads required libraries from Microsoft site. It also creates scheduled task under mining user to run with elevated permissions after logon so that UAC can be kept enabled and the miner is running without UAC prompts. 
 
-Also adds exeption in Windows Defender to ignore Desktop folder as binary XMR-Stak file is considered as malicious file for being a mining software.
+Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
 
 \chapter{Plan}
