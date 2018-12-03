@@ -1334,7 +1334,7 @@ Automation is a key aspect for designing and running IT operations that are secu
 \label{pict:deployment-workflow}
 \end{figure}
 \section{Ansible introduction}
-\textbf{Ansible} is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
+\textbf{Ansible} is an IT automation engine that in this case is used for configuration and application management of local mining nodes \cite{hochstein2017ansible}. 
 \\
 \textbf{Playbook} is a YAML formatted file that provides the declaration of hosts and plays that are executed when running the playbook. 
 \\
@@ -1376,7 +1376,7 @@ label linux
 \end{center}
     \end{figure}
 \subsection{Kickstart file}
-The kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads the required parameters resulting in the unattended installation process \cite{leemans2015red}.
+The kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems \cite{van2015red}. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads the required parameters resulting in the unattended installation process \cite{leemans2015red}.
 
 Created kickstart file for Centos 7 mining installation media is available at the figure \ref{fig:kickstart}. 
 
@@ -1431,9 +1431,9 @@ mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -bo
     
 \subsection{Setting up OS using Ansible}
 %Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
-After installation of the ISO that was prepared with the kickstart file, the target machine is accepting SSH connections under root account using password-based authentification. Without proper configuration, this would leave machine open to brute force attempts for the root account.
+After installation from the ISO that was prepared with the kickstart file, the target machine is accepting SSH connections under root account using password-based authentification. Without proper configuration, this would leave machine open to brute force attempts for the root account.
 
-To provision mining nodes with software and configuration, Ansible get following set of files:
+To provision mining nodes with software and configuration, Ansible uses following set of files:
 
 \begin{figure}[H]
 %\begin{subfigure}{.5\textwidth}
@@ -1468,7 +1468,7 @@ To provision mining nodes with software and configuration, Ansible get following
 \end{itemize}
 
 \subsection{Ansible roles}
-To make Linux mining nodes usable and secure, following roles were written:
+To make Linux mining nodes updated and secure, following roles were written:
 \subsubsection{ansible-sw-common-apps}
 The common baseline for all mining nodes that consists of the following tasks:
 \begin{enumerate}
@@ -1491,7 +1491,7 @@ Sets up email gateway for correct email delivery together with internal mail ali
 
 Using Gmail account is preferred as this solution is an internet service provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
 
-Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
+Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext \cite{van2015red}. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
 
 \subsubsection{ansible-sw-sshsec}
 Takes care about incoming SSH connections in case somebody wants to try brute force attack on the mining machine. After a predefined amount of failed login attempts, incoming IP address is put into "jail". 
@@ -1504,7 +1504,7 @@ This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{
 \subsubsection{ansible-sw-xmrstak}
 Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, folder structure inside non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpenCL_ENABLE\newline =OFF} resulting in CPU only miner for Centos.
+After that, folder structure inside non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpen\newline CL_ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
 
 If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU_ENABLE=\{\{ DCPU_ENABLE \}\} -DCUDA_ENABLE=\{\{ \newline DCUDA_ENABLE \}\} -DOpenCL_ENABLE=\{\{ DOpenCL_ENABLE \}\}}
 
@@ -1514,7 +1514,7 @@ Changes system hostname to inventory hostname set in \texttt{hosts} file using \
 \subsubsection{ansible-user-add}
 \texttt{User-add-role} is used for creating the mining user that is not within wheel group (unpriviledged user). 
 \subsubsection{ansible-yum-cron}
-Installs and configures automatic security updates for Centos that are daily checked against the online repository. If packages marked for security update are found, email notification to root is sent.
+Installs and configures automatic security updates for Centos that are daily checked against the online repository. If packages marked for security update are found, email notification to root is sent \cite{pelz2016centos}.
 \subsubsection{ansible-yum-update}
 All packages including kernel are updated so that mining node is ready to use and won't send update notification on the next day (unless there are new updates in the meantime).
 \subsubsection{Additional notes}
@@ -1534,9 +1534,9 @@ For Windows scenario, Win10 image from autumn 2018 was used. As installation is 
 
 There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all installation steps for Windows 10 installer.
 
-This process of Windows image customization can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as the administrator can bundle applications and drives in the image.
+This process of Windows image customization can be done using Windows Assessment and Deployment Kit (Windows ADK) as it includes Windows System Image Manager (Windows SIM) that is an authoring tool for \texttt{autounattend.xml} files. Using Windows ADK, more complex Windows deployment can be achieved as the administrator can bundle applications and drivers in the image \cite{rhodes2016introduction}.
 
-For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file, a block of commands that is executed after the first logon, was added. For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. 
+For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file, a block of commands that is executed after the first logon, was added. 
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -1551,14 +1551,14 @@ For this guide, generating \texttt{autounattend.xml} file is based on online aut
     \label{fig:securecrypto}
 \end{center}
     \end{figure} 
-In the default state, Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. To fix that, one of the commands after the first logon is dedicated to this issue as shown in the figure \ref{fig:securecrypto}.
+For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. Due to this, in the default state, Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. To fix that, one of the commands after the first logon is dedicated to this issue as shown in the figure \ref{fig:securecrypto}.
 
 After finishing the installation process and provisioning the Windows environment with \texttt{<FirstLogonCommands>} included in the unattended file, Ansible can connect to the Windows machine and set up thing properly. 
 
 Note that installer opens RDP, WinRM, temporarily disables Windows Firewall (which will be properly configured by Ansible later) and sets up self-signed WinRM HTTPS certificate using Ansible Powershell file \texttt{ConfigureRemotingForAnsible.ps1} \cite{ansibleremoteps}. Mining node has to be connected to the network to download all required files properly.
 
 \subsection{Ansible at Windows}
-Before applying roles in Ansible for Windows, unlike in Ansible with Linux machines, environment for both Windows and Linux controller has to be prepared.
+Before applying roles in Ansible for Windows, unlike in Ansible with Linux machines, environment for both Windows and Linux controller has to be prepared \cite{windowsansible}.
  
 \textbf{Windows} needs to have WinRM setup, this is already done as it was part of the installation process where Ansible Powershell script set up HTTPS WinRM environment \cite{windowshostansible}.
 
@@ -1607,7 +1607,7 @@ Sets up firewall rules for RDP, WinRM and XMR-Stak web interface, enables Window
 \subsubsection{ansible-win-updates}
 Windows update policy is set to download and notify for install as Windows updates are managed by this Ansible role. 
 
-The administrator can configure which updates category will be included in the updates, in default role install updates from \texttt{SecurityUpdates} and \texttt{CriticalUpdates} category. This can be changed using variable \texttt{UpdateEverything} in the playbook.
+The administrator can configure which updates category will be included in the updates, in default role install updates from \texttt{SecurityUpdates} and \texttt{CriticalUpdates} category \cite{windowshostansible}. This can be changed using variable \texttt{UpdateEverything} in the playbook.
 \subsubsection{ansible-win-xmrstak}
 Downloads latest release of XMR-Stak from developers GitHub page, configures mining software and downloads required libraries from Microsoft site. It also creates scheduled task under mining user to run with elevated permissions after logon so that UAC can be kept enabled and the miner is running without UAC prompts. 
 
@@ -1646,9 +1646,9 @@ Month     & Task                                              \\
 \includepdf[pages=1,pagecommand=\chapter{Monero Miners Survey},scale=0.7]{monerominersurvey.pdf}
 \label{monero-miners-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9,10},scale=0.7, pagecommand={}]{monerominersurvey.pdf}
-\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
-\label{monero-pool-study-pdf}
-\includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
+%\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
+%\label{monero-pool-study-pdf}
+%\includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
 
 \section{Kickstart file}
 \label{kickstart}
