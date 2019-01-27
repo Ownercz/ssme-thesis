@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% I, the copyright holder of this work, release this work into the
 %% public domain. This applies worldwide. In some countries this may
 %% not be legally possible; if so: I grant anyone the right to use
@@ -181,6 +181,35 @@
 
 %% Komentář Radim 13.07: Kapitola s pojmy - udělám zvlášť krátkou, ve které popíšu tyto základní principy, ještě tedy před Monero Cryptocurrency kapitolou. Monero specific věci pak budou popsány už pod Monerem.
 %% Komentář Radim 13.07: Po domluvě mailem tedy začnu psát Anglicky. Dotazníky budou ve dvou jazykových mutacích - ENG a CZ. Hlavně kvůli CZ komunitě těžařů a pool operátorům - https://bohemianpool.com/#/home bych dal i tu češtinu.
+
+%% Komentář ze schůzky 14.01: ring signature  velkým začátky
+%% 8page v3
+%% z chapter dát všude section s velkým section, table s velkým t a figure s velkým f;
+%% 11 page
+%% 
+%% internet se píše s velkým I
+%% CAPTCHA velkými všechno
+%% 
+%% strana 25 6.1 úvodní odstavec 	PŘEPSAT
+%% DODAT TEČKY DO TABULEK KDYŽ JE TO NĚCO VĚTŠÍHO
+%% 
+%% projít data a dát to do eng verze
+%% URL napsat velkým všude
+%% 
+%% figure název s tečkou
+%% pokud je to příloha, tak see appendix napsat viz strana 45
+%% 
+%% plan appendix  - popsat co je co kde
+%% 
+%% Seznam literatury
+%% fluffypony sjednotit
+%% místo xarchiv dát přímo odkaz na publikaci
+%% 
+%% Zpracování dat
+%% 1. číštění dat, celkově , plně uvedeno vyplněno
+%% podívat se na čas správně vyplněných
+%% právě jednou pomocí cookies, projít geolokaci dle ipiny
+
 \chapter{Cryptocurrency}
 \textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralization is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
 
@@ -412,13 +441,13 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \begin{itemize}\itemsep0em
 \item Is an encrypted file containing private \textbf{spend key} and \textbf{view key} together with \textbf{wallet address}.
 \item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the wallet creation point.
-\item Using this file, the user can restore wallet by using the monero-wallet-cli command: monero-wallet-cli --generate-from-keys
+\item Using this file, the user can restore wallet by using the monero-wallet-cli command: \texttt{monero-wallet-cli --generate-from-keys}
 \end{itemize}
 \item \textbf{example-wallet file}
 \begin{itemize}\itemsep0em
 \item Acts as an encrypted cache for wallet software that contains:
 \begin{itemize}\itemsep0em
-\item List of outputs of transactions that are associated with the wallet as it does not need to scan the blockchain every time after startup.
+\item List of outputs of transactions that are associated with the wallet so it does not need to scan the blockchain every time after startup.
 \item History of transactions with metadata containing tx keys.
 \end{itemize}
 \end{itemize}
@@ -508,7 +537,7 @@ Cloud storage provides an easy way of sharing files between devices as well as u
 This way, user's security depends on the following factors:
 \begin{itemize}\itemsep0em
 \item Wallet encryption on the file level, user password habits
-\item Account security - login implementation, F2A
+\item Account security -- login implementation, F2A
 \item Client application implementation for caching and data transfer
 \item Vendors storage system security
 \end{itemize} 
@@ -544,7 +573,7 @@ For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchp
    \path [line] (expert) -- (init);
     \path [line,dashed] (update) |- (attacker);
 \end{tikzpicture}
-\caption{Delivery chain attack}
+\caption{Delivery chain attack.}
 \label{pict:delivery-chain-attack}
 \end{figure}
 \subsubsection{Malicious seed generation}
@@ -669,7 +698,7 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
    %\path [line] (expert) -- (init);
    % \path [line,dashed] (update) |- (attacker);
 \end{tikzpicture}
-\caption{Generating a multisig wallet}
+\caption{Generating a multisig wallet.}
 \label{pict:multisig-wallet-generation}
 \begin{tikzpicture}[scale=2, node distance = 2cm, auto]
 \shorthandoff{-}
@@ -705,7 +734,7 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
    %\path [line] (expert) -- (init);
    \path [lineuserA] (userA2) |- (userB2);
 \end{tikzpicture}
-\caption{Multisig transaction}
+\caption{Multisig transaction.}
 \label{pict:multisig-transaction}
 \end{figure}
 
@@ -715,7 +744,7 @@ Monero privacy features are welcomed not only by privacy savvy users but malware
 
 The main reason to use Monero over other cryptocurrencies for them is that Monero is not only harder to trace but when the attack is implemented well, after moving funds in separate batches to multiple wallets an over more extended period, no one will be able to associate the coins with the malicious activity.
 
-There are three main problems concerns in Monero environment :
+There are three main problems concerns in Monero environment:
 \subsubsection{Ransomware}
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
@@ -804,7 +833,7 @@ The official client offers CLI and GUI wallet management and is available at \ur
 \begin{center}
   %  \vspace{-0.8em}
  \includegraphics[trim={0 0 0 0},clip,width=0.85\textwidth]{Screenshot_4.png}
-    \caption{GUI wallet generation}
+    \caption{GUI wallet generation.}
   %  \vspace{-1.5em}
     \label{pic:guigenerator}
 \end{center}
@@ -824,7 +853,7 @@ wallet named: ssme-thesis
 (Y/Yes/N/No): Y
 Generating new wallet...
 \end{lstlisting}
-\caption{CLI wallet generation}
+\caption{CLI wallet generation.}
     \label{pic:cligenerator}
 \end{center}
     \end{figure}
@@ -843,7 +872,7 @@ Algorithm : SHA256
 Hash      : DF4EC49E088284ECC78DBBD8B9CEFF00A78085...
 Path      : ./monero-wallet-gui-injected.exe
 \end{lstlisting}
-\caption{Checksum change after code injeciton}
+\caption{Checksum change after code injeciton.}
     \label{pic:codeinjectiongui}
 \end{center}
     \end{figure}
@@ -879,7 +908,7 @@ Guideline for secure wallet access is described in section \ref{sec:wallettypes}
 \begin{center}
 \vspace{-0.75em}
  \includegraphics[trim={0 1.8cm 0 0},clip,width=0.55\textwidth]{Screenshot_1542566492.png}
-    \caption{Monerujo for Android}
+    \caption{Monerujo for Android.}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
 \end{center}
@@ -892,7 +921,7 @@ Monerojuro    & Android       & Open Source   & Keypair is stored locally  User 
 Monero Wallet & Android  iOS & Closed Source & Keypair in cloud storage No control over keys \\
 Cake Wallet   & iOS           & Open Source   & Keypair is stored locally  User has complete control                            
 \end{tabular}
-\captionof{table}{List of avaiable wallets for mobile platforms}
+\captionof{table}{List of avaiable wallets for mobile platforms.}
 \label{table:monero-mobile}
 \end{figure}
 
@@ -940,7 +969,7 @@ Paper               & Depends on printout content and physical storage propertie
 \end{tabular}
 
 
-\captionof{table}{Common storage methods with security features}
+\captionof{table}{Common storage methods with security features.}
 \label{table:secure-storage}
 \end{figure}
 
@@ -976,7 +1005,7 @@ As a result of this chapter and Monero user research, all recommendations for se
 
     
  \includegraphics[trim={0 0 5px 1px},clip,width=1\textwidth]{Screenshot_7.png}
-    \caption{Monero secure usage portal}
+    \caption{Monero secure usage portal.}
 
     \label{pic:moneroweb}
 \end{center}
@@ -1043,7 +1072,7 @@ This results in the transaction process that takes up to 130s (request =\textles
    %\path [line] (expert) -- (init);
   % \path [lineuserA] (userA2) |- (userB2);
 \end{tikzpicture}
-\caption{Monero network processing}
+\caption{Monero network processing.}
 \label{pict:network-processing}
 \end{figure}
 \newpage
@@ -1084,7 +1113,7 @@ As of 29.09.2018 total hash rate of the network was 577.72 Mh/s (100\%), in know
       
      \end{tikzpicture}
      \end{center}
-      \caption{Hash rate distribution in Monero network}
+      \caption{Hash rate distribution in Monero network.}
       \label{chart:range}
 
 \end{figure}
@@ -1146,7 +1175,7 @@ Represents managed services by specialists that offer mining power using cloud s
    %\path [line] (expert) -- (init);
   % \path [lineuserA] (userA2) |- (userB2);
 \end{tikzpicture}
-\caption{Monero network processing}
+\caption{Monero network processing.}
 \label{pict:network-processing}
 \end{figure}
 
@@ -1174,7 +1203,7 @@ Is a category that incorporates opensource mining software projects that have so
 
     \vspace{-0.8em}
  \includegraphics[trim={0 0 0 0},clip,width=0.85\textwidth]{Screenshot_9.png}
-    \caption{XMR-Stak web interface}
+    \caption{XMR-Stak web interface.}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
 \end{center}
@@ -1194,7 +1223,7 @@ Web mining           &                   &                    &                 
 Botnet mining        &                   &                    &                 &                      &                        \\
 Cloud mining         &                   &                    &                 &                      &                       
 \end{tabular}
-\caption{Monero network processing}
+\caption{Monero network processing.}
 \label{pict:network-processing}
 \end{figure}
 \fi
@@ -1247,7 +1276,7 @@ The complete survey is attached in chapter \ref{monero-miner-study-pdf}.
 \section{Results international, CZ}
 
 
-
+\iffalse
 \chapter{Monero pool operators research}
 The goal of this research is to gather information about people who run mining pools and are indirectly responsible for Monero transactions processing. The research aims to map mining pool administration consisting of coin management, attacks mitigation, and disaster recovery scenarios. For this purpose, an online questionnaire was created. 
 
@@ -1282,12 +1311,17 @@ Data collection method was online only and was using the survey website software
 The complete survey is attached in the chapter \ref{monero-pool-study-pdf}.
 \section{Results international, CZ}
 
- 
+\fi
 \chapter{Mining malware}
-\section{Prevention, detection and recovery}
-\subsection{Systems administrators perspective}
+\section{Monero position in malware world}
+\section{Types of malware miners}
+\section{Unwanted mining in SOHO envionment}
+\section{Unwanted mining in large scale}
+
+
+%\subsection{Systems administrators perspective}
 %kitty https://www.incapsula.com/blog/crypto-me0wing-attacks-kitty-cashes-in-on-monero.html
-\subsection{Regular users}
+%\subsection{Regular users}
 
 
 \chapter{Designing secure mining environment}
@@ -1371,7 +1405,7 @@ label linux
   kernel vmlinuz
   append initrd=initrd.img <@\textcolor{blue}{inst.ks=hd:LABEL=CENTOS:/ks/ks.cfg inst.stage2=hd:LABEL=CENTOS}@> quiet
 \end{lstlisting}
-\caption{Customised installator entry}
+\caption{Customised installator entry.}
     \label{pic:codeinjectiongui}
 \end{center}
     \end{figure}
@@ -1631,7 +1665,7 @@ Month     & Task                                              \\
 1.3.2019  & Month for completion                                 \\
 1.4.2019  & Final version + print                            
 \end{tabular}
-\caption{Diploma thesis plan}
+\caption{Diploma thesis plan.}
 \label{ssme-thesis-plan}
 \end{figure}
 
@@ -1710,7 +1744,7 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 
 \begin{figure}[H]
 \center
-\caption{Centos 7 kickstart file}
+\caption{Centos 7 kickstart file.}
 \label{fig:kickstart}
 \end{figure}
 
