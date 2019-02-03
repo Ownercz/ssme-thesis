@@ -193,7 +193,7 @@
 %% strana 25 6.1 úvodní odstavec 	PŘEPSAT
 %% DODAT TEČKY DO TABULEK KDYŽ JE TO NĚCO VĚTŠÍHO
 %% 
-%% projít data a dát to do eng verze
+%% projít data a dát to do eng verze > v eng se píše stejně jako u nás, pokud teda nemyslíš USA formát viz https://dictionary.cambridge.org/grammar/british-grammar/writing/dates
 %% URL napsat velkým všude					DONE
 %% 
 %% figure název s tečkou					DONE
@@ -240,8 +240,8 @@ Meaning that every single digital transaction and the exact number of coins in u
 
 \begin{itemize}\itemsep0em
 \item The blockchain is public, but a large part of it is encrypted.
-\item The sender of the transaction is hidden by using Ring Signatures explained in the Chapter  \ref{sec:ringsignatures}.
-\item The exact amount of transferred coins is encrypted using RingCT as described in the Chapter\ref{sec:ringct}.
+\item The sender of the transaction is hidden by using Ring Signatures explained in the Chapter \ref{sec:ringsignatures}.
+\item The exact amount of transferred coins is encrypted using RingCT as described in the Chapter \ref{sec:ringct}.
 \item Transaction history and receiving party is hidden by the usage of stealth addresses that are referenced in the Chapter \ref{sec:stealthaddresses}.
 \end{itemize}
 
@@ -322,7 +322,7 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes               
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \end{figure}
-Information sources used in table \ref{table:monero-alternatives} and the picture \ref{pict:monero-alternatives-codebase}:\\
+Information sources used in the Table \ref{table:monero-alternatives}:\\ %TODO má být velké T u table? 
 Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
 \iffalse
 \begin{figure}[H]
@@ -383,7 +383,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 \end{itemize}
 \item \textbf{Split chain attack}
 \begin{itemize}
-\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit applied to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
+\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit could be applied to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
 \end{itemize}
 \item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
@@ -412,7 +412,7 @@ To prove that funds were sent from one wallet to another, the sender has to disc
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
-Ring Signatures present a way how to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, the outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
+Ring Signatures present a way to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, the outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the Ring Signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
@@ -443,7 +443,9 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \begin{itemize}\itemsep0em
 \item Is an encrypted file containing private \textbf{spend key} and \textbf{view key} together with \textbf{wallet address}.
 \item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the wallet creation point.
-\item Using this file, the user can restore wallet by using the monero-wallet-cli command: \texttt{monero-wallet-cli --generate-from-keys}
+\item Using this file, the user can restore wallet by using the monero-wallet-cli command:
+
+\texttt{monero-wallet-cli --generate-from-keys}
 \end{itemize}
 \item \textbf{example-wallet file}
 \begin{itemize}\itemsep0em
@@ -530,7 +532,7 @@ With the rapid expansion of cryptocurrencies from 2014 to 2018, this area became
 
 \subsubsection{Wallet thieves}
 
-Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Although in Monero, keys are encrypted while stored on the disk, when running wallet software, keys can be obtained from memory. This attack can also be performed by distributing malicious wallet client software.
+Aim to compromise the system in a way that malware finds wallet files and steals cryptographic keys or seed belonging to the wallet. Although in Monero, keys are encrypted while stored on the disk. When running wallet software, keys can be obtained from memory. This attack can also be performed by distributing malicious wallet client software.
 
 \subsubsection{Cloud storage}
 
@@ -828,7 +830,7 @@ Ease of use is one of the critical aspects of every cryptocurrency and although 
 Following scenarios represent secure and easy to use instructions for a new Monero user.
 
 \section{Generating the keys and accessing the wallet}
-The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
+The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As the choice of client wallet software is important for Monero users in terms of user experience and security, following sections are dedicated to available wallet software. %TODO je to better oproti původnímu As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
 \subsection{Windows and Linux platform}
 The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using the client users can generate the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
 \begin{figure}[H]
@@ -919,9 +921,9 @@ Guideline for secure wallet access is described in the Chapter \ref{sec:walletty
 \begin{figure}[H]
 \centering\begin{tabular}{p{0.2\linewidth}p{0.15\linewidth}p{0.1\linewidth}p{0.4\linewidth}}
 \textbf{Name}         & \textbf{Platform}      & \textbf{Source}        & \textbf{Wallet keys management} \\
-Monerojuro    & Android       & Open Source   & Keypair is stored locally  User has complete control                       \\
-Monero Wallet & Android  iOS & Closed Source & Keypair in cloud storage No control over keys \\
-Cake Wallet   & iOS           & Open Source   & Keypair is stored locally  User has complete control                            
+Monerojuro    & Android       & Open Source   & Keypair is stored locally.  User has complete control.                      \\
+Monero Wallet & Android  iOS & Closed Source & Keypair in cloud storage. No control over keys. \\
+Cake Wallet   & iOS           & Open Source   & Keypair is stored locally.  User has complete control.                           
 \end{tabular}
 \captionof{table}{List of avaiable wallets for mobile platforms.}
 \label{table:monero-mobile}
@@ -961,12 +963,12 @@ In short, this means when your building with external drive burns down and your 
 \centering
 \begin{tabular}{p{0.1\linewidth}p{0.4\linewidth}p{0.25\linewidth}p{0.15\linewidth}}
 \textbf{Media type} & \textbf{Available key security}                                    & \textbf{Usage}                                   & \textbf{Average pricing}      \\
-HDD, SSD            & File and volume encryption, can be automated                       & Manual transfer from master to external media    & 20-40 USD                              \\
-Optical media       & File-based encryption before creating the media, manual process            & For each copy of data, new disc has to be used   & \textless{}1 USD                       \\
-Tape                & Hardware assisted drive encryption, software-based encryption       & Specialised backup tape software                 & 4500 USD (tape + drive) \\
-NAS                 & File-based encryption on the client side using encryption software or NAS feature & Manual or automatic transfer to network share    & 200-400 USD                            \\
-Cloud drive       & File-based encryption on the client side using encryption software & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
-Paper               & Depends on printout content and physical storage properties        & Hiding a sheet of paper                          & \textless{}1 USD                       \\
+HDD, SSD            & File and volume encryption, can be automated.                       & Manual transfer from master to external media.    & 20-40 USD                              \\
+Optical media       & File-based encryption before creating the media, manual process.            & For each copy of data, new disc has to be used.   & \textless{}1 USD                       \\
+Tape                & Hardware assisted drive encryption, software-based encryption.       & Specialised backup tape software.                & 4500 USD (tape + drive) \\
+NAS                 & File-based encryption on the client side using encryption software or NAS feature. & Manual or automatic transfer to network share.    & 200-400 USD                            \\
+Cloud drive       & File-based encryption on the client side using encryption software. & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
+Paper               & Depends on printout content and physical storage properties.        & Hiding a sheet of paper.                          & \textless{}1 USD                       \\
 
 \end{tabular}
 
