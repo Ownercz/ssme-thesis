@@ -168,11 +168,24 @@
   tabsize=3
 }
 
+%toc
+\usepackage{tocloft}
+
+\newcommand{\listappendicesname}{Appendices}
+\newlistof{appendices}{apc}{\listappendicesname}
+\newcommand{\appendices}[1]{\addcontentsline{apc}{appendices}{#1}}
+
+\newcommand{\newappendix}[1]{\chapter{#1}\appendices{#1}}
+
+\parindent0mm
+
 %dirtree
 \usepackage{dirtree}
 
 %captions
 \usepackage{subcaption}
+
+
 \begin{document}
 
 \chapter{Introduction}
@@ -1185,7 +1198,7 @@ Represents managed services by specialists that offer mining power using cloud s
 
 \section{Mining software}
 \subsubsection{Official}
-Can be obtained at the official web of the Monero cryptocurrency project at https://getmonero.org/downloads/ . This is an official wallet software that includes solo mining client and cannot be used for pool mining.
+Can be obtained at the official web of the Monero cryptocurrency project at \url{https://getmonero.org/downloads/}. This is an official wallet software that includes solo mining client and cannot be used for pool mining.
 
 \subsubsection{Community-driven}
 Is a category that incorporates opensource mining software projects that have source code published on the Github. Mostly used are:
@@ -1329,6 +1342,7 @@ The complete survey is attached in the Chapter \ref{monero-pool-study-pdf}.
 
 
 \chapter{Designing secure mining environment}
+The goal of this chapter is to design and develop secure and reasonably easy way how to setup and run mining operations on any scale. Inspired by both industry standards of large scale it operations as well as running own mining operation, main emphasis is placed on automation aspect of the whole system.
 \section{Automation}
 Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is automated configuration of provisioned nodes using Ansible. Workflow is described in the Figure \ref{pict:deployment-workflow}.
 \begin{figure}[H]
@@ -1371,6 +1385,7 @@ Automation is a key aspect for designing and running IT operations that are secu
 \caption{Deployment nodes workflow.}
 \label{pict:deployment-workflow}
 \end{figure}
+\vspace{-1em}
 \section{Ansible introduction}
 \textbf{Ansible} is an IT automation engine that in this case is used for configuration and application management of local mining nodes \cite{hochstein2017ansible}. 
 \\
@@ -1416,7 +1431,7 @@ label linux
 \subsection{Kickstart file}
 The kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems \cite{van2015red}. This installation method enables automated provisioning of machines without the need of administrator input. When the file is presented to the installer, it reads the required parameters resulting in the unattended installation process \cite{leemans2015red}.
 
-Created kickstart file for Centos 7 mining installation media is available in the Figure \ref{fig:kickstart}. 
+Created kickstart file for Centos 7 mining installation media is available in the Appendix Figure \ref{fig:kickstart}. 
 
 \subsection{Generating ISO}
 The specific process of packaging extracted CentOS installation media back into the iso file varies by used operating system. In both mentioned scenarios, few specific parameters have to be set:
@@ -1678,17 +1693,18 @@ Month     & Task                                              \\
 \printbibliography[heading=bibintoc]
 
 \appendix
-\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{monerousersurvey.pdf}
+\listofappendices
+\includepdf[pages=1,pagecommand=\newappendix{Monero User Survey},scale=0.7]{monerousersurvey.pdf}
 \label{monero-user-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9},scale=0.7, pagecommand={}]{monerousersurvey.pdf}
-\includepdf[pages=1,pagecommand=\chapter{Monero Miners Survey},scale=0.7]{monerominersurvey.pdf}
+\includepdf[pages=1,pagecommand=\newappendix{Monero Miners Survey},scale=0.7]{monerominersurvey.pdf}
 \label{monero-miners-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9,10},scale=0.7, pagecommand={}]{monerominersurvey.pdf}
 %\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
 %\label{monero-pool-study-pdf}
 %\includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
 
-\section{Kickstart file}
+\newappendix{Kickstart file}
 \label{kickstart}
 \begin{lstlisting}
 #version=DEVEL
