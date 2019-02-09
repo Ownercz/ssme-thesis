@@ -90,7 +90,7 @@
 %packages
 \usepackage{float} 
 \usepackage{hyperref}
-\usepackage[strings]{underscore}
+%\usepackage[strings]{underscore}
 
 %timeline
 \usepackage{xcolor}
@@ -184,6 +184,102 @@
 
 %captions
 \usepackage{subcaption}
+
+
+
+\usepackage{pgfplots}
+\def\angle{0}
+\def\radius{3}
+\def\cyclelist{{"orange","blue","red","green"}}
+\newcount\cyclecount \cyclecount=-1
+\newcount\ind \ind=-1
+\usepackage{pgf-pie}
+\usepackage{anyfontsize}
+%plots
+
+%stacketbarchart
+
+
+\usepackage{listings}
+
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{graphicx}
+\usepackage{float}
+%table
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+
+%plots
+\usepackage{tikz,fourier,ifthen}
+
+\colorlet{color0}{blue!40}
+\colorlet{color1}{orange!60}
+\colorlet{color2}{green!60}
+\colorlet{color3}{yellow!60}
+\colorlet{color4}{red!60}
+\colorlet{color5}{blue!60!cyan!60}
+\colorlet{color6}{cyan!60!yellow!60}
+\colorlet{color7}{red!60!cyan!60}
+\colorlet{color8}{red!60!blue!60}
+\colorlet{color9}{orange!60!cyan!60}
+
+
+
+
+
+%beginchartstacked
+\newlength{\xdim}
+
+\definecolor{1}{HTML}{00A64F}
+\definecolor{2}{HTML}{8DC73E}
+\definecolor{3}{HTML}{974006}
+\definecolor{4}{HTML}{F58137}
+\definecolor{5}{HTML}{ED1B23}
+\definecolor{6}{HTML}{949698}
+\definecolor{7}{HTML}{911118}
+
+%endchartstacked
+% Node on the \j sector
+\newcommand{\DiagNode}[2][]{\node[#1] at ($(0,0)!#2!(DC\j)$)}
+%newplots
+\usepackage[section]{placeins}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mymauve}{rgb}{1,1,1}
+\definecolor{myblue}{rgb}{1,1,1}
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{myblue},       % keyword style originial blue
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+%barchartsdone
+
+\newcommand{\TextUnderscore}{\rule{.4em}{.4pt}}
 
 
 \begin{document}
@@ -685,14 +781,14 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
     \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Generates new wallet}};
     \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Generates new wallet}};
     
-    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{prepare_multisig} to generate initialization data}};
-    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Runs \texttt{prepare_multisig} to generate initialization data}};
+    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{prepare\TextUnderscore{}multisig} to generate initialization data}};
+    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Runs \texttt{prepare\TextUnderscore{}multisig} to generate initialization data}};
     
     \node [userA, below of=userA2,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA3) {\parbox{5cm}{\centering User exchanges initialization data}}; %, in cli called multisig wallet password
     \node [userB, below of=userB2, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB3)    {\parbox{5cm}{\centering User exchanges initialization data}}; %, in cli called multisig wallet password
     
-    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_B}}};
-    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_A}}};
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make\TextUnderscore{}multisig 2 init\TextUnderscore{}data\TextUnderscore{}from\TextUnderscore{}user\TextUnderscore{}B}}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make\TextUnderscore{}multisig 2 init\TextUnderscore{}data\TextUnderscore{}from\TextUnderscore{}user\TextUnderscore{}A}}};
     
     \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Multisig wallet is generated with same address for both users}};
     \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Multisig wallet is generated with same address for both users}};
@@ -720,17 +816,17 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
 \begin{tikzpicture}[scale=2, node distance = 2cm, auto]
 \shorthandoff{-}
     % Place nodes
-    \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import_multisig_info export_multisig_info}}};
-    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import_multisig_info export_multisig_info}}};
+    \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import\TextUnderscore{}multisig\TextUnderscore{}info export\TextUnderscore{}multisig\TextUnderscore{}info}}};
+    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Wallet sync to show correct balance \texttt{import\TextUnderscore{}multisig\TextUnderscore{}info export\TextUnderscore{}multisig\TextUnderscore{}info}}};
     
     \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{transaction [address] [amount]} to create unsigned transaction}};
-    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Signs transaction \texttt{sign_multisig [transaction_name]} to sign transaction}};
+    \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Signs transaction \texttt{sign\TextUnderscore{}multisig [transaction\TextUnderscore{}name]} to sign transaction}};
     
     \node [below of=userA2,node distance=2.5cm,draw=none] (userA3) {}; %, in cli called multisig wallet password
-    \node [userB, below of=userB2, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB3)    {\parbox{5cm}{\centering Submits tran-saction to Monero network \texttt{submit_multisig [transaction_name]}}}; %, in cli called multisig wallet password
+    \node [userB, below of=userB2, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB3)    {\parbox{5cm}{\centering Submits tran-saction to Monero network \texttt{submit\TextUnderscore{}multisig [transaction\TextUnderscore{}name]}}}; %, in cli called multisig wallet password
     
-    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_B}}};
-    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make_multisig 2 init_data_from_user_A}}};
+    \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering Runs \texttt{make\TextUnderscore{}multisig 2 init\TextUnderscore{}data\TextUnderscore{}from\TextUnderscore{}user\TextUnderscore{}B}}};
+    \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering Runs \texttt{make\TextUnderscore{}multisig 2 init\TextUnderscore{}data\TextUnderscore{}from\TextUnderscore{}user\TextUnderscore{}A}}};
     
     \node [userA, below of=userA3,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA4) {\parbox{5cm}{\centering User can check transaction in blockchain explorer using txid}};
     \node [userB, below of=userB3, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB4)    {\parbox{5cm}{\centering User can check transaction in blockchain explorer using txid}};
@@ -834,8 +930,137 @@ To reduce nonresponse rate, participants were asked only to fill out parts that 
 
 The complete survey is attached in the Chapter \ref{monero-user-study-pdf}.
 
+\section{Collected data}
+Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 179 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
+\begin{enumerate}
+\itemsep0em
+\item Partially answered questionnares were not taken into account. 
+\item Respondents that filled out survey in less than two minutes were discarted.
+\item Responses with more than 4 entries with same IP were filtered.
+\begin{itemize}
+\item In total 7 responses were sent from duplicate IP addresses. Highest number of responses form single IP was 3, which belonged to the MIT University.
+\end{itemize}
+\item Responses containing invalid answers e.g. not using Monero or repeating same answer pattern in multiple submissions.
 
-\section{Results international, CZ}
+\end{enumerate}
+%\end{itemize}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Filtered responses},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+   % enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(62,0) };
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[3,fill=3] coordinates {(36,0) };
+%{(67,0) };
+\addplot[4,fill=4] coordinates {(1,0) };
+%{(1,0) };
+\addplot[6,fill=6] coordinates {(1,0) };
+%{(1,0) };
+\legend{Valid responses [113],Partially filled [67],Too fast [1],Invalid [1]
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{From 179 responses, only 113 were tagged as valid.}
+\label{chart:price}\end{figure}\end{center}
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31), follwed by Czech Republic (17) and Germany (11). Detailed list of countries with corresponding number of responses is avaiable in the Appendix Table \ref{table:countries}. 
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[]
+\tikzstyle{every node}=[font=\scriptsize]
+\pie []
+    {27.4/USA,
+15/Czech Republic,
+9.7/Germany,
+5.3/Canada,
+4.4/Slovakia,
+4.4/United Kingdom,
+3.5/Belgium,
+30.1/Others}
+      
+      
+     \end{tikzpicture}
+     \end{center}
+      \caption{Responses sorted by country of origin based on IP location.}
+      \label{chart:range}
+\end{figure}
+
+\iffalse
+List of countries:
+     31 US, United States
+     17 CZ, Czech Republic
+     11 DE, Germany
+      6 CA, Canada
+      5 SK, Slovakia
+      5 GB, United Kingdom
+      4 BE, Belgium
+      3 RU, Russian Federation
+      3 NL, Netherlands
+      2 SI, Slovenia
+      2 HK, Hong Kong
+      2 FR, France
+      2 FI, Finland
+      2 BR, Brazil
+      2 BG, Bulgaria
+      2 AU, Australia
+      1 UA, Ukraine
+      1 TR, Turkey
+      1 RS, Serbia
+      1 RO, Romania
+      1 PT, Portugal
+      1 PL, Poland
+      1 PH, Philippines
+      1 NO, Norway
+      1 MY, Malaysia
+      1 MU, Mauritius
+      1 IT, Italy
+      1 GR, Greece
+      1 ES, Spain
+      1 AF, Afghanistan
+\fi
+
+
+
+\section{Results}
+Upcoming pages are based on the final filtered dataset with 113 responses of people who voluntarily entered the research based on opportunity sampling.
+\subsection{General Information}
+\subsection{Monero usage}
+\subsection{Monero key and coin management}
+\subsection{Monero and malicous software}
+\subsection{Monero recovery}
+\subsection{Demographics}
+
+
 
 \chapter{Monero usage and storage best practices}
 Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
@@ -1060,7 +1285,7 @@ This results in the transaction process that takes up to 130s (request =\textles
 \shorthandoff{-}
     % Place nodes
     \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Transaction request generated by the client \texttt{transfer ADDRESS AMOUNT}}};
-    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Request broadcast to network nodes, shown \texttt{show_transfers pool} }};
+    \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Request broadcast to network nodes, shown \texttt{show\TextUnderscore{}transfers pool} }};
     
     \node [below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm, draw=none] (userA2){};
     \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Transaction is added to the block waiting to be mined.}};
@@ -1402,7 +1627,7 @@ To easily scale the mining operation, every bit of the software provisioning has
 
 The first step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into a separate folder. From there navigate to the \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
 
-For reference, \texttt{CentOS-7-x86_64-Minimal-1804.iso} was used in the following steps.
+For reference, \texttt{CentOS-7-x86\TextUnderscore{}64-Minimal-1804.iso} was used in the following steps.
 \subsubsection{Isolinux.cfg file}
 Four changes are needed to get the installation process working:
 \begin{itemize}
@@ -1544,7 +1769,7 @@ Sets up email gateway for correct email delivery together with internal mail ali
 
 Using Gmail account is preferred as this solution is an Internet Service Provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
 
-Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl_passwd} file in plaintext \cite{van2015red}. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
+Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl\TextUnderscore{}passwd} file in plaintext \cite{van2015red}. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
 
 \subsubsection{ansible-sw-sshsec}
 Takes care about incoming SSH connections in case somebody wants to try brute force attack on the mining machine. After a predefined amount of failed login attempts, incoming IP address is put into "jail". 
@@ -1557,11 +1782,11 @@ This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{
 \subsubsection{ansible-sw-xmrstak}
 Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, folder structure inside non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF  -DOpen\newline CL_ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
+After that, folder structure inside non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE=OFF  -DOpen\newline CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
 
-If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU_ENABLE=\{\{ DCPU_ENABLE \}\} -DCUDA_ENABLE=\{\{ \newline DCUDA_ENABLE \}\} -DOpenCL_ENABLE=\{\{ DOpenCL_ENABLE \}\}}
+If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=\{\{ DCPU\TextUnderscore{}ENABLE \}\} -DCUDA\TextUnderscore{}ENABLE=\{\{ \newline DCUDA\TextUnderscore{}ENABLE \}\} -DOpenCL\TextUnderscore{}ENABLE=\{\{ DOpenCL\TextUnderscore{}ENABLE \}\}}
 
-As next step, role copies over to the node cpu, pool and miner configuration and creates a crontab entry for automatic miner start. For the final touch, HugePages are set to \texttt{vm.nr_hugepages=128} in \texttt{/etc/sysctl.conf} for CPU mining memory allocation, and sysctl is reloaded.
+As next step, role copies over to the node cpu, pool and miner configuration and creates a crontab entry for automatic miner start. For the final touch, HugePages are set to \texttt{vm.nr\TextUnderscore{}hugepages=128} in \texttt{/etc/sysctl.conf} for CPU mining memory allocation, and sysctl is reloaded.
 \subsubsection{ansible-sys-hostname}
 Changes system hostname to inventory hostname set in \texttt{hosts} file using \texttt{hostnamectl} Ansible module.
 \subsubsection{ansible-user-add}
@@ -1573,7 +1798,7 @@ All packages including kernel are updated so that mining node is ready to use an
 \subsubsection{Additional notes}
 Roles are installed in the order specified in the \texttt{xmr01.yml} file as system update is done as first to prevent any problems with XMR-Stak compilation. 
 
-Using root account login on SSH is not recommended as the proper way would be to disable root login in \texttt{/etc/sshd_config} and login to SSH using created non-privileged user account (ideally using ssh-key based authentification). 
+Using root account login on SSH is not recommended as the proper way would be to disable root login in \texttt{/etc/sshd\TextUnderscore{}config} and login to SSH using created non-privileged user account (ideally using ssh-key based authentification). 
 
 Later if the user needs to login as user, this can be done by \texttt{su root} command. To minimize the chance of success brute force attack of the root account using SSH, fail2ban is set to strict mode. Although this is not the most secure way to access the system, with above settings this acts as a middle ground between security and usability of the mining operation.
 
@@ -1694,6 +1919,48 @@ Month     & Task                                              \\
 
 \appendix
 \listofappendices
+
+\newappendix{Responses sorted by country - User research}
+\vspace{-2em}
+\begin{figure}[H]
+\center
+\begin{tabular}{lll}
+\textbf{Number of responses} & \textbf{Country shortcode} & \textbf{Country name} \\
+31 & US & United States      \\
+17 & CZ & Czech Republic     \\
+11 & DE & Germany            \\
+6  & CA & Canada             \\
+5  & SK & Slovakia           \\
+5  & GB & United Kingdom     \\
+4  & BE & Belgium            \\
+3  & RU & Russian Federation \\
+3  & NL & Netherlands        \\
+2  & SI & Slovenia           \\
+2  & HK & Hong Kong          \\
+2  & FR & France             \\
+2  & FI & Finland            \\
+2  & BR & Brazil             \\
+2  & BG & Bulgaria           \\
+2  & AU & Australia          \\
+1  & UA & Ukraine            \\
+1  & TR & Turkey             \\
+1  & RS & Serbia             \\
+1  & RO & Romania            \\
+1  & PT & Portugal           \\
+1  & PL & Poland             \\
+1  & PH & Philippines        \\
+1  & NO & Norway             \\
+1  & MY & Malaysia           \\
+1  & MU & Mauritius          \\
+1  & IT & Italy              \\
+1  & GR & Greece             \\
+1  & ES & Spain              \\
+1  & AF & Afghanistan       
+\end{tabular}
+\caption{Diploma thesis plan.}
+\label{table:countries}
+\end{figure}
+
 \includepdf[pages=1,pagecommand=\newappendix{Monero User Survey},scale=0.7]{monerousersurvey.pdf}
 \label{monero-user-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9},scale=0.7, pagecommand={}]{monerousersurvey.pdf}
@@ -1767,6 +2034,7 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 \caption{Centos 7 kickstart file.}
 \label{fig:kickstart}
 \end{figure}
+
 
  %% Start the appendices.
 %\chapter{Zdroje k tabulce 2.2}
