@@ -1054,6 +1054,199 @@ List of countries:
 \section{Results}
 Upcoming pages are based on the final filtered dataset with 113 responses of people who voluntarily entered the research based on opportunity sampling.
 \subsection{General Information}
+At first, users were asked about their operating system preferences when accessing Monero. Majority of users tend to access Monero using Windows (65) or Linux (68). While accessing Monero from mobile Android OS (49) is primarily used. As for the Apple ecosystem, MacOS combined with iOS was selected as used method of access only in 16 occurences.
+
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Windows, Linux, MacOS, Android, 
+		iOS},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(58,0) (60,1)  (8,2) (43,3) (6,4)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(42,0) (40,1) (92,2) (57,3) (94,4)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{From 179 responses, only 113 were tagged as valid.}
+\label{chart:price}\end{figure}\end{center}
+
+\iffalse
+\begin{figure}[H]
+
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+    %ybar stacked,
+    ybar = 0.6,
+	bar width=15pt,
+	nodes near coords,
+    enlargelimits=0.15,
+    legend style={at={(0.5,-0.30)},
+      anchor=north,legend columns=-1},
+    ylabel={Number of participants},
+    symbolic x coords={Windows, Linux, MacOS, Android, 
+		iOS},
+    xtick=data,
+    x tick label style={rotate=45,anchor=east},
+    ]
+%\addplot+[ybar,color=black,fill=1] plot coordinates {(Windows,65) (Linux,68) (MacOS,9) (Android,49) (iOS,7};
+%\addplot+[ybar,color=black,fill=4] plot coordinates {(Windows,48) (Linux,45) (MacOS,104) (Android,64) (iOS,106)};
+
+\addplot+[ybar,color=black,fill=1] plot coordinates {(Windows,65) (Linux,68) (MacOS,9) (Android,49) (iOS,7)};
+\addplot+[ybar,color=black,fill=4] plot coordinates {(Windows,48) (Linux,45) (MacOS,104) (Android,64) (iOS,106)};
+\legend{\strut Yes, \strut No}
+\end{axis}
+\end{tikzpicture}
+     \end{center}
+      \caption{Responses sorted by country of origin based on IP location.}
+      \label{chart:range}
+\end{figure}
+\fi
+\subsubsection{Monero app usage}
+\begin{figure}[H]
+
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(75,0) (49,1)  (4,2) (45,3) (1,4) (6,5) (7,6) (1,7)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(25,0) (51,1) (96,2) (55,3) (99,4) (94,5) (93,6) (99,7)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{From 179 responses, only 113 were tagged as valid.}
+\label{chart:price}\end{figure}\end{center}
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+    %ybar stacked,
+    ybar = 0.6,
+	bar width=15pt,
+	nodes near coords,
+    enlargelimits=0.15,
+    legend style={at={(0.5,-0.30)},
+      anchor=north,legend columns=-1},
+    ylabel={Number of participants},
+    symbolic x coords={Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xtick=data,
+    x tick label style={rotate=45,anchor=east},
+    ]
+%\addplot+[ybar,color=black,fill=1] plot coordinates {(Windows,65) (Linux,68) (MacOS,9) (Android,49) (iOS,7};
+%\addplot+[ybar,color=black,fill=4] plot coordinates {(Windows,48) (Linux,45) (MacOS,104) (Android,64) (iOS,106)};
+
+\addplot+[ybar,color=black,fill=1] plot coordinates {(Official GUI,84) (Official CLI,55) (Other Desktop,5)};
+\addplot+[ybar,color=black,fill=4] plot coordinates {(Official GUI,29) (Official CLI, 58) (Other Desktop, 108) };
+\legend{\strut Yes, \strut No}
+\end{axis}
+\end{tikzpicture}
+     \end{center}
+      \caption{Responses sorted by country of origin based on IP location.}
+      \label{chart:range}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+    %ybar stacked,
+    ybar = 0.6,
+	bar width=15pt,
+	nodes near coords,
+    enlargelimits=0.15,
+    legend style={at={(0.5,-0.30)},
+      anchor=north,legend columns=-1},
+    ylabel={Number of participants},
+    symbolic x coords={Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xtick=data,
+    x tick label style={rotate=45,anchor=east},
+    ]
+%\addplot+[ybar,color=black,fill=1] plot coordinates {(Windows,65) (Linux,68) (MacOS,9) (Android,49) (iOS,7};
+%\addplot+[ybar,color=black,fill=4] plot coordinates {(Windows,48) (Linux,45) (MacOS,104) (Android,64) (iOS,106)};
+
+\addplot+[ybar,color=black,fill=1] plot coordinates {(Monerujo for Android,51) (Freewallet on Android,1) (Other Android wallet,7)};
+\addplot+[ybar,color=black,fill=4] plot coordinates {(Monerujo for Android,62) (Freewallet on Android, 112) (Other Android wallet, 106) };
+\legend{\strut Yes, \strut No}
+\end{axis}
+\end{tikzpicture}
+     \end{center}
+      \caption{Responses sorted by country of origin based on IP location.}
+      \label{chart:range}
+\end{figure}
 \subsection{Monero usage}
 \subsection{Monero key and coin management}
 \subsection{Monero and malicous software}
