@@ -781,7 +781,7 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
     \node [userA,text width=5cm,minimum width=5cm] (userA1) {\parbox{5cm}{\centering Generates new wallet}};
     \node [userB, right of=userA1, node distance=6cm, text width=5cm,minimum width=5cm] (userB1)    {\parbox{5cm}{\centering Generates new wallet}};
     
-    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{prepare\	{}multisig} to generate initialization data}};
+    \node [userA, below of=userA1,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA2) {\parbox{5cm}{\centering Runs \texttt{prepare\TextUnderscore{}multisig} to generate initialization data}};
     \node [userB, below of=userB1, node distance=2.5cm,text width=5cm,minimum width=5cm] (userB2)    {\parbox{5cm}{\centering Runs \texttt{prepare\TextUnderscore{}multisig} to generate initialization data}};
     
     \node [userA, below of=userA2,node distance=2.5cm,text width=5cm,minimum width=5cm] (userA3) {\parbox{5cm}{\centering User exchanges initialization data}}; %, in cli called multisig wallet password
@@ -1279,8 +1279,178 @@ iOS is used by 7 users (please note that users could check usage of both platfor
 \caption{iOS client usage.}
 \label{chart:price}\end{figure}\end{center}
 \subsubsection{Online wallet services}
+When asked about online wallet usage, only 24 people said that they use some sort of online service with MyMonero wallet being used the most (19).
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={MyMonero, XMRwallet, Other },
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(79,1) (16,2) (13,3)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(21,1) (84,2) (87,3)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Online wallet usage.}
+\label{chart:price}\end{figure}\end{center}
+
+\subsubsection{Wallet software usage}
+First section of the survey shows that userbase present in the dataset is more oriented towards opensource software in general (110 out of 113 use some form of opensource Monero client), but this is not limited to the usage of particular OS (37 Windows only users, 40 Linux only users and 28 users of both OS). This discovery follows the information about Monero community as they prefer open source software (OSS) to closed source software (CSS), because they can not personally review for hidden features or unintentional bugs.
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Opensource usage, OS usage },
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(97,1) (0,2)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(3,1) (0,2)};
+\addplot[2,fill=2] coordinates {(0,1) (33,2)};
+\addplot[3,fill=3] coordinates {(0,1) (35,2)};
+\addplot[5,fill=5] coordinates {(0,1) (25,2)};
+\addplot[6,fill=6] coordinates {(0,1) (7,2)};
+\legend{Use at least 1 OSS, Use CSS, Windows, Linux, Both, Other}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Online wallet usage.}
+\label{chart:price}\end{figure}\end{center}
 
 \subsection{Monero usage}
+When asked \enquote{\textit{What are your reasons to use Monero?}}, majority of respondents in the dataset said that they use Monero or at least are intereseted in the topic because of the technology (99 out of 113), but also see it as an investment (83). 
+
+Significant portion of respondents also see Monero as a way of secret storage of value (84) but not as much in a way of sending money (60).
+ 
+\begin{figure}[H]
+\center
+\begin{tabular}{p{0.5\linewidth}p{0.2\linewidth}p{0.2\linewidth}}
+\textbf{Reason}          & \textbf{\% usage} & \textbf{\# users} \\
+Investment               & 73 \%             & 83                \\
+Technology               & 88 \%             & 99                \\
+Fungibility              & 63 \%             & 71                \\
+Hidden balance           & 74 \%             & 84                \\
+Support Monero           & 65 \%             & 73                \\
+Recommended by friend    & 4 \%              & 4                 \\
+Secure storage of money  & 44 \%             & 50                \\
+Secure transfer of funds & 53 \%             & 60                \\
+To be paid in Monero     & 44 \%             & 50                \\
+Other                    & 0 \%              & 0                
+\end{tabular}
+\caption{Monero node comparison.}
+\label{table:monerousageresearch}
+\end{figure}
+
+This result is strongly affected by the way how participants were selected (self selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). Short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with full text of the questions asked avaiable in the Appendix Figure \ref{monero-user-study-pdf}.
+
+Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54). Note that only 107 out of 113 responded to this question.
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Transactions},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(4,1) (35,2) (8,3) (13,4) (27,5) (7,6)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(96,1) (65,2) (92,3) (86,4) (73,5) (92,6)};
+
+\legend{Once a day, Once a month, Once a week, Once a year, Once every six months, Less than once a year
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Transaction frequency by Monero users.}
+\label{chart:price}\end{figure}\end{center}
+
+
+
 \subsection{Monero key and coin management}
 \subsection{Monero and malicous software}
 \subsection{Monero recovery}
