@@ -1384,7 +1384,7 @@ Significant portion of respondents also see Monero as a way of secret storage of
 \begin{figure}[H]
 \center
 \begin{tabular}{p{0.5\linewidth}p{0.2\linewidth}p{0.2\linewidth}}
-\textbf{Reason}          & \textbf{\% usage} & \textbf{\# users} \\
+\textbf{Reason}          & \textbf{\% usage} & \textbf{\# out of users} \\
 Investment               & 73 \%             & 83                \\
 Technology               & 88 \%             & 99                \\
 Fungibility              & 63 \%             & 71                \\
@@ -1402,7 +1402,9 @@ Other                    & 0 \%              & 0
 
 This result is strongly affected by the way how participants were selected (self selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). Short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with full text of the questions asked avaiable in the Appendix Figure \ref{monero-user-study-pdf}.
 
-Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54). Note that only 107 out of 113 responded to this question.
+Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54 out of 107). 
+
+Following this question respondents were asked if they hold onto their coins for a long time (often referred as one being a HODLer). Majority of respondents (84 out of 106) said that they are, but this statement conflicts with transaction frequency. When comparing data of respondents that make transaction at least on a monthly basis, more than half (34 out of 57) think that they are HODLers. 
 
 \begin{center}
 \begin{figure}[H]
@@ -1434,9 +1436,14 @@ Transactions in the Monero network performed by respondents can be divided into 
     y=8mm,
     enlarge y limits={abs=0.625},
 ]
-\addplot[1,fill=1] coordinates {(4,1) (35,2) (8,3) (13,4) (27,5) (7,6)};
+\addplot[1,fill=1] coordinates {(4,1)};
+\addplot[2,fill=2] coordinates {(36,1)};
+\addplot[4,fill=4] coordinates {(8,1)};
+\addplot[3,fill=3] coordinates {(14,1)};
+\addplot[5,fill=5] coordinates {((29,1)};
+\addplot[7,fill=7] coordinates {(7,1)};
+
 %{(113,0) }; absolutni cisla, potrebuje to procenta
-\addplot[4,fill=4] coordinates {(96,1) (65,2) (92,3) (86,4) (73,5) (92,6)};
 
 \legend{Once a day, Once a month, Once a week, Once a year, Once every six months, Less than once a year
 }
@@ -1448,6 +1455,10 @@ Transactions in the Monero network performed by respondents can be divided into 
 \end{tikzpicture}
 \caption{Transaction frequency by Monero users.}
 \label{chart:price}\end{figure}\end{center}
+
+Important usage factor of a currency is where its users can pay with it. Monero has already a known reputation between darknet markets, but its mainstream usage isn't something that is advertised as its feature. 
+
+When asked about the payment options, many of the respondents (51) selected that they use Monero as a way for donating other people, followed by paying for VPN services. Detailed overview of payment types is avaiable in the Appendix Figure \ref{table:moneropayusageresearch}.
 
 
 
@@ -2355,6 +2366,32 @@ Month     & Task                                              \\
 \end{tabular}
 \caption{Diploma thesis plan.}
 \label{table:countries}
+\end{figure}
+
+\newappendix{Paying for services and goods - User research}
+\vspace{-2em}
+\begin{figure}[H]
+\center
+\begin{tabular}{p{0.4\linewidth}p{0.2\linewidth}p{0.3\linewidth}}
+\textbf{Usage}          & \textbf{\% usage} & \textbf{\# out of 113 users} \\
+Subscriptions           & 15 \%             & 17                           \\
+Restaurants             & 5 \%              & 6                            \\
+Donations               & 45 \%             & 51                           \\
+Art                     & 5 \%              & 6                            \\
+Electronics             & 18 \%             & 20                           \\
+Travelling              & 3 \%              & 3                            \\
+E-shops                 & 19 \%             & 22                           \\
+Darknet markets         & 18 \%             & 20                           \\
+Gambling sites          & 3 \%              & 3                            \\
+Drugs                   & 10 \%             & 11                           \\
+Illegal usecases        & 5 \%              & 6                            \\
+VPN services            & 35 \%             & 31                           \\
+Gift cards              & 4 \%              & 4                            \\
+Hosting and IT services & 22 \%             & 25                           \\
+Other                   & 0 \%              & 0                           
+\end{tabular}
+\caption{Monero usage for payments.}
+\label{table:moneropayusageresearch}
 \end{figure}
 
 \newappendix{Queries used for data mining}
