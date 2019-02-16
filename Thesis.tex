@@ -1508,15 +1508,311 @@ When asked about the payment options, many of the respondents (51) selected that
 \caption{Transaction frequency by Monero users.}
 \label{chart:price}\end{figure}\end{center}
 
-Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure .
+Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure \ref{table:moneropayusageresearch} .
 
 \subsection{Monero key and coin management}
+Apart from client software that is used for accessing and making transactions in Monero, wallet management should be taken with at least the same importance as the users choice has direct influence on who has the access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.69\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Hot wallet, Cold wallet, View-only wallet, Exchange wallet, Web wallet, Air-gapped wallet, Paper wallet, Hardware wallet},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(60,1) (44,2) (10,3) (23,4) (15,5)(7,6)(25,6)(23,7)};
+\addplot[4,fill=4] coordinates {(40,1) (56,2) (90,3) (77,4) (85,5) (93,6)(75,6)(77,7)};
+
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Wallet types usage in Monero.}
+\label{chart:monerowalletsusagechart}\end{figure}\end{center}
+
+
+\subsection{Monero recovery}
+For further wallet protection, majority of users also encrypt their wallet or the datastore on which the keys reside on (88 out of 113).
+
+Slightly higher number of users admit backing up their wallet keys (101) while a significant number of respondents had already needed to restore their wallet keys (50). To complete the recovery statistics, 49 out of 50 were able to restore the keys from the backup media.
+
+For visualisation of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Recovery reason},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(30,1)};
+\addplot[4,fill=4] coordinates {(18,1)};
+\addplot[5,fill=5] coordinates {(40,1)};
+\addplot[6,fill=6] coordinates {(12,1)};
+
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Disk issue, Software issue, Device error, Not specified
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Reason for wallet recovery.}
+\label{chart:recoveryreason}\end{figure}\end{center}
+\vspace{-2.5em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=3,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Restore method},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(18,1)};
+\addplot[2,fill=2] coordinates {(4,1)};
+\addplot[4,fill=4] coordinates {(10,1)};
+\addplot[5,fill=5] coordinates {(51,1)};
+\addplot[6,fill=6] coordinates {(17,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Hard drive, Cloud storage, Flash drive, Paper media, Mnemonic seed
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Method used for wallet recovery.}
+\label{chart:recoverymethod}\end{figure}\end{center}
+
+
 \subsection{Monero and malicous software}
 This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
-\subsection{Monero recovery}
+
+Main reason of problems was mining malware (8), the other mentioned was mining script (7), main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
 \subsection{Demographics}
+Survey parcitipants were mainly males (93), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (18). Most respondents in the dataset were from the age groups 25-34 (47) and 18-24 (37).
 
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=3,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Respondents age},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(33,1)};
+\addplot[2,fill=2] coordinates {(41,1)};
+\addplot[3,fill=3] coordinates {(18,1)};
+\addplot[4,fill=4] coordinates {(3,1)};
+\addplot[5,fill=5] coordinates {(1,1)};
+\addplot[7,fill=7] coordinates {(1,1)};
+\addplot[6,fill=6] coordinates {(3,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
 
+\legend{18-24,25-34,35-44,45-54,55-64,65-74,75+
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Age groups in the dataset.}
+\label{chart:agegroupsuserresearch}\end{figure}\end{center}
+
+\vspace{-2.5em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Level of education},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(9,1)};
+\addplot[2,fill=2] coordinates {(29,1)};
+\addplot[4,fill=4] coordinates {(52,1)};
+\addplot[6,fill=6] coordinates {(10,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Primary education, Secondary education, Tertiary education, Not specified
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Highest achieved level of education.}
+\label{chart:educationleveluserresearch}\end{figure}\end{center}
+\vspace{-2.5em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=3,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Work in industry},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(65,1)};
+\addplot[2,fill=2] coordinates {(33,1)};
+\addplot[4,fill=4] coordinates {(2,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{IT industry, Other industry, Not specified
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Respondents and IT industry.}
+\label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Monero usage and storage best practices}
 Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
