@@ -1460,10 +1460,59 @@ Important usage factor of a currency is where its users can pay with it. Monero 
 
 When asked about the payment options, many of the respondents (51) selected that they use Monero as a way for donating other people, followed by paying for VPN services. Detailed overview of payment types is avaiable in the Appendix Figure \ref{table:moneropayusageresearch}.
 
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.69\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Transactions are anonymous, Noone else can see the balance, Use Kovri to access Monero, Use Tor to access Monero},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(88,1) (91,2) (7,3) (20,4)};
+\addplot[4,fill=4] coordinates {(8,1) (7,2) (7,3) (3,4)};
+\addplot[5,fill=5] coordinates {(2,1) (1,2) (79,3)(71,4)};
+\addplot[6,fill=6] coordinates {(2,1) (1,2) (7,3) (6,4)};
 
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Yes, Uncertain, No, No response
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Transaction frequency by Monero users.}
+\label{chart:price}\end{figure}\end{center}
+
+Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure .
 
 \subsection{Monero key and coin management}
 \subsection{Monero and malicous software}
+This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
 \subsection{Monero recovery}
 \subsection{Demographics}
 
