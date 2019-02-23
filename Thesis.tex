@@ -934,7 +934,7 @@ The complete survey is attached in the Chapter \ref{monero-user-study-pdf}.
 Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 179 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
 \itemsep0em
-\item Partially answered questionnares were not taken into account. 
+\item Partially answered or unanswered questionnares were not taken into account. 
 \item Respondents that filled out survey in less than two minutes were discarted.
 \item Responses with more than 4 entries with same IP were filtered.
 \begin{itemize}
@@ -2266,8 +2266,170 @@ Data collection method was online only and was using the survey website software
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
 
-The complete survey is attached in chapter \ref{monero-miner-study-pdf}.
-\section{Results international, CZ}
+The complete survey is attached in the Appendix Figure \ref{monero-miner-study-pdf}.
+
+\section{Collected data}
+Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 323 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
+\begin{enumerate}
+\itemsep0em
+\item Partially answered or unanswered questionnares were not taken into account. 
+\item Respondents that filled out survey in less than two minutes were discarted.
+\item Responses with more than 4 entries with same IP were filtered.
+\item Responses containing invalid answers e.g. not using Monero or repeating same answer pattern in multiple submissions.
+
+\end{enumerate}
+%\end{itemize}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Filtered responses},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+   % enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(19,0) };
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[3,fill=3] coordinates {(80,0) };
+%{(67,0) };
+\addplot[4,fill=4] coordinates {(0,0) };
+%{(1,0) };
+\addplot[6,fill=6] coordinates {(1,0) };
+%{(1,0) };
+\legend{Valid responses [60],Partially filled [261],Too fast [0],Invalid [2]
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{From 323 responses, only 60 were tagged as valid.}
+\label{chart:price}\end{figure}\end{center}
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with corresponding number of responses is avaiable in the Appendix Table \ref{table:countriesminers}. 
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[]
+\tikzstyle{every node}=[font=\scriptsize]
+\pie []
+    {17/USA,
+17/Czech Republic,
+10/Germany,
+5/Russian Federation,
+5/Portugal,
+5/Canada,
+41/Others}
+      
+      
+     \end{tikzpicture}
+     \end{center}
+      \caption{Responses sorted by country of origin based on IP location.}
+      \label{chart:range}
+\end{figure}
+
+
+
+
+
+\section{Results}
+Upcoming pages are based on the final filtered dataset with 60 responses of people who voluntarily entered the research based on opportunity sampling.
+\subsubsection{General information}
+When asked about motivation for mining Monero, two thirds of the respondents (40) think about Monero as an investment, but also as a way to gain some profit from mining cryptocurrencies (37). 
+
+Altought Monero is not considered to be more profitable to mine by majority in the dataset (46), almost half of the miners (28) favor this cryptocurrency due to its mining characteristics CPU minable and the fact that they directly help securing the network by mining (36). 
+
+Note that reasons for mining Monero are biased by the way the respondents in the dataset were selected. In general, there would be higher percentage of the cryptocurrency miners that care only for the profitability rather than cryptocurrency features \cite{al2014investigating}.
+    \vspace{-2em}
+\subsubsection{Mining setup}
+Gathering information about mining setups was designed as multiple-choice question where every choice was described in detail as illustrated in the Figure \ref{pic:miningquestion}. Even through dataset cleansing, from the final 60 respondents, 15 of them chose both \textit{Regular PC only} and \textit{Mining rig} option. Therefore, only 45 respondents are taken in account for this section.
+\begin{figure}[H]
+\begin{center}
+
+    \vspace{-1em}
+ \includegraphics[trim={0.5cm 1.7cm 0.5cm 0.5cm},clip,width=0.85\textwidth]{Screenshot_31.png}
+    \caption{Mining setup question.}
+    \vspace{-1.5em}
+    \label{pic:miningquestion}
+\end{center}
+    \end{figure}
+    
+When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners that use theirs employer hardware and electricity as well (8).
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Mining hardware},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+   % enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(38,0) };
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[2,fill=2] coordinates {(27,0) };
+%{(67,0) };
+\addplot[4,fill=4] coordinates {(4,0) };
+%{(1,0) };
+\addplot[6,fill=6] coordinates {(31,0) };
+\legend{GPU only [17],CPU and GPU [12], CPU only [2], No response [14]
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Mining types comparison.}
+\label{chart:miningtype}\end{figure}\end{center}
+ 
+\subsubsection{Mining software}
+\subsubsection{Pool choice}
+\subsubsection{Windows platform}
+\subsubsection{Linux platform}
+\subsubsection{Demographics}
 
 
 \iffalse
@@ -2681,9 +2843,9 @@ Month     & Task                                              \\
 31 & US & United States      \\
 17 & CZ & Czech Republic     \\
 11 & DE & Germany            \\
-6  & CA & Canada             \\
-5  & SK & Slovakia           \\
-5  & GB & United Kingdom     \\
+3  & CA & Canada             \\
+3  & SK & Slovakia           \\
+3  & GB & United Kingdom     \\
 4  & BE & Belgium            \\
 3  & RU & Russian Federation \\
 3  & NL & Netherlands        \\
@@ -2737,6 +2899,43 @@ Other                   & 0 \%              & 0
 \end{tabular}
 \caption{Monero usage for payments.}
 \label{table:moneropayusageresearch}
+\end{figure}
+
+
+\newappendix{Responses sorted by country - Miners research}
+\vspace{-2em}
+\begin{figure}[H]
+\center
+\begin{tabular}{lll}
+\textbf{Number of responses} & \textbf{Country shortcode} & \textbf{Country name} \\
+10                           & US                         & United States         \\
+10                           & CZ                         & Czech Republic        \\
+6                            & DE                         & Germany               \\
+3                            & RU                         & Russian Federation    \\
+3                            & PT                         & Portugal              \\
+3                            & CA                         & Canada                \\
+2                            & RO                         & Romania               \\
+2                            & PL                         & Poland                \\
+2                            & NO                         & Norway                \\
+2                            & NL                         & Netherlands           \\
+2                            & HK                         & Hong Kong             \\
+2                            & BG                         & Bulgaria              \\
+1                            & ZA                         & South Africa          \\
+1                            & SK                         & Slovakia              \\
+1                            & SE                         & Sweden                \\
+1                            & MY                         & Malaysia              \\
+1                            & LR                         & Liberia               \\
+1                            & IT                         & Italy                 \\
+1                            & GR                         & Greece                \\
+1                            & GB                         & United Kingdom        \\
+1                            & FR                         & France                \\
+1                            & DK                         & Denmark               \\
+1                            & BR                         & Brazil                \\
+1                            & AU                         & Australia             \\
+1                            & AF                         & Afghanistan           \\
+\end{tabular}
+\caption{Diploma thesis plan.}
+\label{table:countriesminers}
 \end{figure}
 
 \newappendix{Queries used for data mining}
