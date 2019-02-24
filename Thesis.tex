@@ -2375,8 +2375,8 @@ Gathering information about mining setups was designed as multiple-choice questi
 \end{center}
     \end{figure}
     
-When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners that use theirs employer hardware and electricity as well (8).
-
+When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use theirs employer hardware and electricity to run their mining operation.
+\vspace{-1em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2424,6 +2424,103 @@ When asked about mining setup, majority of the miners prefer to mine on their ow
 \end{tikzpicture}
 \caption{Mining types comparison.}
 \label{chart:miningtype}\end{figure}\end{center}
+\vspace{-2em}
+58 out of 60 respondents shared their current hashrate with median hashrate value being 4.4Kh/s. This hashrate represents typical setup with 5 high performace GPUs (AMD RX 480 8GB with 800-850h/s) or 7 high performance CPUs (AMD Ryzen 7 1700 with 600-650h/s).
+
+\vspace{-1em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Mine in own property, Own rig setup, Windows Mining, Linux mining, 
+		Cleaning, Updates regular, UPS},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(87,0) (93,1)  (65,2) (55,3)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates {(13,0) (7,1) (35,2) (45,3)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Mining setup properties.}
+\label{chart:price}\end{figure}\end{center}
+ 
+\vspace{-2em}
+Majority of miners mine in their own property (52) and setup their own mining rigs (56). Operating system is not dominant nor on the Windows side (39) nor on the Linux part (33). This is mainly because of multiplatformity of mining software and avaiability of guides for mining setups. Miners generally tend to update their rigs (42) as well as clean them (31) but refrain from additional infrastructure costs like buying a UPS (14).
+
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={		Cleaning, Updates regular, UPS},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(51,1) (70,2) (23,3)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates { (49,1) (30,2) (77,3)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Mining setup properties.}
+\label{chart:price}\end{figure}\end{center}
  
 \subsubsection{Mining software}
 \subsubsection{Pool choice}
