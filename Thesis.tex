@@ -2087,6 +2087,7 @@ Since Bitcoin started to gain popularity, mining has divided into five categorie
 \end{itemize}
 \fi
 \subsubsection{Mining in pools}
+\label{cha:poolmining}
 Very often, miners combine their computational resources into one of the pools on the network. Due to the higher total hash rate, there is a greater chance of solving the block thus gaining the reward of newly emitted coins. After solving each block, the reward is distributed equally to miners connected to the pool according to PPS (per-per-share) or PPLNS (per-per-last-number-of-shares) system \cite{tarasiewicz2015cryptocurrencies}.
 
 As of 29.09.2018 total hash rate of the network was 577.72 Mh/s (100\%), in known pools 530.79 Mh/s (91.88\%) and unknown part of the network 46.93 Mh/s (8.12\%). Unknown part represents either pools that are not listed or solo miners on the network.
@@ -2178,6 +2179,7 @@ Represents managed services by specialists that offer mining power using cloud s
 Can be obtained at the official web of the Monero cryptocurrency project at \url{https://getmonero.org/downloads/}. This is an official wallet software that includes solo mining client and cannot be used for pool mining.
 
 \subsubsection{Community-driven}
+\label{cha:miningsoftware}
 Is a category that incorporates opensource mining software projects that have source code published on the Github. Mostly used are:
 
 \begin{itemize}\itemsep0em
@@ -2375,7 +2377,7 @@ Gathering information about mining setups was designed as multiple-choice questi
 \end{center}
     \end{figure}
     
-When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use theirs employer hardware and electricity to run their mining operation.
+When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use theirs employer hardware and electricity to run their mining operation. On the other side, only two of the respondents mentioned mining on a VPS instance and noone selected cloud mining or botnet mining as their way to mine Monero.
 \vspace{-1em}
 \begin{center}
 \begin{figure}[H]
@@ -2472,11 +2474,11 @@ When asked about mining setup, majority of the miners prefer to mine on their ow
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining setup properties.}
-\label{chart:price}\end{figure}\end{center}
+\label{chart:miningproperties}\end{figure}\end{center}
  
 \vspace{-2em}
-Majority of miners mine in their own property (52) and setup their own mining rigs (56). Operating system is not dominant nor on the Windows side (39) nor on the Linux part (33). This is mainly because of multiplatformity of mining software and avaiability of guides for mining setups. Miners generally tend to update their rigs (42) as well as clean them (31) but refrain from additional infrastructure costs like buying a UPS (14).
-
+Majority of miners mine in their own property (52) and setup their own mining rigs (56). Operating system is not dominant nor on the Windows side (39) nor on the Linux part (33) described in the Figure \ref{chart:miningproperties}. This is mainly because of multiplatformity of mining software and avaiability of guides for mining setups. 
+\vspace{-2em} %TODO spacing
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2519,13 +2521,121 @@ Majority of miners mine in their own property (52) and setup their own mining ri
 \node at (A) {test};
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
-\caption{Mining setup properties.}
-\label{chart:price}\end{figure}\end{center}
- 
+\caption{Mining setup habbits.}
+\label{chart:mininghabbits}\end{figure}\end{center}
+
+Miners generally tend to update their rigs (42) as well as clean them (31) but refrain from additional infrastructure costs like buying a UPS (14) as shown in the Figure \ref{chart:mininghabbits}.
+
 \subsubsection{Mining software}
+The choice of mining software impacts mining profitability as well as number of shares that are donated to the developer (if any). 
+
+As described in the Chapter \ref{cha:miningsoftware}, most popular mining software falls into open source with great moderation regarding code updates from the crypto community in general. This follows results from the dataset where XMR Stak project, that is the most active on Github, is also the most preffered way to run the mining operation (47 out of 60 miners).
+\vspace{-1.3em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={ XMR Stak, XMRig, Wallet software, MinerGate},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(78,1) (30,2) (11,3) (3,4)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates { (22,1) (70,2) (89,3) (97,4)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Mining setup habbits.}
+\label{chart:mininghabbits}\end{figure}\end{center}
+ XMRig is used less (18), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate ways mentioned (2). Small portion of miners also solomine (7) using the official wallet software. 
+ 
+In general, miners in the dataset tend to mine in pools (50), some of them try to combine mining approaches where primary way of obtaining the coins is by pool mining, but they also try their luck with solo mining (8). True solominer was respresented by only one specimen. 
+
 \subsubsection{Pool choice}
+Pool choice itself has the biggest impact on the final payout for the miner as described in the Chapter \ref{cha:poolmining}. This depends on the method of reward distribution, total hashrate of the pool and minimal payout. Note that often pools also have fees which are deducted from the amount of coins mined by the miner.
+
+When asked about pool preferences, two larger mining pools were often mentioned Monerooceanstream (14) and nanopool.org (14). Important preference factors for choosing pool were pool fees (52), pool security history (46), total hashrate (44) and minimal payout (37). Least important are additional features to the pool like mobile apps (14) or anti-botnet policy (21).
 \subsubsection{Windows platform}
+Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding peridic updates, only small part of miners (10) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
+
+Majority of Windows miners (23) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset (11) that tend to \enquote{setup and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:mininghabbits}.
+
+\vspace{-1.3em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={ Default Windows Updates, Activated Windows, Update delay, iGPU bug, AV software, Windows Deffender, Remote mgmt, Windows Firewall, Automation tools, Automatic deploy},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(17,1) (35,2) (38,3) (13,4) (28,5) (25,6) (40,7) (37,8) (18,9)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates { (83,1) (65,2) (95,3) (87,4) (72,5) (75,6) (60,7) (63,8) (82,9)};
+
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Windows mining setup preferences.}
+\label{chart:windowshabbits}\end{figure}\end{center}
 \subsubsection{Linux platform}
+While Linux is used by 33 out of 60 miners, majority of them tend to use Ubuntu (17) or Debian (11). Specialised OS for mining - MineOS is used by six users, CentOS is used by 2. Information about update frequency were not submitted by all miners, most of  %TODO doplnit tuto větu o něco rozumnějšího
+
 \subsubsection{Demographics}
 
 
