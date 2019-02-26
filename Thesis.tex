@@ -1704,7 +1704,7 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \addplot[2,fill=2] coordinates {(41,1)};
 \addplot[3,fill=3] coordinates {(18,1)};
 \addplot[4,fill=4] coordinates {(3,1)};
-\addplot[5,fill=5] coordinates {(0,1)};
+\addplot[5,fill=5] coordinates {(1,1)};
 \addplot[7,fill=7] coordinates {(1,1)};
 \addplot[6,fill=6] coordinates {(3,1)};
 %{(113,0) }; absolutni cisla, potrebuje to procenta
@@ -1993,7 +1993,7 @@ Following cost effectivity of individual media types together with common backup
 \subsubsection{Secure Monero usage portal}
 As a result of this chapter and Monero user research, all recommendations for secure Monero usage are compiled within one website \url{https://ownercz.github.io/ssme-thesis-portal/}. %TODO UPDATE LINK.
 
-
+\iffalse
 \begin{figure}[H]
 \begin{center}
 
@@ -2004,7 +2004,7 @@ As a result of this chapter and Monero user research, all recommendations for se
     \label{pic:moneroweb}
 \end{center}
     \end{figure}
-    
+    \fi
 
 \chapter{Obtaining Monero and running the network}
 \label{cha:obtaining}
@@ -2263,23 +2263,25 @@ Following this pattern, five research questions were set:
 As mentioned in the Chapter \ref{cha:monerouserresearch}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
+%\vspace{-0.7em}
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
 
 The complete survey is attached in the Appendix Figure \ref{monero-miner-study-pdf}.
-
+%\vspace{-0.7em}
 \section{Collected data}
 Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 323 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
-\itemsep0em
+%\itemsep-0.2em
 \item Partially answered or unanswered questionnares were not taken into account. 
 \item Respondents that filled out survey in less than two minutes were discarted.
+\newpage
 \item Responses with more than 4 entries with same IP were filtered.
 \item Responses containing invalid answers e.g. not using Monero or repeating same answer pattern in multiple submissions.
-
 \end{enumerate}
+
 %\end{itemize}
 \begin{center}
 \begin{figure}[H]
@@ -2329,6 +2331,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \end{tikzpicture}
 \caption{From 323 responses, only 60 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
+
 Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with corresponding number of responses is avaiable in the Appendix Table \ref{table:countriesminers}. 
 
 \begin{figure}[H]
@@ -2685,11 +2688,12 @@ While Linux is used by 33 out of 60 miners, majority of them tend to use Ubuntu 
 \end{tikzpicture}
 \caption{Windows mining setup preferences.}
 \label{chart:windowshabbits}\end{figure}\end{center}
-
+\vspace{-1em}
 Altought information about update frequency was not submitted by all miners, many of them (14) manage updates manually, with only small portion of other miners (6) having the process automated.Remote management is represented mainly by SSH (22) followed by VNC (3) and TeamViewer (3). Automation tools are used only by 13 miners from the dataset.
 \subsubsection{Demographics}
 Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33) followed by 35-44 age group (12) as well as 18-24 (11).
 
+\vspace{-1.9em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2740,7 +2744,7 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
 
-\vspace{-2.5em}
+\vspace{-5em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2787,7 +2791,7 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \end{tikzpicture}
 \caption{Highest achieved level of education.}
 \label{chart:educationleveluserresearch}\end{figure}\end{center}
-\vspace{-2.5em}
+\vspace{-4.7em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2834,42 +2838,6 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \caption{Respondents and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
-\iffalse
-\chapter{Monero pool operators research}
-The goal of this research is to gather information about people who run mining pools and are indirectly responsible for Monero transactions processing. The research aims to map mining pool administration consisting of coin management, attacks mitigation, and disaster recovery scenarios. For this purpose, an online questionnaire was created. 
-
-To the best of my knowledge, this is the first work that studies cryptocurrency pool operators. Specific research questions are based on available pool software, infrastructure services, hosting software and problematic areas regarding computer and data security in general.
-
-\section{Research questions}
-%antiDDOS!!!!! OK
-%co znamena zaloha poolu rozepsat OK
-
-The survey was designed around five question groups, some of them were shown only if the participant chose the appropriate answer.
-\begin{itemize}\itemsep0em
-\item G01 - Introductory information
-\item G02 - Coin management
-\item G03 - Defending against attackers
-\item G04 - Backups and disaster recovery
-\item G05 - Demographics
-\end{itemize}
-Following this pattern, four research questions were set:
-\begin{itemize}\itemsep0em
-\item R1: What technical infrastructure background is typical for pool operations?
-\item R2: How do pool operators manage pool wallet and coins in general?
-\item R3: Do pool operators use any attack mitigation services?
-\item R4: What are backup solutions do pool operators use?
-\end{itemize}
-\section{Participants and survey's background}
-As mentioned in the Chapter \ref{cha:monerousersurvey}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
-
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
-\subsection{Methodology}
-Data collection method was online only and was using the survey website software. Participants selection was based on systematic sampling as links for the research were sent to the pool operators only.
-
-The complete survey is attached in the Chapter \ref{monero-pool-study-pdf}.
-\section{Results international, CZ}
-
-\fi
 \chapter{Mining malware}
 \section{Monero position in malware world}
 \section{Types of malware miners}
