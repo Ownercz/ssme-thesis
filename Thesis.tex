@@ -1668,7 +1668,7 @@ This section was answered only by those respondents that selected Yes (15 out of
 
 Main reason of problems was mining malware (8), the other mentioned was mining script (7), main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
 \subsection{Demographics}
-Survey parcitipants were mainly males (93), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (18). Most respondents in the dataset were from the age groups 25-34 (47) and 18-24 (37).
+Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
 
 \begin{center}
 \begin{figure}[H]
@@ -1704,7 +1704,7 @@ Survey parcitipants were mainly males (93), females (2) represented only a small
 \addplot[2,fill=2] coordinates {(41,1)};
 \addplot[3,fill=3] coordinates {(18,1)};
 \addplot[4,fill=4] coordinates {(3,1)};
-\addplot[5,fill=5] coordinates {(1,1)};
+\addplot[5,fill=5] coordinates {(0,1)};
 \addplot[7,fill=7] coordinates {(1,1)};
 \addplot[6,fill=6] coordinates {(3,1)};
 %{(113,0) }; absolutni cisla, potrebuje to procenta
@@ -2611,7 +2611,7 @@ Majority of Windows miners (23) tend to apply updates after some time after thei
     width=.86\textwidth,
     bar width=6mm,
     xlabel={Time in ms},
-    yticklabels={ Default Windows Updates, Activated Windows, Update delay, iGPU bug, AV software, Windows Deffender, Remote mgmt, Windows Firewall, Automation tools, Automatic deploy},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
+    yticklabels={ Default Windows Updates, Activated Windows, Update delay, Remote mgmt, Windows Firewall, Automation tools, Automatic deploy},%yticklabels={ Default Windows Updates, Activated Windows, Update delay, iGPU bug, AV software, Windows Deffender, Remote mgmt, Windows Firewall, Automation tools, Automatic deploy},
     xmin=0,
     xmax=100,
     area legend,
@@ -2619,9 +2619,61 @@ Majority of Windows miners (23) tend to apply updates after some time after thei
     y=8mm,
     enlarge y limits={abs=0.625},
 ]
-\addplot[1,fill=1] coordinates {(17,1) (35,2) (38,3) (13,4) (28,5) (25,6) (40,7) (37,8) (18,9)};
+\addplot[1,fill=1] coordinates {(25,1) (54,2) (59,3)  (31,4) (36,5) (56,6) (28,7)};
 %{(113,0) }; absolutni cisla, potrebuje to procenta
-\addplot[4,fill=4] coordinates { (83,1) (65,2) (95,3) (87,4) (72,5) (75,6) (60,7) (63,8) (82,9)};
+\addplot[4,fill=4] coordinates { (75,1) (46,2) (41,3) (69,4) (64,5) (44,6) (72,7)};
+%\addplot[1,fill=1] coordinates {(25,1) (54,2) (59,3) (8,4) (21,5) (44,6) (31,7) (36,8) (56,9) (28,10)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+%\addplot[4,fill=4] coordinates { (75,1) (46,2) (41,3) (92,4) (79,5) (56,6) (69,7) (64,8) (44,9) (72,10)};
+\legend{Yes, No
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Windows mining setup preferences.}
+\label{chart:windowshabbits}\end{figure}\end{center}
+\vspace{-2em}
+\subsubsection{Linux platform}
+While Linux is used by 33 out of 60 miners, majority of them tend to use Ubuntu (17) or Debian (11). Specialised OS for mining - MineOS is used by six users, least use has community derivate from RHEL, CentOS. 
+
+
+\vspace{-2em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.86\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={SSH, VNC, TeamViewer, Automation,Deploy},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(79,1) (10,2) (10,3) (18,4) (36,5) };
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+\addplot[4,fill=4] coordinates { (21,1) (90,2) (90,3) (82,4) (64,5)};
 
 \legend{Yes, No
 }
@@ -2633,11 +2685,154 @@ Majority of Windows miners (23) tend to apply updates after some time after thei
 \end{tikzpicture}
 \caption{Windows mining setup preferences.}
 \label{chart:windowshabbits}\end{figure}\end{center}
-\subsubsection{Linux platform}
-While Linux is used by 33 out of 60 miners, majority of them tend to use Ubuntu (17) or Debian (11). Specialised OS for mining - MineOS is used by six users, CentOS is used by 2. Information about update frequency were not submitted by all miners, most of  %TODO doplnit tuto větu o něco rozumnějšího
 
+Altought information about update frequency was not submitted by all miners, many of them (14) manage updates manually, with only small portion of other miners (6) having the process automated.Remote management is represented mainly by SSH (22) followed by VNC (3) and TeamViewer (3). Automation tools are used only by 13 miners from the dataset.
 \subsubsection{Demographics}
+Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33) followed by 35-44 age group (12) as well as 18-24 (11).
 
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=3,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Respondents age},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(18,1)};
+\addplot[2,fill=2] coordinates {(55,1)};
+\addplot[3,fill=3] coordinates {(20,1)};
+\addplot[4,fill=4] coordinates {(3,1)};
+\addplot[5,fill=5] coordinates {(0,1)};
+\addplot[7,fill=7] coordinates {(2,1)};
+\addplot[6,fill=6] coordinates {(2,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{18-24,25-34,35-44,45-54,55-64,65-74,75+
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Age groups in the dataset.}
+\label{chart:agegroupsuserresearch}\end{figure}\end{center}
+
+\vspace{-2.5em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=2,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Level of education},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(5,1)};
+\addplot[2,fill=2] coordinates {(28,1)};
+\addplot[4,fill=4] coordinates {(56,1)};
+\addplot[6,fill=6] coordinates {(11,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{Primary education, Secondary education, Tertiary education, Not specified
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Highest achieved level of education.}
+\label{chart:educationleveluserresearch}\end{figure}\end{center}
+\vspace{-2.5em}
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    y dir = reverse,
+    legend style={
+    legend columns=3,
+        at={(xticklabel cs:0.5)},
+        anchor=north,
+        draw=none
+    },
+    ytick=data,
+    axis y line*=none,
+    axis x line*=bottom, %bottom
+    tick label style={font=\footnotesize},
+    legend style={font=\footnotesize},
+    label style={font=\footnotesize},
+    xtick={0,100},
+    width=.82\textwidth,
+    bar width=6mm,
+    xlabel={Time in ms},
+    yticklabels={Work in industry},
+    xmin=0,
+    xmax=100,
+    area legend,
+    xticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}\%},
+    y=8mm,
+    enlarge y limits={abs=0.625},
+]
+\addplot[1,fill=1] coordinates {(65,1)};
+\addplot[2,fill=2] coordinates {(32,1)};
+\addplot[4,fill=4] coordinates {(3,1)};
+%{(113,0) }; absolutni cisla, potrebuje to procenta
+
+\legend{IT industry, Other industry, Not specified
+}
+\coordinate (A) at (200,0);% ******** start of changes ************
+\coordinate (B) at (300,8mm);
+\end{axis}  
+\node at (A) {test};
+\node at (B) {test 2};% ********* end of changes **********
+\end{tikzpicture}
+\caption{Respondents and IT industry.}
+\label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \iffalse
 \chapter{Monero pool operators research}
