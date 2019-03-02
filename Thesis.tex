@@ -858,7 +858,8 @@ Monero privacy features are welcomed not only by privacy savvy users but malware
 The main reason to use Monero over other cryptocurrencies for them is that Monero is not only harder to trace but when the attack is implemented well, after moving funds in separate batches to multiple wallets an over more extended period, no one will be able to associate the coins with the malicious activity.
 
 There are three main problems concerns in Monero environment:
-\subsubsection{Ransomware}
+\subsubsection{Ransomware} 
+\label{cha:ransomware}
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
 As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} available at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
@@ -869,6 +870,7 @@ As mentioned in section Wallets, online wallets usage is a risky thing due to en
 
 Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that that are reported as missing from user's accounts \cite{wijayamonero}.
 \subsubsection{Crypto-jacking attack}
+\label{cha:cryptojacking} 
 Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
 Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is more profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
 \vspace{-1em}
@@ -2118,6 +2120,7 @@ Represents "all or nothing" approach when it comes to the rewarding system. As s
 On the other side, when solo miner solves the block successfully, the whole block reward is assigned to the mining address. With high-end, multiple GPU setup, the miner can achieve about 3.2 Kh/s; this would mean chance about 0.46 \% of "winning" the block reward. 
 
 \subsubsection{Web mining}
+\label{cpumining}
 CryptoNight algorithm mining stands out above others in the way how cryptocurrency can be mined. For Monero there are JavaScript-based miners like CoinHive available, that results in individual websites embedding this script and mining using the visitor's resources. 
 
 This can result up to 300 hashes per second for users with powerful CPUs and is a viable alternative to advertisements when visitors spend more than 10 minutes on the website \cite{papadopoulos2018truth}. Typical examples of this approach are warez websites offering free online movies and torrent trackers.
@@ -2838,9 +2841,27 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \caption{Respondents and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
-\chapter{Mining malware}
+\chapter{Monero mining malware }
+\vspace{-0.2em}
+As Monero algorithm is designed to be memory demanding algoritm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
+
+The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented, thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
+\vspace{-0.6em}
 \section{Monero position in malware world}
+When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
+
+In case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device avaiable, is the main reason for using Monero \ref{eskandari2018first}.
+
+Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \ref{konoth2019malicious}.
+\vspace{-0.6em}
 \section{Types of malware miners}
+Main categories of malware miners are derived from the way how the unwanted software is delivered to the target device. Most common ways of ingestion are:
+\begin{itemize}
+\itemsep0em
+\item Website with JavaScript miner software, also known as Cryptojacking as mentioned in the Figure \ref{cha:cryptojacking}. 
+\item Exploiting vulnerabilites in operating system or in application software.
+\item Bundled in legitimate software.
+\end{itemize}
 \section{Unwanted mining in SOHO envionment}
 \section{Unwanted mining in large scale}
 
