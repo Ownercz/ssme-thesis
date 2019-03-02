@@ -13,9 +13,9 @@
            %% of a document.
   table,   %% Causes the coloring of tables. Replace with `notable`
            %% to restore plain tables.
-  nolof,     %% Prints the List of Figures. Replace with `nolof` to
+  lof,     %% Prints the List of Figures. Replace with `nolof` to
            %% hide the List of Figures.
-  nolot,     %% Prints the List of Tables. Replace with `nolot` to
+  lot,     %% Prints the List of Tables. Replace with `nolot` to
            %% hide the List of Tables.
            oneside, color
   %% More options are listed in the user guide at
@@ -1398,7 +1398,7 @@ Secure transfer of funds & 53 \%             & 60                \\
 To be paid in Monero     & 44 \%             & 50                \\
 Other                    & 0 \%              & 0                
 \end{tabular}
-\caption{Monero node comparison.}
+\caption{Reasons to use Monero.}
 \label{table:monerousageresearch}
 \end{figure}
 
@@ -1666,9 +1666,10 @@ For visualisation of wallet recovery reasons and restore methods see the Figures
 
 
 \subsection{Monero and malicous software}
+\label{cha:maliciousminingresearch}
 This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
 
-Main reason of problems was mining malware (8), the other mentioned was mining script (7), main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
+Main reason of problems was mining malware (8) or some form of mining script (7). Main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
 \subsection{Demographics}
 Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
 \vspace{-2em}
@@ -2210,6 +2211,37 @@ Is a category that incorporates opensource mining software projects that have so
     
 \subsubsection{Proprietary}
 Having closed source code that community cant inspect, mining software of this category has less reputation compared to the community-driven. This is caused mainly by the fact that the exact produced hash rate and client reported hash rate differed in the past at least regarding the MinerGate miner available at \url{https://minergate.com/downloads/gui} .
+
+\section{Mining malware }
+\vspace{-0.2em}
+As Monero algorithm is designed to be memory demanding algoritm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
+
+The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented, thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
+\vspace{-0.6em}
+\subsubsection{Monero position in malware world}
+When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
+
+In case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device avaiable, is the main reason for using Monero \ref{eskandari2018first}.
+
+Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \ref{konoth2019malicious}.
+\vspace{-0.6em}
+\subsubsection{Types of malware miners}
+Main categories of malware miners are derived from the way how the unwanted software is delivered to the target device. Most common ways of ingestion are:
+\begin{itemize}
+\itemsep0em
+\item Website with JavaScript miner software, also known as Cryptojacking as mentioned in the Figure \ref{cha:cryptojacking}. 
+\item Exploiting vulnerabilites in operating system or in application software.
+\item Bundled in legitimate software.
+\end{itemize}
+%\subsubsection{Unwanted mining in SOHO envionment}
+%\ref{cha:maliciousminingresearch}
+%\subsubsection{Unwanted mining in large scale}
+
+
+%\subsection{Systems administrators perspective}
+%kitty https://www.incapsula.com/blog/crypto-me0wing-attacks-kitty-cashes-in-on-monero.html
+%\subsection{Regular users}
+
 \iffalse
 \section{XMR obtaining comparison}
 \begin{figure}[H]
@@ -2841,36 +2873,6 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \caption{Respondents and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
-\chapter{Monero mining malware }
-\vspace{-0.2em}
-As Monero algorithm is designed to be memory demanding algoritm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
-
-The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented, thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
-\vspace{-0.6em}
-\section{Monero position in malware world}
-When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
-
-In case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device avaiable, is the main reason for using Monero \ref{eskandari2018first}.
-
-Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \ref{konoth2019malicious}.
-\vspace{-0.6em}
-\section{Types of malware miners}
-Main categories of malware miners are derived from the way how the unwanted software is delivered to the target device. Most common ways of ingestion are:
-\begin{itemize}
-\itemsep0em
-\item Website with JavaScript miner software, also known as Cryptojacking as mentioned in the Figure \ref{cha:cryptojacking}. 
-\item Exploiting vulnerabilites in operating system or in application software.
-\item Bundled in legitimate software.
-\end{itemize}
-\section{Unwanted mining in SOHO envionment}
-\section{Unwanted mining in large scale}
-
-
-%\subsection{Systems administrators perspective}
-%kitty https://www.incapsula.com/blog/crypto-me0wing-attacks-kitty-cashes-in-on-monero.html
-%\subsection{Regular users}
-
-
 \chapter{Designing secure mining environment}
 The goal of this chapter is to design and develop secure and reasonably easy way how to setup and run mining operations on any scale. Inspired by both industry standards of large scale it operations as well as running own mining operation, main emphasis is placed on automation aspect of the whole system.
 \section{Automation}
@@ -3196,35 +3198,10 @@ Downloads latest release of XMR-Stak from developers GitHub page, configures min
 
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
-
-\chapter{Plan}
-
-\begin{figure}[H]
-\center
-\begin{tabular}{ll}
-Month     & Task                                              \\
-1.7.2018  & Monero cryptocurrency; Monero Usage              \\
-1.8.2018  & Research design  \\
-1.9.2018  & Data collection; Monero mining and running the network \\
-1.10.2018 & Data summary                                   \\
-1.11.2018 & Best practices for usage and storage                \\
-1.12.2018 & Mining malware; Secure mining system design     \\
-1.1.2019  & Cryptocore.cz web            \\
-1.2.2019  & Spare time                                           \\
-1.3.2019  & Month for completion                                 \\
-1.4.2019  & Final version + print                            
-\end{tabular}
-\caption{Diploma thesis plan.}
-\label{ssme-thesis-plan}
-\end{figure}
-
-
-
 \printbibliography[heading=bibintoc]
-
+\newpage
 \appendix
 \listofappendices
-
 \newappendix{Responses sorted by country - User research}
 \vspace{-2em}
 \begin{figure}[H]
@@ -3345,12 +3322,12 @@ SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{
 SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Freewallet\TextUnderscore{}iOS like 'yes';
 SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Other\TextUnderscore{}iOS\TextUnderscore{}wallet like 'yes';}
 
-\includepdf[pages=1,pagecommand=\newappendix{Monero User Survey},scale=0.7]{monerousersurvey.pdf}
+\includepdf[pages=1,pagecommand=\newappendix{Monero User Survey},scale=1.1,width=1.1\textwidth]{monerousersurvey.pdf}
 \label{monero-user-study-pdf}
-\includepdf[pages={2,3,4,5,6,7,8,9},scale=0.7, pagecommand={}]{monerousersurvey.pdf}
-\includepdf[pages=1,pagecommand=\newappendix{Monero Miners Survey},scale=0.7]{monerominersurvey.pdf}
+\includepdf[pages={2,3,4,5,6,7,8,9},scale=1,width=1.1\textwidth, pagecommand={}]{monerousersurvey.pdf}
+\includepdf[pages=1,pagecommand=\newappendix{Monero Miners Survey},scale=1,width=1.1\textwidth]{monerominersurvey.pdf}
 \label{monero-miners-study-pdf}
-\includepdf[pages={2,3,4,5,6,7,8,9,10},scale=0.7, pagecommand={}]{monerominersurvey.pdf}
+\includepdf[pages={2,3,4,5,6,7,8,9},scale=1,width=\textwidth, pagecommand={}]{monerominersurvey.pdf}
 %\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
 %\label{monero-pool-study-pdf}
 %\includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
