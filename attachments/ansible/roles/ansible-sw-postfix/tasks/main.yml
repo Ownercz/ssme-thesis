@@ -1,0 +1,54 @@
+---
+- name: Ensures postfix installed
+  yum: name=postfix,cyrus-sasl-sql,cyrus-sasl-plain,cyrus-sasl-lib,mailx,cyrus-sasl-plain  state=present
+
+- name: Configure main.cf
+  template: src=main.cf.j2 dest=/etc/postfix/main.cf
+
+- name: Configure sasl_passwd
+  template: src=sasl_passwd.j2 dest=/etc/postfix/sasl_passwd
+
+- name: Configure relayhost_map
+  template: src=relayhost_map.j2 dest=/etc/postfix/relayhost_map
+  when: email is defined
+
+- name: Configure transport
+  template: src=transport.j2 dest=/etc/postfix/transport
+  when: false
+
+- name: Delete old config transport
+  file: 
+        path: /etc/postfix/transport
+        state: absent
+  when: false
+  
+- name: Delete old config relayhost_map
+  file: 
+        path: /etc/postfix/relayhost_map
+        state: absent
+  when: email is not defined
+  
+- name: Map password
+  shell: postmap /etc/postfix/sasl_passwd 
+  
+- name: Map relayhost
+  shell: postmap /etc/postfix/relayhost_map
+  when: email is defined
+
+- name: Map transport maps
+  shell: postmap /etc/postfix/transport
+  when: false
+    
+- name: Create root email alias
+  lineinfile: dest=/etc/aliases regexp="^root" line="root{{':'}} {{ root_mail }}" state=present
+  notify:
+    - restart postfix    
+
+- name: Run aliases
+  shell: newaliases 
+ 
+- name: Map aliases even for local mail delivery
+  shell: postmap /etc/postfix/virtual
+ 
+- name: Ensures postfix service is running
+  service: name=postfix.service state=restarted enabled=yes

@@ -1,0 +1,5 @@
+{% if email is defined %}
+{% for item in email %}
+{{ item.relayhost }}
+{% endfor %}
+{% endif %}

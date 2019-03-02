@@ -1,0 +1,15 @@
+- name: Ansible created sudo accounts
+  user: name={{ item.username }}  state=present groups="users,wheel" update_password="{{ item.updatepassword }}" password="{{ item.password | password_hash('sha512') }}" comment='Ansible created  "{{ item.username }}" sudo account'
+  sudo: yes
+  when:  item.issudo  == True 
+  with_items: '{{ users }}'
+  
+- name: Ansible created regular accounts  
+  user: name={{ item.username }} state=present groups="users" update_password="{{ item.updatepassword }}" password="{{ item.password | password_hash('sha512') }}" comment='Ansible created  "{{ item.username }}" regular account' 
+  sudo: yes
+  when: item.issudo == False 
+  with_items: '{{ users }}'
+ 
+# - debug:
+    # msg:"{{ item.password | password_hash('sha512') }}"
+  # with_items: '{{ users }}'

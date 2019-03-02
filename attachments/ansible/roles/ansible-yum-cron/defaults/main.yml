@@ -1,0 +1,33 @@
+---
+# defaults file for yum_cron
+
+# Defaults to Ansible inventory hostname.
+# If prefer to use system hostname, set to None.
+system_name: "{{ inventory_hostname }}"
+emit_via: email
+output_width: 80
+email_from: "root@{{ inventory_hostname }}"
+email_to: serveradmin@lipovcan.cz
+email_host: localhost
+
+hourly_update_level: security
+hourly_update_message: no
+hourly_download_updates: no
+hourly_apply_updates: no
+hourly_random_sleep: 0
+#hourly_base_options:
+# - "exclude=java*,kernel*"
+
+daily_update_level: security
+daily_update_message: yes
+daily_download_updates: yes
+daily_apply_updates: no
+daily_random_sleep: 0
+#daily_base_options: "{{ hourly_base_options }}"
+
+yum_cron_clean_what: "all"
+yum_cron_clean_enabled: False
+#yum_cron_clean_when is what comes after /etc/cron. so /etc/cron.daily/ /etc/cron.monthly
+yum_cron_clean_when: "daily"
+
+

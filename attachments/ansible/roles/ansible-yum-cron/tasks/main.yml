@@ -1,0 +1,26 @@
+---
+
+  - name: Ensures yum-cron installed
+    yum: name=yum-cron state=present
+    tags: yum-cron
+
+  - name: Configure yum-cron.conf
+    template: src=yum-cron.conf.j2 dest=/etc/yum/yum-cron.conf
+    notify: restart yum-cron
+    tags: yum-cron
+
+  - name: Configure yum-cron-hourly.conf
+    template: src=yum-cron-hourly.conf.j2 dest=/etc/yum/yum-cron-hourly.conf
+    notify: restart yum-cron
+    tags: yum-cron
+
+  - name: Ensures yum-cron service is running
+    service: name=yum-cron state=started enabled=yes
+    tags: yum-cron
+
+  - name: Configure yum-cron-clean to run a yum clean regularly
+    template: src=yum_clean_cron.j2 dest=/etc/cron.{{ yum_cron_clean_when }}/yum_clean_cron mode=0755
+    
+  - name: Disable the pesky yum-hourly in crontab, because we dont use it anyway.  
+    template: src=0yum-hourly.cron.j2 dest=/etc/cron.hourly/0yum-hourly.cron
+    when: yum_hourly_update_disable == true

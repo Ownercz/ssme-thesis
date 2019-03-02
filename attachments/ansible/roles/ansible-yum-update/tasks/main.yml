@@ -1,0 +1,9 @@
+---
+  - name: install yum security plugin on RHEL 7.X
+#    when: ansible_os_family == "CentOS"
+    yum: pkg=yum-plugin-security state=latest
+  - name: Lets upgrade all packages to the latest version.
+    yum:
+        name: '*'
+        state: latest
+

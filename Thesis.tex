@@ -127,6 +127,15 @@
   \endgroup
 }
 
+%herebedragons
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
+  \do\Y\do\Z\do/}
 %images
 \usepackage{graphicx}
 \usepackage{float}
@@ -3199,13 +3208,62 @@ Downloads latest release of XMR-Stak from developers GitHub page, configures min
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
 \printbibliography[heading=bibintoc]
-\newpage
+\let\cleardoublepage\clearpage
+\begingroup
+\let\cleardoublepage\clearpage
 \appendix
-\listofappendices
-\newappendix{Responses sorted by country - User research}
-\vspace{-2em}
+\chapter{List of Attachments}
+Electronic attachments are included in the thesis archive of the Masaryk University Information System. 
+\\
+\\
+Thesis source code together with electronic attachements is avaiable at \url{https://github.com/Ownercz/ssme-thesis}. 
+\\
+\\
+Chapters of this work are also published online at \url{https://ownercz.github.io/ssme-thesis/}. 
+\\
+\\
+Following files are included in the attachment archive:
+\begin{itemize}
+\itemsep0em
+\item \texttt{Ansible} directory containing Ansible playbook and roles for Linux and Windows miner deployment.
+\item \texttt{Cleansed} directory containing data used for Monero Users and Monero Miners survey.
+\item \texttt{Kickstart} directory containing the kickstart file for Centos 7 used in unattended Centos installation.
+\item \texttt{Original} directory containing unfiltered data from Monero Users and Monero Miners survey.
+\item \texttt{Sql-queries} directory containing sql files that were used for data processing for both surveys.
+\item \texttt{Unattended} directory containing the autounattend file for Windows 10 used in unattended Windows 10 installation.
+\end{itemize}
+
+
+\chapter{Paying for services and goods - User research}
 \begin{figure}[H]
 \center
+\begin{tabular}{p{0.4\linewidth}p{0.2\linewidth}p{0.3\linewidth}}
+\textbf{Usage}          & \textbf{\% usage} & \textbf{\# out of 113 users} \\
+Subscriptions           & 15 \%             & 17                           \\
+Restaurants             & 5 \%              & 6                            \\
+Donations               & 45 \%             & 51                           \\
+Art                     & 5 \%              & 6                            \\
+Electronics             & 18 \%             & 20                           \\
+Travelling              & 3 \%              & 3                            \\
+E-shops                 & 19 \%             & 22                           \\
+Darknet markets         & 18 \%             & 20                           \\
+Gambling sites          & 3 \%              & 3                            \\
+Drugs                   & 10 \%             & 11                           \\
+Illegal usecases        & 5 \%              & 6                            \\
+VPN services            & 35 \%             & 31                           \\
+Gift cards              & 4 \%              & 4                            \\
+Hosting and IT services & 22 \%             & 25                           \\
+Other                   & 0 \%              & 0                           
+\end{tabular}
+\caption{Monero usage for payments.}
+\label{table:moneropayusageresearch}
+\end{figure}
+
+\chapter{Responses sorted by country - User research}
+\vspace{-1em}
+\begin{figure}[H]
+\center
+\begin{footnotesize}
 \begin{tabular}{lll}
 \textbf{Number of responses} & \textbf{Country shortcode} & \textbf{Country name} \\
 31 & US & United States      \\
@@ -3239,38 +3297,13 @@ Also adds the exception in Windows Defender to ignore Desktop folder as a binary
 1  & ES & Spain              \\
 1  & AF & Afghanistan       
 \end{tabular}
+\end{footnotesize}
 \caption{Diploma thesis plan.}
 \label{table:countries}
 \end{figure}
 
-\newappendix{Paying for services and goods - User research}
-\vspace{-2em}
-\begin{figure}[H]
-\center
-\begin{tabular}{p{0.4\linewidth}p{0.2\linewidth}p{0.3\linewidth}}
-\textbf{Usage}          & \textbf{\% usage} & \textbf{\# out of 113 users} \\
-Subscriptions           & 15 \%             & 17                           \\
-Restaurants             & 5 \%              & 6                            \\
-Donations               & 45 \%             & 51                           \\
-Art                     & 5 \%              & 6                            \\
-Electronics             & 18 \%             & 20                           \\
-Travelling              & 3 \%              & 3                            \\
-E-shops                 & 19 \%             & 22                           \\
-Darknet markets         & 18 \%             & 20                           \\
-Gambling sites          & 3 \%              & 3                            \\
-Drugs                   & 10 \%             & 11                           \\
-Illegal usecases        & 5 \%              & 6                            \\
-VPN services            & 35 \%             & 31                           \\
-Gift cards              & 4 \%              & 4                            \\
-Hosting and IT services & 22 \%             & 25                           \\
-Other                   & 0 \%              & 0                           
-\end{tabular}
-\caption{Monero usage for payments.}
-\label{table:moneropayusageresearch}
-\end{figure}
 
-
-\newappendix{Responses sorted by country - Miners research}
+\chapter{Responses sorted by country - Miners research}
 \vspace{-2em}
 \begin{figure}[H]
 \center
@@ -3306,33 +3339,17 @@ Other                   & 0 \%              & 0
 \label{table:countriesminers}
 \end{figure}
 
-\newappendix{Queries used for data mining}
-\texttt{SELECT count(*) FROM users WHERE Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Official\TextUnderscore{}Monero\TextUnderscore{}GUI like 'yes' or Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Official\TextUnderscore{}Monero\TextUnderscore{}CLI like 'yes' or Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Other\TextUnderscore{}desktop\TextUnderscore{}client like 'yes';
-
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}Android like 'yes' or Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes';
-
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}Android like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Monerujo\TextUnderscore{}Android like 'yes';
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}Android like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Freewallet\TextUnderscore{}Android like 'yes';
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}Android like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Other\TextUnderscore{}Android\TextUnderscore{}wallet like 'yes';
-
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}Android like 'yes';
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes';
-
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Cake\TextUnderscore{}Wallet\TextUnderscore{}iOS like 'yes';
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Freewallet\TextUnderscore{}iOS like 'yes';
-SELECT count(*) FROM users where Which\TextUnderscore{}platforms\TextUnderscore{}do\TextUnderscore{}you\TextUnderscore{}use\TextUnderscore{}to\TextUnderscore{}access\TextUnderscore{}Monero\TextUnderscore{}iOS like 'yes' and Which\TextUnderscore{}services\TextUnderscore{}or\TextUnderscore{}apps\TextUnderscore{}Other\TextUnderscore{}iOS\TextUnderscore{}wallet like 'yes';}
-
-\includepdf[pages=1,pagecommand=\newappendix{Monero User Survey},scale=1.1,width=1.1\textwidth]{monerousersurvey.pdf}
+\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=1.1,width=1.1\textwidth]{monerousersurvey.pdf}
 \label{monero-user-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9},scale=1,width=1.1\textwidth, pagecommand={}]{monerousersurvey.pdf}
-\includepdf[pages=1,pagecommand=\newappendix{Monero Miners Survey},scale=1,width=1.1\textwidth]{monerominersurvey.pdf}
+\includepdf[pages=1,pagecommand=\chapter{Monero Miners Survey},scale=1,width=1.1\textwidth]{monerominersurvey.pdf}
 \label{monero-miners-study-pdf}
 \includepdf[pages={2,3,4,5,6,7,8,9},scale=1,width=\textwidth, pagecommand={}]{monerominersurvey.pdf}
 %\includepdf[pages=1,pagecommand=\chapter{Monero User Survey},scale=0.7]{moneropoolsurvey.pdf}
 %\label{monero-pool-study-pdf}
 %\includepdf[pages={2,3,4,5},scale=0.7, pagecommand={}]{moneropoolsurvey.pdf}
 
-\newappendix{Kickstart file}
+\chapter{Kickstart file}
 \label{kickstart}
 \begin{lstlisting}
 #version=DEVEL
@@ -3405,4 +3422,5 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 %pivx https://www.reddit.com/r/pivx/comments/7gjjyw/what_are_the_benefits_of_multisig_addresses/
 %zcoin https://github.com/zcoinofficial/zcoin/wiki/Information-for-exchanges
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
+\endgroup
 \end{document}

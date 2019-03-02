@@ -1,0 +1,63 @@
+- name: Download xmr-stak release
+  win_get_url:
+    url: https://github.com/fireice-uk/xmr-stak/releases/download/2.6.0/xmr-stak-win64-2.6.0.zip
+    dest: C:\Users\ownercz\Desktop\xmr-stak.zip
+    
+- name: Unzip xmr-stak archive
+  win_unzip:
+    src: C:\Users\ownercz\Desktop\xmr-stak.zip
+    dest: C:\Users\ownercz\Desktop\xmr-stak-raw
+    creates: C:\Users\ownercz\Desktop\xmr-stak-raw
+    
+    
+- name: Copy a folder recursively where the source is on the remote host
+  win_copy:
+    src: C:\Users\ownercz\Desktop\xmr-stak-raw\xmr-stak-win64-2.6.0\
+    dest: C:\Users\ownercz\Desktop\xmr-stak
+    remote_src: yes    
+
+- name: Copy a folder recursively where the source is on the remote host
+  win_template:
+    src: templates/cpu.j2
+    dest: C:\Users\ownercz\Desktop\xmr-stak\cpu.txt
+- name: Copy a folder recursively where the source is on the remote host
+  win_template:
+    src: templates/pools.j2
+    dest: C:\Users\ownercz\Desktop\xmr-stak\pools.txt
+- name: Copy a folder recursively where the source is on the remote host
+  win_template:
+    src: templates/config.j2
+    dest: C:\Users\ownercz\Desktop\xmr-stak\config.txt
+    
+- name: Copy a folder recursively where the source is on the remote host
+  win_template:
+    src: templates/start.j2
+    dest: C:\Users\ownercz\Desktop\xmr-stak\start.cmd
+    
+    
+- name: Download xmr-stak release
+  win_get_url:
+    url: https://go.microsoft.com/fwlink/?LinkId=746572
+    dest: C:\Users\ownercz\Desktop\xmr-stak-raw\runtime.exe
+    
+- name: Install 7zip and use a file version for the installation check
+  win_package:
+    path: C:\Users\ownercz\Desktop\xmr-stak-raw\runtime.exe
+    # creates_path: C:\Program Files\7-Zip\7z.exe
+    # creates_version: 16.04
+    state: present
+    product_id: '{BC958BD2-5DAC-3862-BB1A-C1BE0790438D}'
+    arguments: "/install /passive /norestart /quiet"
+    
+- name: create task to run a PS script as NETWORK service on boot
+  win_scheduled_task:
+    name: XMR-Stak
+    description: Run a mining node
+    actions:
+    - path: C:\Users\ownercz\Desktop\xmr-stak\start.cmd
+    triggers:
+    - type: logon
+    username: ownercz
+    run_level: highest
+    state: present
+- win_reboot:

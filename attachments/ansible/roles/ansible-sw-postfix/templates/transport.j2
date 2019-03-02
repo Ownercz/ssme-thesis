@@ -1,0 +1,8 @@
+{% if login_pass is defined %}  
+{{ login_pass }} 
+{% endif %}
+{% if email is defined %}  
+{% for item in email %}
+{{ item.login_pass }}
+{% endfor %}
+{% endif %}

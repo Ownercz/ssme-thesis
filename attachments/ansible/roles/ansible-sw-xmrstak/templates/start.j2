@@ -1,0 +1,10 @@
+#!/bin/bash
+if screen -list | grep -q "xmrstak"; then
+    echo "Xmrstak is alive!"
+else
+    echo "Starting xmrstak "
+    screen -S xmrstak -d -m /home/ownercz/xmr-stak/build/bin/xmr-stak
+    echo "Xmrstak is online!"
+fi
+
+

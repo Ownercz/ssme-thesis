@@ -1,0 +1,8 @@
+---
+- name: Setup xmr01.lipovcan.cz
+  hosts: win
+  roles:
+      - ansible-win-apps
+  vars:
+    release_url: "https://github.com/fireice-uk/xmr-stak/releases/download/2.6.0/xmr-stak-win64-2.6.0.zip"
+    username: "Ownercz"

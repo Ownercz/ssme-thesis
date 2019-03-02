@@ -1,0 +1,24 @@
+release_url: "https://github.com/fireice-uk/xmr-stak/releases/download/2.6.0/xmr-stak-win64-2.6.0.zip"
+username: "Ownercz"
+http_port: 8080
+http_username: "ownercz"
+http_pass: "ssme-thesis"
+ipv4_preference: "true"
+cpu_config: '"cpu_threads_conf" :
+[
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 0 },
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 1 },
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 2 },
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 3 },
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 4 },
+    { "low_power_mode" : true, "no_prefetch" : true, "asm" : "auto", "affine_to_cpu" : 5 },
+
+],
+'
+pool_address: "pool.supportxmr.com:3333"
+wallet_address: "4A8VqcQVQQ3SfBhbwJss1UijiyqKvqNpi1vBeKppJiY3Y11QK5bs3KEPPkKz7ink8qYP6df8qKwBSLxmnuvV6sUD7K6WmGk"
+rig_id: "R610"
+pool_password: "x"
+use_tls: "false"
+currency: "monero"
+remotehttp: "true"

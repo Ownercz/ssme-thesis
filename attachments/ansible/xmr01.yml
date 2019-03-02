@@ -1,0 +1,25 @@
+---
+- name: Setup xmr01.lipovcan.cz
+  hosts: xmr01
+  roles:
+      - ansible-yum-update
+      - ansible-sw-common-apps
+      - ansible-sys-hostname 
+      - ansible-sw-firewalld
+      - ansible-sw-ntp
+      - ansible-sw-sshsec
+      - ansible-yum-cron
+      - ansible-sw-postfix
+      - ansible-user-add
+      - ansible-sw-xmrstak
+  vars:
+    login_pass: "[smtp.gmail.com]:587    server@lipovcan.cz:A9tboeJE"
+    yum_hourly_update_disable: true
+    users:
+       - username: ownercz
+         issudo: false
+         updatepassword: on_create
+         password: ssme-thesis
+         hostname: xmr01.lipovcan.cz         
+
+         

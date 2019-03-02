@@ -1,0 +1,100 @@
+---
+
+- name: 1. Install software collections
+  yum:
+    name: centos-release-scl
+    state: latest
+- name: 2. Install cmake and asociated tools
+  yum:
+    name: cmake3,devtoolset-4-gcc*,hwloc-devel,libmicrohttpd-devel,openssl-devel,make
+    state: latest
+- name: 3. Enable toolset for use in bash
+  shell: scl enable devtoolset-4 bash
+  
+- name: Prepare folder structure 
+  file:
+    path: /home/{{ item.username }}/xmr-stak
+    state: absent
+    with_items: '{{ users }}'
+- git:
+    repo: 'https://github.com/fireice-uk/xmr-stak.git'
+    dest: /home/{{ item.username }}/xmr-stak
+    clone: yes
+  with_items: '{{ users }}'   
+- file:
+    path: /home/{{ item.username }}/xmr-stak/build
+    state: directory
+    mode: 0755
+  with_items: '{{ users }}'
+  
+- name: Edit bashrc for toolset.
+  shell: echo 'source scl_source enable devtoolset-4' >> ~/.bashrc
+
+- name: Compile xmr-stak with CPU mining support.
+  shell: cmake3 .. -DCPU_ENABLE=ON -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF
+  args:
+    chdir: /home/{{ item.username }}/xmr-stak/build/
+  with_items: '{{ users }}'
+  
+- name: Make install xmr-stak.
+  shell: make install
+  args:
+    chdir: /home/{{ item.username }}/xmr-stak/build/
+  with_items: '{{ users }}'
+  
+- template:
+    src: cpu.j2
+    dest: /home/{{ item.username }}/cpu.txt
+    owner: {{ item.username }}
+    group: wheel
+    mode: 0644   
+  with_items: '{{ users }}'    
+  
+- template:
+    src: pools.j2
+    dest: /home/{{ item.username }}/pools.txt
+    owner: {{ item.username }}
+    group: wheel
+    mode: 0644    
+  with_items: '{{ users }}'    
+  
+- template:
+    src: config.j2
+    dest: /home/{{ item.username }}/config.txt
+    owner: {{ item.username }}
+    group: wheel
+    mode: 0644 
+  with_items: '{{ users }}'
+  
+- template:
+    src: start.j2
+    dest: /home/{{ item.username }}/xmr-stak/build/bin/start.sh
+    owner: {{ item.username }}
+    group: wheel
+    mode: 0644
+  with_items: '{{ users }}'
+  
+- name: Allow http miner node webserver
+  command: firewall-cmd --zone=public --permanent --add-port=8080/tcp
+  when: remotehttp
+
+  
+- cron:
+    name: "Run stak-xmr"
+    job: "/home/{{ item.username }}/xmr-stak/build/bin/start.sh > /dev/null 2>&1"
+    user: {{ item.username }}
+  with_items: '{{ users }}'
+  
+- name: Make start script executable.
+  file: dest=/home/{{ item.username }}/xmr-stak/build/bin/start.sh mode=a+x
+  with_items: '{{ users }}'    
+  
+- name: Make xmr-stak executable.
+  file: dest=/home/{{ item.username }}/xmr-stak/build/bin/xmr-stak mode=a+x
+  with_items: '{{ users }}'  
+  
+- name: Enable hugepages for memory allocation.
+  shell: echo 'vm.nr_hugepages=128' >> /etc/sysctl.conf
+  
+- name: Reload systemcontrol.
+  shell: sysctl -p

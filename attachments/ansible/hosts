@@ -1,0 +1,12 @@
+[xmr01]
+xmr01.lipovcan.cz ansible_ssh_host=192.168.1.225 ansible_ssh_pass=ssme-thesis ansible_user=root
+
+[win]
+192.168.1.221
+
+[win:vars]
+ansible_user=ownercz
+ansible_password=ssme-thesis
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_port=5986

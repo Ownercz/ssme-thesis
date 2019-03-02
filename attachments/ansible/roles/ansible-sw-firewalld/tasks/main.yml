@@ -1,0 +1,16 @@
+- name: install firewalld
+  yum:
+    name: firewalld
+    state: latest
+
+- name: Enable firewalld
+  service: name=firewalld state=started enabled=yes
+
+- name: Set public as default policy
+  command: firewall-cmd --set-default-zone=public
+
+- name: Allow http/https
+  command: firewall-cmd --zone=public --permanent --add-service=ssh
+
+- name: Bounce firewalld
+  service: name=firewalld state=restarted
