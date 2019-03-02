@@ -3207,6 +3207,9 @@ Downloads latest release of XMR-Stak from developers GitHub page, configures min
 
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
+\chapter{Conclusion}
+
+
 \printbibliography[heading=bibintoc]
 \let\cleardoublepage\clearpage
 \begingroup
@@ -3386,7 +3389,10 @@ autopart --type=lvm
 zerombr
 # Partition clearing information
 clearpart --all --initlabel
-
+\end{lstlisting}
+\newpage
+\begin{figure}[H]
+\begin{lstlisting}
 %packages
 @^minimal
 @core
@@ -3407,12 +3413,27 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 %end
 \end{lstlisting}
 
-\begin{figure}[H]
+
 \center
 \caption{Centos 7 kickstart file.}
 \label{fig:kickstart}
 \end{figure}
+\chapter{Automated installation process}
+\begin{figure}[H]
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{04:00}{POST}
+\ytl{04:00}{POST}
+\ytl{04:00}{POST}
+\ytl{04:00}{POST}
+\bigskip
+\rule{\linewidth}{1pt}%
+\color{black}
+\caption{Monero development timeline.}
+\label{monero-timeline}
+\end{figure}
 
+In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Video is avaiable at \url{youtube.com} %TODO update link with video
 
  %% Start the appendices.
 %\chapter{Zdroje k tabulce 2.2}
