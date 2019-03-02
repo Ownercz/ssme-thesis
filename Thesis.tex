@@ -60,10 +60,7 @@
 
     span multiple paragraphs.
 }
-\thesislong{thanks}{
-    This is the acknowledgement for my thesis, which can
-
-    span multiple paragraphs.
+\thesislong{thanks}{ I would like to thank my supervisor RNDr. Vlasta Šťavová for her guidance, valuable advice, suggestions and support during writing this thesis.
 }
 %% The following section sets up the bibliography.
 \usepackage{csquotes}
@@ -290,10 +287,29 @@
 
 \newcommand{\TextUnderscore}{\rule{.4em}{.4pt}}
 
+%bibtex url
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
 \begin{document}
 
 \chapter{Introduction}
+Information security in cryptocurrency environment is an important aspect that differetiates its users into two groups. Those who have direct control over their funds, wallets and private keys and those who do not.
+
+Main aim of this thesis is to explore Monero cryptocurrency from the usability and security standpoint while also reflecting its real world usage.
+
+Because of this, first part of the thesis is dedicated to describe the Monero cryptocurrency and technology together with principles used in Monero. Following part continues to further dive into Monero from usage and security perspective - wallets, nodes, its usecase and everyday problems that are present in Monero.
+
+To gather real world usage information about the cryptocurrency, both from users and miners perspective, there are two surveys conduted in the thesis. 
+
+User research aims to gather info about Monero usage, wallet keys management and security incidents that occoured to the cryptocurrency users. 
+
+Miners research is focused on the technical side of the Monero, security of the mining operations in the scale of single mining rig up to the warehouse filled with GPUs. 
+
+Based on the results of the Monero users survey as well as best practices in the IT in general, following part of the thesis is dedicated to share best practices regarding Monero storage and usage.
+
+Next part of the thesis focuses on the mining side of the Monero, starting with the overview of the mining methods as well as software tools, later followed by miners survey. Results from the survey as well as best IT practices are later incorporated in the automation chapter that offers detailed guideline on how to setup secure and automated mining operations.
+
 %% Komentář Vlasta 10.7.: tady někde (možná samostatná kapitola) bude nutné nadefinovat pojmy. Nazvat to "Kryptoměny" a popsat tam myšlenku, z čeho se skládají, co je blockchain, co to znamená fork... a tak.
 %% Komentář Vlasta 10.7.: Nechceš to psát anglicky? Myslím, že by sis tím ušetřil hromadu práce s překlady. Dotazník bude v jakém jazyce?
 
@@ -440,6 +456,7 @@ Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes               
 %zcoin https://zcoin.io/zcoins-privacy-technology-compares-competition/
 
 \end{figure}
+\vspace{-2em}
 Information sources used in the Table \ref{table:monero-alternatives}:\\ %TODO má být velké T u table? 
 Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Dash \cite{moneroalternativedash,moneroalternativedashdev}, Monero \cite{moneroprojectgithub}, Pivx \cite{moneroalternativepivx}, Verge \cite{moneroalternativeverge}, Zcash \cite{moneroalternativezcash}, Zcoin \cite{moneroalternativezcoin}.
 \iffalse
@@ -470,7 +487,7 @@ Aeon \cite{moneroalternativeaeon}, ByteCoin \cite{moneroalternativebytecoin}, Da
 %% Komentář Vlasta 10.7.: Trochu popiš jak moc je Monero rozšířené. Pro představu v porovnání s dalšími kryptoměnami. Aby bylo jasné, že to není nějaká obskurní kryptoměna.
 
 Monero development cycle is based on planned network updates that occur every six months. By this developers want to encourage work on the project with regular updates in contrast to other cryptocurrencies that don't want any new hard forks in the future as it brings the danger of splitting the coin into several versions \cite{mccorry2017atomically}.
-
+\vspace{-1em}
 \begin{figure}[H]
 \center
 \color{gray}
@@ -484,7 +501,8 @@ Monero development cycle is based on planned network updates that occur every si
 \ytl{04.15.2017}{Monero v5 - block size update and fee algorithm adjustments}
 \ytl{09.16.2017}{Monero v6 - RingCT forced on the network with ring size => 5}
 \ytl{04.06.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7}
-\ytl{10.--.2018}{Future network update}
+\ytl{11.10.2018}{Monero v8 - enabled Bulletproofs for reduced transaction sizes, global ringsize set to 11}
+\ytl{25.02.2019}{Monero v9 - new PoW based on Cryptonight-R, new block weight algorithm}
 \bigskip
 \rule{\linewidth}{1pt}%
 \color{black}\caption{Monero development timeline.}
@@ -875,6 +893,7 @@ As malware developers started to get their coins targeted by projects such as on
 Because of this targeting, they had to choose another cryptocurrency to solve this problem, and the solution was Monero \cite{cusack2018points}.
 
 \subsubsection{Scam portals}
+\label{cha:scamportals}
 As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
 Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that that are reported as missing from user's accounts \cite{wijayamonero}.
@@ -1147,9 +1166,10 @@ At first, users were asked about their operating system preferences when accessi
       \label{chart:range}
 \end{figure}
 \fi
+\pagebreak
 \subsubsection{Monero desktop app usage}
 Desktop applications are used by 104 of 113 users, making it the most frequest means of accessing the wallet. As Monero Official application has no other direct competitors aside from web based wallets, majority of users (84) use official app with GUI but there is also a noticable part of the users in dataset that use CLI as well (55). Alternative desktop clients, that were sometimes misinterpreted as web apps, are used by only a few users (5).
-
+\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1194,8 +1214,10 @@ Desktop applications are used by 104 of 113 users, making it the most frequest m
 \end{tikzpicture}
 \caption{Desktop client software.}
 \label{chart:price}\end{figure}\end{center}
+\vspace{-2.25em}
 \subsubsection{Monero Mobile app usage}
-From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS app for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo app is used by 45 of them, followed by other Android wallets (7). Freewallet on Android is only used by one user in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter %TODO . 
+From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS app for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo app is used by 45 of them, followed by other Android wallets (7). Freewallet on Android is only used by one user in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
+\vspace{-2.5em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1391,7 +1413,13 @@ First section of the survey shows that userbase present in the dataset is more o
 When asked \enquote{\textit{What are your reasons to use Monero?}}, majority of respondents in the dataset said that they use Monero or at least are intereseted in the topic because of the technology (99 out of 113), but also see it as an investment (83). 
 
 Significant portion of respondents also see Monero as a way of secret storage of value (84) but not as much in a way of sending money (60).
- 
+
+This result is strongly affected by the way how participants were selected (self selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). Short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with full text of the questions asked avaiable in the Appendix Figure \ref{monero-user-study-pdf}.
+
+Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54 out of 107). 
+
+Following this question respondents were asked if they hold onto their coins for a long time (often referred as one being a HODLer). Majority of respondents (84 out of 106) said that they are, but this statement conflicts with transaction frequency. When comparing data of respondents that make transaction at least on a monthly basis, more than half (34 out of 57) think that they are HODLers. 
+
 \begin{figure}[H]
 \center
 \begin{tabular}{p{0.5\linewidth}p{0.2\linewidth}p{0.2\linewidth}}
@@ -1411,12 +1439,7 @@ Other                    & 0 \%              & 0
 \label{table:monerousageresearch}
 \end{figure}
 
-This result is strongly affected by the way how participants were selected (self selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). Short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with full text of the questions asked avaiable in the Appendix Figure \ref{monero-user-study-pdf}.
-
-Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54 out of 107). 
-
-Following this question respondents were asked if they hold onto their coins for a long time (often referred as one being a HODLer). Majority of respondents (84 out of 106) said that they are, but this statement conflicts with transaction frequency. When comparing data of respondents that make transaction at least on a monthly basis, more than half (34 out of 57) think that they are HODLers. 
-
+\pagebreak
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1516,10 +1539,12 @@ When asked about the payment options, many of the respondents (51) selected that
 \node at (A) {test};
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
-\caption{Transaction frequency by Monero users.}
+\caption{Perception of the Monero features.}
 \label{chart:price}\end{figure}\end{center}
 
-Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure \ref{table:moneropayusageresearch} .
+Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. 
+
+Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure \ref{table:moneropayusageresearch} .
 
 \subsection{Monero key and coin management}
 Apart from client software that is used for accessing and making transactions in Monero, wallet management should be taken with at least the same importance as the users choice has direct influence on who has the access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
@@ -1570,13 +1595,14 @@ Apart from client software that is used for accessing and making transactions in
 \caption{Wallet types usage in Monero.}
 \label{chart:monerowalletsusagechart}\end{figure}\end{center}
 
-
+\pagebreak
 \subsection{Monero recovery}
 For further wallet protection, majority of users also encrypt their wallet or the datastore on which the keys reside on (88 out of 113).
 
 Slightly higher number of users admit backing up their wallet keys (101) while a significant number of respondents had already needed to restore their wallet keys (50). To complete the recovery statistics, 49 out of 50 were able to restore the keys from the backup media.
 
 For visualisation of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
+\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1673,12 +1699,12 @@ For visualisation of wallet recovery reasons and restore methods see the Figures
 \caption{Method used for wallet recovery.}
 \label{chart:recoverymethod}\end{figure}\end{center}
 
-
 \subsection{Monero and malicous software}
 \label{cha:maliciousminingresearch}
 This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
 
 Main reason of problems was mining malware (8) or some form of mining script (7). Main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
+
 \subsection{Demographics}
 Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
 \vspace{-2em}
@@ -1913,7 +1939,7 @@ Guideline for secure wallet access is described in the Chapter \ref{sec:walletty
 \begin{figure}[H]
 \begin{center}
 \vspace{-0.75em}
- \includegraphics[trim={0 1.8cm 0 0},clip,width=0.55\textwidth]{Screenshot_1542566492.png}
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.8\textwidth]{Screenshot_1542566492.png}
     \caption{Monerujo for Android.}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
@@ -3208,6 +3234,26 @@ Downloads latest release of XMR-Stak from developers GitHub page, configures min
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
 \chapter{Conclusion}
+There is a thin line between reasonable security and unnescesarry security measures that render the whole work useless. More often than not, systems, applications and whole environments are designed with security in mind, but without the idea how to do it in a usable way, resulting in user created workarounds that cause security issues.
+
+In Monero cryptocurrency, there are no strict guidelines or rules on how to access the funds or run the mining operation. As can be seen on the results from both of the surveys, users tend to only "do the needfull" when it comes to using the cryptocurrency.
+
+%Monero cryptocurrency is an active open source technology project that aims to provide private cryptocurrency for everyone. As there is no central authority it is always up to the community to recommend or guide others 
+
+In terms of security in mining operations as well as normal users key management there is a room for improvement. Using the combination of knowledge from  Monero documentation, Monero community articles and posts as well as results from both of the surveys and own technological background, this work presents a detailed view on the technical side of the cryptocurrency.
+
+User side of Monero is represented by description of the cryptocurrency as well as detailed guidelines on howto start with the cryptocurrency in form of best practices. This includes choosing the client software, deciding on the type the wallet, generating and storing the keys up to pointing out the problems and incidents that can happen to every user.
+
+This work can further be extended by covering the pool operators perspective, their system management and security standards. At the time of writing, there was not enough data to dig into this section as none out of more than 20 pools filled out the survey.
+
+From miners the thesis offers the guide on how to automate deployment and configuration of mining operations. This is important as only a small fraction from both Windows and Linux miners use automation tools to deploy and manage mining rigs which can result in unwanted differencies in configuration or inconsitencies across mining environment.
+
+To make results from this thesis more open to the public, everything is published under Github repository and GitHub pages website.
+\noindent
+GitHub repository: \url{https://github.com/Ownercz/ssme-thesis}\\
+GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
+
+
 
 
 \printbibliography[heading=bibintoc]
