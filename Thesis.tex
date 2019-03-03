@@ -311,7 +311,7 @@ Miners research is focused on the technical side of the Monero, security of the 
 
 Based on the results of the Monero users survey as well as best practices in the IT in general, following part of the thesis is dedicated to sharing the best practices regarding Monero storage and usage.
 
-Next part of the thesis focuses on the mining side of the Monero, starting with the overview of the mining methods as well as software tools, later followed by miners survey. Results from the survey as well as best IT practices are later incorporated in the automation chapter that offers detailed guideline on how to set up secure and automated mining operations.
+Next part of the thesis focuses on the mining side of the Monero, starting with the overview of the mining methods as well as software tools, later followed by miners survey. Results from the survey as well as best IT practices are later incorporated in the automation chapter that offers a detailed guideline on how to set up secure and automated mining operations.
 
 %% Komentář Vlasta 10.7.: tady někde (možná samostatná kapitola) bude nutné nadefinovat pojmy. Nazvat to "Kryptoměny" a popsat tam myšlenku, z čeho se skládají, co je blockchain, co to znamená fork... a tak.
 %% Komentář Vlasta 10.7.: Nechceš to psát anglicky? Myslím, že by sis tím ušetřil hromadu práce s překlady. Dotazník bude v jakém jazyce?
@@ -348,7 +348,7 @@ Next part of the thesis focuses on the mining side of the Monero, starting with 
 %% právě jednou pomocí cookies, projít geolokaci dle ipiny
 
 \chapter{Cryptocurrency}
-This chapter is aimed as a starting point that explains terms and technology that will occur throughout the following pages and chapters. Although these terms are described in a simple way, it is recommended for every reader to swift through them as in later pages they are discussed and used in detail thoroughly.
+This chapter is aimed as a starting point that explains terms and technology that will occur throughout the following pages and chapters. Although these terms provide only a short description, it is recommended for every reader to swift through them as in later pages they are discussed and used in detail thoroughly.
 
 \textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralization is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
 
@@ -371,7 +371,7 @@ The \textbf{fork} happens when developers create a copy of existing project code
 \textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
 
 \chapter{Monero Cryptocurrency}
-Monero is an open-source cryptocurrency that is developed under the Monero project to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over own funds.
+Monero is an open-source cryptocurrency that is developed under the Monero project to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over funds.
 
 Meaning that every single digital transaction and the exact number of coins in users wallet cannot be traced back to the user without sharing the view key of the transaction \cite{moneroprojectgithub}. Main distinctive points compared to other cryptocurrencies are:
 
@@ -395,7 +395,7 @@ Next important moment was when a significant part of the developers decided to a
 %% Komentář Radim 4.8.: Tabulku jsem udělal, akorát ještě musím zakomponovat sloupec, který ukazuje samotný market cap. Spíš jsem se totiž nejdříve zaměřil, jak top5 crypto vypadá z hlediska privacy features. Tzn. dávám si tu DOPLNIT .
 
 \section{Monero market cap}
- As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against top 5 cryptocurrencies.
+ As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, table \ref{table:monero-top5} puts Monero in the direct comparison against the top 5 cryptocurrencies.
 
 To compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\ \centerline{
  \textit{\textit{Market Cap = Circulating Supply * Price} }}
@@ -404,7 +404,7 @@ To compare different cryptocurrency projects, market capitalization (market cap)
 
 \textbf{Decentralization} in cryptocurrency network all nodes are equals. That means that no supernode can override how transactions are being processed as well as there is no single entity in control.
 
-\textbf{Fungibility} means that every coin ever emitted has the same value as the others and cannot be traced back thus there cannot be coin blacklist.
+\textbf{Fungibility} means that every coin ever emitted has the same value as the others and cannot be traced back; thus there cannot be coin blacklist.
 
 \begin{figure}[H]
 \centering\begin{tabular}{{p{0.06\linewidth}p{0.13\linewidth}p{0.17\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}}
@@ -431,7 +431,7 @@ XRP and EOS are in a unique position compared to typical cryptocurrency as they 
 \newpage
 \section{Monero competitors}
 \label{sec:monero-timeline}
-Monero is not the only one cryptocurrency that aims at privacy and anonymity features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine.  A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+Monero is not the only cryptocurrency that aims at privacy and anonymity features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine. A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
 
 \begin{figure}[H]
 \centering
@@ -517,12 +517,12 @@ Updates are meant to improve and enhance the previously established codebase as 
 \begin{itemize}
 \item \textbf{Spam attack}
 \begin{itemize}
-\item Was aimed to oversaturate the Moneros network by sending minimal transactions and leveraging low transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on chosen transaction priority \cite{monerospamattack}.
+\item Was aimed to oversaturate the Moneros network by sending minimal transactions and leveraging low transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on the chosen transaction priority \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
 \item \textbf{Split chain attack}
 \begin{itemize}
-\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. Exploit could be applied to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
+\item The successful exploit of Merkle root calculation vulnerability led to the creation of two blocks of the same height and hash, but with two different transactions on the end of the block \cite{macheta2014counterfeiting}. By this, two separate Monero chains were created. The exploit could be applied to all CryptoNote based cryptocurrencies. In the case of Monero, all transactions were stopped on exchanges until next day, when the fix was issued \cite{cryptonotemerkletree}.
 \end{itemize}
 \item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
@@ -536,7 +536,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 \section{Transactions in Monero network}
 Monero uses a distributed peer-to-peer consensus network to record transaction outputs in a blockchain. That means that balance is not stored in a wallet, but is represented by control over outputs of transactions accessible with wallet keys \cite{seguias2018moneroa}.
 
-By that when user A wants to send funds to user B, the transaction happens in the way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle how coins are transferred between wallets Monero uses additional technology to make transactions private.
+By that when user A wants to send funds to user B, the transaction happens in the way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle of how coins are transferred between wallets Monero uses additional technology to make transactions private.
 \subsection{Monero wallet and stealth addresses}
 \label{sec:stealthaddresses}
 Monero wallet seed is 95 characters long string that consists of public view and spend key. To send funds from one wallet to another, a one-time public key is created, that contains senders public view and spend key as well as randomized data. 
@@ -551,7 +551,7 @@ To prove that funds were sent from one wallet to another, the sender has to disc
 
 \subsection{Ring Signatures}
 \label{sec:ringsignatures}
-Ring Signatures present a way to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, the outside party cannot identify exact singer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
+Ring Signatures present a way to create a distinctive signature that authorizes a transaction. The digital signature of the transaction is compiled from the signer together with past outputs of transactions (decoys) to form a ring where all members are equal and valid. By that, the outside party cannot identify the exact signer as it is not clear which input was signed by one time spend key \cite{mercer2016privacy}.
 
 To prevent double spend, a cryptographic key image is derived from the spent output and is part of the Ring Signature. As each key image is unique, miners can verify that there is no other transaction with the same key image, thus preventing the double-spending attack \cite{miller2017empirical}.
 
