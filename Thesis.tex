@@ -290,6 +290,9 @@
 %bibtex url
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
+\setcounter{biburlnumpenalty}{100}  % allow breaks at numbers
+\setcounter{biburlucpenalty}{100}   % allow breaks at uppercase letters
+\setcounter{biburllcpenalty}{100}   % allow breaks at lowercase letters
 
 \begin{document}
 
@@ -3255,7 +3258,7 @@ GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
 
 
 
-
+\setlength{\emergencystretch}{3em}
 \printbibliography[heading=bibintoc]
 \let\cleardoublepage\clearpage
 \begingroup
@@ -3465,21 +3468,57 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 \label{fig:kickstart}
 \end{figure}
 \chapter{Automated installation process}
+In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Timeline detailing installation process is avaiable in the Figures \ref{windows-timeline} and \ref{linux-timeline}.
+
+Video is avaiable at \url{https://github.com/Ownercz/ssme-thesis/blob/master/video.md} .
+
 \begin{figure}[H]
 \color{gray}
 \rule{\linewidth}{1pt}
-\ytl{04:00}{POST}
-\ytl{04:00}{POST}
-\ytl{04:00}{POST}
-\ytl{04:00}{POST}
+\ytl{00:20}{Start of unattended Windows installation using the autounattend file}
+\ytl{05:35}{Install part complete, OS first boot}
+\ytl{11:07}{Windows 10 installation complete}
+\ytl{11:15}{Running Ansible playbook on the Windows machine}
+\ytl{13:38}{Ansible completes miner deployment and reboots the machine}
+\ytl{15:17}{Ansible sets up firewall, Windows environment and reboots the machine. Miner is already running because of scheduled task after reboot}
+\ytl{17:18}{Ansible updates the OS using Windows update module}
+\ytl{55:24}{Ansible reboots the machine to complete the updates}
+\ytl{57:25}{Ansible completes the playbook and mining machine is ready}
 \bigskip
 \rule{\linewidth}{1pt}%
 \color{black}
-\caption{Monero development timeline.}
-\label{monero-timeline}
+\caption{Automated deployment of Windows mining machine.}
+\label{windows-timeline}
+\end{figure}
+\pagebreak
+
+
+
+
+\begin{figure}[H]
+\begin{centering}
+ \includegraphics[trim={0 0 0 0},clip,width=0.95\textwidth]{Screenshot_20190303_105607.png}
+  \caption{Windows miner deployment.}
+    \label{pic:windows-mining}
+\end{centering}
+    \end{figure}
+
+Both installations were done using USB drive as installation source. Hardware specifications of the installation computer were CPU Intel i5 4460, 24GB of DDR3 RAM and target installation drive was 60GB Intel 330 SATA SSD.
+
+\begin{figure}[H]
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{00:46}{Start of unattended Linux Centos 7 installation using the kickstart file}
+\ytl{05:06}{Install part complete, OS first boot}
+\ytl{05:06}{Running Ansible playbook on the Linux machine}
+\ytl{11:29}{Ansible completes the playbook and mining machine is ready}
+\bigskip
+\rule{\linewidth}{1pt}%
+\color{black}
+\caption{Automated deployment of Linux mining machine.}
+\label{linux-timeline}
 \end{figure}
 
-In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Video is avaiable at \url{youtube.com} %TODO update link with video
 
  %% Start the appendices.
 %\chapter{Zdroje k tabulce 2.2}
