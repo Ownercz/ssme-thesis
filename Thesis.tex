@@ -1921,9 +1921,9 @@ There are also alternative approaches to key generation like an offline javascri
 
 Hardware way is considered to be in the development, but Monero compatible devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
 
-In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself, and user can only export private view key from the device to view the balance in full CLI/GUI client.
+In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself, and the user can only export private view key from the device to view the balance in full CLI/GUI client.
 
-This way, the user has private spend key always on the device, and client PC has only private view key. To sign a transaction, the user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of a security breach on the host computer, there is no Monero to steal.
+This way, the user has private spend key always on the device, and the client PC has only private view key. To sign a transaction, the user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of a security breach on the host computer, there is no Monero to steal.
 
 \subsection{Wallet software for mobile devices}
 
@@ -1982,22 +1982,22 @@ Best practice for backups that isn't too demanding on the user side is the 3-2-1
 \itemsep0em
 \item This can be represented as a combination of SSD and tape.
 \end{itemize}
-\item 1 is offsite, geographically different location.
+\item 1 is an offsite, geographically different location.
 \begin{itemize}
 \itemsep0em
-\item E.g. in the next building, different facility, another city.
+\item E.g., in the next building, a different facility, another city.
 \end{itemize}
 \end{itemize}
 In short, this means when your building with external drive burns down and your notebook gets cryptolocker on the same day, you still have your data safe as you have them in the offsite location.
 
 \begin{figure}[H]
 \centering
-\begin{tabular}{p{0.1\linewidth}p{0.4\linewidth}p{0.25\linewidth}p{0.15\linewidth}}
+\begin{tabular}{p{0.1\linewidth}p{0.4\linewidth}p{0.20\linewidth}p{0.15\linewidth}}
 \textbf{Media type} & \textbf{Available key security}                                    & \textbf{Usage}                                   & \textbf{Average pricing}      \\
 HDD, SSD            & File and volume encryption, can be automated.                       & Manual transfer from master to external media.    & 20-40 USD                              \\
 Optical media       & File-based encryption before creating the media, manual process.            & For each copy of data, new disc has to be used.   & \textless{}1 USD                       \\
 Tape                & Hardware assisted drive encryption, software-based encryption.       & Specialised backup tape software.                & 4500 USD (tape + drive) \\
-NAS                 & File-based encryption on the client side using encryption software or NAS feature. & Manual or automatic transfer to network share.    & 200-400 USD                            \\
+NAS                 & File-based encryption on the client side using encryption software or NAS feature. & Manual or automatic transfer to a network share.    & 200-400 USD                            \\
 Cloud drive       & File-based encryption on the client side using encryption software. & Clientside software that syncs files from master & Free or paid 10 USD mo.                      \\
 Paper               & Depends on printout content and physical storage properties.        & Hiding a sheet of paper.                          & \textless{}1 USD                       \\
 
@@ -2016,7 +2016,7 @@ Following cost effectivity of individual media types together with common backup
 \itemsep0em
 \item Total number of copies of data: 5
 \item The primary data source is on the client device with wallet software. This source is then copied downstream to backup media.
-\item All copies of the data should be encrypted using file-level encryption regardless of the security the device, e.g., by a popular opensource tool like VeraCrypt.
+\item All copies of the data should be encrypted using file-level encryption regardless of the security of the device, e.g., by a popular opensource tool like VeraCrypt.
 \item Local copy
 \begin{itemize}
 \itemsep0em
@@ -2112,7 +2112,7 @@ This results in the transaction process that takes up to 130s (request =\textles
 \end{figure}
 \newpage
 \section{Mining nodes}
-As was mentioned in the beginning of the Chapter \ref{cha:obtaining}, mining is the main reason for transaction processing in Monero network, and as the mining process has rewards for successfully solving the block, this encourages many different entities to mine.
+As was mentioned at the beginning of the Chapter \ref{cha:obtaining}, mining is the main reason for transaction processing in Monero network, and as the mining process has rewards for successfully solving the block, this encourages many different entities to mine.
 Since Bitcoin started to gain popularity, mining has divided into five categories, that are described in the following sections:  
 \iffalse
 \begin{itemize}\topsep0em\parskip0em\parsep0em
@@ -2252,14 +2252,14 @@ Having closed source code that community cant inspect, mining software of this c
 
 \section{Mining malware }
 \vspace{-0.2em}
-As Monero algorithm is designed to be memory demanding algoritm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
+As Monero algorithm is designed to be memory demanding algorithm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
 
-The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented, thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
+The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented. Thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
 \vspace{-0.6em}
-\subsubsection{Monero position in malware world}
+\subsubsection{Monero position in the malware world}
 When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
 
-In case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device avaiable, is the main reason for using Monero \ref{eskandari2018first}.
+In the case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device available, is the main reason for using Monero \ref{eskandari2018first}.
 
 Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \ref{konoth2019malicious}.
 \vspace{-0.6em}
@@ -2268,7 +2268,7 @@ Main categories of malware miners are derived from the way how the unwanted soft
 \begin{itemize}
 \itemsep0em
 \item Website with JavaScript miner software, also known as Cryptojacking as mentioned in the Figure \ref{cha:cryptojacking}. 
-\item Exploiting vulnerabilites in operating system or in application software.
+\item Exploiting vulnerabilities in the operating system or application software.
 \item Bundled in legitimate software.
 \end{itemize}
 %\subsubsection{Unwanted mining in SOHO envionment}
@@ -2314,7 +2314,7 @@ The goal of this research is to gather information on people who run mining cryp
 To the best of my knowledge, this is the first work that studies cryptocurrency miners. Specific research questions are based on cryptocurrency mining setup patterns, used software and problematic areas regarding computer and data security in general. 
 
 \section{Research questions}
-The survey was designed around seven question groups, some of them were shown only if the participant chose the appropriate answer.
+The survey was designed around seven question groups. Some of them were shown only if the participant chose the appropriate answer.
 \begin{itemize}\itemsep0em
 \item G01 - Introductory information
 \item G02 - Mining setup
@@ -2345,14 +2345,14 @@ To reduce nonresponse rate, participants were asked only to fill out parts that 
 The complete survey is attached in the Appendix Figure \ref{monero-miner-study-pdf}.
 %\vspace{-0.7em}
 \section{Collected data}
-Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 323 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
+Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 323 participants of the questionnaire in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
 %\itemsep-0.2em
-\item Partially answered or unanswered questionnares were not taken into account. 
-\item Respondents that filled out survey in less than two minutes were discarted.
+\item Partially answered or unanswered questionnaires were not taken into account. 
+\item Respondents that filled out the survey in less than two minutes were discarded.
 \newpage
-\item Responses with more than 4 entries with same IP were filtered.
-\item Responses containing invalid answers e.g. not using Monero or repeating same answer pattern in multiple submissions.
+\item Responses with more than four entries with the same IP were filtered.
+\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions.
 \end{enumerate}
 
 %\end{itemize}
@@ -2405,7 +2405,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \caption{From 323 responses, only 60 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
 
-Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with corresponding number of responses is avaiable in the Appendix Table \ref{table:countriesminers}. 
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countriesminers}. 
 
 \begin{figure}[H]
 \begin{center}
@@ -2434,14 +2434,14 @@ Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of th
 \section{Results}
 Upcoming pages are based on the final filtered dataset with 60 responses of people who voluntarily entered the research based on opportunity sampling.
 \subsubsection{General information}
-When asked about motivation for mining Monero, two thirds of the respondents (40) think about Monero as an investment, but also as a way to gain some profit from mining cryptocurrencies (37). 
+When asked about the motivation for mining Monero, two-thirds of the respondents (40) think about Monero as an investment, but also as a way to gain some profit from mining cryptocurrencies (37). 
 
-Altought Monero is not considered to be more profitable to mine by majority in the dataset (46), almost half of the miners (28) favor this cryptocurrency due to its mining characteristics CPU minable and the fact that they directly help securing the network by mining (36). 
+Although Monero is not considered to be more profitable to mine by the majority in the dataset (46), almost half of the miners (28) favor this cryptocurrency due to its mining characteristics CPU minable and the fact that they directly help to secure the network by mining (36). 
 
-Note that reasons for mining Monero are biased by the way the respondents in the dataset were selected. In general, there would be higher percentage of the cryptocurrency miners that care only for the profitability rather than cryptocurrency features \cite{al2014investigating}.
+Note that the reasons for mining Monero are biased by the way the respondents in the dataset were selected. In general, there would be a higher percentage of the cryptocurrency miners that care only for the profitability rather than cryptocurrency features \cite{al2014investigating}.
     \vspace{-2em}
 \subsubsection{Mining setup}
-Gathering information about mining setups was designed as multiple-choice question where every choice was described in detail as illustrated in the Figure \ref{pic:miningquestion}. Even through dataset cleansing, from the final 60 respondents, 15 of them chose both \textit{Regular PC only} and \textit{Mining rig} option. Therefore, only 45 respondents are taken in account for this section.
+Gathering information about mining setups was designed as a multiple-choice question where every choice was described in detail as illustrated in the Figure \ref{pic:miningquestion}. Even through dataset cleansing, from the final 60 respondents, 15 of them chose both \textit{Regular PC only} and \textit{Mining rig} option. Therefore, only 45 respondents are taken into account for this section.
 \begin{figure}[H]
 \begin{center}
 
@@ -2453,7 +2453,7 @@ Gathering information about mining setups was designed as multiple-choice questi
 \end{center}
     \end{figure}
     
-When asked about mining setup, majority of the miners prefer to mine on their own PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use theirs employer hardware and electricity to run their mining operation. On the other side, only two of the respondents mentioned mining on a VPS instance and noone selected cloud mining or botnet mining as their way to mine Monero.
+When asked about mining setup, the majority of the miners prefer to mine on their  PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use their employer's hardware and electricity to run their mining operation. On the other side, only two of the respondents mentioned mining on a VPS instance and no one selected cloud mining or botnet mining as their way to mine Monero.
 \vspace{-1em}
 \begin{center}
 \begin{figure}[H]
@@ -2503,7 +2503,7 @@ When asked about mining setup, majority of the miners prefer to mine on their ow
 \caption{Mining types comparison.}
 \label{chart:miningtype}\end{figure}\end{center}
 \vspace{-2em}
-58 out of 60 respondents shared their current hashrate with median hashrate value being 4.4Kh/s. This hashrate represents typical setup with 5 high performace GPUs (AMD RX 480 8GB with 800-850h/s) or 7 high performance CPUs (AMD Ryzen 7 1700 with 600-650h/s).
+58 out of 60 respondents shared their current hashrate with median hashrate value being 4.4Kh/s. This hashrate represents a typical setup with 5 high-performance  GPUs (AMD RX 480 8GB with 800-850h/s) or 7 high-performance CPUs (AMD Ryzen 7 1700 with 600-650h/s).
 
 \vspace{-1em}
 \begin{center}
@@ -2553,7 +2553,7 @@ When asked about mining setup, majority of the miners prefer to mine on their ow
 \label{chart:miningproperties}\end{figure}\end{center}
  
 \vspace{-2em}
-Majority of miners mine in their own property (52) and setup their own mining rigs (56). Operating system is not dominant nor on the Windows side (39) nor on the Linux part (33) described in the Figure \ref{chart:miningproperties}. This is mainly because of multiplatformity of mining software and avaiability of guides for mining setups. 
+Majority of miners mine in their property (52) and set up their mining rigs (56). The operating system is not dominant nor on the Windows side (39) nor the Linux part (33) described in the Figure \ref{chart:miningproperties}. This is mainly because of multiplatformity of mining software and availability of guides for mining setups. 
 \vspace{-2em} %TODO spacing
 \begin{center}
 \begin{figure}[H]
@@ -2603,9 +2603,9 @@ Majority of miners mine in their own property (52) and setup their own mining ri
 Miners generally tend to update their rigs (42) as well as clean them (31) but refrain from additional infrastructure costs like buying a UPS (14) as shown in the Figure \ref{chart:mininghabbits}.
 
 \subsubsection{Mining software}
-The choice of mining software impacts mining profitability as well as number of shares that are donated to the developer (if any). 
+The choice of mining software impacts mining profitability as well as the number of shares that are donated to the developer (if any). 
 
-As described in the Chapter \ref{cha:miningsoftware}, most popular mining software falls into open source with great moderation regarding code updates from the crypto community in general. This follows results from the dataset where XMR Stak project, that is the most active on Github, is also the most preffered way to run the mining operation (47 out of 60 miners).
+As described in the Chapter \ref{cha:miningsoftware}, most popular mining software falls into open source with great moderation regarding code updates from the crypto community in general. This follows results from the dataset where XMR Stak project, that is the most active on Github, is also the most preferred way to run the mining operation (47 out of 60 miners).
 \vspace{-1.3em}
 \begin{center}
 \begin{figure}[H]
@@ -2646,21 +2646,21 @@ As described in the Chapter \ref{cha:miningsoftware}, most popular mining softwa
 \coordinate (A) at (200,0);% ******** start of changes ************
 \coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
+%\node at (A) {test};
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining software preference.}
 \label{chart:mininghabbits}\end{figure}\end{center}
- XMRig is used less (18), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate ways mentioned (2). Small portion of miners also solomine (7) using the official wallet software. 
+XMRig is used less (18), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate ways mentioned (2). A small portion of miners also solo mine (7) using the official wallet software. 
  
-In general, miners in the dataset tend to mine in pools (50), some of them try to combine mining approaches where primary way of obtaining the coins is by pool mining, but they also try their luck with solo mining (8). True solominer was respresented by only one specimen. 
+In general, miners in the dataset tend to mine in pools (50), some of them try to combine mining approaches where the primary way of obtaining the coins is by pool mining, but they also try their luck with solo mining (8). True solo miner was represented by only one specimen. 
 
 \subsubsection{Pool choice}
-Pool choice itself has the biggest impact on the final payout for the miner as described in the Chapter \ref{cha:poolmining}. This depends on the method of reward distribution, total hashrate of the pool and minimal payout. Note that often pools also have fees which are deducted from the amount of coins mined by the miner.
+Pool choice itself has the biggest impact on the final payout for the miner as described in the Chapter \ref{cha:poolmining}. This depends on the method of reward distribution, total hashrate of the pool and minimal payout. Note that often pools also have fees which are deducted from the number of coins mined by the miner.
 
 When asked about pool preferences, two larger mining pools were often mentioned Monerooceanstream (14) and nanopool.org (14). Important preference factors for choosing pool were pool fees (52), pool security history (46), total hashrate (44) and minimal payout (37). Least important are additional features to the pool like mobile apps (14) or anti-botnet policy (21).
 \subsubsection{Windows platform}
-Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding peridic updates, only small part of miners (10) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
+Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding periodic updates, only a small part of miners (10) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
 
 Majority of Windows miners (23) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset (11) that tend to \enquote{setup and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:mininghabbits}.
 
