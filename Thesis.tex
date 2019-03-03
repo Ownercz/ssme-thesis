@@ -431,7 +431,7 @@ XRP and EOS are in a unique position compared to typical cryptocurrency as they 
 \newpage
 \section{Monero competitors}
 \label{sec:monero-timeline}
-Monero is not the only cryptocurrency that aims at privacy and anonymity features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine. A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+Monero is not the only cryptocurrency that aims at privacy and privacy features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine. A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
 
 \begin{figure}[H]
 \centering
@@ -582,7 +582,7 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \begin{itemize}\itemsep0em
 \item Is an encrypted file containing private \textbf{spend key} and \textbf{view key} together with \textbf{wallet address}.
 \item Keys file also contains user preferences related to transactions and wallet creation height, so wallet software will only read blockchain from the wallet creation point.
-\item Using this file, the user can restore wallet by using the monero-wallet-cli command:
+\item Using this file, the user can restore the wallet by using the monero-wallet-cli command:
 
 \texttt{monero-wallet-cli --generate-from-keys}
 \end{itemize}
@@ -590,7 +590,7 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \begin{itemize}\itemsep0em
 \item Acts as an encrypted cache for wallet software that contains:
 \begin{itemize}\itemsep0em
-\item List of outputs of transactions that are associated with the wallet so it does not need to scan the blockchain every time after startup.
+\item List of outputs of transactions that are associated with the wallet, so it does not need to scan the blockchain every time after startup.
 \item History of transactions with metadata containing tx keys.
 \end{itemize}
 \end{itemize}
@@ -625,7 +625,7 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \begin{itemize}\itemsep0em
 \item Refers to wallet software running on a computer that is connected to the Internet, thus Monero network. By being online, the user can verify incoming transactions, spend from the wallet and check balance as well.
 \item As this type of wallet is not air-gapped, this poses an external intrusion risk.
-\item The hot wallet can also refer to web-based and exchanged wallet that is explained further in this section.
+\item The hot wallet can also refer to web-based or exchange-based wallet that is explained further in this Chapter.
 \end{itemize}
 \item \textbf{View-only wallet}
 \begin{itemize}\itemsep0em
@@ -651,7 +651,7 @@ Funds can be controlled through users online account that accessible by traditio
 \end{itemize}
 \item \textbf{Web-based wallet}
 \begin{itemize}\itemsep0em
-\item Web wallet represents server based Monero client that is served to the user in the browser. By using a web wallet, the user can access funds from any Internet connected device by sharing:
+\item Web wallet represents server based Monero client that is served to the user in the browser. By using a web wallet, the user can access funds from any Internet-connected device by sharing:
 \begin{itemize}\itemsep0em
 \item Mnemonic seed or private spend and view key to send and receive funds.
 \item Public view key and wallet address to view incoming transactions to the wallet.
@@ -677,7 +677,7 @@ Aim to compromise the system in a way that malware finds wallet files and steals
 
 Cloud storage provides an easy way of sharing files between devices as well as users. As the user does not need to set up the infrastructure and the majority of the services provide free tier, it is usual for people to take this for granted as a safe place to store files \cite{caviglione2017covert}.
 
-This way, user's security depends on the following factors:
+This way, the user's security depends on the following factors:
 \begin{itemize}\itemsep0em
 \item Wallet encryption on the file level, user password habits
 \item Account security -- login implementation, F2A
@@ -687,7 +687,7 @@ This way, user's security depends on the following factors:
 
 \subsubsection{Delivery chain}
 
-Hardware wallets like Ledger are built to ensure the safety of users coins. Therefore owner of such a device should be pretty confident when using this device that came with original undisrupted packaging. 
+Hardware wallets like Ledger are built to ensure the safety of users coins. Therefore the owner of such a device should be pretty confident when using this device that came with original undisrupted packaging. 
 
 For this attack, malicious vendor puts pre-generated mnemonic seed on a scratchpad. This piece of paper is made to look like an official one-time generated secret key to the wallet for the user. This way when the user puts seed to the hardware wallet and begins to store coins in here, the reseller has complete access as well as both parties know the seed. Delivery chain attack flow is shown in the Figure \ref{pict:delivery-chain-attack}.
 
@@ -755,7 +755,7 @@ Monero client requires to be in sync with the network to show the correct balanc
 
 \textbf{Node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by monerod, a separate daemon which synchronizes with the network.
 
-\textbf{The local node} is default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
+\textbf{The local node} is the default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
 
 \textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port} , the client connects to the remote node and starts scanning the blockchain as if it was a local one.
 
@@ -897,9 +897,9 @@ Because of this targeting, they had to choose another cryptocurrency to solve th
 
 \subsubsection{Scam portals}
 \label{cha:scamportals}
-As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
+As mentioned in section Wallets, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals the user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
-Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that that are reported as missing from user's accounts \cite{wijayamonero}.
+Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that are reported as missing from user's accounts \cite{wijayamonero}.
 \subsubsection{Crypto-jacking attack}
 \label{cha:cryptojacking} 
 Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
@@ -935,7 +935,7 @@ The goal of this research is to gather information on end users behavior regardi
 
 Specific survey design and research questions are based on Bitcoin security and privacy study, typical usage patterns of cryptocurrency users, online forums and Reddit communities centered around Monero as well as problematic areas regarding computer and data security in general \cite{krombholz2016other}.
 \section{Research questions}
-The survey was designed around seven question groups, some of them were shown only if the participant chose the appropriate answer.
+The survey was designed around seven question groups. Some of them were shown only if the participant chose the appropriate answer.
 \begin{itemize}\itemsep0em
 \item G01 - Introductory information
 \item G02 - Monero usage
@@ -957,23 +957,23 @@ The significant characteristic of Monero is its anonymity, and this feature is n
 
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 \subsection{Methodology}
-Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Monero groups as well as Cryptocurrency forums.
+Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling. Links for the research were shared among dedicated Reddit Monero community, Facebook Monero groups as well as Cryptocurrency forums.
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Monero recovery part stayed hidden in the form if the user selected that he/she had never made any recovery of the seed or wallet keys in the previous part. 
 
 The complete survey is attached in the Chapter \ref{monero-user-study-pdf}.
 
 \section{Collected data}
-Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 179 participants of the questionnare in total. As for survey data cleansing, following measurements for valid dataset were taken:
+Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 179 participants of the questionnaire in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
 \itemsep0em
-\item Partially answered or unanswered questionnares were not taken into account. 
-\item Respondents that filled out survey in less than two minutes were discarted.
-\item Responses with more than 4 entries with same IP were filtered.
+\item Partially answered or unanswered questionnaires were not taken into account. 
+\item Respondents that filled out the survey in less than two minutes were discarded.
+\item Responses with more than four entries with the same IP were filtered.
 \begin{itemize}
-\item In total 7 responses were sent from duplicate IP addresses. Highest number of responses form single IP was 3, which belonged to the MIT University.
+\item In total seven responses were sent from duplicate IP addresses. The highest number of responses from a single IP was 3, which belonged to MIT University.
 \end{itemize}
-\item Responses containing invalid answers e.g. not using Monero or repeating same answer pattern in multiple submissions.
+\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions.
 
 \end{enumerate}
 %\end{itemize}
@@ -1025,7 +1025,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \end{tikzpicture}
 \caption{From 179 responses, only 113 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
-Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31), follwed by Czech Republic (17) and Germany (11). Detailed list of countries with corresponding number of responses is avaiable in the Appendix Table \ref{table:countries}. 
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31), followed by the Czech Republic (17) and Germany (11). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countries}. 
 
 \begin{figure}[H]
 \begin{center}
@@ -1171,7 +1171,7 @@ At first, users were asked about their operating system preferences when accessi
 \fi
 \pagebreak
 \subsubsection{Monero desktop app usage}
-Desktop applications are used by 104 of 113 users, making it the most frequest means of accessing the wallet. As Monero Official application has no other direct competitors aside from web based wallets, majority of users (84) use official app with GUI but there is also a noticable part of the users in dataset that use CLI as well (55). Alternative desktop clients, that were sometimes misinterpreted as web apps, are used by only a few users (5).
+Desktop applications are used by 104 of 113 users, making it the most frequent  means of accessing the wallet. As Monero Official application has no other direct competitors aside from web-based wallets, the majority of users (84) use the official app with GUI, but there is also a notable part of the users in the dataset that use CLI as well (55). Alternative desktop clients, that were sometimes misinterpreted as web apps, are used by only a few users (5).
 \vspace{-2em}
 \begin{center}
 \begin{figure}[H]
@@ -1266,7 +1266,7 @@ From 113 people that filled out the survey, 53 of them stated that they use eith
 \caption{Android client usage.}
 \label{chart:price}\end{figure}\end{center}
 
-iOS is used by 7 users (please note that users could check usage of both platforms as can be visible from simply adding iOS and Android users and comparing it to the total number of mobile users). All of them reported using the Cakewallet application. Following Android pattern, one user also revealed usage of Freewallet app.
+iOS is used by 7 users (please note that users could check usage of both platforms as can be visible from simply adding iOS and Android users and comparing it to the total number of mobile users). All of them reported using the Cakewallet application. Following the Android pattern, one user also revealed usage of Freewallet app.
 
 
 
@@ -1363,7 +1363,7 @@ When asked about online wallet usage, only 24 people said that they use some sor
 \label{chart:price}\end{figure}\end{center}
 
 \subsubsection{Wallet software usage}
-First section of the survey shows that userbase present in the dataset is more oriented towards opensource software in general (110 out of 113 use some form of opensource Monero client), but this is not limited to the usage of particular OS (37 Windows only users, 40 Linux only users and 28 users of both OS). This discovery follows the information about Monero community as they prefer open source software (OSS) to closed source software (CSS), because they can not personally review for hidden features or unintentional bugs.
+First section of the survey shows that userbase present in the dataset is more oriented towards opensource software in general (110 out of 113 use some form of opensource Monero client), but this is not limited to the usage of particular OS (37 Windows only users, 40 Linux only users and 28 users of both OS). This discovery follows the information about Monero community as they prefer open source software (OSS) to closed source software (CSS) because they can not personally review for hidden features or unintentional bugs.
 
 \begin{center}
 \begin{figure}[H]
@@ -1413,15 +1413,15 @@ First section of the survey shows that userbase present in the dataset is more o
 \label{chart:price}\end{figure}\end{center}
 
 \subsection{Monero usage}
-When asked \enquote{\textit{What are your reasons to use Monero?}}, majority of respondents in the dataset said that they use Monero or at least are intereseted in the topic because of the technology (99 out of 113), but also see it as an investment (83). 
+When asked \enquote{\textit{What are your reasons to use Monero?}}, the majority of respondents in the dataset said that they use Monero or at least are interested in the topic because of the technology (99 out of 113), but also see it as an investment (83). 
 
-Significant portion of respondents also see Monero as a way of secret storage of value (84) but not as much in a way of sending money (60).
+A significant portion of respondents also see Monero as a way of secret storage of value (84) but not as much in the way of sending money (60).
 
-This result is strongly affected by the way how participants were selected (self selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). Short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with full text of the questions asked avaiable in the Appendix Figure \ref{monero-user-study-pdf}.
+This result is strongly affected by the way how participants were selected (self-selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). The short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with the full text of the questions asked available in the Appendix Figure \ref{monero-user-study-pdf}.
 
-Transactions in the Monero network performed by respondents can be divided into two usage groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54 out of 107). 
+Transactions in the Monero network performed by respondents can be divided into two user groups, where the first group that can be described as active, those who make at least one transaction per month, (53 out of 107) and passive who are much less frequent (54 out of 107). 
 
-Following this question respondents were asked if they hold onto their coins for a long time (often referred as one being a HODLer). Majority of respondents (84 out of 106) said that they are, but this statement conflicts with transaction frequency. When comparing data of respondents that make transaction at least on a monthly basis, more than half (34 out of 57) think that they are HODLers. 
+Following this question, respondents were asked if they hold onto their coins for a long time (often referred to as one being a HODLer). Majority of respondents (84 out of 106) said that they are, but this statement conflicts with transaction frequency. When comparing data of respondents that make a transaction at least every month, more than half (34 out of 57) think that they are HODLers. 
 
 \begin{figure}[H]
 \center
@@ -1495,7 +1495,7 @@ Other                    & 0 \%              & 0
 
 Important usage factor of a currency is where its users can pay with it. Monero has already a known reputation between darknet markets, but its mainstream usage isn't something that is advertised as its feature. 
 
-When asked about the payment options, many of the respondents (51) selected that they use Monero as a way for donating other people, followed by paying for VPN services. Detailed overview of payment types is avaiable in the Appendix Figure \ref{table:moneropayusageresearch}.
+When asked about the payment options, many of the respondents (51) selected that they use Monero as a way for donating other people, followed by paying for VPN services. A detailed overview of payment types is available in the Appendix Figure \ref{table:moneropayusageresearch}.
 
 \begin{center}
 \begin{figure}[H]
@@ -1545,12 +1545,12 @@ When asked about the payment options, many of the respondents (51) selected that
 \caption{Perception of the Monero features.}
 \label{chart:price}\end{figure}\end{center}
 
-Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Altought Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. 
+Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Although Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. 
 
 Among users in the dataset, Kovri (8 out of 113) or Tor (23 out of 113) is used by less than 30\% of respondents as can be seen in the Figure \ref{table:moneropayusageresearch} .
 
 \subsection{Monero key and coin management}
-Apart from client software that is used for accessing and making transactions in Monero, wallet management should be taken with at least the same importance as the users choice has direct influence on who has the access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
+Apart from client software that is used for accessing and making transactions in Monero, wallet management should be taken with at least the same importance as the users choice has a direct influence on who has access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
 
 \begin{center}
 \begin{figure}[H]
@@ -1600,11 +1600,11 @@ Apart from client software that is used for accessing and making transactions in
 
 \pagebreak
 \subsection{Monero recovery}
-For further wallet protection, majority of users also encrypt their wallet or the datastore on which the keys reside on (88 out of 113).
+For further wallet protection, the majority of users also encrypt their wallet or the datastore on which the keys reside on (88 out of 113).
 
-Slightly higher number of users admit backing up their wallet keys (101) while a significant number of respondents had already needed to restore their wallet keys (50). To complete the recovery statistics, 49 out of 50 were able to restore the keys from the backup media.
+A slightly higher number of users admit backing up their wallet keys (101) while a significant number of respondents had already needed to restore their wallet keys (50). To complete the recovery statistics, 49 out of 50 were able to restore the keys from the backup media.
 
-For visualisation of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
+For visualization of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
 \vspace{-2em}
 \begin{center}
 \begin{figure}[H]
@@ -1702,14 +1702,14 @@ For visualisation of wallet recovery reasons and restore methods see the Figures
 \caption{Method used for wallet recovery.}
 \label{chart:recoverymethod}\end{figure}\end{center}
 
-\subsection{Monero and malicous software}
+\subsection{Monero and malicious software}
 \label{cha:maliciousminingresearch}
 This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
 
-Main reason of problems was mining malware (8) or some form of mining script (7). Main affected platform was running Windows (10) and malware was recognized mainly by slow system response (7) and high cpu usage (11).
+The primary cause of problems was mining malware (8) or some form of mining script (7). The main affected platform was running Windows (10), and malware was recognized mainly by slow system response (7) and high CPU usage (11).
 
 \subsection{Demographics}
-Survey parcitipants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
+Survey participants were mainly males (50), females (2) represented only a small portion of the dataset, and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
 \vspace{-2em}
 \begin{center}
 \begin{figure}[H]
@@ -1856,14 +1856,14 @@ Survey parcitipants were mainly males (50), females (2) represented only a small
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Monero usage and storage best practices}
-Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of anonymity features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
+Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
 
 Following scenarios represent secure and easy to use instructions for a new Monero user.
 
 \section{Generating the keys and accessing the wallet}
-The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from users platform of choice and used wallet software. As the choice of client wallet software is important for Monero users in terms of user experience and security, following sections are dedicated to available wallet software. %TODO je to better oproti původnímu As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
+The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from the user's platform of choice and used wallet software. As the choice of client wallet software is important for Monero users in terms of user experience and security, the following sections are dedicated to available wallet software. %TODO je to better oproti původnímu As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
 \subsection{Windows and Linux platform}
-The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using the client users can generate the wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
+The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using this client users can generate wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
 \begin{figure}[H]
 \begin{center}
   %  \vspace{-0.8em}
@@ -2165,7 +2165,7 @@ CryptoNight algorithm mining stands out above others in the way how cryptocurren
 This can result up to 300 hashes per second for users with powerful CPUs and is a viable alternative to advertisements when visitors spend more than 10 minutes on the website \cite{papadopoulos2018truth}. Typical examples of this approach are warez websites offering free online movies and torrent trackers.
 % Web mining: https://arxiv.org/pdf/1806.01994.pdf
 \subsubsection{Botnet mining}
-Using other peoples resources for mining, often also called crypto jacking (a more broad term for hidden cryptocurrency mining without users approval), have become increasingly popular in Monero. As the cryptocurrency provides anonymity features as well as a wide range of mining software that is available for every major platform.
+Using other peoples resources for mining, often also called crypto jacking (a more broad term for hidden cryptocurrency mining without users approval), have become increasingly popular in Monero. As the cryptocurrency provides privacy features as well as a wide range of mining software that is available for every major platform.
 
 In the current cloud era of computing, this represents vast problems for both service providers and their customers. Providers experience increased power consumption, cooling requirements, customers, on the other hand, are required to pay more for consumed system resources \cite{tahir2017mining}.
 
@@ -2335,7 +2335,7 @@ Following this pattern, five research questions were set:
 \section{Participants and survey's background}
 As mentioned in the Chapter \ref{cha:monerouserresearch}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
+This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended privacy features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 %\vspace{-0.7em}
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.
