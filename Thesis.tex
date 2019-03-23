@@ -56,9 +56,7 @@
     TeXkeywords   = {Monero, usable security, cryptocurrency, mining, pool, blockchain},
 }
 \thesislong{abstract}{
-    This is the abstract of my thesis, which can
-
-    span multiple paragraphs.
+The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. In the usage part of the thesis, the main focus is on user usage patterns gathered from the survey. Data gathered from the dataset is used for risk and usage pattern analysis as well as for creating the detailed user guideline for usable and secure usage of the Monero cryptocurrency including key management and backup strategy. Mining part provides a guide for automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and security based on the data gathered from the respondents in the survey.
 }
 \thesislong{thanks}{ I would like to thank my supervisor RNDr. Vlasta Šťavová for her guidance, valuable advice, suggestions and support during writing this thesis.
 }
@@ -969,12 +967,12 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \itemsep0em
 \item Partially answered or unanswered questionnaires were not taken into account. 
 \item Respondents that filled out the survey in less than two minutes were discarded.
-\item Responses with more than four entries with the same IP were filtered.
+\item Responses with more than 4 entries with the same IP were filtered.
 \begin{itemize}
-\item In total seven responses were sent from duplicate IP addresses. The highest number of responses from a single IP was 3, which belonged to MIT University.
+\item In total 7 responses were sent from duplicate IP addresses. The highest number of responses from a single IP was 3, which belonged to MIT University.
 \end{itemize}
 \item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions.
-
+\vspace{-1.3em}
 \end{enumerate}
 %\end{itemize}
 \begin{center}
@@ -1025,6 +1023,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \end{tikzpicture}
 \caption{From 179 responses, only 113 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
+\vspace{-1.5em}
 Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31), followed by the Czech Republic (17) and Germany (11). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countries}. 
 
 \begin{figure}[H]
@@ -1426,7 +1425,7 @@ Following this question, respondents were asked if they hold onto their coins fo
 \begin{figure}[H]
 \center
 \begin{tabular}{p{0.5\linewidth}p{0.2\linewidth}p{0.2\linewidth}}
-\textbf{Reason}          & \textbf{\% usage} & \textbf{\# out of users} \\
+\textbf{Reason}          & \textbf{\% usage} & \textbf{Number of users} \\
 Investment               & 73 \%             & 83                \\
 Technology               & 88 \%             & 99                \\
 Fungibility              & 63 \%             & 71                \\
@@ -1605,7 +1604,7 @@ For further wallet protection, the majority of users also encrypt their wallet o
 A slightly higher number of users admit backing up their wallet keys (101) while a significant number of respondents had already needed to restore their wallet keys (50). To complete the recovery statistics, 49 out of 50 were able to restore the keys from the backup media.
 
 For visualization of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
-\vspace{-2em}
+\vspace{-1em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1701,7 +1700,7 @@ For visualization of wallet recovery reasons and restore methods see the Figures
 \end{tikzpicture}
 \caption{Method used for wallet recovery.}
 \label{chart:recoverymethod}\end{figure}\end{center}
-
+\vspace{-2em}
 \subsection{Monero and malicious software}
 \label{cha:maliciousminingresearch}
 This section was answered only by those respondents that selected Yes (15 out of 113) when asked whether they have ever been affected by malicious software that used Monero in some way.
@@ -1710,7 +1709,7 @@ The primary cause of problems was mining malware (8) or some form of mining scri
 
 \subsection{Demographics}
 Survey participants were mainly males (50), females (2) represented only a small portion of the dataset, and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33).
-\vspace{-2em}
+\vspace{-1em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1761,7 +1760,7 @@ Survey participants were mainly males (50), females (2) represented only a small
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
 
-\vspace{-2.85em}
+\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1808,7 +1807,7 @@ Survey participants were mainly males (50), females (2) represented only a small
 \end{tikzpicture}
 \caption{Highest achieved level of education.}
 \label{chart:educationleveluserresearch}\end{figure}\end{center}
-\vspace{-2.5em}
+\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1892,10 +1891,11 @@ Generating new wallet...
     \label{pic:cligenerator}
 \end{center}
     \end{figure}
+    \vspace{-1em}
 Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. 
 
-   
 Code injection was successfully tested on GUI binary of the official Monero wallet as seen in the Figure \ref{pic:codeinjectiongui}. Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes of the downloaded software with tools like PowerShell using \texttt{Get-FileHash ./monero-wallet-gui.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. GPG-signed list of the hashes is available on the website although there are no instructions on how to verify PGP signature itself.
+    \vspace{-1em}
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -1942,7 +1942,7 @@ Guideline for secure wallet access is described in the Chapter \ref{sec:walletty
 \begin{figure}[H]
 \begin{center}
 \vspace{-0.75em}
- \includegraphics[trim={0 1.8cm 0 0},clip,width=0.8\textwidth]{Screenshot_1542566492.png}
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.4\textwidth]{Screenshot_1542566492.png}
     \caption{Monerujo for Android.}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
@@ -2406,7 +2406,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \label{chart:price}\end{figure}\end{center}
 
 Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countriesminers}. 
-
+\vspace{-1em}
 \begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}[]
@@ -2766,7 +2766,7 @@ Although information about update frequency was not submitted by all miners, man
 \subsubsection{Demographics}
 Survey participants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33) followed by 35-44 age group (12) as well as 18-24 (11).
 
-\vspace{-1.9em}
+\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2817,7 +2817,7 @@ Survey participants were mainly males (50), females (2) represented only a small
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
 
-\vspace{-5em}
+\vspace{-4.8em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2864,7 +2864,7 @@ Survey participants were mainly males (50), females (2) represented only a small
 \end{tikzpicture}
 \caption{Highest achieved level of education.}
 \label{chart:educationleveluserresearch}\end{figure}\end{center}
-\vspace{-4.7em}
+\vspace{-4.8em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -3162,9 +3162,10 @@ This process of Windows image customization can be done using Windows Assessment
 For this guide, generating \texttt{autounattend.xml} file is based on online autounattend generator tool located at \url{windowsafg.com}. After generating the file, a block of commands that is executed after the first logon was added. 
 \begin{figure}[H]
 \begin{center}
+\lstset{upquote=true}
 \begin{lstlisting}
-	<SynchronousCommand wcm:action="add">
-   		<CommandLine>powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\ .NetFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -Type DWord"</CommandLine>
+	<SynchronousCommand wcm:action=add>
+   		<CommandLine>powershell -Command Set-ItemProperty -Path HKLM:\SOFTWARE\Wow6432Node\Microsoft\ .NetFramework\v4.0.30319 -Name SchUseStrongCrypto -Value 1 -Type DWord</CommandLine>
         <Description>Set PowerShell ExecutionPolicy</Description>
         <Order>42</Order>
         <RequiresUserInput>true</RequiresUserInput>
@@ -3174,12 +3175,12 @@ For this guide, generating \texttt{autounattend.xml} file is based on online aut
     \label{fig:securecrypto}
 \end{center}
     \end{figure} 
+    \vspace{-2em}
 For example, .NetFramework in Windows 10 doesn't have strong cryptography enabled for all .Net applications. Due to this, in the default state, Powershell can't be used for downloading updated code that is required for setting up the environment for Ansible. To fix that, one of the commands after the first logon is dedicated to this issue as shown in the Figure \ref{fig:securecrypto}.
 
 After finishing the installation process and provisioning the Windows environment with \texttt{<FirstLogonCommands>} included in the unattended file, Ansible can connect to the Windows machine and set up thing properly. 
 
 Note that installer opens RDP, WinRM, temporarily disables Windows Firewall (which will be properly configured by Ansible later) and sets up self-signed WinRM HTTPS certificate using Ansible Powershell file \texttt{ConfigureRemotingForAnsible.ps1} \cite{ansibleremoteps}. Mining node has to be connected to the network to download all required files properly.
-
 \subsection{Ansible at Windows}
 Before applying roles in Ansible for Windows, unlike in Ansible with Linux machines, environment for both Windows and Linux controller has to be prepared \cite{windowsansible}.
  
@@ -3251,10 +3252,10 @@ This work can further be extended by covering the pool operators perspective,  s
 
 From miners perspective, the thesis offers the guide on how to automate deployment and configuration of mining operations. This is important as only a small fraction from both Windows and Linux miners use automation tools to deploy and manage mining rigs which can result in unwanted differences in configuration or inconsistencies across mining environment.
 
-To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website.
-\noindent
-GitHub repository: \url{https://github.com/Ownercz/ssme-thesis}\\
-GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
+To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are avaiable in the Appendix Figure \ref{cha:listofattachments}.
+%\noindent
+%GitHub repository: \url{https://github.com/Ownercz/ssme-thesis}\\
+%GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
 
 
 
@@ -3265,6 +3266,7 @@ GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
 \let\cleardoublepage\clearpage
 \appendix
 \chapter{List of Attachments}
+\label{cha:listofattachments}
 Electronic attachments are included in the thesis archive of the Masaryk University Information System. 
 \\
 \\
@@ -3350,7 +3352,7 @@ Other                   & 0 \%              & 0
 1  & AF & Afghanistan       
 \end{tabular}
 \end{footnotesize}
-\caption{Diploma thesis plan.}
+\caption{Responses by country in user research.}
 \label{table:countries}
 \end{figure}
 
@@ -3387,7 +3389,7 @@ Other                   & 0 \%              & 0
 1                            & AU                         & Australia             \\
 1                            & AF                         & Afghanistan           \\
 \end{tabular}
-\caption{Diploma thesis plan.}
+\caption{Responses by country in miners research.}
 \label{table:countriesminers}
 \end{figure}
 
