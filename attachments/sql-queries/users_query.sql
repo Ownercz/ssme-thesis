@@ -117,4 +117,18 @@ SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_Kovri_to_access_M
 SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_DTor_to_access_Monero_network LIKE 'yes'; 
 SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_DTor_to_access_Monero_network LIKE 'uncertain'; 
 SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_DTor_to_access_Monero_network LIKE 'no'; 
+
+
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Hot_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Cold_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Exchangebased_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Viewonly_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Airgapped_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Web_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Paper_wallet LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Other LIKE 'yes'; 
+SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you_use_Hardware_wallet LIKE 'yes'; 
+
+
+
 SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_DTor_to_access_Monero_network IS NULL;
