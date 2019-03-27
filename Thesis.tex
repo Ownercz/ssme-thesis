@@ -146,7 +146,7 @@ The goal of this thesis is to map ways of usage and mining the Monero cryptocurr
 \usepackage{multicol}
 
 %code
-\usepackage{listings}
+\usepackage[final]{listings}
 \lstset{escapeinside={<@}{@>}}
 
 \usepackage{color}
@@ -204,7 +204,6 @@ The goal of this thesis is to map ways of usage and mining the Monero cryptocurr
 %stacketbarchart
 
 
-\usepackage{listings}
 
 \usepackage{smartdiagram}
 \usesmartdiagramlibrary{additions}
@@ -965,15 +964,15 @@ The complete survey is attached in the Chapter \ref{monero-user-study-pdf}.
 Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 179 participants of the questionnaire in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
 \itemsep0em
-\item Partially answered or unanswered questionnaires were not taken into account. 
-\item Respondents that filled out the survey in less than two minutes were discarded.
-\item Responses with more than 4 entries with the same IP were filtered.
-\begin{itemize}
+\item Partially answered or unanswered questionnaires were not taken into account (67 out of 179). 
+\item Respondents that filled out the survey in less than two minutes were discarded (1 out of 179).
+\item Responses with more than 4 entries with the same IP were filtered (0 out of 179).
+\begin{enumerate}
+\itemsep0em
 \item In total 7 responses were sent from duplicate IP addresses. The highest number of responses from a single IP was 3, which belonged to MIT University.
-\end{itemize}
-\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions.
-\vspace{-1.3em}
 \end{enumerate}
+\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions (1 out of 179).
+\end{enumerate}\vspace{-3em}
 %\end{itemize}
 \begin{center}
 \begin{figure}[H]
@@ -1023,8 +1022,8 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \end{tikzpicture}
 \caption{From 179 responses, only 113 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
-\vspace{-1.5em}
-Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31), followed by the Czech Republic (17) and Germany (11). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countries}. 
+\vspace{-3em}
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31 out of 113), followed by the Czech Republic (17 out of 113) and Germany (11 out of 113). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countries}. 
 
 \begin{figure}[H]
 \begin{center}
@@ -2367,16 +2366,16 @@ Having closed source code that community cant inspect, mining software of this c
 
 \section{Mining malware }
 \vspace{-0.2em}
-As Monero algorithm is designed to be memory demanding algorithm, it is suitable to mine it using both CPU and GPU as mentioned in the Figure \ref{cpumining}. 
+As Monero algorithm is designed to be memory demanding algorithm, it is suitable to mine it using both CPU and GPU as mining software offers support for both hardware components as mentioned in the Section \ref{cha:miningsoftware}. 
 
 The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented. Thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
 \vspace{-0.6em}
 \subsubsection{Monero position in the malware world}
 When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
 
-In the case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device available, is the main reason for using Monero \ref{eskandari2018first}.
+In the case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device available, is the main reason for using Monero \cite{eskandari2018first}.
 
-Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \ref{konoth2019malicious}.
+Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \cite{konoth2019malicious}.
 \vspace{-0.6em}
 \subsubsection{Types of malware miners}
 Main categories of malware miners are derived from the way how the unwanted software is delivered to the target device. Most common ways of ingestion are:
@@ -2448,7 +2447,7 @@ Following this pattern, five research questions were set:
 \item R5: What are the factors that affect pool choice?
 \end{itemize}
 \section{Participants and survey's background}
-As mentioned in the Chapter \ref{cha:monerouserresearch}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
+As mentioned in the Chapter \ref{cha:monerousersurvey}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended privacy features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 %\vspace{-0.7em}
@@ -2457,19 +2456,19 @@ Data collection method was online only and was using the survey website software
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
 
-The complete survey is attached in the Appendix Figure \ref{monero-miner-study-pdf}.
+The complete survey is attached in the Appendix Figure \ref{monero-miners-study-pdf}.
 %\vspace{-0.7em}
 \section{Collected data}
 Before entering the survey, each participant had to pass the bot test by entering the correct CAPTCHA, which resulted in 323 participants of the questionnaire in total. As for survey data cleansing, following measurements for valid dataset were taken:
 \begin{enumerate}
 %\itemsep-0.2em
-\item Partially answered or unanswered questionnaires were not taken into account. 
-\item Respondents that filled out the survey in less than two minutes were discarded.
+\item Partially answered or unanswered questionnaires were not taken into account (261 out of 323). 
+\item Respondents that filled out the survey in less than two minutes were discarded (0 out of 323).
 \newpage
-\item Responses with more than four entries with the same IP were filtered.
-\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions.
+\item Responses with more than four entries with the same IP were filtered (0 out of 323).
+\item Responses containing invalid answers, e.g., not using Monero or repeating the same answer pattern in multiple submissions (2 out of 323).
 \end{enumerate}
-
+\vspace{-2em}
 %\end{itemize}
 \begin{center}
 \begin{figure}[H]
@@ -2519,8 +2518,8 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \end{tikzpicture}
 \caption{From 323 responses, only 60 were tagged as valid.}
 \label{chart:price}\end{figure}\end{center}
-
-Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10) as well as from the Czech Republic (10) followed by Germany (6). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countriesminers}. 
+\vspace{-2em}
+Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10 out of 60) as well as from the Czech Republic (10 out of 60) followed by Germany (6 out of 60). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countriesminers}. 
 \vspace{-1em}
 \begin{figure}[H]
 \begin{center}
@@ -2549,9 +2548,9 @@ Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of th
 \section{Results}
 Upcoming pages are based on the final filtered dataset with 60 responses of people who voluntarily entered the research based on opportunity sampling.
 \subsubsection{General information}
-When asked about the motivation for mining Monero, two-thirds of the respondents (40) think about Monero as an investment, but also as a way to gain some profit from mining cryptocurrencies (37). 
+When asked about the motivation for mining Monero, two-thirds of the respondents 67\% (40  out of 60) think about Monero as an investment, but also as a way to gain some profit from mining cryptocurrencies 62\% (37 out of 60). 
 
-Although Monero is not considered to be more profitable to mine by the majority in the dataset (46), almost half of the miners (28) favor this cryptocurrency due to its mining characteristics CPU minable and the fact that they directly help to secure the network by mining (36). 
+Although Monero is not considered to be more profitable to mine by the majority in the dataset 77\% (46 out of 60), almost half of the miners 47\% (28 out of 60) favor this cryptocurrency due to its mining characteristics CPU minable and the fact that they directly help to secure the network by mining 60\% (36 out of 60). 
 
 Note that the reasons for mining Monero are biased by the way the respondents in the dataset were selected. In general, there would be a higher percentage of the cryptocurrency miners that care only for the profitability rather than cryptocurrency features \cite{al2014investigating}.
     \vspace{-2em}
@@ -2560,16 +2559,13 @@ Gathering information about mining setups was designed as a multiple-choice ques
 \begin{figure}[H]
 \begin{center}
 
-    \vspace{-1em}
  \includegraphics[trim={0.5cm 1.7cm 0.5cm 0.5cm},clip,width=0.85\textwidth]{Screenshot_31.png}
     \caption{Mining setup question.}
-    \vspace{-1.5em}
     \label{pic:miningquestion}
 \end{center}
     \end{figure}
     
-When asked about mining setup, the majority of the miners prefer to mine on their  PC (15) or also on mining rig (31), but there is also a small portion of miners (8) that use their employer's hardware and electricity to run their mining operation. On the other side, only two of the respondents mentioned mining on a VPS instance and no one selected cloud mining or botnet mining as their way to mine Monero.
-\vspace{-1em}
+When asked about mining setup, the majority of the miners mine on their PC 33\% (15 out of 45) or also on mining rig 69\% (31 out of 45), but there is also a small portion of miners 18\% (8 out of 45) that use their employer's hardware and electricity to run their mining operation. On the other side, only two of the respondents mentioned mining on a VPS instance and no one selected cloud mining or botnet mining as their way to mine Monero.
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2609,18 +2605,12 @@ When asked about mining setup, the majority of the miners prefer to mine on thei
 \addplot[6,fill=6] coordinates {(31,0) };
 \legend{GPU only [17],CPU and GPU [12], CPU only [2], No response [14]
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining types comparison.}
 \label{chart:miningtype}\end{figure}\end{center}
-\vspace{-2em}
-58 out of 60 respondents shared their current hashrate with median hashrate value being 4.4Kh/s. This hashrate represents a typical setup with 5 high-performance  GPUs (AMD RX 480 8GB with 800-850h/s) or 7 high-performance CPUs (AMD Ryzen 7 1700 with 600-650h/s).
+97\% (58 out of 60) of respondents shared their current hashrate with median hashrate value being 4.4Kh/s. This hashrate represents a typical setup with 5 high-performance  GPUs (AMD RX 480 8GB with 800-850h/s) or 7 high-performance CPUs (AMD Ryzen 7 1700 with 600-650h/s).
 
-\vspace{-1em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2643,7 +2633,7 @@ When asked about mining setup, the majority of the miners prefer to mine on thei
     width=.79\textwidth,
     bar width=6mm,
     xlabel={Time in ms},
-    yticklabels={Mine in own property, Own rig setup, Windows Mining, Linux mining, 
+    yticklabels={Mine in own property, Own rig setup, Windows mining, Linux mining, 
 		Cleaning, Updates regular, UPS},%{Official GUI, Official CLI, Other Desktop, Monerujo for Android, Freewallet on Android, Other Android wallet, Freewallet on iOS, Other iOS wallet, MyMonero Online wallet, XMRwallet Online, Other online wallet, Other},
     xmin=0,
     xmax=100,
@@ -2658,18 +2648,11 @@ When asked about mining setup, the majority of the miners prefer to mine on thei
 
 \legend{Yes, No
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining setup properties.}
 \label{chart:miningproperties}\end{figure}\end{center}
- 
-\vspace{-2em}
-Majority of miners mine in their property (52) and set up their mining rigs (56). The operating system is not dominant nor on the Windows side (39) nor the Linux part (33) described in the Figure \ref{chart:miningproperties}. This is mainly because of multiplatformity of mining software and availability of guides for mining setups. 
-\vspace{-2em} %TODO spacing
+Majority of miners mine in their property (52 out of 60) and set up their mining rigs (56 out of 60). The operating system is not dominant nor on the Windows side (39 out of 60) nor the Linux part (33 out of 60) described in the Figure \ref{chart:miningproperties}. This is mainly because of multiplatformity of mining software and availability of guides for mining setups. 
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2706,22 +2689,17 @@ Majority of miners mine in their property (52) and set up their mining rigs (56)
 
 \legend{Yes, No
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining setup preferences.}
 \label{chart:mininghabbits}\end{figure}\end{center}
 
-Miners generally tend to update their rigs (42) as well as clean them (31) but refrain from additional infrastructure costs like buying a UPS (14) as shown in the Figure \ref{chart:mininghabbits}.
+Miners generally tend to update their rigs (42 out of 60) as well as clean them (31 out of 60) but refrain from additional infrastructure costs like buying a UPS (14 out of 60) as shown in the Figure \ref{chart:mininghabbits}.
 
 \subsubsection{Mining software}
 The choice of mining software impacts mining profitability as well as the number of shares that are donated to the developer (if any). 
 
 As described in the Chapter \ref{cha:miningsoftware}, most popular mining software falls into open source with great moderation regarding code updates from the crypto community in general. This follows results from the dataset where XMR Stak project, that is the most active on Github, is also the most preferred way to run the mining operation (47 out of 60 miners).
-\vspace{-1.3em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2758,28 +2736,23 @@ As described in the Chapter \ref{cha:miningsoftware}, most popular mining softwa
 
 \legend{Yes, No
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-%\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining software preference.}
 \label{chart:mininghabbits}\end{figure}\end{center}
-XMRig is used less (18), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate ways mentioned (2). A small portion of miners also solo mine (7) using the official wallet software. 
+XMRig is used less (18 out of 60), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate ways mentioned (2 out of 60). A small portion of miners also solo mine (7 out of 60) using the official wallet software. 
  
-In general, miners in the dataset tend to mine in pools (50), some of them try to combine mining approaches where the primary way of obtaining the coins is by pool mining, but they also try their luck with solo mining (8). True solo miner was represented by only one specimen. 
+In general, miners in the dataset tend to mine in pools (50 out of 60), some of them try to combine mining approaches where the primary way of obtaining the coins is by pool mining, but they also try their luck with solo mining (8 out of 60). True solo miner was represented by only one specimen. 
 
 \subsubsection{Pool choice}
 Pool choice itself has the biggest impact on the final payout for the miner as described in the Chapter \ref{cha:poolmining}. This depends on the method of reward distribution, total hashrate of the pool and minimal payout. Note that often pools also have fees which are deducted from the number of coins mined by the miner.
 
-When asked about pool preferences, two larger mining pools were often mentioned Monerooceanstream (14) and nanopool.org (14). Important preference factors for choosing pool were pool fees (52), pool security history (46), total hashrate (44) and minimal payout (37). Least important are additional features to the pool like mobile apps (14) or anti-botnet policy (21).
+When asked about pool preferences, two larger mining pools were often mentioned Monerooceanstream (14 out of 60) and nanopool.org (14 out of 60). Important preference factors for choosing pool were pool fees (52 out of 60), pool security history (46 out of 60), total hashrate (44 out of 60) and minimal payout (37 out of 60). Least important are additional features to the pool like mobile apps (14 out of 60) or anti-botnet policy (21 out of 60).
 \subsubsection{Windows platform}
-Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding periodic updates, only a small part of miners (10) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
+Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding periodic updates, only a small part of miners (10 out of 60) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
 
-Majority of Windows miners (23) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset (11) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:mininghabbits}.
+Majority of Windows miners (23 out of 39) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset (11 out of 39) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:windowshabbits}.
 
-\vspace{-1.3em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2818,20 +2791,12 @@ Majority of Windows miners (23) tend to apply updates after some time after thei
 %\addplot[4,fill=4] coordinates { (75,1) (46,2) (41,3) (92,4) (79,5) (56,6) (69,7) (64,8) (44,9) (72,10)};
 \legend{Yes, No
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Windows mining setup preferences.}
 \label{chart:windowshabbits}\end{figure}\end{center}
-\vspace{-2em}
 \subsubsection{Linux platform}
 While Linux is used by 33 out of 60 miners, the majority of them tend to use Ubuntu (17) or Debian (11). The specialized OS for mining - MineOS is used by six users, least use has community derivate from RHEL, CentOS. 
-
-
-\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2868,20 +2833,14 @@ While Linux is used by 33 out of 60 miners, the majority of them tend to use Ubu
 
 \legend{Yes, No
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Linux mining setup preferences.}
-\label{chart:windowshabbits}\end{figure}\end{center}
-\vspace{-1em}
-Although information about update frequency was not submitted by all miners, many of them (14) manage updates manually, with only a small portion of other miners (6) having the process automated. Remote management is represented mainly by SSH (22) followed by VNC (3) and TeamViewer (3). Automation tools are used only by 13 miners from the dataset.
+\label{chart:linuxhabbits}\end{figure}\end{center}
+Although information about update frequency was not submitted by all miners, many of them (14 out of 33) manage updates manually, with only a small portion of other miners (6 out of 33) having the process automated. Remote management is represented mainly by SSH (22 out of 33) followed by VNC (3 out of 33) and TeamViewer (3 out of 33). Automation tools are used only by 13 miners from the dataset.
 \subsubsection{Demographics}
-Survey participants were mainly males (50), females (2) represented only a small portion of the dataset and some of the participants did not disclose their gender (8). Most respondents in the dataset were from the age groups 25-34 (33) followed by 35-44 age group (12) as well as 18-24 (11).
+Survey participants were mainly males (50 out of 60), females (2 out of 60) represented only a small portion of the dataset and some of the participants did not disclose their gender (8 out of 60). Most respondents in the dataset were from the age groups 25-34 (33 out of 60) followed by 35-44 age group (12 out of 60) as well as 18-24 (11 out of 60).
 
-\vspace{-2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2923,16 +2882,11 @@ Survey participants were mainly males (50), females (2) represented only a small
 
 \legend{18-24,25-34,35-44,45-54,55-64,65-74,75+
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
 
-\vspace{-4.8em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2971,15 +2925,10 @@ Survey participants were mainly males (50), females (2) represented only a small
 
 \legend{Primary education, Secondary education, Tertiary education, Not specified
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Highest achieved level of education.}
 \label{chart:educationleveluserresearch}\end{figure}\end{center}
-\vspace{-4.8em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -3017,11 +2966,7 @@ Survey participants were mainly males (50), females (2) represented only a small
 
 \legend{IT industry, Other industry, Not specified
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Respondents and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
@@ -3152,18 +3097,7 @@ For creating iso image on Windows, opensource ImgBurn software was used.
 
 
 \subsubsection{Linux}
-Once files are prepared, packaging into the iso at Linux is done by one-liner command:
-
-
-\begin{figure}[H]
-\begin{center}
-\begin{lstlisting}
-mkisofs -o centos7.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CENTOS' -boot-load-size 4 -boot-info-table -R -J -v -T isolinux/
-\end{lstlisting}
-\caption{ISO packaging under Linux.}
-    \label{pic:codeinjectiongui}
-\end{center}
-    \end{figure}
+Once files are prepared, packaging into the iso at Linux is done by one-liner command:\\ \texttt{mkisofs -o centos7.iso -b isolinux.bin -c boot.cat \linebreak -no-emul-boot -V CENTOS -boot-load-size 4 -boot-info-table\linebreak -R -J -v -T isolinux/}.
     
 %Installation to the target mining machine from this media can be done using optical media, USB drive that has the ISO unpackaged (e.g. using Rufus available from \url{rufus.ie}) or PXE boot (e.g. using open source network boot firmware iPXE available from \url{ipxe.org}).
     
@@ -3229,7 +3163,7 @@ Sets up email gateway for correct email delivery together with internal mail ali
 
 Using Gmail account is preferred as this solution is an Internet Service Provider (ISP) agnostic (blocked SMTP and SSMTP communication for outbound connections at the ISP level would be a problem for the gateway mode). 
 
-Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl\TextUnderscore{}passwd} file in plaintext \cite{van2015red}. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
+Separate Gmail account for sending out email alerts is recommended as Postfix has login credentials saved in \texttt{/etc/postfix/sasl\linebreak\TextUnderscore{}passwd} file in plaintext \cite{van2015red}. This can be made more secure if the credentials file has appropriate permissions, e.g., ownership set to root, the group to wheel and chmod changed to 0600.
 
 \subsubsection{ansible-sw-sshsec}
 Takes care about incoming SSH connections in case somebody wants to try brute force attack on the mining machine. After a predefined amount of failed login attempts, the incoming IP address is put into "jail". 
@@ -3242,7 +3176,7 @@ This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{
 \subsubsection{ansible-sw-xmrstak}
 Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE=OFF  -DOpen\newline CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
+After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags: \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE= OFF  -DOpen CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
 
 If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=\{\{ DCPU\TextUnderscore{}ENABLE \}\} -DCUDA\TextUnderscore{}ENABLE=\{\{ \newline DCUDA\TextUnderscore{}ENABLE \}\} -DOpenCL\TextUnderscore{}ENABLE=\{\{ DOpenCL\TextUnderscore{}ENABLE \}\}}
 
