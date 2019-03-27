@@ -132,3 +132,8 @@ SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Which_type_of_wallet_do_you
 
 
 SELECT COUNT(*), (COUNT(*)*100)/113 FROM users WHERE Anonymity_DTor_to_access_Monero_network IS NULL;
+
+SELECT In_which_age_group_are_you, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP BY In_which_age_group_are_you;
+SELECT Select_your_highest_achieved_level_of_education, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP BY Select_your_highest_achieved_level_of_education;
+SELECT Do_you_work_or_study_in_IT_related_field, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP BY Do_you_work_or_study_in_IT_related_field;
+
