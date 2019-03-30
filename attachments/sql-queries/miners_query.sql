@@ -37,6 +37,7 @@ SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE _statements_I_have_a_backup_
 
 
 SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE What_software_do_you_use_for_mining_XMR_Stak like 'Yes';
+SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE What_software_do_you_use_for_mining_XMRig like 'Yes' OR What_software_do_you_use_for_mining_XMRig_AMD like 'Yes' OR  What_software_do_you_use_for_mining_XMRig_NVIDIA like 'Yes';
 SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE What_software_do_you_use_for_mining_XMRig like 'Yes';
 SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE What_software_do_you_use_for_mining_XMRig_AMD like 'Yes';
 SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE What_software_do_you_use_for_mining_XMRig_NVIDIA like 'Yes';
@@ -124,7 +125,7 @@ SELECT COUNT(*),(COUNT(*)*100)/33,(100-(COUNT(*)*100)/33)  FROM miners WHERE   L
 SELECT COUNT(*),(COUNT(*)*100)/33,(100-(COUNT(*)*100)/33)  FROM miners WHERE   Linux_automation  like 'Yes';
 SELECT COUNT(*),(COUNT(*)*100)/33 ,(100-(COUNT(*)*100)/33) FROM miners WHERE   Are_your_Linux_miners_automatically_deployed  like 'Yes';
 SELECT Which_gender_are_you,COUNT(*),(COUNT(*)*100)/(SELECT DISTINCT COUNT(*) FROM miners) FROM miners GROUP BY   Which_gender_are_you  ;
-SELECT COUNT(In_which_age_group_are_you) FROM miners GROUP BY  In_which_age_group_are_you ;
+SELECT In_which_age_group_are_you,COUNT(In_which_age_group_are_you) FROM miners GROUP BY  In_which_age_group_are_you ;
 SELECT COUNT(Please_select_your_highest_achieved_level_of_education) FROM miners group by  Please_select_your_highest_achieved_level_of_education ; 
 SELECT COUNT(*),(COUNT(*)*100)/60 FROM miners WHERE   Do_you_study_or_work_in_IT_related_field  like 'Yes';
 
