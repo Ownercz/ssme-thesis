@@ -1507,8 +1507,8 @@ Important usage factor of a currency is where its users can pay with it. Monero 
 \begin{figure}[H]
 \center
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.4\linewidth}%
-   >{\raggedleft\arraybackslash}p{0.25\linewidth}%
-   >{\raggedleft\arraybackslash}p{0.25\linewidth}%
+   >{\centering\arraybackslash}p{0.25\linewidth}%
+   >{\centering\arraybackslash}p{0.25\linewidth}%
   }
 \textbf{Reason}          & \textbf{\% usage} & \textbf{Number of users} \\
 Investment               & 73 \%             & 83                \\
@@ -1525,13 +1525,13 @@ Other                    & 00 \%              & 00
 \caption{Reasons to use Monero, total N=113.}
 \label{table:monerousageresearch}
 \end{figure}
-When asked about the payment options, many of the respondents 45\% (51 out of 113) selected that they use Monero as a way for donating other people, followed by paying for VPN services. %A detailed overview of payment types is available in the Appendix Figure \ref{table:moneropayusageresearch}.
+When asked about the payment options, many of the respondents 45\% (51 out of 113) selected that they use Monero as a way for donating other people, followed by paying for VPN services 35\% (31 out of 113). Although Monero features are considered ideal for black market use, only 5\% (6 out of 113) respondents revealed that they use Monero cryptocurrency in this way.%A detailed overview of payment types is available in the Appendix Figure \ref{table:moneropayusageresearch}.
 \begin{figure}[H]
 \center
 %\begin{tabular}{cp{0.35\linewidth}rp{0.2\linewidth}r   p{0.35\linewidth} }
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.35\linewidth}%
-   >{\raggedleft\arraybackslash}p{0.2\linewidth}%
-   >{\raggedleft\arraybackslash}p{0.35\linewidth}%
+   >{\centering\arraybackslash}p{0.2\linewidth}%
+   >{\centering\arraybackslash}p{0.35\linewidth}%
   }
 \textbf{Usage}          & \textbf{\% of users from total} & \textbf{N of users from total N=113} \\
 Subscriptions           & 15\%             & 17                           \\
@@ -1813,6 +1813,30 @@ This part was answered only by those respondents that selected Yes (15 out of 11
 
 The primary cause of problems was mining malware (8) or some form of mining script (7). The main affected platform was running Windows (10), and malware was recognized mainly by slow system response (7) and high CPU usage (11).
 
+When trying to compare the security of individual wallet types, one of the important factors that determine its usability and security is wallet recovery rate. To compare hot and cold wallet approach using the chi-square test, following hypothesis was set:
+\begin{itemize}\itemsep0em
+\item H0: There is no difference between hot and cold wallet and their recovery rate.
+\item H1: There is a difference between hot and cold wallet and their recovery rate.
+\end{itemize}
+The table with extracted values is in the Table \ref{table:user-chi}. The chi-square statistic is 0.489. The p-value is .484356. The result is not significant at p < .05. Therefore it means that the data provide little or no evidence that the null hypothesis is false. 
+
+\begin{figure}[H]
+\centering
+
+\begin{tabular}{llll}
+                       & \textbf{Hot wallet}            & \textbf{Cold wallet}           & \textbf{Row Totals} \\
+\textbf{Recovery yes}  & 36  (34.16)  {[}0.10{]} & 23  (24.84)  {[}0.14{]} & 59                  \\
+\textbf{Recovery no}   & 30  (31.84)  {[}0.11{]} & 25  (23.16)  {[}0.15{]} & 55                  \\
+\textbf{Column Totals} & 66                      & 48                      & 114
+\end{tabular}
+
+
+\captionof{table}{Contingency table for wallet types and recovery.}
+\label{table:user-chi}
+\end{figure}
+
+
+
 \subsection{Demographics}
 Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out of 113) represented only a small portion of the dataset, and some of the participants did not disclose their gender 54\% (61 out of 113). Most respondents in the dataset were from the age groups 25-34 29\% (33 out of 113). 
 \begin{center}
@@ -1968,7 +1992,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \chapter{Monero usage and storage best practices}
 Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
 
-Following scenarios represent secure and easy to use instructions for a new Monero user.
+Following scenarios represent secure and easy to use instructions for a new Monero user, based on results from Monero user research in the Chapter \ref{cha:monerousersurvey}.
 
 \section{Generating the keys and accessing the wallet}
 The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from the user's platform of choice and used wallet software. As the choice of client wallet software is important for Monero users in terms of user experience and security, the following Sections are dedicated to available wallet software. %TODO je to better oproti původnímu As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
@@ -2143,7 +2167,7 @@ Following cost effectivity of individual media types together with common backup
 \end{itemize}
 
 \subsubsection{Secure Monero usage portal}
-As a result of this Chapter and Monero user research, all recommendations for secure Monero usage are compiled within one website \url{https://ownercz.github.io/ssme-thesis}.
+As a result of this Chapter and Monero user research in the Chapter \ref{cha:monerousersurvey}, all recommendations for secure Monero usage are compiled within one website \url{https://ownercz.github.io/ssme-thesis}.
 
 \iffalse
 \begin{figure}[H]
@@ -3454,7 +3478,7 @@ Following files are included in the attachment archive:
 \begin{figure}[H]
 \center
 \begin{footnotesize}
-\begin{tabular}{rrl}
+\begin{tabular}{ccl}
 \textbf{Number of responses} & \textbf{Country shortcode} & \textbf{Country name} \\
 31 & US & United States      \\
 17 & CZ & Czech Republic     \\
@@ -3497,7 +3521,7 @@ Following files are included in the attachment archive:
 \vspace{-2em}
 \begin{figure}[H]
 \center
-\begin{tabular}{rrl}
+\begin{tabular}{ccl}
 \textbf{Number of responses} & \textbf{Country shortcode} & \textbf{Country name} \\
 10                           & US                         & United States         \\
 10                           & CZ                         & Czech Republic        \\
