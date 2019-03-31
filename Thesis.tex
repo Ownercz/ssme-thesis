@@ -3618,15 +3618,15 @@ Following files are included in the attachment archive:
 # System authorization information
 auth --enableshadow --passalgo=sha512
 # Use network installation
-url --url="http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/"
-repo --name="base" --baseurl=http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/
+url --url=http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/
+repo --name=base --baseurl=http://ftp.fi.muni.cz/pub/linux/centos/7/os/x86_64/
 # Use graphical install
 graphical
 # Run the Setup Agent on first boot
 firstboot --enable
 ignoredisk --only-use=sda
 # Keyboard layouts
-keyboard --vckeymap=us --xlayouts='us'
+keyboard --vckeymap=us --xlayouts=us
 # System language
 lang en_US.UTF-8
 
@@ -3638,11 +3638,11 @@ reboot
 # Root password
 rootpw --iscrypted $6$jtf4WZQD/5Ozocag$5UcoItitnW58zDBA3k.itRf7ozUA391
 # System services
-services --enabled="chronyd"
+services --enabled=chronyd
 # System timezone
 timezone Europe/Prague --isUtc --ntpservers=tik.cesnet.cz
 # System bootloader configuration
-bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=sda
+bootloader --append= crashkernel=auto --location=mbr --boot-drive=sda
 autopart --type=lvm
 # Clear the Master Boot Record
 zerombr
@@ -3661,7 +3661,7 @@ kexec-tools
 
 %end
 
-%addon com_redhat_kdump --enable --reserve-mb='auto'
+%addon com_redhat_kdump --enable --reserve-mb=auto
 
 %end
 
