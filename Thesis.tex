@@ -516,7 +516,7 @@ Monero development cycle is based on planned network updates that occur every si
 \ytl{04.15.2017}{Monero v5 - block size update and fee algorithm adjustments}
 \ytl{09.16.2017}{Monero v6 - RingCT forced on the network with ring size => 5}
 \ytl{04.06.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7}
-\ytl{10.11.2018}{Monero v8 - enabled Bulletproofs for reduced transaction sizes, global ringsize set to 11}
+\ytl{10.11.2018}{Monero v8 - enabled Bulletproofs for reduced transaction sizes, global ring size set to 11}
 \ytl{02.25.2019}{Monero v9 - new PoW based on Cryptonight-R, new block weight algorithm}
 \bigskip
 \rule{\linewidth}{1pt}%
@@ -546,9 +546,9 @@ Updates are meant to improve and enhance the previously established codebase as 
 %zdroj https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html
 \newpage
 \section{Transactions in Monero network}
-Monero uses a distributed peer-to-peer consensus network to record transaction outputs in a blockchain. That means that balance is not stored in a wallet, but is represented by control over outputs of transactions accessible with wallet keys \cite{seguias2018moneroa}.
+Monero uses a distributed peer-to-peer consensus network to record transaction outputs in a blockchain. It means that balance is not stored in a wallet, but is represented by control over outputs of transactions accessible with wallet keys \cite{seguias2018moneroa}.
 
-By that when user A wants to send funds to user B, the transaction happens in the way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle of how coins are transferred between wallets Monero uses additional technology to make transactions private.
+By that when a user A wants to send funds to a user B, the transaction happens in the way of transformation of controlled outputs in one wallet to a new output that belongs to the other wallet. As this is only a principle of how coins are transferred between wallets, Monero uses additional technology to make transactions private.
 \subsection{Monero wallet and stealth addresses}
 \label{sec:stealthaddresses}
 Monero wallet seed is 95 characters long string that consists of public view and spend key. To send funds from one wallet to another, a one-time public key is created, that contains senders public view and spend key as well as randomized data. 
@@ -580,7 +580,7 @@ To confirm the transaction, the sender reveals the masked amount of coins being 
 By that, amounts transferred between wallets in the form of outputs of transactions are hidden, and the network can still confirm that transaction is valid.
 
 \subsection{Kovri}
-Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where a user's IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
+Kovri is a C++ implementation of the Internet Invisible Project (I2P) anonymous network, that under heavy development process in the Monero project. It aims to offer secure network transmissions where a users IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
 
 \chapter{Monero Usage}
 As pointed out in the Chapter \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. Moreover, because of that not only the underlying technology of the network is different from other cryptocurrency projects but the user side as well. 
@@ -603,7 +603,7 @@ Monero wallet contains information that is necessary to send and receive Monero 
 \item Acts as an encrypted cache for wallet software that contains:
 \begin{itemize}\itemsep0em
 \item List of outputs of transactions that are associated with the wallet, so it does not need to scan the blockchain every time after startup.
-\item History of transactions with metadata containing tx keys.
+\item History of transactions with metadata containing transaction (TX) keys.
 \end{itemize}
 \end{itemize}
 \item \textbf{example-wallet.address.txt file}
@@ -631,12 +631,12 @@ Example of Monero wallet address and mnemonic seed:
 \end{itemize}
 \subsection{Wallet types}
 \label{sec:wallettypes}
-As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which user needs to store in the safe place to keep account under own control. To do that, there exist two main types of wallets:
+As Monero wallet can be represented as little as one file or 25 words, it is rather a small piece of information which the user needs to store in the safe place to keep account under own control. To do that, there exist two main types of wallets:
 \begin{itemize}\itemsep0em
 \item \textbf{Hot wallet}
 \begin{itemize}\itemsep0em
 \item Refers to wallet software running on a computer that is connected to the Internet, thus Monero network. By being online, the user can verify incoming transactions, spend from the wallet and check balance as well.
-\item As this type of wallet is not air-gapped, this poses an external intrusion risk.
+\item As this type of wallet is not air-gapped (not connected to the Internet), this poses an external intrusion risk.
 \item The hot wallet can also refer to web-based or exchange-based wallet that is explained further in this Chapter.
 \end{itemize}
 \item \textbf{View-only wallet}
@@ -656,10 +656,10 @@ As Monero wallet can be represented as little as one file or 25 words, it is rat
 \end{itemize}
 \item \textbf{Exchange hosted wallet}
 \begin{itemize}\itemsep0em
-\item In exchange wallet, users funds are stored under an online account in an online exchange. 
-\item As opposed to a regular wallet, there is no wallet software or seed required as the whole balance and transaction system is ran by the third party.
+\item In the exchange wallet, users funds are stored under an online account in an online exchange. 
+\item As opposed to a regular wallet, there is no wallet software or seed required as the whole balance and transaction system is run by the third party.
 Funds can be controlled through users online account that accessible by traditional username and password. 
-\item This poses a risk as the third party has complete access to users funds and the account's security is directly dependent on exchanges security measures as 2FA implementation, IP restriction or email verification.
+\item This poses a risk as the third party has complete access to users funds and the account's security is directly dependent on exchanges security measures as Two Factor Authentication (2FA) implementation, IP restriction or email verification.
 \end{itemize}
 \item \textbf{Web-based wallet}
 \begin{itemize}\itemsep0em
@@ -671,9 +671,9 @@ Funds can be controlled through users online account that accessible by traditio
 \end{itemize}
 \item \textbf{Hardware wallet}
 \begin{itemize}\itemsep0em
-\item Dedicated hardware solution like Ledger is still in its beta phase \cite{ledgermonero}.
+\item Dedicated hardware solution like Ledger Nano S is still in its beta phase \cite{ledgermonero}.
 \item Due to lack of real hardware wallet, the community around Monero recommends as the alternative a USB drive with a live distribution of Linux coupled with persistent storage where Monero client and users private key pairs are stored. 
-\item Note that although this alternate solution effectively rules out host operating system, there is still a way to capture viable information when interacting with the untrusted machine, for example, GPU output or usage of hardware keylogger.
+\item Although this alternate solution effectively rules out host operating system, there is still a way to capture viable information. Especially when interacting with an untrusted machine, where attacker captures GPU output or uses a hardware keylogger to log the users activity.
 
 \end{itemize}
 \end{itemize} 
@@ -691,10 +691,10 @@ Cloud storage provides an easy way of sharing files between devices as well as u
 
 This way, the user's security depends on the following factors:
 \begin{itemize}\itemsep0em
-\item Wallet encryption on the file level, user password habits
-\item Account security -- login implementation, F2A
-\item Client application implementation for caching and data transfer
-\item Vendors storage system security
+\item Wallet encryption on the file level, user password habits.
+\item Account security -- login implementation, 2FA.
+\item Client application implementation for caching and data transfer.
+\item Vendors storage system security.
 \end{itemize} 
 
 \subsubsection{Delivery chain}
@@ -763,13 +763,13 @@ Hardware wallet        & Yes                            & Yes               &   
 \section{Local and remote node}
 To spend or view the balance in the wallet, the user is required to have a wallet client software or use third party services to access the Monero network. This Section covers the most common type of accessing the funds, hot wallet in combination with official Monero client software available at \url{https://getmonero.org/downloads/}.
 
-Monero client requires to be in sync with the network to show the correct balance as well as to work with the funds. That is done by either running a full local node or connecting to the remote node.
+Monero client requires to be in synchronization with the network to show the correct balance as well as to work with the funds. That is done by either running a full local node or connecting to the remote node.
 
-\textbf{Node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by monerod, a separate daemon which synchronizes with the network.
+\textbf{The node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by \texttt{monerod}, a separate daemon which synchronizes with the network.
 
 \textbf{The local node} is the default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, client can independently verify transactions as well as blockchain state.
 
-\textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port} , the client connects to the remote node and starts scanning the blockchain as if it was a local one.
+\textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port}, the client connects to the remote node and starts scanning the blockchain as if it was a local one.
 
 \begin{figure}[H]
 \center
@@ -779,7 +779,7 @@ Blockchain stored on locally                                           & Blockch
 Observable traffic between nodes                                             & Visible connection to the remote server                 \\
 Default way for desktop clients                                              & Default way for mobile wallets \\
 %Time delay caused by blockchain download & No initial setup needed                             \\
-Requires 45+ GB and connection to keep in sync                               & Requires connection to scan blockchain             
+Requires 45+ GB and connection to keep in synchronization                               & Requires connection to scan blockchain             
 \end{tabular}
 \caption{Monero node comparison.}
 \label{table:moneronodes}
@@ -895,12 +895,12 @@ After Lithium Luna release, only Monero wallet CLI software is ready for process
 
 \section{Problems in Monero environment}
 
-Monero privacy features are welcomed not only by privacy savvy users but malware, phishing, and other malicious software creators as well. 
+Monero privacy features are appreciated not only by privacy savvy users but malware, phishing, and other malicious software creators as well. 
 
 The main reason to use Monero over other cryptocurrencies for them is that Monero is not only harder to trace but when the attack is implemented well, after moving funds in separate batches to multiple wallets an over more extended period, no one will be able to associate the coins with the malicious activity.
 
-There are three main problems concerns in Monero environment:
-\subsubsection{Ransomware} 
+There are four main problems concerning Monero environment:
+\subsubsection{1) Ransomware} 
 \label{cha:ransomware}
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
@@ -920,12 +920,12 @@ Because of this targeting, they had to choose another cryptocurrency to solve th
 
 
 
-\subsubsection{Scam portals}
+\subsubsection{2) Scam portals}
 \label{cha:scamportals}
 As mentioned in the Section Wallets \ref{sec:wallets}, online wallets usage is a risky thing due to entrusting user's private keys to the third party. Users often choose them as they are not required to have any additional software. Due to this fact, there are more than ten domains that copy the design, functionality, and name of \url{mymonero.com} official online wallet with added code that steals the user's wallet data. Detailed list of domains is available at \url{https://www.reddit.com/r/Monero/wiki/avoid}.
 
 Aside from direct scams, there are also services offering wallet services which have their codebase closed and store all wallet information. The best-known example of such service is \url{freewallet.org}, that is strongly criticized for closed source as well as funds that are reported as missing from user's accounts \cite{wijayamonero}.
-\subsubsection{Crypto-jacking attack}
+\subsubsection{3) Crypto-jacking attack}
 \label{cha:cryptojacking} 
 Crypto-jacking a type of attack where the attacker delivers a malicious payload to the user's computer. Rather than rendering the device unusable either by blocking like ransomware, part of system resources is used for mining.
 
@@ -940,7 +940,7 @@ Crypto-jacking a type of attack where the attacker delivers a malicious payload 
 
 Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is more profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
 
-\subsubsection{Black Ruby}
+\subsubsection{4) Black Ruby}
 Interesting intersection of ransomware and crypto-jacking category is Black Ruby malware that combines features of both. First, it encrypts files on the target computer and then proceeds to mine Monero using XMRig at full CPU load \cite{blackruby2018}.
 
 \vspace{-1em}
@@ -961,7 +961,7 @@ What is most noticeable tough, are darknet markets, that started to support paym
     \end{figure}
 
 
-Although darknet markets may support Monero, a short inspection of top 10 markets revealed that only 5 of them list Monero as the general way to pay. Rest of them are not forcing the sellers to use Monero. This results at about 40\% availability of Monero payment option on these type of markets.
+Although darknet markets may support Monero, a short inspection of Top 10 markets revealed that only 5 of them list Monero as the general way to pay. Rest of them are not forcing the sellers to use Monero. This results at about 40\% availability of Monero payment option on these type of markets.
 
 
 \chapter{Monero User Research}
@@ -988,7 +988,7 @@ Following this pattern, four research questions were set:
 \item R4: In case of recovery, how did they recover their keys?
 \end{itemize}
 \section{Participants and survey's background}
-The significant characteristic of Monero is its anonymity, and this feature is not taken by community lightly. Due to this fact, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
+The significant characteristic of Monero is its anonymity, and this feature is not taken by community lightly. Due to this fact, the survey was not hosted on third party servers, but instead on dedicated Virtual Private Server (VPS) running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates \cite{certbot,limesurvey,letsencrypt}.
 
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 \subsection{Methodology}
@@ -1121,9 +1121,9 @@ List of countries:
 
 
 \section{Results}
-Upcoming pages are based on the final filtered dataset with 113 responses of people who voluntarily entered the research based on opportunity sampling.
+Next section is based on the final filtered dataset with 113 responses of people who voluntarily entered the research based on opportunity sampling.
 \subsection{General information}
-At first, users were asked about their operating system preferences when accessing Monero. Majority of users tend to access Monero using Windows 58\% (65 out of 113) or Linux 60\% (68 out of 113). While accessing Monero from mobile Android OS 43\% (49 out of 113) is primarily used. As for the Apple ecosystem, MacOS combined with iOS was selected as used method of access only in 14\% (16 out of 113) occurences.
+First, users were asked about their operating system preferences when accessing Monero. Majority of users tend to access Monero using Windows 58\% (65 out of 113) or Linux 60\% (68 out of 113). While accessing Monero from mobile Android OS 43\% (49 out of 113) is primarily used. As for the Apple ecosystem, MacOS combined with iOS was selected as used method of access only in 14\% (16 out of 113) occurences.
 
 
 \begin{center}
@@ -1188,8 +1188,8 @@ At first, users were asked about their operating system preferences when accessi
 \caption{Monero OS usage preferences.}
 \label{chart:price}\end{figure}\end{center}
 
-\subsubsection{Monero desktop app usage}
-Desktop applications are used by 104 out of 113 users, making it the most frequent  means of accessing the wallet. As Monero Official application has no other direct competitors aside from web-based wallets, the majority of users 81\% (84 out of 104) use the official app with GUI, but there is also a notable part of the users in the dataset that use CLI as well 53\% (55 out of 104). Alternative desktop clients, that were sometimes misinterpreted as web apps, are used by only a few users cca 4\% (5 out of 104).
+\subsubsection{Monero desktop application usage}
+Desktop applications are used by 104 out of 113 users, making it the most frequent  means of accessing the wallet. As Monero Official application has no other direct competitors aside from web-based wallets, the majority of users 81\% (84 out of 104) use the official application with GUI, but there is also a notable part of the users in the dataset that use CLI as well 53\% (55 out of 104). Alternative desktop clients, that were sometimes misinterpreted as web apps, are used by only a few users cca 4\% (5 out of 104).
 
 \begin{center}
 \begin{figure}[H]
@@ -1413,7 +1413,7 @@ When asked about online wallet usage, only 24 people (out of 113) said that they
 \label{chart:price}\end{figure}\end{center}
 
 \subsubsection{Wallet software usage}
-First part of the survey shows that userbase present in the dataset is more oriented towards opensource software in general (110 out of 113 use some form of opensource Monero client), but this is not limited to the usage of particular OS as there are 33\% (37 out of 113) of Windows only users, 35\% (40 out of 113) Linux only users and 25\% (28 out of 113) users of both OS. This discovery follows the information about Monero community as they prefer open source software (OSS) to closed source software (CSS) because they can not personally review for hidden features or unintentional bugs.
+First part of the survey shows that userbase present in the dataset is more oriented towards open-source software in general (110 out of 113 use some form of open-source Monero client), but this is not limited to the usage of particular OS as there are 33\% (37 out of 113) of Windows only users, 35\% (40 out of 113) Linux only users and 25\% (28 out of 113) users of both OS. This discovery follows the information about Monero community as they prefer open source software (OSS) to closed source software (CSS) because they can not personally review for hidden features or unintentional bugs.
 
 \begin{center}
 \begin{figure}[H]
@@ -1437,7 +1437,7 @@ First part of the survey shows that userbase present in the dataset is more orie
     width=.84\textwidth,
     bar width=6mm,
     xlabel={Time in ms},
-    yticklabels={Opensource usage, OS usage },
+    yticklabels={Open-source usage, OS usage },
     xmin=0,
     xmax=100,
     area legend,
@@ -1468,7 +1468,7 @@ First part of the survey shows that userbase present in the dataset is more orie
 \node at (E) {28};
 \node at (F) {8};% ********* end of changes **********
 \end{tikzpicture}
-\caption{Opensource and OS preferences.}
+\caption{Open-source and OS preferences.}
 \label{chart:price}\end{figure}\end{center}
 
 \subsection{Monero usage}
@@ -1629,7 +1629,7 @@ Among users in the dataset, Kovri 7\% (8 out of 113) or Tor 20\% (23 out of 113)
     width=.69\textwidth,
     bar width=6mm,
     xlabel={Time in ms},
-    yticklabels={Transactions are anonymous, Noone else can see the balance, Use Kovri to access Monero, Use Tor to access Monero},
+    yticklabels={Transactions are anonymous, No one else can see the balance, Use Kovri to access Monero, Use Tor to access Monero},
     xmin=0,
     xmax=100,
     area legend,
@@ -1672,7 +1672,7 @@ Among users in the dataset, Kovri 7\% (8 out of 113) or Tor 20\% (23 out of 113)
 \pagebreak
 
 \subsection{Monero key and coin management}
-Apart from client software that is used for accessing and making transactions in Monero, wallet management should be taken with at least the same importance as the users choice has a direct influence on who has access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
+Apart from client software that is used for accessing and making transactions in Monero, wallet management is at least as important. Main reason is that users choice of wallet storage has a direct influence on who has access to the funds as explained along with the wallet types in the Chapter \ref{sec:wallets}.
 
 \begin{center}
 \begin{figure}[H]
@@ -1749,7 +1749,7 @@ For further wallet protection, the majority of users also encrypt their wallet o
 
 A slightly higher number of users admit backing up their wallet keys 89\% (101 out of 113) while a significant number of respondents had already needed to restore their wallet keys 44\% (50 out of 113). To complete the recovery statistics, 98\% (49 out of 50) were able to restore the keys from the backup media.
 
-For visualization of wallet recovery reasons and restore methods see the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod}.
+See the Figures \ref{chart:recoveryreason} and \ref{chart:recoverymethod} for visualization of wallet recovery reasons and restore methods.
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1862,7 +1862,7 @@ This part was answered only by those respondents that selected Yes (15 out of 11
 
 The primary cause of problems was mining malware (8) or some form of mining script (7). The main affected platform was running Windows (10), and malware was recognized mainly by slow system response (7) and high CPU usage (11).
 
-When trying to compare the security of individual wallet types, one of the important factors that determine its usability and security is wallet recovery rate. To compare the hot and cold wallet approach using the chi-square test, the following hypothesis was set:
+When trying to compare the security of individual wallet types, one of the important factors that determine its usability and security is wallet recovery rate. To compare the hot and cold wallet approach using the Chi-Square test, the following hypothesis was set:
 \begin{itemize}\itemsep0em
 \item H0: There is no difference between the hot and cold wallet and their recovery rate.
 \item H1: There is a difference between the hot and cold wallet and their recovery rate.
@@ -1888,6 +1888,7 @@ The table with extracted values is in the Table \ref{table:user-chi}. The chi-sq
 
 \subsection{Demographics}
 Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out of 113) represented only a small portion of the dataset, and some of the participants did not disclose their gender 54\% (61 out of 113). Most respondents in the dataset were from the age groups 25-34 29\% (33 out of 113). 
+\vspace{-1em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1939,7 +1940,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \end{tikzpicture}
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
-\vspace{-3em}
+\vspace{-3.3em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -1990,7 +1991,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \end{tikzpicture}
 \caption{Highest achieved level of education.}
 \label{chart:educationleveluserresearch}\end{figure}\end{center}
-\vspace{-3em}
+\vspace{-4.2em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2040,7 +2041,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Monero Usage and Storage Best Practices}
-Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
+Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that sparks discussion \cite{monerolang2018}.
 
 Following scenarios represent secure and easy to use instructions for a new Monero user, based on results from Monero user research in the Chapter \ref{cha:monerousersurvey}.
 
@@ -2065,8 +2066,8 @@ The official client offers CLI and GUI wallet management and is available at \ur
 Monero Lithium Luna (v0.12.3.0-release)
 Logging to C:\...\monero-wallet-cli.log
 Specify wallet file name (e.g., MyWallet). If the wallet 
-doesn't exist, it will be created.
-Wallet file name (or Ctrl-C to quit): ssme-thesis
+file is not present, it will be created.
+Wallet file name (or Ctrl-C to exit): ssme-thesis
 No wallet found with that name. Confirm creation of new 
 wallet named: ssme-thesis
 (Y/Yes/N/No): Y
@@ -2112,11 +2113,11 @@ This way, the user has private spend key always on the device, and the client PC
 
 \subsection{Wallet software for mobile devices}
 
-Monero has wallet software available for Android as well as the iOS platform. For both platforms community recommends users to use the open source ones, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the user's device and restore can be done without third-party tech support.
+Monero has wallet software available for Android as well as the iOS platform. Community recommends to use the open source ones for both platforms, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the user's device and restore can be done without third-party technical support.
 
-\textbf{Monerojuro} is an open source Android wallet application that is available on Google Play as well as APK release at Github. By this, users can install the app from the Google Play directly, manually download the APK or compile it from source code themselves. Wallet keys storage is based on the device only, and the app encourages users to back up their seed \cite{xmrwalletgithub}.
+\textbf{Monerojuro} is an open source Android wallet application that is available on Google Play as well as APK release at Github. By this, users can install the application from the Google Play directly, manually download the APK or compile it from source code themselves. Wallet keys storage is based on the device only, and the application encourages users to back up their seed \cite{xmrwalletgithub}.
 
-\textbf{Monero Wallet} is an app released by Freewallet.org that provides Monero wallets for both Android and iOS. Regarding overall usability, this app is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed, etc. The user is instead instructed to create a Freewallet account which acts as a wallet \cite{freewallet}. 
+\textbf{Monero Wallet} is an application released by Freewallet.org that provides Monero wallets for both Android and iOS. Regarding overall usability, this application is easier for an average user as it does not present any cryptocurrency wallet terms as key, seed, etc. The user is instead instructed to create a Freewallet account which acts as a wallet \cite{freewallet}. 
 
 By this, the user does not need to save the seed, wallet keys or make any backups as key management is completely on the side of the service provider, Freewallet.org. This fact is often emphasized in Monero community as the user that does not control the keys does not control the wallet. Also, the source code is not publicly available for the community to review.
 
@@ -2147,7 +2148,7 @@ Cake Wallet   & iOS           & Open Source   & Keypair is stored locally.  User
 
 
 \section{Secure storage system}
-Wallet keys are everything when it comes to cryptocurrency usage. Who has the keys, controls the wallet and can view or transfer the balance to another address. If user loses wallet keys, Monero wallet can still be recovered using mnemonic seed that should be saved on another storage medium. 
+Wallet keys are everything when it comes to cryptocurrency usage. Who has the keys, controls the wallet and can view or transfer the balance to another address. If a user loses wallet keys, Monero wallet can still be recovered using mnemonic seed that should be saved on another storage medium. 
 
 This Section describes possible ways of backing-up wallet keys. Primary storage media security is compared in the Figure \ref{fig:walletstorage}.
 \subsubsection{Data characteristics}
@@ -2193,7 +2194,7 @@ Paper               & Depends on printout content and physical storage propertie
 \label{table:secure-storage}
 \end{figure}
 
-Data that users need to backup are not changing in the day to day usage, but only when the user creates a new or additional wallet. Meaning that backing up the wallet does not need to be made frequently unlike other user data that are changed frequently, e.g., documents. Verification, on the other hand, is more important as not only users should back up the data, they should also be able to restore them. For ease of use, users can verify the integrity of the backup by actually recovering the wallet from the backup media.
+Data that users need to backup are not changing in the day to day usage, but only when the user creates a new or an additional wallet. Meaning that backing up the wallet does not need to be made frequently unlike other user data that are changed frequently, e.g., documents. Verification, on the other hand, is more important as not only users should back up the data, they should also be able to restore them. For ease of use, users can verify the integrity of the backup by actually recovering the wallet from the backup media.
 
 \subsubsection{Recommended scheme}
 Following cost effectivity of individual media types together with common backup strategy:
@@ -2201,7 +2202,7 @@ Following cost effectivity of individual media types together with common backup
 \itemsep0em
 \item Total number of copies of data: 5
 \item The primary data source is on the client device with wallet software. This source is then copied downstream to backup media.
-\item All copies of the data should be encrypted using file-level encryption regardless of the security of the device, e.g., by a popular opensource tool like VeraCrypt.
+\item All copies of the data should be encrypted using file-level encryption regardless of the security of the device, e.g., by a popular open-source tool like VeraCrypt.
 \item Local copy
 \begin{itemize}
 \itemsep0em
@@ -2342,7 +2343,7 @@ As of 09.29.2018 total hash rate of the network was 577.72 Mh/s (100\%), in know
 \label{cha:solomining}
 Represents "all or nothing" approach when it comes to the rewarding system. As solo miner's hash rate has to compete against all other solo miners as well as big pools, the chance of solving the block is rather small \cite{cong2018decentralized}.
 
-On the other side, when solo miner solves the block successfully, the whole block reward is assigned to the mining address. With high-end, multiple GPU setup, the miner can achieve about 3.2 Kh/s; this would mean chance about 0.46 \% of "winning" the block reward. 
+On the other side, when solo miner solves the block successfully, the whole block reward is assigned to the mining address. With high-end, multiple GPU setup, the miner can achieve about 3.2 Kh/s; this would mean chance about 0.46 \% of gaining the block reward. 
 
 \subsubsection{Web mining}
 \label{cha:webmining}
@@ -2410,7 +2411,7 @@ Can be obtained at the official web of the Monero cryptocurrency project at \url
 
 \subsubsection{Community-driven}
 \label{cha:miningsoftware}
-Is a category that incorporates opensource mining software projects that have source code published on the Github. Mostly used are:
+Is a category that incorporates open-source mining software projects that have source code published on the Github. Mostly used are:
 
 \begin{itemize}\itemsep0em
 \item XMR Stak 
@@ -2436,18 +2437,18 @@ Is a category that incorporates opensource mining software projects that have so
     \end{figure}
     
 \subsubsection{Proprietary}
-Having closed source code that community cant inspect, mining software of this category has less reputation compared to the community-driven. This is caused mainly by the fact that the exact produced hash rate and client reported hash rate differed in the past at least regarding the MinerGate miner available at \url{https://minergate.com/downloads/gui} .
+Having closed source code that community cannot inspect, mining software of this category has less reputation compared to the community-driven. This is caused mainly by the fact that the exact produced hash rate and client reported hash rate differed in the past at least regarding the MinerGate miner available at \url{https://minergate.com/downloads/gui} .
 
 \section{Mining malware }
 \vspace{-0.2em}
 As Monero algorithm is designed to be memory demanding algorithm, it is suitable to mine it using both CPU and GPU as mining software offers support for both hardware components as mentioned in the Section \ref{cha:miningsoftware}. 
 
-The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented. Thus they are easier to deploy on a wide range of devices \cite{le2018swimming}.
+The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented. Because of this, they are easier to deploy on a wide range of devices \cite{le2018swimming}.
 \vspace{-0.6em}
 \subsubsection{Monero position in the malware world}
 When malicious software developer considers the cryptocurrency technology to build on, cryptocurrency features are one of the most important aspects that drive this decision.
 
-In the case of Monero, its features are as much important for its users as for the malware developers. Working with strongly anonymously based cryptocurrency that offers private features as well as support for mining on almost every device available, is the main reason for using Monero \cite{eskandari2018first}.
+In the case of Monero, its features are as much important for its users as for the malware developers. The main reason for using Monero is that it offers private features as well as support for mining on almost every device available \cite{eskandari2018first}.
 
 Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \cite{konoth2019malicious}.
 \vspace{-0.6em}
@@ -2497,7 +2498,7 @@ Cloud mining         &                   &                    &                 
 % škola > dodá Vlasta info
 % místo interested in modern technologies >> eearly adopter OK
 % privacy aspect vygooglit části
-The goal of this research is to gather information on people who run mining cryptocurrency software and map their behavior regarding system administration with the emphasis on security practices. For this purpose, an online questionnaire was created. 
+The goal of this research is to gather information on people who run mining cryptocurrency software and map their behavior regarding system administration with the emphasis on security practices. For this purpose, an online questionnaire was created and is avaiable in the Appendix Figure \ref{monero-user-study-pdf}. 
 
 To the best of my knowledge, this is the first work that studies cryptocurrency miners. Specific research questions are based on cryptocurrency mining setup patterns, used software and problematic areas regarding computer and data security in general. 
 
@@ -2523,7 +2524,7 @@ Following this pattern, five research questions were set:
 \section{Participants and survey's background}
 As mentioned in the Chapter \ref{cha:monerousersurvey}, the survey was not hosted on third party servers, but instead on dedicated VPS running Lime Survey self-hosted software with HTTPS interface using signed Letsencrypt certificates.
 
-This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended privacy features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
+This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data companies cannot analyze them. To allow extended privacy features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 %\vspace{-0.7em}
 \subsection{Methodology}
 Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.
@@ -3171,7 +3172,7 @@ Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Designing Secure Mining Environment}
-The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both industry standards of large scale IT operations as well as running mining operation, the main emphasis is placed on the automation aspect of the whole system.
+The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both results from the Monero Miners Research as well as industry standards of large scale IT operations , the main emphasis is placed on the automation and security aspect of the whole system.
 \section{Automation}
 Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, the proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is the automated configuration of provisioned nodes using Ansible. Workflow is described in the Figure \ref{pict:deployment-workflow}.
 \begin{figure}[H]
@@ -3236,10 +3237,10 @@ For reference, \texttt{CentOS-7-x86\TextUnderscore{}64-Minimal-1804.iso} was use
 Four changes are needed to get the installation process working:
 \begin{itemize}
 \itemsep0em
-\item \texttt{timeout} property changed from 600 to 50 (seconds * 10)
-\item Change the boot menu to go straight for the install
-\item Edit paths for the custom ISO image
-\item Add kickstart file entry
+\item \texttt{timeout} property changed from 600 to 50 (seconds * 10).
+\item Change the boot menu to go straight for the install.
+\item Edit paths for the custom ISO image.
+\item Add kickstart file entry.
 \end{itemize}
 
 \begin{figure}[H]
@@ -3248,8 +3249,8 @@ Four changes are needed to get the installation process working:
 <@\textcolor{blue}{timeout 50}@>
 # only relevant part of the file is displayed
 label linux
-  menu label ^Install CentOS 7
-  <@\textcolor{blue}{menu default}@>
+  menu_label ^Install CentOS 7
+  <@\textcolor{blue}{menu_default}@>
   kernel vmlinuz
   append initrd=initrd.img <@\textcolor{blue}{inst.ks=hd:LABEL=CENTOS:/ks/ks.cfg inst.stage2=hd:LABEL=CENTOS}@> quiet
 \end{lstlisting}
@@ -3271,7 +3272,7 @@ The specific process of packaging extracted CentOS installation media back into 
 \item Volume label for ISO9660 and UDF set to \texttt{CENTOS} (depends on the configuration that is set in the \texttt{isolinux.cfg} file).
 \end{itemize}
 \subsubsection{Windows}
-For creating iso image on Windows, opensource ImgBurn software was used. 
+For creating iso image on Windows, open-source ImgBurn software was used. 
 
 %\iffalse
 \begin{figure}[H]
@@ -3304,7 +3305,7 @@ Once files are prepared, packaging into the iso at Linux is done by one-liner co
 %Ansible is an IT automation engine that in this case is used for configuration and application management of local mining nodes. 
 After installation from the ISO that was prepared with the kickstart file, the target machine is accepting SSH connections under root account using password-based authentification. Without proper configuration, this would leave machine open to brute force attempts for the root account.
 
-To provision mining nodes with software and configuration, Ansible uses following set of files:
+Ansible uses following set of files to provision mining nodes with software and configuration:
 
 \begin{figure}[H]
 %\begin{subfigure}{.5\textwidth}
@@ -3401,7 +3402,7 @@ Later if the user needs to login as user, this can be done by \texttt{su root} c
 %Ansible, Centos 7
 \section{Windows-based solution}
 \subsection{Installation media}
-For Windows scenario, Win10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created.
+For Windows scenario, Windows 10 image from autumn 2018 was used. As installation is intended to run unattended, custom media has to be created.
 
 There are many ways how to provision changes to original Windows media, most straightforward is generating an \texttt{autounattend.xml} file that covers all installation steps for Windows 10 installer.
 
