@@ -52,11 +52,11 @@
     advisor       = RNDr. Vlasta Šťavová,
     title         = {Monero usage and mining from usable security view},
     TeXtitle      = {Monero usage and mining from usable security view},
-    keywords      = {Monero, usable security, cryptocurrency, mining, pool, blockchain},
-    TeXkeywords   = {Monero, usable security, cryptocurrency, mining, pool, blockchain},
+    keywords      = {Monero, usable security, cryptocurrency, mining, pool, blockchain, Ansible, user research},
+    TeXkeywords   = {Monero, usable security, cryptocurrency, mining, pool, blockchain, Ansible, user research},
 }
 \thesislong{abstract}{
-The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. In the usage part of the thesis, the main focus is on user usage patterns gathered from the survey. Data gathered from the dataset is used for risk and usage pattern analysis as well as for creating the detailed user guideline for usable and secure usage of the Monero cryptocurrency including key management and backup strategy. Mining part provides a guide for automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and security based on the data gathered from the respondents in the survey.
+The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habbits, technical background and wallet security. Based on this data, I created a detailed user guideline for user friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for an automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
 }
 \thesislong{thanks}{ I would like to thank my supervisor RNDr. Vlasta Šťavová for her guidance, valuable advice, suggestions and support during writing this thesis.
 }
@@ -294,6 +294,20 @@ The goal of this thesis is to map ways of usage and mining the Monero cryptocurr
 \begin{document}
 
 \chapter{Introduction}
+Monero project offers a decentralized and anonymous open-source cryptocurrency with regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them.
+
+As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developers that aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect the real world usage data from both users and miners surveys. 
+
+Even for regular users, the Monero learning journey usually starts with Monero features, history and development cycle as it is important to be at least familiar with the bi-annual release cycle which stands out when compared to other cryptocurrencies.% as there is a the difference between the scheduled network upgrade and cryptocurrency fork as opposed to other cryptocurrencies. %in the general meaning as well as the reason why the upgrade is done in the first place. %Main features as with each update Monero is  together with competitiors and important security problems in the Monero network.x
+
+Moving into the client side of the Monero, thesis describes a detailed overview of wallet and its types, as well as ways how attack the wallet, followed by transaction features in the Monero and problems in Monero environment from both Monero network and Monero malware sides.
+
+To get a real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habbits regarding Monero cryptocurrency. Based on the survey results and IT industry practices I proposed a Monero usage and storage best practices guide that covers key generation, wallet management and a secure backup scheme.
+
+Aside from clients, key parts of Monero are also miners and Monero network itself. As miners are the ones who verify transactions and keep the network running, it was important to describe the mining software and categories which are later used in the Monero Miners Research survey. In the survey, 60 miners shared technical information about their current mining setups. This was later reflected in the proposed guide for designing secure mining environment in which the automation was the main aspect.
+
+
+\iffalse
 Information security in cryptocurrency environment is an important aspect that differentiates its users into two groups. Those who have direct control over their funds, wallets and private keys and those who do not.
 
 The main aim of this thesis is to explore Monero cryptocurrency from the usability and security standpoint while also reflecting its real-world usage.
@@ -309,6 +323,7 @@ Miners research is focused on the technical side of the Monero, security of the 
 Based on the results of the Monero users survey as well as best practices in the IT in general, following part of the thesis is dedicated to sharing the best practices regarding Monero storage and usage.
 
 Next part of the thesis focuses on the mining side of the Monero, starting with the overview of the mining methods as well as software tools, later followed by miners survey. Results from the survey as well as best IT practices are later incorporated in the automation Chapter that offers a detailed guideline on how to set up secure and automated mining operations.
+\fi
 
 %% Komentář Vlasta 10.7.: tady někde (možná samostatná kapitola) bude nutné nadefinovat pojmy. Nazvat to "Kryptoměny" a popsat tam myšlenku, z čeho se skládají, co je blockchain, co to znamená fork... a tak.
 %% Komentář Vlasta 10.7.: Nechceš to psát anglicky? Myslím, že by sis tím ušetřil hromadu práce s překlady. Dotazník bude v jakém jazyce?
@@ -514,7 +529,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 \begin{itemize}
 \item \textbf{Spam attack}
 \begin{itemize}
-\item Was aimed to oversaturate the Moneros network by sending minimal transactions and leveraging low transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on the chosen transaction priority \cite{monerospamattack}.
+\item Was aimed to oversaturate the Monero network by sending minimal transactions and leveraging low transaction fee of 0.005 XMR. Immediate fix was established by raising the fee to 0.1 XMR. This problem led to the implementation of dynamic transaction fee based on the chosen transaction priority \cite{monerospamattack}.
 %zdroj https://bitcointalk.org/index.php?topic=583449.msg8519146#msg8519146
 \end{itemize}
 \item \textbf{Split chain attack}
@@ -752,7 +767,7 @@ Monero client requires to be in sync with the network to show the correct balanc
 
 \textbf{Node} is a part of the cryptocurrency network that keeps a synced copy of blockchain in the local storage and provides a service that enables clients to access the information from the blockchain file. In Monero client software, this is represented by monerod, a separate daemon which synchronizes with the network.
 
-\textbf{The local node} is the default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, can independently verify transactions as well as blockchain state.
+\textbf{The local node} is the default option when running wallet software, using monerod client downloads from Monero network the blockchain and stores it in local storage. As of July 2018, blockchain size is about 44.3 GB. By running local node, client can independently verify transactions as well as blockchain state.
 
 \textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port} , the client connects to the remote node and starts scanning the blockchain as if it was a local one.
 
@@ -1467,7 +1482,7 @@ A significant portion of respondents also see Monero as a way of secret storage 
    >{\centering\arraybackslash}p{0.25\linewidth}%
    >{\centering\arraybackslash}p{0.25\linewidth}%
   }
-\textbf{Reason}          & \textbf{\% usage} & \textbf{Number of users} \\
+\textbf{Reason}          & \textbf{\% usage} & \textbf{Number of users (N=113)} \\
 Investment               & 73 \%             & 83                \\
 Technology               & 88 \%             & 99                \\
 Fungibility              & 63 \%             & 71                \\
@@ -1479,7 +1494,7 @@ Secure transfer of funds & 53 \%             & 60                \\
 To be paid in Monero     & 44 \%             & 50                \\
 Other                    & 00 \%              & 00                
 \end{tabular}
-\caption{Reasons to use Monero, total N=113.}
+\caption{Reasons to use Monero.}
 \label{table:monerousageresearch}
 \end{figure}
 
@@ -1924,7 +1939,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \end{tikzpicture}
 \caption{Age groups in the dataset.}
 \label{chart:agegroupsuserresearch}\end{figure}\end{center}
-\vspace{-5em}
+\vspace{-3em}
 \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -2047,7 +2062,7 @@ The official client offers CLI and GUI wallet management and is available at \ur
 \begin{center}
 \begin{lstlisting}
 .\monero-wallet-cli.exe
-Monero 'Lithium Luna' (v0.12.3.0-release)
+Monero Lithium Luna (v0.12.3.0-release)
 Logging to C:\...\monero-wallet-cli.log
 Specify wallet file name (e.g., MyWallet). If the wallet 
 doesn't exist, it will be created.
@@ -3471,7 +3486,30 @@ Downloads latest release of XMR-Stak from developers GitHub page, configures min
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
 
 \chapter{Conclusion}
-There is a thin line between reasonable security and unnecessary security measures that render the whole work useless. More often than not, systems, applications, and whole environments are designed with security in mind, but without the idea how to do it in a usable way, resulting in user-created workarounds that cause security issues.
+Monero cryptocurrency is a large and active project that offers a wide range of applications for both users and miners. For its open-source nature, everyone can build own wallet software, miner or even a website that provides wallet and key management. Because of this, many good, but also potentially malicious applications are released to the public. 
+
+To address this issue, thesis provides detailed overview of Monero environment, comparison of wallet client software and exchanges, comparison of mining software and list of malicious events and software connected with Monero cryptocurrency.
+
+Further deepening the explanation of this issue, surveys aimed at Monero users and miners were conducted. With 173 (113 in users and 60 in miners survey) respondents in total, this provides a real Monero users sample upon which two guidelines were proposed. %First for secure usage of Monero cryptocurrency and for .
+
+Results of Monero User Research follow the way how participants were selected (by self-selection) as well as the sites they came from (Reddit, Facebook cryptocurrency groups). That meant that majority of users said they prefer Linux OS with official wallet software and also that they tend to use open-source more then closed-source software. Only a few of them used closed-source apps or website portals that can be labeled as dangerous for the user. Contrary to popular belief, respondents releaved that they use Monero for darknet markets only in 18\% (20 out of 113), in case of drugs in 10\% (11 out of 113) and for other illegal usecases in 5\% (6 out of 113).
+
+Monero User Research provided valuable data for Monero usage and storage best practices part of the thesis, which gives users detailed steps on how to work with the Monero cryptocurrency.
+
+Monero Miners Research revealed that both Windows and Linux mining operations are set up using manual deployment and updates are usually disabled or delayed. Mining software was in almost all cases open-source with XMR Stak being used the most. 
+
+Based on the results from the Monero Miners Research, I implemented an automated deployment system for both major platforms using unattended/kickstart installation media and Ansible. By using application deployment and configuration management tool like Ansible, miners are by this able to deploy large mining operations with correct security settings that are both secure and easy to maintain. 
+
+As for the future work on this topic, it would be appropriate to extend current research to include other cryptocurrencies (Dash, Ethereum or Bitcoin) as well as deployment of their miners. 
+
+To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are avaiable in the Appendix Figure \ref{cha:listofattachments}.
+
+%na zaklade motivace jsem delal toto, výsledky byly tyto, zjisteni vyzkumu users, miners a nazaklade jejich jsem udelal implementaci co se tyce future work vidim jako mozna budouci pole půsovnosti tohleto tamhleto.
+
+
+
+
+\iffalse There is a thin line between reasonable security and unnecessary security measures that render the whole work useless. More often than not, systems, applications, and whole environments are designed with security in mind, but without the idea how to do it in a usable way, resulting in user-created workarounds that cause security issues.
 
 In Monero cryptocurrency, there are no strict guidelines or rules on how to access the funds or run the mining operation. As can be seen on the results from both of the surveys, users tend to only "do the needful" when it comes to using the cryptocurrency.
 
@@ -3490,7 +3528,7 @@ To make results from this thesis more open to the public, everything is publishe
 %GitHub repository: \url{https://github.com/Ownercz/ssme-thesis}\\
 %GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
 
-
+\fi
 
 \setlength{\emergencystretch}{3em}
 \printbibliography[heading=bibintoc]
