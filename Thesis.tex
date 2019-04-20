@@ -52,8 +52,8 @@
     advisor       = RNDr. Vlasta Šťavová,
     title         = {Monero usage and mining from usable security view},
     TeXtitle      = {Monero usage and mining from usable security view},
-    keywords      = {Monero, usable security, cryptocurrency, mining, pool, blockchain, Ansible, user research},
-    TeXkeywords   = {Monero, usable security, cryptocurrency, mining, pool, blockchain, Ansible, user research},
+    keywords      = {Monero, usable security, cryptocurrency, mining, blockchain, Ansible, user research},
+    TeXkeywords   = {Monero, usable security, cryptocurrency, mining, blockchain, Ansible, user research},
 }
 \thesislong{abstract}{
 The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habbits, technical background and wallet security. Based on this data, I created a detailed user guideline for user friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for an automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
@@ -368,7 +368,7 @@ This Chapter is aimed as a starting point that explains terms and technology tha
 
 The \textbf{fork} happens when developers create a copy of existing project codebase and start their path of development with it. 
 
-\textbf{Market Cap} is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
+\textbf{The market Cap} is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
 
 \textbf{The blockchain} is a technology responsible for storing every transaction that has ever been processed in the cryptocurrency, also often called as a ledger. The main purpose of the blockchain is to ensure the validity of completed transactions.
 
@@ -376,11 +376,11 @@ The \textbf{fork} happens when developers create a copy of existing project code
 
 \textbf{The wallet} is a storage medium that holds private and public keys by which the user can access, send and receive funds. Wallet effectively does not have the coins but is rather a key to access them from the blockchain.
 
-\textbf{Node} is a computer connected to the cryptocurrency network. Node is often referred to as a full node which means that the computer maintains a full copy of blockchain. This results in node downloading every block and transaction and checking them against cryptocurrency rules, especially whether the transaction has correct signatures, data format and the right number of emitted coins per block.
+\textbf{The node} is a computer connected to the cryptocurrency network. The node is often referred to as a full node which means that the computer maintains a full copy of blockchain. This results in node downloading every block and transaction and checking them against cryptocurrency rules, especially whether the transaction has correct signatures, data format and the right number of emitted coins per block.
 
 \textbf{The mining} process is done by miners that verify transactions on the network and adds them to the blockchain together in the form of a block which results in new coins being emitted as a reward for block solving.
 
-\textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block thus gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
+\textbf{Mining in pools} is the way how individual miners pool their computational resources. Due to resources pooling, there is a higher chance of solving the block, therefore gaining the reward of newly emitted coins. %After solving each block, the reward is distributed equally to miners connected to the pool according to PPS or PPLNS system.
 
 \chapter{Monero Cryptocurrency}
 Monero is an open-source cryptocurrency that is developed under the Monero project to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over funds.
@@ -407,7 +407,7 @@ Next important moment was when a significant part of the developers decided to a
 %% Komentář Radim 4.8.: Tabulku jsem udělal, akorát ještě musím zakomponovat sloupec, který ukazuje samotný market cap. Spíš jsem se totiž nejdříve zaměřil, jak top5 crypto vypadá z hlediska privacy features. Tzn. dávám si tu DOPLNIT .
 
 \section{Monero market cap}
- As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, the Table \ref{table:monero-top5} puts Monero in the direct comparison against the top 5 cryptocurrencies.
+ As Monero is often mentioned for its privacy features, decentralization in mind and fungibility as main asset, the Table \ref{table:monero-top5} puts Monero in the direct comparison against the Top 5 cryptocurrencies.
 
 To compare different cryptocurrency projects, market capitalization (market cap) is often used as a way of ranking \cite{elbahrawy2017evolutionary}. It indicates the relative size of cryptocurrency by the formula: \\ \centerline{
  \textit{\textit{Market Cap = Circulating Supply * Price} }}
@@ -428,7 +428,7 @@ To compare different cryptocurrency projects, market capitalization (market cap)
 5    & EOS            & 406380          &      No                 &                 Yes &                 Varies       \\
 13   & Monero         & 4010             &     Yes                  &                 Yes &      Yes                                                                                      
 \end{tabular}
-\captionof{table}{Monero features in top 5 cryptocurrencies.}
+\captionof{table}{Monero features in Top 5 cryptocurrencies.}
 \label{table:monero-top5}
 \end{figure}
 As can be seen from data in the Table \ref{table:monero-top5}, coins that are most popular by market cap metrics, are not centered around privacy. Altought it is often believed that using cryptography means anonymity, it isn't true in most cryptocurrencies especially in Bitcoin \cite{conti2018survey}. 
@@ -454,12 +454,12 @@ Byte-Coin     & CryptoNote              & 120                & Yes              
 DASH         & X11                     & 150                & No                       & Not fully           & Yes            \\
 Monero (XMR) & CryptoNote              & 120                & Yes                      & Yes                & RingCT         \\
 PIVX         & Zerocoin                & 60                 & Partialy & Yes                & x              \\
-Verge (XVG)  & Scrypt                  & 150                & Yes                      & Ne, TOR\&I2P       & RingCT WIP     \\
+Verge (XVG)  & Scrypt                  & 150                & Yes                      & No, TOR\&I2P       & RingCT WIP     \\
 Zcash (ZEC)  & Zerocash                & 150                & Shielded addresses  & Yes by SNARKS    & x              \\
 Zcoin (XZC)  & Lyra2 =\textgreater MTP & 600                & Yes                      & Yes by minting \& spending  & Ring Signature
 
 \end{tabular}
-\captionof{table}{Comparison of Anonymous Cryptocurrencies and their features.}
+\captionof{table}{Comparison of anonymous cryptocurrencies and their features.}
 \label{table:monero-alternatives}
 
 %Zdroje:
@@ -582,7 +582,7 @@ By that, amounts transferred between wallets in the form of outputs of transacti
 \subsection{Kovri}
 Kovri is a C++ implementation of the I2P anonymous network under heavy development process in Monero project. It aims to offer secure network transmissions where a user's IP cannot be associated with a particular transaction ID \cite{monerokovri}. 
 
-\chapter{Monero usage}
+\chapter{Monero Usage}
 As pointed out in the Chapter \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. Moreover, because of that not only the underlying technology of the network is different from other cryptocurrency projects but the user side as well. 
 \section{Wallets}
 \label{sec:wallets}
@@ -964,7 +964,7 @@ What is most noticeable tough, are darknet markets, that started to support paym
 Although darknet markets may support Monero, a short inspection of top 10 markets revealed that only 5 of them list Monero as the general way to pay. Rest of them are not forcing the sellers to use Monero. This results at about 40\% availability of Monero payment option on these type of markets.
 
 
-\chapter{Monero user research}
+\chapter{Monero User Research}
 \label{cha:monerousersurvey}
 The goal of this research is to gather information on end users behavior regarding Monero cryptocurrency with emphasis on key management and security practices. For this purpose, an online questionnaire was created. 
 
@@ -1058,7 +1058,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \node at (A) {test};
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
-\caption{From 179 responses, only 113 were tagged as valid.}
+\caption{Overview of respondents in the user survey dataset.}
 \label{chart:price}\end{figure}\end{center}
 \vspace{-3em}
 Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from USA (31 out of 113), followed by the Czech Republic (17 out of 113) and Germany (11 out of 113). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countries}. 
@@ -1122,7 +1122,7 @@ List of countries:
 
 \section{Results}
 Upcoming pages are based on the final filtered dataset with 113 responses of people who voluntarily entered the research based on opportunity sampling.
-\subsection{General Information}
+\subsection{General information}
 At first, users were asked about their operating system preferences when accessing Monero. Majority of users tend to access Monero using Windows 58\% (65 out of 113) or Linux 60\% (68 out of 113). While accessing Monero from mobile Android OS 43\% (49 out of 113) is primarily used. As for the Apple ecosystem, MacOS combined with iOS was selected as used method of access only in 14\% (16 out of 113) occurences.
 
 
@@ -1468,7 +1468,7 @@ First part of the survey shows that userbase present in the dataset is more orie
 \node at (E) {28};
 \node at (F) {8};% ********* end of changes **********
 \end{tikzpicture}
-\caption{Online wallet usage.}
+\caption{Opensource and OS preferences.}
 \label{chart:price}\end{figure}\end{center}
 
 \subsection{Monero usage}
@@ -1880,7 +1880,7 @@ The table with extracted values is in the Table \ref{table:user-chi}. The chi-sq
 \end{tabular}
 
 
-\captionof{table}{Contingency table for wallet types and recovery.}
+\captionof{table}{Contingency Table for wallet types and recovery.}
 \label{table:user-chi}
 \end{figure}
 
@@ -2039,7 +2039,7 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \caption{Respondents and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
-\chapter{Monero usage and storage best practices}
+\chapter{Monero Usage and Storage Best Practices}
 Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that brings out active discussion \cite{monerolang2018}.
 
 Following scenarios represent secure and easy to use instructions for a new Monero user, based on results from Monero user research in the Chapter \ref{cha:monerousersurvey}.
@@ -2232,7 +2232,7 @@ As a result of this Chapter and Monero user research in the Chapter \ref{cha:mon
     \end{figure}
     \fi
 
-\chapter{Obtaining Monero and running the network}
+\chapter{Obtaining Monero and Running the Network}
 \label{cha:obtaining}
 Monero mining is a process done by miners to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
 
@@ -2484,7 +2484,7 @@ Cloud mining         &                   &                    &                 
 \label{pict:network-processing}
 \end{figure}
 \fi
-\chapter{Monero miners research}
+\chapter{Monero Miners Research}
 %tento výzkum jsem nenašel, takže říct, že tam nic dalšího není napsat to tam
 %zobrazování voleb pro multiple choice randomizovat
 % total hardware dát pryč a místo toho jen hashrate OK
@@ -2590,7 +2590,7 @@ Before entering the survey, each participant had to pass the bot test by enterin
 \node at (A) {test};
 \node at (B) {test 2};% ********* end of changes **********
 \end{tikzpicture}
-\caption{From 323 responses, only 60 were tagged as valid.}
+\caption{Overview of respondents in the miners survey dataset.}
 \label{chart:price}\end{figure}\end{center}
 
 Using \texttt{geoiplookup} package in Ubuntu on the filtered dataset, most of the responses were from the USA (10 out of 60) as well as from the Czech Republic (10 out of 60) followed by Germany (6 out of 60). Detailed list of countries with the corresponding number of responses is available in the Appendix Table \ref{table:countriesminers}. 
@@ -3170,7 +3170,7 @@ Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of
 \caption{Miners and IT industry.}
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
-\chapter{Designing secure mining environment}
+\chapter{Designing Secure Mining Environment}
 The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both industry standards of large scale IT operations as well as running mining operation, the main emphasis is placed on the automation aspect of the whole system.
 \section{Automation}
 Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, the proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is the automated configuration of provisioned nodes using Ansible. Workflow is described in the Figure \ref{pict:deployment-workflow}.
@@ -3419,7 +3419,7 @@ For this guide, generating \texttt{autounattend.xml} file is based on online aut
         <RequiresUserInput>true</RequiresUserInput>
         </SynchronousCommand>
 \end{lstlisting}
-\caption{More than 20 commands are executed after first logon to prepare the environment.}
+\caption{.NetFramework adjustments in the Autounattend file.}
     \label{fig:securecrypto}
 \end{center}
     \end{figure} 
@@ -3559,7 +3559,7 @@ Following files are included in the attachment archive:
 \end{itemize}
 
 
-\chapter{Responses sorted by country - User research}
+\chapter{Responses Sorted by Country -- User Research}
 \vspace{-1em}
 \begin{figure}[H]
 \center
@@ -3598,12 +3598,12 @@ Following files are included in the attachment archive:
 01  & AF & Afghanistan       
 \end{tabular}
 \end{footnotesize}
-\caption{Responses by country in user research N=113.}
+\caption{Responses by country in user research.}
 \label{table:countries}
 \end{figure}
 
 
-\chapter{Responses sorted by country - Miners research}
+\chapter{Responses Sorted by Country -- Miners Research}
 \vspace{-2em}
 \begin{figure}[H]
 \center
@@ -3635,7 +3635,7 @@ Following files are included in the attachment archive:
 01                            & AU                         & Australia             \\
 01                            & AF                         & Afghanistan           \\
 \end{tabular}
-\caption{Responses by country in miners research N=60.}
+\caption{Responses by country in miners research.}
 \label{table:countriesminers}
 \end{figure}
 
