@@ -368,11 +368,11 @@ This Chapter is aimed as a starting point that explains terms and technology tha
 
 \textbf{Cryptocurrency} is a digital currency that is designed to use cryptography to secure and verify its transactions. Cryptocurrencies are decentralized as opposed to traditional money transaction systems used in the banks. Decentralization is established by using distributed blockchain that functions as a transaction database within the currency. First cryptocurrency available was Bitcoin \cite{farell2015analysis}.
 
-\textbf{Altcoin} is a term used for every cryptocurrency that is not Bitcoin as it is a direct concurrent for the first of the cryptocurrency.
+\textbf{Altcoin} is a term used for every cryptocurrency that is not Bitcoin.
 
-The \textbf{fork} happens when developers create a copy of existing project codebase and start their path of development with it. 
+\textbf{The fork} happens when developers create a copy of existing project codebase and start their path of development with it. 
 
-\textbf{The market Cap} is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
+\textbf{The market capitalization} (market cap) is a total value of cryptocurrency that refers to the total number of emitted coins multiplied by the value of the coin.
 
 \textbf{The blockchain} is a technology responsible for storing every transaction that has ever been processed in the cryptocurrency, also often called as a ledger. The main purpose of the blockchain is to ensure the validity of completed transactions.
 
@@ -399,7 +399,7 @@ Meaning that every single digital transaction and the exact number of coins in u
 \end{itemize}
 
 \section{Origin and the main focus}
-Monero started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. CryptoNote was published by the start of the year 2014 \cite{githubbytecoin}.
+Monero (XMR) started its way by forking from Bytecoin, which was proof-of-concept cryptocurrency that used as first of its kind protocol called CryptoNote. CryptoNote was published by the start of the year 2014 \cite{githubbytecoin}.
 
 Although Bytecoin had a promising protocol aimed at privacy, there was a problem with premine, meaning that cryptocurrency at the time of publishing had already 82\% of the coins already emitted \cite{fluffyponyonbytecoin}. That was the reason why people interested in anonymous cryptocurrencies decided to create a Bytecoin fork under the name of BitMonero \cite{bitmonero}. 
 
@@ -432,7 +432,8 @@ To compare different cryptocurrency projects, market capitalization (market cap)
 5    & EOS            & 406380          &      No                 &                 Yes &                 Varies       \\
 13   & Monero         & 4010             &     Yes                  &                 Yes &      Yes                                                                                      
 \end{tabular}
-\captionof{table}{Monero features in Top 5 cryptocurrencies.}
+\captionof{table}{Monero features in Top 5 cryptocurrencies \cite{conti2018survey,domingues2018allvor,dannen2017introducing,javarone2018bitcoin,
+jaureguizar2018cryptocurrency,miller2017empirical,coinmetricsiocharts}}
 \label{table:monero-top5}
 \end{figure}
 As can be seen from data in the Table \ref{table:monero-top5}, coins that are most popular by market cap metrics, are not centered around privacy. Altought it is often believed that using cryptography means anonymity, it isn't true in most cryptocurrencies especially in Bitcoin \cite{conti2018survey}. 
@@ -447,7 +448,7 @@ XRP and EOS are in a unique position compared to typical cryptocurrency as they 
 \newpage
 \section{Monero competitors}
 \label{sec:monero-timeline}
-Monero is not the only cryptocurrency that aims at privacy and privacy features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine. A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features.
+Monero is not the only cryptocurrency that aims at privacy and privacy features, and there are many privacy coins already in existence. Most similar to Monero is ByteCoin from which Monero was forked, but is overall unpopular due to 82\% premine. A viable alternative to Monero offers its fork Aeon that is more lightweight as opposed to Monero with slightly fewer privacy features. Monero cryptocurrency compared to its competitors is in the Table \ref{table:monero-alternatives}.
 
 \begin{figure}[H]
 \centering
@@ -518,8 +519,8 @@ Monero development cycle is based on planned network updates that occur every si
 \ytl{09.21.2016}{Monero v3 - transactions are split into smaller amounts}
 \ytl{01.05.2017}{Monero v4 - the concurrent run of normal and RingCT transactions}
 \ytl{04.15.2017}{Monero v5 - block size update and fee algorithm adjustments}
-\ytl{09.16.2017}{Monero v6 - RingCT forced on the network with ring size => 5}
-\ytl{04.06.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to =>7}
+\ytl{09.16.2017}{Monero v6 - RingCT forced on the network with ring size set to 5}
+\ytl{04.06.2018}{Monero v7 - change of CryptoNight mining algorithm to prevent ASIC on the network, ring size set to set to 7}
 \ytl{10.11.2018}{Monero v8 - enabled Bulletproofs for reduced transaction sizes, global ring size set to 11}
 \ytl{02.25.2019}{Monero v9 - new PoW based on Cryptonight-R, new block weight algorithm}
 \bigskip
@@ -543,7 +544,7 @@ Updates are meant to improve and enhance the previously established codebase as 
 \item \textbf{Transaction analysis in Monero blockchain}
 \begin{itemize}
 \item Research published in 2017 uncovered past and present problems in anonymity with Monero transaction system. The most significant discovery was that a substantial portion of transactions used a Ring Signature of zero which caused traceability of the amount of coin in the transaction output on the blockchain \cite{moser2018empirical}.
-\item This issue was resolved by Monero team already in 2016 with Monero v2, where Ring Signature was set to =>3 \cite{monerov2release}. Soon after the paper was released, Monero got its v6 update with enforced use of RingCT technology for all transaction outputs \cite{monerov6release}.
+\item This issue was resolved by Monero team already in 2016 with Monero v2, where Ring Signature was set to set to 3 \cite{monerov2release}. Soon after the paper was released, Monero got its v6 update with enforced use of RingCT technology for all transaction outputs \cite{monerov6release}.
 \end{itemize}
 %zdroj https://eprint.iacr.org/2017/338.pdf
 \end{itemize}
@@ -590,7 +591,7 @@ Kovri is a C++ implementation of the Internet Invisible Project (I2P) anonymous 
 As pointed out in the Chapter \ref{sec:monero-timeline}, Monero is one of the cryptocurrencies that aim to implement as complex anonymity system as possible. Moreover, because of that not only the underlying technology of the network is different from other cryptocurrency projects but the user side as well. 
 \section{Wallets}
 \label{sec:wallets}
-The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software.
+The essential part of every currency is the user's ability to access stored funds. In cryptocurrency, this is represented by the wallet and associated software. Overview of the wallet storage methods is described in the Table \ref{table:wallettypes}.
 
 Monero wallet contains information that is necessary to send and receive Monero currency. Each wallet is encrypted by the password set in the creation process. Typical wallet created using Monero software named \textit{example-wallet} consists of:
 \begin{itemize}\itemsep0em
@@ -775,6 +776,9 @@ Monero client requires to be in synchronization with the network to show the cor
 
 \textbf{The remote node}, on the other hand, represents a lighter version with slightly less privacy when it comes to working with the wallet. By either choosing in GUI to connect to the remote node or running cli with parameter \textit{.\textbackslash monero-wallet-cli.exe --daemon-address node.address:port}, the client connects to the remote node and starts scanning the blockchain as if it was a local one.
 
+Comparison of the node types can be found in the Table \ref{table:moneronodes}.
+\vspace{-1em}
+
 \begin{figure}[H]
 \center
 \begin{tabular}{p{0.45\linewidth}p{0.45\linewidth}}
@@ -785,7 +789,7 @@ Default way for desktop clients                                              & D
 %Time delay caused by blockchain download & No initial setup needed                             \\
 Requires 45+ GB and connection to keep in synchronization                               & Requires connection to scan blockchain             
 \end{tabular}
-\caption{Monero node comparison.}
+\captionof{table}{Monero node comparison.}
 \label{table:moneronodes}
 \end{figure}
 \newpage
@@ -945,7 +949,7 @@ Crypto-jacking a type of attack where the attacker delivers a malicious payload 
 Crypto-jacking is becoming more frequent than ransomware as it has proven that steady but low income is more profitable than one-time payment in the form of ransomware \cite{higbee2018role}.
 
 \subsubsection{4) Black Ruby}
-Interesting intersection of ransomware and crypto-jacking category is Black Ruby malware that combines features of both. First, it encrypts files on the target computer and then proceeds to mine Monero using XMRig at full CPU load \cite{blackruby2018}.
+Interesting intersection of ransomware and crypto-jacking category is Black Ruby malware that combines features of both. First, it encrypts files on the target computer and then proceeds to mine Monero using XMRig (as explained in the Section \ref{cha:miningsoftware}) at full CPU load \cite{blackruby2018}.
 
 \vspace{-1em}
 \section{Monero use case}
@@ -1248,8 +1252,8 @@ Desktop applications are used by 104 out of 113 users, making it the most freque
 \caption{Desktop client software.}
 \label{chart:price}\end{figure}\end{center}
 \vspace{-2.25em}
-\subsubsection{Monero Mobile app usage}
-From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS app for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo app is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
+\subsubsection{Monero Mobile application usage}
+From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS application for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo app is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
 
 \begin{center}
 \begin{figure}[H]
@@ -1498,11 +1502,11 @@ Secure transfer of funds & 53 \%             & 60                \\
 To be paid in Monero     & 44 \%             & 50                \\
 Other                    & 00 \%              & 00                
 \end{tabular}
-\caption{Reasons to use Monero.}
+\captionof{table}{Reasons to use Monero.}
 \label{table:monerousageresearch}
 \end{figure}
 
-This result is strongly affected by the way how participants were selected (self-selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). The short overview of the preferences is shown in the Figure \ref{table:monerousageresearch} with the full text of the questions asked available in the Appendix Figure \ref{monero-user-study-pdf}.
+This result is strongly affected by the way how participants were selected (self-selection) and from what sites they were informed about the survey (mainly Reddit Monero subreddits and Facebook Monero groups). The short overview of the preferences is shown in the Table \ref{table:monerousageresearch} with the full text of the questions asked available in the Appendix Figure \ref{monero-user-study-pdf}.
 
 \begin{center}
 \begin{figure}[H]
@@ -1591,7 +1595,7 @@ Gift cards              & 04\%              & 04                            \\
 Hosting and IT services & 22\%             & 25                           \\
 Other                   & 00\%              & 00                           
 \end{tabular}
-\caption{Monero usage for payments.}
+\captionof{table}{Monero usage for payments.}
 \label{table:moneropayusageresearch}
 \end{figure}
 
@@ -1601,7 +1605,7 @@ When asked about the payment options, many of the respondents 45\% (51 out of 11
 
 Perception and the reality of anonymity in cryptocurrency is an important topic in the cryptocurrency environment \cite{amarasinghe2019survey}. Although Monero is private by default, additional precautions can be made to hide users activity from the third party like using Kovri or Tor. 
 
-Among users in the dataset, Kovri 7\% (8 out of 113) or Tor 20\% (23 out of 113) is used by less than one third of the respondents in total as can be seen in the Figure \ref{table:moneropayusageresearch} .
+Among users in the dataset, Kovri 7\% (8 out of 113) or Tor 20\% (23 out of 113) is used by less than one third of the respondents in total as can be seen in the Table \ref{table:moneropayusageresearch} .
 
 
 
@@ -3605,7 +3609,7 @@ Following files are included in the attachment archive:
 01  & AF & Afghanistan       
 \end{tabular}
 \end{footnotesize}
-\caption{Responses by country in user research.}
+\captionof{table}{Responses by country in user research.}
 \label{table:countries}
 \end{figure}
 
@@ -3642,7 +3646,7 @@ Following files are included in the attachment archive:
 01                            & AU                         & Australia             \\
 01                            & AF                         & Afghanistan           \\
 \end{tabular}
-\caption{Responses by country in miners research.}
+\captionof{table}{Responses by country in miners research.}
 \label{table:countriesminers}
 \end{figure}
 
