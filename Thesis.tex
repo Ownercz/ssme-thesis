@@ -1253,7 +1253,7 @@ Desktop applications are used by 104 out of 113 users, making it the most freque
 \label{chart:price}\end{figure}\end{center}
 \vspace{-2.25em}
 \subsubsection{Monero Mobile application usage}
-From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS application for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo application is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
+From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS application for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo application is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. Detailed description of the applications is included in the Section \ref{sub:mobilewalletsoftware}.
 
 \begin{center}
 \begin{figure}[H]
@@ -2051,12 +2051,15 @@ Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out o
 \chapter{Monero Usage and Storage Best Practices}
 Ease of use is one of the critical aspects of every cryptocurrency and although Monero can offer a wide range of privacy features it has to be usable and user-friendly to be used by a substantial margin of people. Usability in Monero is a long-term topic that sparks discussion \cite{monerolang2018}.
 
-Following scenarios represent secure and easy to use instructions for a new Monero user, based on results from Monero user research in the Chapter \ref{cha:monerousersurvey}.
+While significant number of users reported that they perform backups of their wallet keys, many of them use hot wallet on their mobile phones which presents a security threat for their wallet.
 
+Following scenarios represent secure and easy to use instructions for a new Monero user, based on results from Monero user research in the Chapter \ref{cha:monerousersurvey}.
+\vspace{-1em}
 \section{Generating the keys and accessing the wallet}
 The first challenge for Monero users is generating key pairs and accessing the wallet. This process varies from the user's platform of choice and used wallet software. As the choice of client wallet software is important for Monero users in terms of user experience and security, the following Sections are dedicated to available wallet software. %TODO je to better oproti původnímu As the choice of client wallet software is fundamental for users Monero regarding user experience and security standpoint, following sections are dedicated to available  wallet software.
 \subsection{Windows and Linux platform}
 The official client offers CLI and GUI wallet management and is available at \url{https://getmonero.org/downloads/}. Using this client users can generate wallet keys. Created keys are after generation saved directly into the memory of the device unless specified otherwise. 
+\vspace{-0.9em}
 \begin{figure}[H]
 \begin{center}
   %  \vspace{-0.8em}
@@ -2120,6 +2123,7 @@ In general, the wallet is required to have Monero application installed from ven
 This way, the user has private spend key always on the device, and the client PC has only private view key. To sign a transaction, the user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of a security breach on the host computer, there is no Monero to steal.
 
 \subsection{Wallet software for mobile devices}
+\label{sub:mobilewalletsoftware}
 
 Monero has wallet software available for Android as well as the iOS platform. Community recommends to use the open source ones for both platforms, as their codebase is published on GitHub and everyone can inspect the code. Another common fact for the recommended solutions is that the keypairs for the wallet are stored exclusively on the user's device and restore can be done without third-party technical support.
 
@@ -2132,11 +2136,11 @@ By this, the user does not need to save the seed, wallet keys or make any backup
 \textbf{Cake Wallet} represents open source Monero wallet for iOS that provides wallet generation and local key pair storage with remote node connection and synchronization \cite{cakewalletgithub}.
 
 Guideline for secure wallet access is described in the Chapter \ref{sec:wallettypes}. 
-
+    \vspace{-1.3em}
 \begin{figure}[H]
 \begin{center}
 \vspace{-0.75em}
- \includegraphics[trim={0 1.8cm 0 0},clip,width=0.4\textwidth]{Screenshot_1542566492.png}
+ \includegraphics[trim={0 1.8cm 0 0},clip,width=0.38\textwidth]{Screenshot_1542566492.png}
     \caption{Monerujo for Android.}
     \vspace{-1.5em}
     \label{pic:withoutresdrawable}
@@ -2449,7 +2453,7 @@ Having closed source code that community cannot inspect, mining software of this
 
 \section{Mining malware }
 \vspace{-0.2em}
-As Monero algorithm is designed to be memory demanding algorithm, it is suitable to mine it using both CPU and GPU as mining software offers support for both hardware components as mentioned in the Section \ref{cha:miningsoftware}. 
+As Monero algorithm is designed to be memory demanding, it is suitable to mine it using both CPU and GPU as mining software offers support for both hardware components as mentioned in the Section \ref{cha:miningsoftware}. 
 
 The fact that Monero can be effectively CPU mined means for malware miners much easier way how to gain any profit from infected computer as they do not need to have any specific GPU drivers or features implemented. Because of this, they are easier to deploy on a wide range of devices \cite{le2018swimming}.
 \vspace{-0.6em}
@@ -2458,7 +2462,7 @@ When malicious software developer considers the cryptocurrency technology to bui
 
 In the case of Monero, its features are as much important for its users as for the malware developers. The main reason for using Monero is that it offers private features as well as support for mining on almost every device available \cite{eskandari2018first}.
 
-Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57M USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \cite{konoth2019malicious}.
+Thanks to its features and active development, Monero is one of the most active cryptocurrencies that are used in the malware world with more than 57 million USD already mined. As of 2019, Monero is identified to have the most active malware campaigns per cryptocurrency, followed by Bitcoin and zCash \cite{konoth2019malicious}.
 \vspace{-0.6em}
 \subsubsection{Types of malware miners}
 Main categories of malware miners are derived from the way how the unwanted software is delivered to the target device. Most common ways of ingestion are:
@@ -2886,7 +2890,7 @@ When asked about pool preferences, two larger mining pools were often mentioned 
 \subsubsection{Windows platform}
 Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding periodic updates, only a small part of miners 26\% (10 out of 39) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
 
-Majority of Windows miners 59\% (23 out of 39) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset 28\% (11 out of 39) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:windowshabits}.
+Majority of Windows miners 59\% (23 out of 39) tend to apply updates after some time after their release and have remote access enabled. There is also a part of miners in the dataset 28\% (11 out of 39) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:windowshabits}.
 
 \begin{center}
 \begin{figure}[H]
@@ -3180,9 +3184,12 @@ Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Designing Secure Mining Environment}
-The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both results from the Monero Miners Research as well as industry standards of large scale IT operations , the main emphasis is placed on the automation and security aspect of the whole system.
+The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both results from the Monero Miners Research as well as industry standards of large scale IT operations , the main emphasis is placed on the automation and security aspect of the whole system. 
+
+Repository containing all the code from this chapter is publicly available in the GitHub repository mentioned in the Appendix Figure \ref{cha:listofattachments}. Video showing the implementation of the system can be found in the Section \ref{cha:autoinstallprocess}.
 \section{Automation}
 Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, the proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is the automated configuration of provisioned nodes using Ansible. Workflow is described in the Figure \ref{pict:deployment-workflow}.
+\vspace{-2em}
 \begin{figure}[H]
 \center
 \tikzstyle{decision} = [diamond, draw, fill=blue!20,
@@ -3232,8 +3239,7 @@ Automation is a key aspect for designing and running IT operations that are secu
 \textbf{Hosts} file declares connection information about hosts, e.g., IP and login credentials.
 \\
 \texttt{\textbf{ansible-playbook -i hosts xmr01.yml}} is a CLI command that executes  \texttt{xmr01.yml} playbook file and takes connection information about hosts and groups involved from the \texttt{hosts} file.
-\newpage
-
+\vspace{-1em}
 \section{Linux-based solution}
 \subsection{Kickstart installation media}
 To easily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
@@ -3250,7 +3256,7 @@ Four changes are needed to get the installation process working:
 \item Edit paths for the custom ISO image.
 \item Add kickstart file entry.
 \end{itemize}
-
+\vspace{-1 em}
 \begin{figure}[H]
 \begin{center}
 \begin{lstlisting}
@@ -3262,6 +3268,7 @@ label linux
   kernel vmlinuz
   append initrd=initrd.img <@\textcolor{blue}{inst.ks=hd:LABEL=CENTOS:/ks/ks.cfg inst.stage2=hd:LABEL=CENTOS}@> quiet
 \end{lstlisting}
+\vspace{-0.13em}
 \caption{Customised installator entry.}
     \label{pic:codeinjectiongui}
 \end{center}
@@ -3353,7 +3360,7 @@ To make Linux mining nodes updated and secure, following roles were written:
 The common baseline for all mining nodes that consists of the following tasks:
 \begin{enumerate}
 \itemsep0em
-\item Ensure EPEL repo is configured or install it.
+\item Ensure EPEL (Extra Packages for Enterprise Linux) repository is configured or install it.
 \item Install the following packages: \texttt{htop, rsync, screen, tmux, iftop, iotop, nano, git, wget, unzip, mc}.
 \end{enumerate}
 \subsubsection{ansible-sw-firewalld}
@@ -3384,7 +3391,7 @@ This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{
 \subsubsection{ansible-sw-xmrstak}
 Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repo is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags: \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE= OFF  -DOpen CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
+After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repository is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags: \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE= OFF  -DOpen CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
 
 If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=\{\{ DCPU\TextUnderscore{}ENABLE \}\} -DCUDA\TextUnderscore{}ENABLE=\{\{ \newline DCUDA\TextUnderscore{}ENABLE \}\} -DOpenCL\TextUnderscore{}ENABLE=\{\{ DOpenCL\TextUnderscore{}ENABLE \}\}}
 
@@ -3493,6 +3500,59 @@ The administrator can configure which updates category will be included in the u
 Downloads latest release of XMR-Stak from developers GitHub page, configures mining software and downloads required libraries from Microsoft site. It also creates scheduled task under the mining user to run with elevated permissions after login so that UAC can be kept enabled and the miner is running without UAC prompts. 
 
 Also adds the exception in Windows Defender to ignore Desktop folder as a binary XMR-Stak file is considered as a malicious file for being a mining software.
+\newpage
+\section{Automated installation process}
+\label{cha:autoinstallprocess}
+In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Timeline detailing installation process is avaiable in the Figures \ref{windows-timeline} and \ref{linux-timeline}.
+
+Video is avaiable at \url{https://github.com/Ownercz/ssme-thesis/blob/master/video.md} .
+
+\begin{figure}[H]
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{00:20}{Start of unattended Windows installation using the autounattend file}
+\ytl{05:35}{Install part complete, OS first boot}
+\ytl{11:07}{Windows 10 installation complete}
+\ytl{11:15}{Running Ansible playbook on the Windows machine}
+\ytl{13:38}{Ansible completes miner deployment and reboots the machine}
+\ytl{15:17}{Ansible sets up firewall, Windows environment and reboots the machine. Miner is already running because of scheduled task after reboot}
+\ytl{17:18}{Ansible updates the OS using Windows update module}
+\ytl{55:24}{Ansible reboots the machine to complete the updates}
+\ytl{57:25}{Ansible completes the playbook and mining machine is ready}
+\bigskip
+\rule{\linewidth}{1pt}%
+\color{black}
+\caption{Automated deployment of Windows mining machine.}
+\label{windows-timeline}
+\end{figure}
+\pagebreak
+
+
+
+
+\begin{figure}[H]
+\begin{centering}
+ \includegraphics[trim={0 0 0 0},clip,width=0.95\textwidth]{Screenshot_20190303_105607.png}
+  \caption{Windows miner deployment.}
+    \label{pic:windows-mining}
+\end{centering}
+    \end{figure}
+
+Both installations were done using USB drive as installation source. Hardware specifications of the installation computer were CPU Intel i5 4460, 24GB of DDR3 RAM and target installation drive was 60GB Intel 330 SATA SSD.
+
+\begin{figure}[H]
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{00:46}{Start of unattended Linux Centos 7 installation using the kickstart file}
+\ytl{05:06}{Install part complete, OS first boot}
+\ytl{05:06}{Running Ansible playbook on the Linux machine}
+\ytl{11:29}{Ansible completes the playbook and mining machine is ready}
+\bigskip
+\rule{\linewidth}{1pt}%
+\color{black}
+\caption{Automated deployment of Linux mining machine.}
+\label{linux-timeline}
+\end{figure}
 
 \chapter{Conclusion}
 Monero cryptocurrency is a large and active project that offers a wide range of applications for both users and miners. For its open-source nature, everyone can build own wallet software, miner or even a website that provides wallet and key management. Because of this, many good, but also potentially malicious applications are released to the public. 
@@ -3726,57 +3786,7 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 \caption{Centos 7 kickstart file.}
 \label{fig:kickstart}
 \end{figure}
-\chapter{Automated installation process}
-In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Timeline detailing installation process is avaiable in the Figures \ref{windows-timeline} and \ref{linux-timeline}.
 
-Video is avaiable at \url{https://github.com/Ownercz/ssme-thesis/blob/master/video.md} .
-
-\begin{figure}[H]
-\color{gray}
-\rule{\linewidth}{1pt}
-\ytl{00:20}{Start of unattended Windows installation using the autounattend file}
-\ytl{05:35}{Install part complete, OS first boot}
-\ytl{11:07}{Windows 10 installation complete}
-\ytl{11:15}{Running Ansible playbook on the Windows machine}
-\ytl{13:38}{Ansible completes miner deployment and reboots the machine}
-\ytl{15:17}{Ansible sets up firewall, Windows environment and reboots the machine. Miner is already running because of scheduled task after reboot}
-\ytl{17:18}{Ansible updates the OS using Windows update module}
-\ytl{55:24}{Ansible reboots the machine to complete the updates}
-\ytl{57:25}{Ansible completes the playbook and mining machine is ready}
-\bigskip
-\rule{\linewidth}{1pt}%
-\color{black}
-\caption{Automated deployment of Windows mining machine.}
-\label{windows-timeline}
-\end{figure}
-\pagebreak
-
-
-
-
-\begin{figure}[H]
-\begin{centering}
- \includegraphics[trim={0 0 0 0},clip,width=0.95\textwidth]{Screenshot_20190303_105607.png}
-  \caption{Windows miner deployment.}
-    \label{pic:windows-mining}
-\end{centering}
-    \end{figure}
-
-Both installations were done using USB drive as installation source. Hardware specifications of the installation computer were CPU Intel i5 4460, 24GB of DDR3 RAM and target installation drive was 60GB Intel 330 SATA SSD.
-
-\begin{figure}[H]
-\color{gray}
-\rule{\linewidth}{1pt}
-\ytl{00:46}{Start of unattended Linux Centos 7 installation using the kickstart file}
-\ytl{05:06}{Install part complete, OS first boot}
-\ytl{05:06}{Running Ansible playbook on the Linux machine}
-\ytl{11:29}{Ansible completes the playbook and mining machine is ready}
-\bigskip
-\rule{\linewidth}{1pt}%
-\color{black}
-\caption{Automated deployment of Linux mining machine.}
-\label{linux-timeline}
-\end{figure}
 
 
  %% Start the appendices.
