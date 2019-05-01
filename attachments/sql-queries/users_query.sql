@@ -137,3 +137,5 @@ SELECT In_which_age_group_are_you, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP
 SELECT Select_your_highest_achieved_level_of_education, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP BY Select_your_highest_achieved_level_of_education;
 SELECT Do_you_work_or_study_in_IT_related_field, COUNT(*), (COUNT(*)*100)/113 FROM users GROUP BY Do_you_work_or_study_in_IT_related_field;
 
+
+SELECT COUNT(*) FROM users WHERE  Did_you_ever_need_to_restore_your_wallet  LIKE 'yes' AND Do_you_have_a_backup_of_your_wallet LIKE 'yes';
