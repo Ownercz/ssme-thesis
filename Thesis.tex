@@ -1253,7 +1253,7 @@ Desktop applications are used by 104 out of 113 users, making it the most freque
 \label{chart:price}\end{figure}\end{center}
 \vspace{-2.25em}
 \subsubsection{Monero Mobile application usage}
-From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS application for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo app is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
+From 113 people that filled out the survey, 53 of them stated that they use either Android or iOS application for accessing their Monero wallet. Digging deeper, out of 49 Android users, Monerujo application is used by 92\% (45 out of 49) of them, followed by other Android wallets 14\% (7 out of 49). Freewallet on Android is only used by one user (2\%) in the dataset thus following the fact the community does not like closed source software with bad history as mentioned in the Chapter \ref{cha:scamportals}. 
 
 \begin{center}
 \begin{figure}[H]
@@ -2086,7 +2086,7 @@ Generating new wallet...
 \end{center}
     \end{figure}
     \vspace{-1em}
-Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the app itself does not call any internal checking to alert the user of the unauthorized change. 
+Security of this task depends on the origin of the software, delivery chain trust, and the users' operating system. Monero CLI and GUI binaries can be edited, and the application itself does not call any internal checking to alert the user of the unauthorized change. 
 
 Code injection was successfully tested on GUI binary of the official Monero wallet as seen in the Figure \ref{pic:codeinjectiongui}. Although SHA256 hash is provided on the website, the user is not specifically instructed to check the hashes of the downloaded software with tools like PowerShell using \texttt{Get-FileHash ./monero-wallet-gui.exe | Format-List} command \cite{pialphapialphagammaiotaacutealphanunualpharhoovarsigma2016study}. GPG-signed list of the hashes is available on the website although there are no instructions on how to verify PGP signature itself.
     \vspace{-1em}
@@ -2115,7 +2115,7 @@ There are also alternative approaches to key generation like an offline JavaScri
 
 Hardware way is considered to be in the development, but Monero compatible devices like Ledger Nano S are already on the market. The way how keys are generated in hardware wallets varies on firmware included in each device. 
 
-In general, the wallet is required to have Monero app installed from vendors app catalog. Keys are generated on the hardware device within the app itself, and the user can only export private view key from the device to view the balance in full CLI/GUI client.
+In general, the wallet is required to have Monero application installed from vendors application catalog. Keys are generated on the hardware device within the application itself, and the user can only export private view key from the device to view the balance in full CLI/GUI client.
 
 This way, the user has private spend key always on the device, and the client PC has only private view key. To sign a transaction, the user has to confirm the transaction on the device itself meaning the hardware wallet will sign the transaction and then sends it to the Monero client. By this, in case of a security breach on the host computer, there is no Monero to steal.
 
