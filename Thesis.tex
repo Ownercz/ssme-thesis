@@ -56,7 +56,7 @@
     TeXkeywords   = {Monero, usable security, cryptocurrency, mining, blockchain, Ansible, user research},
 }
 \thesislong{abstract}{
-The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habbits, technical background and wallet security. Based on this data, I created a detailed user guideline for user friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for an automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
+The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habits, technical background and wallet security. Based on this data, I created a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for an automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
 }
 \thesislong{thanks}{ I would like to thank my supervisor RNDr. Vlasta Šťavová for her guidance, valuable advice, suggestions and support during writing this thesis.
 }
@@ -294,17 +294,21 @@ The goal of this thesis is to map ways of usage and mining the Monero cryptocurr
 \begin{document}
 
 \chapter{Introduction}
-Monero project offers a decentralized and anonymous open-source cryptocurrency with regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them.
+Monero project offers a decentralized and anonymous open-source cryptocurrency with regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them. %ok
 
-As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developers that aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect the real world usage data from both users and miners surveys. 
+As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developers that aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect the real world usage data from both users and miners surveys. %ok
 
-Even for regular users, the Monero learning journey usually starts with Monero features, history and development cycle as it is important to be at least familiar with the bi-annual release cycle which stands out when compared to other cryptocurrencies.% as there is a the difference between the scheduled network upgrade and cryptocurrency fork as opposed to other cryptocurrencies. %in the general meaning as well as the reason why the upgrade is done in the first place. %Main features as with each update Monero is  together with competitiors and important security problems in the Monero network.x
+% hidden as it is not needed | Even for regular users, the Monero learning journey usually starts with Monero features, history and development cycle as it is important to be at least familiar with the bi-annual release cycle which stands out when compared to other cryptocurrencies.% as there is a the difference between the scheduled network upgrade and cryptocurrency fork as opposed to other cryptocurrencies. %in the general meaning as well as the reason why the upgrade is done in the first place. %Main features as with each update Monero is  together with competitiors and important security problems in the Monero network.x
 
-Moving into the client side of the Monero, thesis describes a detailed overview of wallet and its types, as well as ways how attack the wallet, followed by transaction features in the Monero and problems in Monero environment from both Monero network and Monero malware sides.
+The goal of this thesis is to map usage habits of Monero cryptocurrency users and miners from both technological as well as security view. Another goal is to create a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. For miners, the goal is to implement an automated deployment of mining rigs using one of the popular configuration management tools.
 
-To get a real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habbits regarding Monero cryptocurrency. Based on the survey results and IT industry practices I proposed a Monero usage and storage best practices guide that covers key generation, wallet management and a secure backup scheme.
+To find a reply to such research questions and to get real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habits regarding Monero cryptocurrency. Based on the survey results and IT industry practices I proposed a Monero usage and storage best practices guide that covers key generation, wallet management and a secure backup scheme.
 
 Aside from clients, key parts of Monero are also miners and Monero network itself. As miners are the ones who verify transactions and keep the network running, it was important to describe the mining software and categories which are later used in the Monero Miners Research survey. In the survey, 60 miners shared technical information about their current mining setups. This was later reflected in the proposed guide for designing secure mining environment in which the automation was the main aspect.
+
+Thesis describes a detailed overview of wallet and its types, as well as ways how attack the wallet, followed by transaction features in the Monero and problems in Monero environment from both Monero network and Monero malware sides.
+
+The thesis is divided into 10 chapters. The first three chapters describe Monero cryptocurrency, its development cycle, transactions in the network, wallets, multisig together with cryptocurrency competitors, problems in Monero environment and overall Monero use case. The fifth and sixth chapters describe the Monero User Research, its results and proposes a detailed guideline for best practices in Monero usage and storage. The eight and ninth chapters describe the Monero Miners Research, its results and the design of the secure mining environment. The last chapter covers final conclusion.
 
 
 \iffalse
@@ -2802,9 +2806,9 @@ Majority of miners mine in their property 87\% (52 out of 60) and set up their m
 \node at (F) {46};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Mining setup preferences.}
-\label{chart:mininghabbits}\end{figure}\end{center}
+\label{chart:mininghabits}\end{figure}\end{center}
 \vspace{-2em}
-Miners generally tend to update their rigs 70\% (42 out of 60) as well as clean them 52\% (31 out of 60) but refrain from additional infrastructure costs like buying a UPS 23\% (14 out of 60) as shown in the Figure \ref{chart:mininghabbits}.
+Miners generally tend to update their rigs 70\% (42 out of 60) as well as clean them 52\% (31 out of 60) but refrain from additional infrastructure costs like buying a UPS 23\% (14 out of 60) as shown in the Figure \ref{chart:mininghabits}.
 
 \subsubsection{Mining software}
 The choice of mining software impacts mining profitability as well as the number of shares that are donated to the developer (if any). 
@@ -2865,7 +2869,7 @@ As described in the Chapter \ref{cha:miningsoftware}, most popular mining softwa
 \node at (H) {58};% ********* end of changes ********** 
 \end{tikzpicture}
 \caption{Mining software preference.}
-\label{chart:mininghabbits}\end{figure}\end{center}
+\label{chart:mininghabits}\end{figure}\end{center}
 \vspace{-2em}
 XMRig is used less 30\% (18 out of 60), but more often in combination with other mining software like previously mentioned XMR Stak. From closed source miners, only MinerGate was mentioned 3\% (2 out of 60). A small portion of miners also solo mine 12\% (7 out of 60) using the official wallet software. 
  
@@ -2878,7 +2882,7 @@ When asked about pool preferences, two larger mining pools were often mentioned 
 \subsubsection{Windows platform}
 Out of 60 miners in the dataset, 39 of them use Windows as their choice of OS for mining. Regarding periodic updates, only a small part of miners 26\% (10 out of 39) tend to use Windows with its default update settings (automatic restart of the OS to apply updates, unattended driver updates). 
 
-Majority of Windows miners 59\% (23 out of 39) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset 28\% (11 out of 39) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:windowshabbits}.
+Majority of Windows miners 59\% (23 out of 39) tend to apply updates after some time after their release and are running some kind of antivirus software with remote access enabled. There is also a part of miners in the dataset 28\% (11 out of 39) that tend to \enquote{set up and forget} with Windows update completely disabled. Setup preferences are shown in the Figure \ref{chart:windowshabits}.
 
 \begin{center}
 \begin{figure}[H]
@@ -2949,7 +2953,7 @@ Majority of Windows miners 59\% (23 out of 39) tend to apply updates after some 
 \node at (N) {28};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Windows mining setup preferences.}
-\label{chart:windowshabbits}\end{figure}\end{center}
+\label{chart:windowshabits}\end{figure}\end{center}
 \pagebreak
 \subsubsection{Linux platform}
 While Linux is used by 33 out of 60 miners, the majority of them tend to use Ubuntu 52\% (17 out of 33) or Debian 33\% (11 out of 33). The specialized OS for mining - MineOS is used by six users, least use has community derivate from RHEL, CentOS. 
@@ -3016,7 +3020,7 @@ Remote management is represented mainly by SSH 67\% (22 out of 33) followed by V
 \node at (J) {21};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Linux mining setup preferences.}
-\label{chart:linuxhabbits}\end{figure}\end{center}
+\label{chart:linuxhabits}\end{figure}\end{center}
 \pagebreak
 \subsubsection{Demographics}
 Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of 60) represented only a small portion of the dataset and some of the participants did not disclose their gender 13\% (8 out of 60). Most respondents in the dataset were from the age groups 25-34 55\% (33 out of 60) followed by 35-44 age group 20\% (12 out of 60) as well as 18-24 18\% (11 out of 60).
@@ -3489,17 +3493,19 @@ Also adds the exception in Windows Defender to ignore Desktop folder as a binary
 \chapter{Conclusion}
 Monero cryptocurrency is a large and active project that offers a wide range of applications for both users and miners. For its open-source nature, everyone can build own wallet software, miner or even a website that provides wallet and key management. Because of this, many good, but also potentially malicious applications are released to the public. 
 
+The goal of this thesis is to map usage habits of Monero cryptocurrency users and miners from both technological as well as security view. Another goal is to create a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. For miners, the goal is to implement an automated deployment of mining rigs using one of the popular configuration management tools.
+
 To address this issue, thesis provides detailed overview of Monero environment, comparison of wallet client software and exchanges, comparison of mining software and list of malicious events and software connected with Monero cryptocurrency.
 
-Further deepening the explanation of this issue, surveys aimed at Monero users and miners were conducted. With 173 (113 in users and 60 in miners survey) respondents in total, this provides a real Monero users sample upon which two guidelines were proposed. %First for secure usage of Monero cryptocurrency and for .
+For deeper investigation of the listed issues, I have conducted surveys aimed at Monero users and miners. With 173 (113 in users and 60 in miners survey) respondents in total, this provides a real Monero users sample upon which two guidelines were proposed. %First for secure usage of Monero cryptocurrency and for .
 
-Results of Monero User Research follow the way how participants were selected (by self-selection) as well as the sites they came from (Reddit, Facebook cryptocurrency groups). That meant that majority of users said they prefer Linux OS with official wallet software and also that they tend to use open-source more then closed-source software. Only a few of them used closed-source apps or website portals that can be labeled as dangerous for the user. Contrary to popular belief, respondents releaved that they use Monero for darknet markets only in 18\% (20 out of 113), in case of drugs in 10\% (11 out of 113) and for other illegal usecases in 5\% (6 out of 113).
+Results of Monero User Research follow the way how participants were selected (by self-selection) as well as the sites they came from (Reddit, Facebook cryptocurrency groups). That meant that majority of users said they prefer Linux OS with official wallet software and also that they tend to use open-source more then closed-source software. Only a few of them used closed-source apps or website portals that can be labeled as dangerous for the user. Contrary to popular belief, respondents revealed that they use Monero for darknet markets only in 18\% (20 out of 113), in case of drugs in 10\% (11 out of 113) and for other illegal usecases in 5\% (6 out of 113).
 
-Monero User Research provided valuable data for Monero usage and storage best practices part of the thesis, which gives users detailed steps on how to work with the Monero cryptocurrency.
+Based on the results of the research, I formulated Monero usage and storage best practices part of the thesis, which gives users detailed steps on how to work with the Monero cryptocurrency.
 
 Monero Miners Research revealed that both Windows and Linux mining operations are set up using manual deployment and updates are usually disabled or delayed. Mining software was in almost all cases open-source with XMR Stak being used the most. 
 
-Based on the results from the Monero Miners Research, I implemented an automated deployment system for both major platforms using unattended/kickstart installation media and Ansible. By using application deployment and configuration management tool like Ansible, miners are by this able to deploy large mining operations with correct security settings that are both secure and easy to maintain. 
+Based on the results from the Monero Miners Research, I implemented an automated deployment system for both major platforms using unattended/kickstart installation media and Ansible. By using application deployment and configuration management tool like Ansible, miners are able to deploy large mining operations with correct security settings that are both secure and easy to maintain. 
 
 As for the future work on this topic, it would be appropriate to extend current research to include other cryptocurrencies (Dash, Ethereum or Bitcoin) as well as deployment of their miners. 
 
