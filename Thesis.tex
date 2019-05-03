@@ -56,7 +56,7 @@
     TeXkeywords   = {Monero, usable security, cryptocurrency, mining, blockchain, Ansible, user research},
 }
 \thesislong{abstract}{
-The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habits, technical background and wallet security. Based on this data, I created a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for an automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
+The goal of this thesis is to map ways of usage and mining the Monero cryptocurrency from a usable security view. The thesis also focuses on delivering best practices guidelines for typical users as well as more technically focused miners. 113 respondents participated in the user research that provided data about Monero usage habits, technical background, and wallet security. Based on this data, I created a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. 60 miners participated in the Monero miners research that provided data about mining operations worldwide. Based on the miners data, I created a guide for automated deployment of mining rigs using Ansible for Windows and Linux with emphasis on configuration management and regular security updates.
 }
 \thesislong{thanks}{ I would like to thank my supervisor RNDr. Vlasta Šťavová for her guidance, valuable advice, suggestions and support during writing this thesis.
 }
@@ -294,21 +294,19 @@ The goal of this thesis is to map ways of usage and mining the Monero cryptocurr
 \begin{document}
 
 \chapter{Introduction}
-Monero project offers a decentralized and anonymous open-source cryptocurrency with regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them. %ok
+Monero project offers a decentralized and anonymous open-source cryptocurrency with a regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them. %ok
 
-As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developers that aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect the real world usage data from both users and miners surveys. %ok
-
-% hidden as it is not needed | Even for regular users, the Monero learning journey usually starts with Monero features, history and development cycle as it is important to be at least familiar with the bi-annual release cycle which stands out when compared to other cryptocurrencies.% as there is a the difference between the scheduled network upgrade and cryptocurrency fork as opposed to other cryptocurrencies. %in the general meaning as well as the reason why the upgrade is done in the first place. %Main features as with each update Monero is  together with competitiors and important security problems in the Monero network.x
+As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developers that aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect the real-world usage data from both users and miners surveys. %ok
 
 The goal of this thesis is to map usage habits of Monero cryptocurrency users and miners from both technological as well as security view. Another goal is to create a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. For miners, the goal is to implement an automated deployment of mining rigs using one of the popular configuration management tools.
 
-To find a reply to such research questions and to get real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habits regarding Monero cryptocurrency. Based on the survey results and IT industry practices I proposed a Monero usage and storage best practices guide that covers key generation, wallet management and a secure backup scheme.
+To find a reply to such research questions and to get real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habits regarding Monero cryptocurrency. Based on the survey results and IT industry practices I proposed a Monero usage and storage best practices guide that covers the key generation, wallet management, and a secure backup scheme.
 
 Aside from clients, key parts of Monero are also miners and Monero network itself. As miners are the ones who verify transactions and keep the network running, it was important to describe the mining software and categories which are later used in the Monero Miners Research survey. In the survey, 60 miners shared technical information about their current mining setups. This was later reflected in the proposed guide for designing secure mining environment in which the automation was the main aspect.
 
-Thesis describes a detailed overview of wallet and its types, as well as ways how attack the wallet, followed by transaction features in the Monero and problems in Monero environment from both Monero network and Monero malware sides.
+The thesis describes a detailed overview of wallet and its types, as well as ways how to attack the wallet, followed by transaction features in the Monero and problems in Monero environment from both Monero network and Monero malware sides.
 
-The thesis is divided into 10 chapters. The first three chapters describe Monero cryptocurrency, its development cycle, transactions in the network, wallets, multisig together with cryptocurrency competitors, problems in Monero environment and overall Monero use case. The fifth and sixth chapters describe the Monero User Research, its results and proposes a detailed guideline for best practices in Monero usage and storage. The eight and ninth chapters describe the Monero Miners Research, its results and the design of the secure mining environment. The last chapter covers final conclusion.
+The thesis is divided into 10 Chapters. The first three Chapters describe Monero cryptocurrency, its development cycle, transactions in the network, wallets, multisig together with cryptocurrency competitors, problems in Monero environment and overall Monero use case. The fifth and sixth Chapters describe the Monero User Research, its results and propos a detailed guideline for best practices in Monero usage and storage. The eight and ninth Chapters describe the Monero Miners Research, its results and the design of the secure mining environment. The last Chapter covers the final conclusion.
 
 
 \iffalse
@@ -359,7 +357,7 @@ Next part of the thesis focuses on the mining side of the Monero, starting with 
 %% místo xarchiv dát přímo odkaz na publikaci
 %% 
 %% Zpracování dat
-%% 1. číštění dat, celkově , plně uvedeno vyplněno
+%% 1. číštění dat, celkově, plně uvedeno vyplněno
 %% podívat se na čas správně vyplněných
 %% právě jednou pomocí cookies, projít geolokaci dle ipiny
 
@@ -913,14 +911,14 @@ There are four main problems concerning Monero environment:
 Malware that encrypts user files and then demands a ransom in the form of cryptocurrency, computer and files are no longer accessible unless the user pays the required amount. During its peak time, all popular ransomware demanded payment in Bitcoin. 
 
 As malware developers started to get their coins targeted by projects such as one from Netherlands' police called \textit{No More Ransom} available at \url{nomoreransom.org} \cite{martin2017don,paquet2018ransomware}. 
-Because of this targeting, they had to choose another cryptocurrency to solve this problem, and the solution was Monero \cite{cusack2018points}.
+Because of this targeting, they had to choose another cryptocurrency to solve this problem, and the solution was Monero \cite{cusack2018points}. Kirk is an example of Monero malware that is included in the Figure \ref{pic:monerokirk} \cite{monerokirk}.
 
 \begin{figure}[H]
 \begin{center}
 
     \vspace{-0.8em}
  \includegraphics[trim={0 0 0 0},clip,width=0.9\textwidth]{stf-kirk-ransomware-virus-startrek-monero-payment-demands-ransom-instructions.png}
-    \caption{Kirk ransomware that demands payment in Monero \protect\cite{monerokirk}.}
+    \caption{Kirk ransomware that demands payment in Monero.}
     \vspace{-1.5em}
     \label{pic:monerokirk}
 \end{center}
@@ -1000,7 +998,7 @@ The significant characteristic of Monero is its anonymity, and this feature is n
 
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data company cannot analyze them. To allow extended anonymity features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 \subsection{Methodology}
-Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling. Links for the research were shared among dedicated Reddit Monero community, Facebook Monero groups as well as Cryptocurrency forums.
+Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling. Links for the research were shared among dedicated Reddit Monero community, Facebook Monero groups as well as Cryptocurrency forums. Study limitations are described in the Section \ref{cha:limitations}.
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Monero recovery part stayed hidden in the form if the user selected that he/she had never made any recovery of the seed or wallet keys in the previous part. 
 
@@ -1578,7 +1576,7 @@ Following this question, respondents were asked if they hold onto their coins fo
    >{\centering\arraybackslash}p{0.2\linewidth}%
    >{\centering\arraybackslash}p{0.35\linewidth}%
   }
-\textbf{Usage}          & \textbf{\% of users from total} & \textbf{N of users from total N=113} \\
+\textbf{Usage}          & \textbf{\% of users from total} & \textbf{N of users from total (N=113)} \\
 Subscriptions           & 15\%             & 17                           \\
 Restaurants             & 05\%              & 06                            \\
 Donations               & 45\%             & 51                           \\
@@ -1589,7 +1587,7 @@ E-shops                 & 19\%             & 22                           \\
 Darknet markets         & 18\%             & 20                           \\
 Gambling sites          & 03\%              & 03                            \\
 Drugs                   & 10\%             & 11                           \\
-Illegal usecases        & 05\%              & 06                            \\
+Illegal use cases        & 05\%              & 06                            \\
 VPN services            & 35\%             & 31                           \\
 Gift cards              & 04\%              & 04                            \\
 Hosting and IT services & 22\%             & 25                           \\
@@ -1598,7 +1596,7 @@ Other                   & 00\%              & 00
 \captionof{table}{Monero usage for payments.}
 \label{table:moneropayusageresearch}
 \end{figure}
-
+\newpage
 Important usage factor of a currency is where its users can pay with it. Monero has already a known reputation between darknet markets, but its mainstream usage isn't something that is advertised as its feature. 
 
 When asked about the payment options, many of the respondents 45\% (51 out of 113) selected that they use Monero as a way for donating other people, followed by paying for VPN services 35\% (31 out of 113). Although Monero features are considered ideal for black market use, only 5\% (6 out of 113) respondents revealed that they use Monero cryptocurrency in this way.%A detailed overview of payment types is available in the Appendix Figure \ref{table:moneropayusageresearch}.
@@ -1751,7 +1749,7 @@ Apart from client software that is used for accessing and making transactions in
 \end{tikzpicture}
 \caption{Wallet types usage in Monero.}
 \label{chart:monerowalletsusagechart}\end{figure}\end{center}
-
+\newpage
 \subsection{Monero recovery}
 For further wallet protection, the majority of users also encrypt their wallet or the datastore on which the keys reside on 78\% (88 out of 113).
 
@@ -1893,7 +1891,6 @@ The table with extracted values is in the Table \ref{table:user-chi}. The chi-sq
 \label{table:user-chi}
 \end{figure}
 \fi
-\pagebreak
 
 \subsection{Demographics}
 Survey participants were mainly males 44\% (50 out of 113), females 2\% (2 out of 113) represented only a small portion of the dataset, and some of the participants did not disclose their gender 54\% (61 out of 113). Most respondents in the dataset were from the age groups 25-34 29\% (33 out of 113). 
@@ -2076,7 +2073,7 @@ The official client offers CLI and GUI wallet management and is available at \ur
 \begin{lstlisting}
 .\monero-wallet-cli.exe
 Monero Lithium Luna (v0.12.3.0-release)
-Logging to C:\...\monero-wallet-cli.log
+Logging to C:\Users\radim\Nextcloud\ssme-thesis\cli\monero-wallet-cli.log
 Specify wallet file name (e.g., MyWallet). If the wallet 
 file is not present, it will be created.
 Wallet file name (or Ctrl-C to exit): ssme-thesis
@@ -2155,7 +2152,7 @@ Monerojuro    & Android       & Open Source   & Keypair is stored locally.  User
 Monero \linebreak Wallet & Android  iOS & Closed Source & Keypair in cloud storage. No control over keys. \\
 Cake Wallet   & iOS           & Open Source   & Keypair is stored locally.  User has complete control.                           
 \end{tabular}
-\captionof{table}{List of avaiable wallets for mobile platforms.}
+\captionof{table}{List of available wallets for mobile platforms.}
 \label{table:monero-mobile}
 \end{figure}
 
@@ -2245,7 +2242,15 @@ As a result of this Chapter and Monero user research in the Chapter \ref{cha:mon
 \end{center}
     \end{figure}
     \fi
-
+\section{Study limitations}
+\label{cha:limitations}
+When interpreting Monero user and miners research results, the following study limitations should be taken into account:
+\begin{itemize}
+\itemsep0em
+\item Self-selection bias of respondents in the dataset.
+\item Reporting bias of responses in the dataset.
+\item  Limited time and reach of the questionnaires in the community that has participated in this research.
+\end{itemize}
 \chapter{Obtaining Monero and Running the Network}
 \label{cha:obtaining}
 Monero mining is a process done by miners to verify transactions on the network and add them to the blockchain together in the form of a block. This results for them in a reward in the form of new coins that are emitted as a reward for block solving.
@@ -2511,7 +2516,7 @@ Cloud mining         &                   &                    &                 
 % škola > dodá Vlasta info
 % místo interested in modern technologies >> eearly adopter OK
 % privacy aspect vygooglit části
-The goal of this research is to gather information on people who run mining cryptocurrency software and map their behavior regarding system administration with the emphasis on security practices. For this purpose, an online questionnaire was created and is avaiable in the Appendix Figure \ref{monero-user-study-pdf}. 
+The goal of this research is to gather information on people who run mining cryptocurrency software and map their behavior regarding system administration with the emphasis on security practices. For this purpose, an online questionnaire was created and is available in the Appendix Figure \ref{monero-user-study-pdf}. 
 
 To the best of my knowledge, this is the first work that studies cryptocurrency miners. Specific research questions are based on cryptocurrency mining setup patterns, used software and problematic areas regarding computer and data security in general. 
 
@@ -2540,7 +2545,7 @@ As mentioned in the Chapter \ref{cha:monerousersurvey}, the survey was not hoste
 This means that data exchanged between participants and survey software stays only between these two parties, so Google or other big data companies cannot analyze them. To allow extended privacy features, Tor and proxy connections were allowed, but each participant had to solve the CAPTCHA before starting the survey.
 %\vspace{-0.7em}
 \subsection{Methodology}
-Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.
+Data collection method was online only and was using the survey website software. Participants selection was based on opportunity sampling, links for the research were shared among dedicated Reddit Monero community, Facebook Mining groups as well as Cryptocurrency forums. This form was distributed together with the Monero User Research survey in mentioned mining communities.  Study limitations are described in the Section \ref{cha:limitations}.
 
 To reduce nonresponse rate, participants were asked only to fill out parts that were significant for them, e.g., Windows OS part stayed hidden in the form if the user selected that he/she used Linux OS only. 
 
@@ -2590,19 +2595,19 @@ Before entering the survey, each participant had to pass the bot test by enterin
 ]
 \addplot[1,fill=1] coordinates {(19,0) };
 %{(113,0) }; absolutni cisla, potrebuje to procenta
-\addplot[3,fill=3] coordinates {(80,0) };
+\addplot[4,fill=4] coordinates {(80,0) };
 %{(67,0) };
-\addplot[4,fill=4] coordinates {(0,0) };
+\addplot[3,fill=3] coordinates {(0,0) };
 %{(1,0) };
 \addplot[6,fill=6] coordinates {(1,0) };
 %{(1,0) };
 \legend{Valid responses [60],Partially filled [261],Too fast [0],Invalid [2]
 }
-\coordinate (A) at (200,0);% ******** start of changes ************
-\coordinate (B) at (300,8mm);
+\coordinate (A) at (10,0);% ******** start of changes ************
+\coordinate (B) at (60,0);
 \end{axis}  
-\node at (A) {test};
-\node at (B) {test 2};% ********* end of changes **********
+\node at (A) {19\%};
+\node at (B) {80\%};% ********* end of changes **********
 \end{tikzpicture}
 \caption{Overview of respondents in the miners survey dataset.}
 \label{chart:price}\end{figure}\end{center}
@@ -2697,7 +2702,15 @@ Even through dataset cleansing, from the final 60 respondents, 15 of them chose 
 \addplot[6,fill=6] coordinates {(31,0) };
 \legend{GPU only [17],CPU and GPU [12], CPU only [2], No response [14]
 }
+\coordinate (A) at (20,0);% ******** start of changes ************
+\coordinate (B) at (55,0);
+\coordinate (C) at (68,0);% ******** start of changes ************
+\coordinate (D) at (85,0);
 \end{axis}  
+\node at (A) {38\%};
+\node at (B) {27\%};% ********* end of changes **********
+\node at (C) {4\%};
+\node at (D) {31\%};% ********* end of changes **********  
 \end{tikzpicture}
 \caption{Mining types comparison.}
 \label{chart:miningtype}\end{figure}\end{center}    
@@ -3079,7 +3092,7 @@ Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of
 \coordinate (B) at (50,0);
 \coordinate (C) at (85,0);% ******** start of changes ************
 \end{axis}  
-\node at (A) {44};
+\node at (A) {11};
 \node at (B) {33};% ********* end of changes **********
 \node at (C) {12};
 \end{tikzpicture}
@@ -3185,9 +3198,9 @@ Survey participants were mainly males 83\% (50 out of 60), females 3\% (2 out of
 \label{chart:itindustryuserresearch}\end{figure}\end{center}
 
 \chapter{Designing Secure Mining Environment}
-The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both results from the Monero Miners Research as well as industry standards of large scale IT operations , the main emphasis is placed on the automation and security aspect of the whole system. 
+The goal of this Chapter is to design and develop secure and reasonably easy way how to set up and run mining operations on any scale. Inspired by both results from the Monero Miners Research as well as industry standards of large scale IT operations, the main emphasis is placed on the automation and security aspect of the whole system. 
 
-Repository containing all the code from this chapter is publicly available in the GitHub repository mentioned in the Appendix Figure \ref{cha:listofattachments}. Video showing the implementation of the system can be found in the Section \ref{cha:autoinstallprocess}.
+Repository containing all the code from this Chapter is publicly available in the GitHub repository mentioned in the Appendix Figure \ref{cha:listofattachments}. Video showing the implementation of the system can be found in the Section \ref{cha:autoinstallprocess}.
 \section{Automation}
 Automation is a key aspect for designing and running IT operations that are secure, up-to-date, scalable and easy to maintain. To do that, the proposed mining node provisioning scheme is divided into two parts, first being OS installation with early configuration and second is the automated configuration of provisioned nodes using Ansible. Workflow is described in the Figure \ref{pict:deployment-workflow}.
 \vspace{-2em}
@@ -3243,7 +3256,7 @@ Automation is a key aspect for designing and running IT operations that are secu
 \vspace{-1em}
 \section{Linux-based solution}
 \subsection{Kickstart installation media}
-To easily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated Centos 7 or RHEL 7 installation media with minimal package installation without GUI.
+To easily scale the mining operation, every bit of the software provisioning has to be automated. This part describes a process of creating automated CentOS 7 or RHEL 7 installation media with minimal package installation without GUI.
 
 The first step is to obtain installation media at \url{https://www.centos.org/download/}. After downloading the Minimal ISO version, extract the iso file into a separate folder. From there navigate to the \texttt{isolinux} folder and edit \texttt{isolinux.cfg} configuration file.
 
@@ -3277,7 +3290,7 @@ label linux
 \subsection{Kickstart file}
 The kickstart file is a single file that contains all OS installation parameters for RHEL based operating systems \cite{van2015red}. This installation method enables automated provisioning of machines without the need for the administrator input. When the file is presented to the installer, it reads the required parameters resulting in the unattended installation process \cite{leemans2015red}.
 
-The created kickstart file for Centos 7 mining installation media is available in the Appendix Figure \ref{fig:kickstart}. 
+The created kickstart file for CentOS 7 mining installation media is available in the Appendix Figure \ref{fig:kickstart}. 
 
 \subsection{Generating ISO}
 The specific process of packaging extracted CentOS installation media back into the iso file varies by the used operating system. In both mentioned scenarios, few specific parameters have to be set:
@@ -3308,7 +3321,7 @@ For creating iso image on Windows, open-source ImgBurn software was used.
     \caption{Boot image selection.}
 \end{center}
 \end{subfigure}
-\label{fig:test}\caption{Ansible playbook and roles.}
+\label{fig:test}\caption{Creation of custom CentOS installation media.}
 \end{figure}
 
 
@@ -3390,9 +3403,9 @@ This role is a fork of \texttt{ansible-role-fail2ban} that is available at \url{
 
 %TODO prolézt všechny role a zkontrolovat default vars
 \subsubsection{ansible-sw-xmrstak}
-Installs software collections \texttt{centos-release-scl} package for Centos together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
+Installs software collections \texttt{centos-release-scl} package for CentOS together with \texttt{cmake3, devtoolset-4-gcc*, hwloc-devel, make, \newline libmicrohttpd-devel, openssl-devel} packages used for compiling XMR-Stak from source code.
 
-After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repository is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags: \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE= OFF  -DOpen CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for Centos \cite{xmrstakcompile}.
+After that, the folder structure inside the non-privileged user account is created, and XMR-Stak repository is cloned into the user directory. With appropriate permissions set, cmake compiles the source code with following flags: \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=ON -DCUDA\TextUnderscore{}ENABLE= OFF  -DOpen CL\TextUnderscore{}ENABLE=OFF} resulting in CPU only miner for CentOS \cite{xmrstakcompile}.
 
 If the mining node would use GPU, appropriate drivers from AMD or Nvidia website are a prior requirement for running the miner. As GPU feature is only a flag, it can be enabled on demand in the playbook file as cmake3 flags are set as variables in the tasks file of the \texttt{ansible-sw-xmrstak} role in the Jinja2 format: \\ \texttt{cmake3 .. -DCPU\TextUnderscore{}ENABLE=\{\{ DCPU\TextUnderscore{}ENABLE \}\} -DCUDA\TextUnderscore{}ENABLE=\{\{ \newline DCUDA\TextUnderscore{}ENABLE \}\} -DOpenCL\TextUnderscore{}ENABLE=\{\{ DOpenCL\TextUnderscore{}ENABLE \}\}}
 
@@ -3402,7 +3415,7 @@ Changes system hostname to inventory hostname set in \texttt{hosts} file using \
 \subsubsection{ansible-user-add}
 \texttt{User-add-role} is used for creating the mining user that is not within the wheel group (unprivileged user). 
 \subsubsection{ansible-yum-cron}
-Installs and configures automatic security updates for Centos that are daily checked against the online repository. If packages marked for security update are found, email notification to root is sent \cite{pelz2016centos}.
+Installs and configures automatic security updates for CentOS that are daily checked against the online repository. If packages marked for security update are found, email notification to root is sent \cite{pelz2016centos}.
 \subsubsection{ansible-yum-update}
 All packages including kernel are updated so that mining node is ready to use and won't send update notification on the next day (unless there are new updates in the meantime).
 \subsubsection{Additional notes}
@@ -3461,7 +3474,7 @@ Before applying roles in Ansible for Windows, unlike in Ansible with Linux machi
 \item Python 2: apt-get install python-winrm
 \item Python 3: apt-get install python3-winrm
 \end{itemize}
-\item Centos:
+\item CentOS:
 \begin{itemize}
 \itemsep0em \vspace{-0.7em}
 \item With EPEL enabled: yum install python2-winrm
@@ -3504,9 +3517,9 @@ Also adds the exception in Windows Defender to ignore Desktop folder as a binary
 \newpage
 \section{Automated installation process}
 \label{cha:autoinstallprocess}
-In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Timeline detailing installation process is avaiable in the Figures \ref{windows-timeline} and \ref{linux-timeline}.
+In order to show automated installation process for both Windows and Linux miners, both installation processes were recorded using HDMI capture card and Open Broadcaster Software (OBS). Timeline detailing installation process is available in the Figures \ref{windows-timeline} and \ref{linux-timeline}.
 
-Video is avaiable at \url{https://github.com/Ownercz/ssme-thesis/blob/master/video.md} .
+Video is available at \url{https://github.com/Ownercz/ssme-thesis/blob/master/video.md} .
 
 \begin{figure}[H]
 \color{gray}
@@ -3544,7 +3557,7 @@ Both installations were done using USB drive as installation source. Hardware sp
 \begin{figure}[H]
 \color{gray}
 \rule{\linewidth}{1pt}
-\ytl{00:46}{Start of unattended Linux Centos 7 installation using the kickstart file}
+\ytl{00:46}{Start of unattended Linux CentOS 7 installation using the kickstart file}
 \ytl{05:06}{Install part complete, OS first boot}
 \ytl{05:06}{Running Ansible playbook on the Linux machine}
 \ytl{11:29}{Ansible completes the playbook and mining machine is ready}
@@ -3556,25 +3569,25 @@ Both installations were done using USB drive as installation source. Hardware sp
 \end{figure}
 
 \chapter{Conclusion}
-Monero cryptocurrency is a large and active project that offers a wide range of applications for both users and miners. For its open-source nature, everyone can build own wallet software, miner or even a website that provides wallet and key management. Because of this, many good, but also potentially malicious applications are released to the public. 
+Monero cryptocurrency is a large and active project that offers a wide range of applications for both users and miners. For its open-source nature, everyone can build their own wallet software, miner or even a website that provides wallet and key management. Because of this, many good, but also potentially malicious applications are released to the public. 
 
 The goal of this thesis is to map usage habits of Monero cryptocurrency users and miners from both technological as well as security view. Another goal is to create a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. For miners, the goal is to implement an automated deployment of mining rigs using one of the popular configuration management tools.
 
-To address this issue, thesis provides detailed overview of Monero environment, comparison of wallet client software and exchanges, comparison of mining software and list of malicious events and software connected with Monero cryptocurrency.
+To address this issue, the thesis provides a detailed overview of Monero environment, comparison of wallet client software and exchanges, comparison of mining software and list of malicious events and software connected with Monero cryptocurrency.
 
-For deeper investigation of the listed issues, I have conducted surveys aimed at Monero users and miners. With 173 (113 in users and 60 in miners survey) respondents in total, this provides a real Monero users sample upon which two guidelines were proposed. %First for secure usage of Monero cryptocurrency and for .
+For a deeper investigation of the listed issues, I have conducted surveys aimed at Monero users and miners. With 173 (113 in users and 60 in miners survey) respondents in total, this provides a real Monero users sample upon which two guidelines were proposed.
 
-Results of Monero User Research follow the way how participants were selected (by self-selection) as well as the sites they came from (Reddit, Facebook cryptocurrency groups). That meant that majority of users said they prefer Linux OS with official wallet software and also that they tend to use open-source more then closed-source software. Only a few of them used closed-source apps or website portals that can be labeled as dangerous for the user. Contrary to popular belief, respondents revealed that they use Monero for darknet markets only in 18\% (20 out of 113), in case of drugs in 10\% (11 out of 113) and for other illegal usecases in 5\% (6 out of 113).
+Results of Monero User Research follow the way how participants were selected (by self-selection) as well as the sites they came from (Reddit, Facebook cryptocurrency groups). That meant that the majority of users said they prefer Linux OS with official wallet software and also that they tend to use open-source more than closed-source software. Only a few of them used closed-source apps or website portals that can be labeled as dangerous for the user. Contrary to popular belief, respondents revealed that they use Monero for darknet markets only in 18\% (20 out of 113), in case of drugs in 10\% (11 out of 113) and for other illegal use cases in 5\% (6 out of 113).
 
 Based on the results of the research, I formulated Monero usage and storage best practices part of the thesis, which gives users detailed steps on how to work with the Monero cryptocurrency.
 
 Monero Miners Research revealed that both Windows and Linux mining operations are set up using manual deployment and updates are usually disabled or delayed. Mining software was in almost all cases open-source with XMR Stak being used the most. 
 
-Based on the results from the Monero Miners Research, I implemented an automated deployment system for both major platforms using unattended/kickstart installation media and Ansible. By using application deployment and configuration management tool like Ansible, miners are able to deploy large mining operations with correct security settings that are both secure and easy to maintain. 
+Based on the results from the Monero Miners Research, I implemented an automated deployment system for both major platforms using unattended/kickstart installation media and Ansible. By using application deployment and configuration management tool like Ansible, miners can deploy large mining operations with correct security settings that are both secure and easy to maintain. 
 
-As for the future work on this topic, it would be appropriate to extend current research to include other cryptocurrencies (Dash, Ethereum or Bitcoin) as well as deployment of their miners. 
+As for the future work on this topic, it would be appropriate to extend current research to include other cryptocurrencies (Dash, Ethereum or Bitcoin) as well as the deployment of their miners. 
 
-To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are avaiable in the Appendix Figure \ref{cha:listofattachments}.
+To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are available in the Appendix Figure \ref{cha:listofattachments}.
 
 %na zaklade motivace jsem delal toto, výsledky byly tyto, zjisteni vyzkumu users, miners a nazaklade jejich jsem udelal implementaci co se tyce future work vidim jako mozna budouci pole půsovnosti tohleto tamhleto.
 
@@ -3595,7 +3608,7 @@ This work can further be extended by covering the pool operators perspective,  s
 
 From miners perspective, the thesis offers the guide on how to automate deployment and configuration of mining operations. This is important as only a small fraction from both Windows and Linux miners use automation tools to deploy and manage mining rigs which can result in unwanted differences in configuration or inconsistencies across mining environment.
 
-To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are avaiable in the Appendix Figure \ref{cha:listofattachments}.
+To make results from this thesis more open to the public, everything is published under the GitHub repository and GitHub pages website. Website links are available in the Appendix Figure \ref{cha:listofattachments}.
 %\noindent
 %GitHub repository: \url{https://github.com/Ownercz/ssme-thesis}\\
 %GitHub pages: \url{https://ownercz.github.io/ssme-thesis}
@@ -3624,7 +3637,7 @@ Following files are included in the attachment archive:
 \itemsep0em
 \item \texttt{Ansible} directory containing Ansible playbook and roles for Linux and Windows miner deployment.
 \item \texttt{Cleansed} directory containing data used for Monero Users and Monero Miners survey.
-\item \texttt{Kickstart} directory containing the kickstart file for Centos 7 used in unattended Centos installation.
+\item \texttt{Kickstart} directory containing the kickstart file for CentOS 7 used in unattended CentOS installation.
 \item \texttt{Original} directory containing unfiltered data from Monero Users and Monero Miners survey.
 \item \texttt{SQL-queries} directory containing SQL files that were used for data processing for both surveys.
 \item \texttt{Unattended} directory containing the autounattend file for Windows 10 used in unattended Windows 10 installation.
@@ -3783,10 +3796,10 @@ pwpolicy luks --minlen=6 --minquality=50 --notstrict --nochanges --notempty
 
 
 \center
-\caption{Centos 7 kickstart file.}
+\caption{CentOS 7 kickstart file.}
 \label{fig:kickstart}
 \end{figure}
-
+\newpage
 
 
  %% Start the appendices.
