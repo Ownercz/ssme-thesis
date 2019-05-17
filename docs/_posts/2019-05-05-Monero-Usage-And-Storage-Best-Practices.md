@@ -5,9 +5,6 @@ subtitle: Monero best practice
 tags: [usage, storage, guideline]
 gh-badge: [star, fork, follow]
 ---
-
-## 6 Monero Usage and Storage Best Practices
-
 Ease of use is one of the critical aspects of every cryptocurrency and
 although Monero can offer a wide range of privacy features it has to be
 usable and user-friendly to be used by a substantial margin of people.

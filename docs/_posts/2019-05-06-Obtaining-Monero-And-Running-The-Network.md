@@ -5,8 +5,6 @@ subtitle: How are coins gained
 tags: [coins, network, mining, pools ]
 gh-badge: [star, fork, follow]
 ---
-## 7 Obtaining Monero and Running the Network
-
 Monero mining is a process done by miners to verify transactions on
 the network and add them to the blockchain together in the form of a
 block. This results for them in a reward in the form of new coins that

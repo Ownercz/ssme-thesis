@@ -5,8 +5,6 @@ subtitle: Introduction to Cryptocurrency terminology
 tags: [introduction,cryptocurrency,terminology]
 gh-badge: [star, fork, follow]
 ---
-
-## 1 Introduction
 Monero project offers a decentralized and anonymous open-source cryptocurrency with a regular update cycle that does not limit the user to use certain software or hardware. With such an open approach, it is often difficult for users to keep up and be aware of many choices on the client side, that can be either good or bad for them. As cryptocurrency usage is rising in general, it is also more and more frequent to encounter malicious sites or software developersthat aim to take control over users funds to gain an easy profit. This thesis focuses on the Monero usage and mining from usable security view to explain the current state in the Monero ecosystem and reflect
 the real-world usage data from both users and miners surveys. The goal of this thesis is to map usage habits of Monero cryptocurrency users and miners from both technological as well as security view. Another goal is to create a detailed user guideline for user-friendly and secure usage of the Monero cryptocurrency including key management and backup strategy. For miners, the goal is to implement an automated deployment of mining rigs using one of the popular configuration management tools.
 To find an answer to such research questions and to get real world usage data, I conducted a Monero User Research survey in which 113 participants shared their habits regarding Monero cryptocurrency.

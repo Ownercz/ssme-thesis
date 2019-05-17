@@ -5,9 +5,6 @@ subtitle: Getting into users perception
 tags: [research,cryptocurrency,users]
 gh-badge: [star, fork, follow]
 ---
-
-## 5 Monero User Research
-
 The goal of this research is to gather information on end users behavior
 regarding Monero cryptocurrency with emphasis on key management
 and security practices. For this purpose, an online questionnaire was
