@@ -2,8 +2,6 @@
 layout: post
 title: Cryptocurrency
 subtitle: Introduction to Cryptocurrency terminology 
-gh-repo: daattali/beautiful-jekyll
-gh-badge: [star, fork, follow]
 tags: [introduction,cryptocurrency,terminology]
 ---
 
