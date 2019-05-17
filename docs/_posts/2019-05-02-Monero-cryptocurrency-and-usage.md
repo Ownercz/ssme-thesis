@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Cryptocurrency
-subtitle: Introduction to Cryptocurrency terminology 
+title: Monero cryptocurrency and usage
+subtitle: Introduction to Monero 
 tags: [introduction,cryptocurrency,terminology]
 gh-badge: [star, fork, follow]
 ---
