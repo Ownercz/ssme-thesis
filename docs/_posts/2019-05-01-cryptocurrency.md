@@ -3,8 +3,8 @@ layout: post
 title: Cryptocurrency
 subtitle: Introduction to Cryptocurrency terminology 
 tags: [introduction,cryptocurrency,terminology]
+gh-badge: [star, fork, follow]
 ---
-
 
 ## 1 Introduction
 
