@@ -4,7 +4,8 @@ title: Cryptocurrency
 subtitle: Introduction to Cryptocurrency terminology 
 tags: [introduction,cryptocurrency,terminology]
 gh-badge: [star, fork, follow]
----## 3 Monero Cryptocurrency
+---
+## 3 Monero Cryptocurrency
 Monero is an open-source cryptocurrency that is developed under the Monero project to create a decentralized and anonymous currency. Its main goal is to make the user the one who has complete control over funds.
 Meaning that every single digital transaction and the exact number of coins in users wallet cannot be traced back to the user without sharing the view key of the transaction [2]. Main distinctive points compared to other cryptocurrencies are:
 
@@ -23,8 +24,6 @@ Although Bytecoin had a promising protocol aimed at privacy, there was a problem
 BitMonero [5]. 
 Next important moment was when a significant part of the developers decided to abandon the project in favor of creating a new fork named Monero in 06.23.2014. By this action, Monero cryptocurrency was created with publicly known blockchain from the start, strictly defined goals and motivated team of developers [6].
 
-
-3. Monero Cryptocurrency
 
 ### 3.2 Monero market cap
 
@@ -155,7 +154,6 @@ were:
        transaction outputs [29].
 
 
-3. Monero Cryptocurrency
 
 ### 3.5 Transactions in Monero network
 
