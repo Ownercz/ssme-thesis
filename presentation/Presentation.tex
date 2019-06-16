@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% I, the copyright holder of this work, release this work into the
+%% public domain. This applies worldwide. In some countries this may
+%% not be legally possible; if so: I grant anyone the right to use
+%% this work for any purpose, without any conditions, unless such
+%% conditions are required by law.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+\usetheme[faculty=fi]{fibeamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+  main=czech, %% By using `czech` or `slovak` as the main locale
+                %% instead of `english`, you can typeset the
+                %% presentation in either Czech or Slovak,
+                %% respectively.
+  english, slovak %% The additional keys allow foreign texts to be
+]{babel}        %% typeset as follows:
+%%
+%%   \begin{otherlanguage}{czech}   ... \end{otherlanguage}
+%%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
+%%
+%% These macros specify information about the presentation
+\title{Používání a získávání kryptoměny Monero z pohledu použitelné bezpečnosti} %% that will be typeset on the
+
+\subtitle{21. června 2019} %% title page.
+\author{Bc. Radim Lipovčan, 433279@muni.cz}
+%% These additional packages are used within the document:
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath, amssymb}
+\usepackage{url}       % `\url`s
+\usepackage{listings}  % Code listings
+\frenchspacing
+
+\usepackage{multicol}
+\begin{document}
+
+  \frame{\maketitle}
+
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+		\begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+
+  \begin{darkframes}
+    \section{Motivace}
+    \subsection{SSME}
+    \begin{frame}{Motivace | SSME}
+    Při výběru tématu bylo potřeba dbát pozor na:
+		\begin{itemize}
+		\item Důraz na T-shape, jak jej zohlednit v diplomové práci?
+		\item "Diplomová práce by měla reflektovat tvůj Interim Projekt nebo alespoň zkušenosti v něm nabyté." (převzato z http://ssme.fi.muni.cz/student/studium)
+		\end{itemize}		     
+     
+    \end{frame}
+    \subsection{Monero}
+    \begin{frame}{Motivace | Monero}
+		\begin{itemize}
+		\item Open-source kryptoměna
+    	\item Zaměření na anonymitu, decentralizaci
+     	\item Aktivní komunita na GitHubu a na Redditu včetně dalších sociálních sítí
+		\end{itemize}  
+		  
+    \end{frame}
+    \subsection{Cíl diplomové práce}
+    \begin{frame}{Motivace | Cíl diplomové práce}
+     Zkombinovat:
+     \begin{itemize}
+     \item Znalosti nabyté na intermu, studiu, rozsah T-shape
+     \item Technické téma kryptoměny Monero
+     \end{itemize}
+     	Cílem:
+		\begin{itemize}
+		\item 
+		\end{itemize}
+    \end{frame}
+  \end{darkframes}
+
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+      \begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+    
+  \begin{darkframes}
+    \section{Kryptoměna Monero}
+    \subsection{Informace o krypoměně}
+    \begin{frame}{Informace o krypoměně}
+     Obsah
+    \end{frame}
+    \subsection{Vývoj, peněženky, transakce a problémy}
+    \begin{frame}{Vývojový cyklus}
+     Obsah
+    \end{frame}
+    \begin{frame}{Princip transakcí}
+     Obsah
+    \end{frame}
+    \begin{frame}{Peněženky}
+     Obsah
+    \end{frame}
+    \begin{frame}{Útoky na peněženky}
+     Obsah
+    \end{frame}
+    \begin{frame}{Problémy Monera}
+     Obsah
+    \end{frame}
+    \begin{frame}{Název frame}
+     Obsah
+    \end{frame}
+  \end{darkframes}
+
+
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+      \begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+    
+   
+  \begin{darkframes}
+    \section{Výzkum uživatelů Monera}
+    \subsection{Cíl}
+    \begin{frame}{Cíl výzkumu uživatelů Monera}
+     Obsah
+    \end{frame}
+    \subsection{Sběr dat}
+    \begin{frame}{Sběr dat}
+     Obsah
+    \end{frame}
+    \subsection{Nasbíraná data}
+    \begin{frame}{Nasbíraná data}
+     Obsah
+    \end{frame}
+    \subsection{Výsledky}
+    \begin{frame}{Výsledky}
+     Obsah
+    \end{frame}
+    \subsection{Nejlepší praktiky}
+    \begin{frame}{Nejlepší praktiky}
+     Obsah
+    \end{frame}
+  \end{darkframes}
+  
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+      \begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+    
+  \begin{darkframes}
+    \section{Výzkum těžařů Monera}
+    \subsection{Cíl}
+    \begin{frame}{Cíl výzkumu těžařů Monera}
+     Obsah
+    \end{frame}
+    \subsection{Sběr dat}
+    \begin{frame}{Sběr dat}
+     Obsah
+    \end{frame}
+    \subsection{Nasbíraná data}
+    \begin{frame}{Nasbíraná data}
+     Obsah
+    \end{frame}
+    \subsection{Výsledky}
+    \begin{frame}{Výsledky}
+     Obsah
+    \end{frame}
+    \subsection{Automatizace}
+    \begin{frame}{Automatizace}
+     Obsah
+    \end{frame}
+  \end{darkframes}
+  
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+      \begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+    
+  \begin{darkframes}
+    \section{Závěr}
+    \subsection{Webový portál}
+    \begin{frame}{Webový portál}
+     Obsah
+    \end{frame}
+    \subsection{Open-source}
+    \begin{frame}{Open-source}
+     Obsah
+    \end{frame}
+  \end{darkframes}
+  
+  \begin{frame}{}
+\end{frame}
+    
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Obsah sekce \thesection}
+      \begin{multicols}{2}      
+      \tableofcontents[currentsection]
+      \end{multicols}
+    \end{frame}}
+    
+  \begin{darkframes}
+    \section{Reakce na posudky, dotazy}
+    \subsection{Název sekce}
+    \begin{frame}{Název frame}
+     Obsah
+    \end{frame}
+  \end{darkframes}
+
+\end{document}
