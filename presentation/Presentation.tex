@@ -37,6 +37,8 @@
 \usepackage{listings}  % Code listings
 \frenchspacing
 
+\usepackage{graphicx}
+\graphicspath{ {./resources/} }
 \usepackage{multicol}
 \begin{document}
 
@@ -57,10 +59,12 @@
     Při výběru tématu bylo potřeba dbát pozor na:
 		\begin{itemize}
 		\item Důraz na T-shape, jak jej zohlednit v diplomové práci?
-		\item "Diplomová práce by měla reflektovat tvůj Interim Projekt nebo alespoň zkušenosti v něm nabyté." (převzato z http://ssme.fi.muni.cz/student/studium)
+		\item "Diplomová práce by měla reflektovat tvůj Interim Projekt nebo alespoň zkušenosti v něm nabyté." \begin{itemize}
+		\item převzato z http://ssme.fi.muni.cz/student/studium)
+		\end{itemize}
 		\end{itemize}		     
      
-    \end{frame}
+	    \end{frame}
     \subsection{Monero}
     \begin{frame}{Motivace | Monero}
 		\begin{itemize}
@@ -68,6 +72,12 @@
     	\item Zaměření na anonymitu, decentralizaci
      	\item Aktivní komunita na GitHubu a na Redditu včetně dalších sociálních sítí
 		\end{itemize}  
+		\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{monero-github.png}
+  \includegraphics[width=0.4\textwidth]{monero-reddit.png}
+  \caption{Monero Github \& Reddit.}  \label{fig:xray}
+\end{figure}
 		  
     \end{frame}
     \subsection{Cíl diplomové práce}
@@ -79,7 +89,13 @@
      \end{itemize}
      	Cílem:
 		\begin{itemize}
-		\item 
+		\item Zmapovat způsoby získávání a užívání kryptoměny Monero
+		\item Uživatelská část - využití kryptoměny
+		\item Těžební část - software, pooly, systémy pro těžbu
+		\item Obě části - provést výzkum na dané části komunity
+		\begin{itemize}
+		\item A vytěžit z toho nové věci - best practices + automatizace
+		\end{itemize}
 		\end{itemize}
     \end{frame}
   \end{darkframes}
@@ -95,27 +111,37 @@
   \begin{darkframes}
     \section{Kryptoměna Monero}
     \subsection{Informace o krypoměně}
-    \begin{frame}{Informace o krypoměně}
-     Obsah
+    \begin{frame}{Kryptoměna Monero | Informace o krypoměně}
+    Open-source kryptoměna vyvíjená pod Monero projektem.
+    Cílem je mít decentralizovanou a anonymní kryptoměnu.
+    
+\begin{itemize}[<+->]
+\item<1-4>  Žádnou transakci nelze jednoduše vysledovat zpátky k uživateli a ani nelze zjistit kolik Monera bylo posláno.
+\item<2-4> Použití CryptoNote protokolu.
+\item<3-4> Blockchain je veřejný, většina je šifrovaná.
+\item<4-4> Pro anonymitu krpytoměny jsou použity technologie: 
+\begin{itemize}
+\item Ring Signatures (skrytí odesílatele)
+\item RingCT (skrytí posílané částky)
+\item Stealth Addresses (skrytí příjemce a historie transakce)
+\end{itemize}
+\end{itemize}    
+
+     \begin{figure}
+  \includegraphics[width=0.2\textwidth]{monero-icon.png}
+  \caption{Monero Github \& Reddit.}  \label{fig:xray}
+\end{figure}
     \end{frame}
-    \subsection{Vývoj, peněženky, transakce a problémy}
-    \begin{frame}{Vývojový cyklus}
-     Obsah
-    \end{frame}
-    \begin{frame}{Princip transakcí}
-     Obsah
-    \end{frame}
-    \begin{frame}{Peněženky}
-     Obsah
-    \end{frame}
-    \begin{frame}{Útoky na peněženky}
-     Obsah
-    \end{frame}
-    \begin{frame}{Problémy Monera}
-     Obsah
-    \end{frame}
-    \begin{frame}{Název frame}
-     Obsah
+    \subsection{Popis systému}
+    \begin{frame}{Kryptoměna Monero | Popis systému}
+   Před samotným výzkumem a tvorbou:
+     \begin{itemize}[<+->]
+     \item<1-3> Vývojový cyklus
+     \item<1-3> Princip transakcí
+     \item<2-3> Fungování peněženek
+     \item<2-3> Útoky vůči peněženkám
+     \item<3-3> Problémy Monera (většinou malware)
+     \end{itemize}
     \end{frame}
   \end{darkframes}
 
@@ -133,15 +159,27 @@
     \section{Výzkum uživatelů Monera}
     \subsection{Cíl}
     \begin{frame}{Cíl výzkumu uživatelů Monera}
-     Obsah
-    \end{frame}
+Zjistit informace o chování uživatelů při používání Monera a zároveň se zaměřit na práci s klíči k peněžence včetně zaměření se na samotnou bezpečnost užívání.
+
+Dotazník rozdělen:
+\begin{itemize}
+\item<1-4> G01 - Introductory information
+\item<1-4> G02 - Monero usage
+\item<2-4> G03 - Monero key and coin management
+\item<3-4> G04 - Monero and malicious things
+\item<4-4> G05 - Monero recovery
+\item<4-4> G06 - Special question set for miners
+\item<4-4> G07 - Demographics
+	\end{itemize}
+	\end{frame}
     \subsection{Sběr dat}
     \begin{frame}{Sběr dat}
-     Obsah
-    \end{frame}
-    \subsection{Nasbíraná data}
-    \begin{frame}{Nasbíraná data}
-     Obsah
+     \begin{itmeize}
+     \item 15.11.2018 - 27.01.2019
+     \item LimeSurvey, na vlastním serveru
+     \item Respondentům bylo doporučeno použít TOR nebo alespoň proxy
+     \item CAPTCHA proti spamu a botům
+     \end{itemize}
     \end{frame}
     \subsection{Výsledky}
     \begin{frame}{Výsledky}
