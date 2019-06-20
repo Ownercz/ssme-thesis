@@ -107,6 +107,7 @@
   \endgroup
 }
 \usepackage{dirtytalk}
+\definecolor{aquamarine}{rgb}{0.5, 1.0, 0.83}
 \begin{document}
 
   \frame{\maketitle}
@@ -120,9 +121,9 @@
     \end{frame}}
 
   \begin{darkframes}
-    \section{Motivace}
-    \subsection{SSME}
-    \begin{frame}{Motivace | SSME}
+   \section{Motivace}
+\iffalse	    \subsection{SSME}
+     \begin{frame}{Motivace | SSME}
     Při výběru tématu bylo potřeba dbát pozor na:
 		\begin{itemize}
 		\item Důraz na T-shape, jak jej zohlednit v diplomové práci?
@@ -132,12 +133,13 @@
 		\end{itemize}		     
      
 	    \end{frame}
+	    \fi
     \subsection{Monero}
     \begin{frame}{Motivace | Monero}
 		\begin{itemize}
-		\item Open-source kryptoměna
-    	\item Zaměření na anonymitu, decentralizaci
-     	\item Aktivní komunita na GitHubu a na Redditu včetně dalších sociálních sítí
+		\item Open-source kryptoměna.
+    	\item Zaměření na anonymitu, decentralizaci.
+     	\item Aktivní komunita na GitHubu a na Redditu včetně dalších sociálních sítí.
 		\end{itemize}  
 		\begin{figure}
   \centering
@@ -151,17 +153,17 @@
     \begin{frame}{Motivace | Cíl diplomové práce}
      Zkombinovat:
      \begin{itemize}
-     \item Znalosti nabyté na intermu, studiu, rozsah T-shape
-     \item Technické téma kryptoměny Monero
+     \item Znalosti nabyté na intermu, studiu, začlenit T-shape.
+     \item Technické i uživatelskou stránku kryptoměny Monero.
      \end{itemize}
      	Cílem:
 		\begin{itemize}
-		\item Zmapovat způsoby získávání a užívání kryptoměny Monero
-		\item Uživatelská část - využití kryptoměny
-		\item Těžební část - software, pooly, systémy pro těžbu
-		\item Obě části - provést výzkum na dané části komunity
+		\item Zmapovat způsoby získávání a užívání kryptoměny Monero.
+		\item Uživatelská část \textemdash  využití kryptoměny, práce s peněženkami.
+		\item Těžební část \textemdash  software, pooly, systémy pro těžbu.
+		\item Pro obě části \textemdash  provést výzkum na dané části komunity.
 		\begin{itemize}
-		\item A vytěžit z toho nové věci - best practices + automatizace
+		\item A vytěžit ze zjištění nové věci \textemdash  best practices + automatizace.
 		\end{itemize}
 		\end{itemize}
     \end{frame}
@@ -201,7 +203,7 @@
     \end{frame}
     \subsection{Popis systému}
     \begin{frame}{Kryptoměna Monero | Popis systému}
-   Před samotným výzkumem a tvorbou:
+   Před samotným výzkumem a tvorbou teoretická část práce:
      \begin{itemize}[<+->]
      \item<1-3> Vývojový cyklus
      \item<1-3> Princip transakcí
@@ -228,8 +230,8 @@
 \tikzstyle{lineuserB} = [draw, very thick, color=azure(colorwheel)!80, -latex']
 \tikzstyle{lineuserC} = [draw, very thick, color=darkorange!80, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
-    minimum height=2em]
-    \resizebox{!}{200px}{\centering
+    minimum height=2em]\centering
+    \resizebox{!}{200px}{
 \begin{tikzpicture}[scale=2, node distance = 2cm, auto,color=black]
 \shorthandoff{-}
     % Place nodes
@@ -281,8 +283,14 @@
     \section{Výzkum uživatelů Monera}
     \subsection{Cíl}
     \begin{frame}{Cíl výzkumu uživatelů Monera}
-Zjistit informace o chování uživatelů při používání Monera a zároveň se zaměřit na práci s klíči k peněžence včetně zaměření se na samotnou bezpečnost užívání.
+\begin{itemize}
+\item Zjistit informace o chování uživatelů při používání Monera. 
+\item Zároveň se zaměřit na práci s klíči k peněžence. 
+\item Včetně zaměření se na samotnou bezpečnost užívání.
+\end{itemize}
 
+
+\vspace{1em}
 Dotazník rozdělen:
 \begin{itemize}
 \item<1-4> G01 - Introductory information
@@ -298,9 +306,9 @@ Dotazník rozdělen:
     \begin{frame}{Sběr dat}
      \begin{itemize}
      \item 15.11.2018 - 27.01.2019
-     \item LimeSurvey, na vlastním serveru
-     \item Respondentům bylo doporučeno použít TOR nebo alespoň proxy
-     \item CAPTCHA proti spamu a botům
+     \item LimeSurvey, hostováno na vlastním serveru.
+     \item Respondentům bylo doporučeno použít TOR nebo alespoň proxy.
+     \item CAPTCHA proti spamu a botům.
      \end{itemize}
     \end{frame}
     \subsection{Výsledky}
@@ -540,9 +548,9 @@ Dotazník rozdělen:
     \begin{frame}{Nejlepší praktiky | Best practices}
      Na základě dat z průzkumu:
      \begin{itemize}
-     \item Postup pro bezpečné vytvoření peněženky
-     \item Návrh pro bezpečné uložení klíčů
-     \item Zálohovací schéma pro klíče
+     \item Postup pro bezpečné vytvoření peněženky.
+     \item Návrh pro bezpečné uložení klíčů.
+     \item Zálohovací schéma pro klíče.
      \end{itemize}
     \end{frame}
   \end{darkframes}
@@ -559,10 +567,16 @@ Dotazník rozdělen:
     \section{Výzkum těžařů Monera}
     \subsection{Cíl}
     \begin{frame}{Cíl výzkumu těžařů Monera}
-Zjistit informace o lidech, kteří provozují těžební systémy a prozkoumat jejich zvyklosti v oblasti systémové administrace včetně zabezpečení.
 \begin{itemize}
-\item Výzkumy kolem kryptoměn se zatím děly na uživatelích, těžaři nikoho nezajímají.
+\item Zjistit informace o lidech, kteří provozují těžební systémy. 
+\item Prozkoumat jejich zvyklosti v oblasti systémové administrace.
+\item A nezapomenout na zabezpečení jejich systémů.
 \end{itemize}
+\vspace{0.7em}
+\begin{itemize}
+\item Výzkumy kolem kryptoměn se zatím děly na uživatelích, těžaři nikoho nezajímali (dle mých dostupných informací a zdrojů).
+\end{itemize}
+\vspace{0.7em}
 Složení dotazníku:
 \begin{itemize}
 \item<1-4> G01 - Introductory information
@@ -578,9 +592,9 @@ Složení dotazníku:
     \begin{frame}{Sběr dat}
      \begin{itemize}
      \item 15.11.2018 - 27.01.2019
-     \item LimeSurvey, na vlastním serveru
-     \item Respondentům bylo doporučeno použít TOR nebo alespoň proxy
-     \item CAPTCHA proti spamu a botům
+     \item LimeSurvey, hostováno na vlastním serveru.
+     \item Respondentům bylo doporučeno použít TOR nebo alespoň proxy.
+     \item CAPTCHA proti spamu a botům.
      \end{itemize}
     \end{frame}
         \begin{frame}{Sběr dat | Google Forms x Vlastní hosting}
@@ -598,7 +612,7 @@ Složení dotazníku:
 \end{figure}
     \end{frame}
     \subsection{Výsledky}
-    \begin{frame}{Výsledky | Ukázka z nasbíraných dat}
+\iffalse    \begin{frame}{Výsledky | Ukázka z nasbíraných dat}
      \begin{center}
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -657,8 +671,9 @@ Složení dotazníku:
     \label{pic:miningquestion}
 \end{center}
     \end{figure}
-    
+       
     \end{frame}
+    \fi
     \begin{frame}{Výsledky | Ukázka z nasbíraných dat}
     \begin{center}
 \begin{figure}[H]
@@ -736,36 +751,36 @@ Složení dotazníku:
     \begin{frame}{Automatizace}
     
     \begin{multicols}{2}
-OS: Linux
+\only<1-4>{OS: Linux}
 \begin{itemize}
-\item Kickstart instalace
-\item Spuštění Ansible playbooku
-\item Node připraven k těžbě
+\item<1-4> Kickstart instalace
+\item<1-4> Spuštění Ansible playbooku
+\item<1-4> Node připraven k těžbě
 \end{itemize}
-Statistiky:
+\only<3-4>{Statistiky:}
 \begin{itemize}
-\item Instalace OS - 5 minut
-\item Ansible (aktualizace OS, instalace XMR stak, začátek těžby) - 6 minut
+\item<3-4>  Instalace OS - 5 minut
+\item<3-4>  Ansible (aktualizace OS, instalace XMR stak, začátek těžby) - 6 minut
 \end{itemize}
 
 \columnbreak
-OS: Windows
+\only<2-4>{OS: Windows}
 \begin{itemize}
-\item Autounattend instalace
-\item Spuštění Ansible playbooku
-\item Node připraven k těžbě
+\item<2-4>  Autounattend instalace
+\item<2-4> Spuštění Ansible playbooku
+\item<2-4> Node připraven k těžbě
 \end{itemize}
-Statistiky:
+\only<4-4>{Statistiky:}
 \begin{itemize}
-\item Instalace OS - 11 minut
-\item Ansible (aktualizace OS, instalace XMR stak, začátek těžby) - 46 minut
+\item<4> Instalace OS - 11 minut
+\item<4> Ansible (aktualizace OS, instalace XMR stak, začátek těžby) - 46 minut
 \end{itemize}
 \end{multicols}
-Primárně testováno na i5-4460, SSD sestavě. Podobných výsledků bylo dosaženo i na Dell PowerEdge R610 a R210 testovacích serverech (rozdíl v boot time kvůli serverové desce).
+\only<4>{{\small Primárně testováno na i5-4460, SSD sestavě. Podobných výsledků bylo dosaženo i na Dell PowerEdge R610 a R210 testovacích serverech (rozdíl v boot time kvůli serverové desce).}}
  
  
- \tikz[remember picture,overlay] \node[opacity=0.8,inner sep=10pt] at ($(current page.45)+(0,-1.4)$)
- {\includegraphics[width=0.25\textwidth]{ansible-redhat.png}};
+ \only<1-3>{\tikz[remember picture,overlay] \node[opacity=0.8,inner sep=10pt] at ($(current page.north) +(0,-1.4)$)%($(current page%45)+(0,-1.4)$)
+ {\includegraphics[width=0.25\textwidth]{ansible-redhat.png}};}
 
 %     \begin{figure}
 %  \centering
@@ -818,9 +833,10 @@ Primárně testováno na i5-4460, SSD sestavě. Podobných výsledků bylo dosa�
     \section{Reakce na posudky, dotazy}
      \begin{frame}{Installation videos}
      	\begin{figure}
-\say{I appreciate multiple appendices with the data and the
+\color{aquamarine}\say{I appreciate multiple appendices with the data and the
 complete questionnaires, as well as the videos of the installation process (although the Linux
 link in the repository seems to be broken as of 6th June 2019).}
+\vspace{1em}
 \begin{itemize}
 \item Špatně nastavená viditelnost videa (nastaveno soukromé místo publikovaného).
 \item Opraveno, při prezentaci jsem vždy ukazoval z notebooku, kde byl přihlášený Google účet.
@@ -829,7 +845,7 @@ link in the repository seems to be broken as of 6th June 2019).}
     \end{frame}
 
         \begin{frame}{Monero community feedback}
-     \say{ I’d appreciate knowing
+     \color{aquamarine}\say{ I’d appreciate knowing
 from the author what was the reception of the work by the Monero community (if any).}
     \end{frame}
        \begin{frame}{Monero community feedback}
@@ -863,13 +879,47 @@ from the author what was the reception of the work by the Monero community (if a
 \end{figure}
     \end{frame}
     
+\begin{frame}{Survey Methodology - does not apply option}
+
+\color{aquamarine}\say{Furthermore, I miss the options indicating the
+participant does not know or thinks the question does not apply to them (details why this may
+be a problem described later).}
+
+\begin{itemize}
+\item Problém - rozdílnost online formuláře vs jeho export v PDF verzi pro tisk diplomové práce.
+\item Reálně tuto možnost měli, ukázka v následujících slidech.
+\end{itemize}
+    \end{frame}
+        \begin{frame}{Survey Methodology - does not apply option}
+     	\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{survey-answer.png}
+% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
+\end{figure}
+    \end{frame}
+            \begin{frame}{Survey Methodology - does not apply option}
+     	\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{survey-answernext.png}
+% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
+\end{figure}
+    \end{frame}
+            \begin{frame}{Survey Methodology - does not apply option}
+     	\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{survey-answernextanother.png}
+% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
+\end{figure}
+    \end{frame}
+    
         \begin{frame}{Ansible}
-     \say{On the other hand, I appreciate the
+     \color{aquamarine}\say{On the other hand, I appreciate the
 effort of having the automation setup available for both Linux and Windows (making it must
 have required different sets of skills). Customization possibilities of the Ansible playbooks are
 not mentioned much (Are there any?).}
+\vspace{1em}
 	\begin{itemize}
-	\item Každá rolí obsahuje složku defaults, ve které existuje \texttt{main.yml} s proměnnými pro úpravu.
+	\item Každá z rolí obsahuje složku \texttt{defaults}, ve které existuje \texttt{main.yml} s proměnnými pro úpravu.
 	\begin{itemize}
 	\item U \texttt{ansible-win-apps} tak může uživatel změnit adresu peněženky, pool, konfiguraci webového rozhraní a další věci týkající se těžebního software.
 	\end{itemize}
@@ -879,32 +929,39 @@ not mentioned much (Are there any?).}
 
         \begin{frame}{Bias}
      \begin{small}
-     \say{Secondly, you do not consider the social desirability bias much – people
+     \color{aquamarine}\say{Secondly, you do not consider the social desirability bias much – people
 will not readily admit illegal activity (and drug buying, darknet transactions, ...). I appreciate
 the data cleaning, but could that not have introduced/increased the bias?}
      \end{small}
+\vspace{0.5em}
 
-Plně souhlasím, vypadá to zvláštně, když odfiltruji \say{Partially answered or unanswered questionnaires were not taken into account (261 out of 323).} \textbf{Měl jsem dodat popis metodiky, co je částečně nebo vůbec.}
-\begin{itemize}
+Plně souhlasím, vypadá to zvláštně, když odfiltruji:\begin{itemize}\itemsep0em
+\item \say{Partially answered or unanswered questionnaires were not taken into account (261 out of 323).} 
+\item Měl jsem dodat popis metodiky, co je částečně nebo vůbec.
+\end{itemize}
+\vspace{0.5em}
+\begin{itemize}\itemsep0em
 \item Částečné nebo vůbec = počet vyplněných otázek z celku < 5. 
-\item Skutečnost: 261 odfiltrovaných = buď žádná odpověď nikde nebo náhodné zakliknutí jedné otázky.
+\item Skutečnost: 261 odfiltrovaných = buď žádná odpověď nikde nebo náhodné zakliknutí 1 až 3 otázek.
+\item Pravděpodobně \say{vlastnost} LimeSurvey = každý průchod captchou a dotazníkem znamenal uložení.
 \end{itemize}
     \end{frame}
         \begin{frame}{Mining setup vs questionnaire}
-     \say{Moreover, I miss how precisely these
+     \color{aquamarine}\say{Moreover, I miss how precisely these
 build on the results from the questionnaire in chapter 5. Similarly so for the designed mining
 setup automation in chapter 9 (How does it build on the questionnaire results? What would
 you have done differently without the questionnaire?). }
+\vspace{1em}
 \begin{itemize}
 \item Získání informací o tom, jaký software pro těžbu se používá [XMR-Stak/XMRig/Wallet?].
 \item Zda má cenu dělat návod na mining operation (nepoužívají pronajatý výkon, cloud?)
-\item Na jakých platformách se těží? (Windows = jednodušší a lépe optimalizované z hlediska paměti a GPU)
+\item Na jakých platformách se těží? (Stačil by návod pro Windows = jednodušší a lépe optimalizované z hlediska paměti a GPU)
 \end{itemize}
 
     \end{frame}
 
         \begin{frame}{Userbase/minerbase}
-     \say{The sample may not be representative of the Monero
+     \color{aquamarine}\say{The sample may not be representative of the Monero
 userbase/minerbase at all. Can we at least make a comparison to some general Monero stats?
 How many users/wallets are there? What countries seem Monero users to dominantly be
 from? (At least an estimate based on the forums, etc.) Could your sample mislead the results?
@@ -912,7 +969,7 @@ In what way precisely?}
     \end{frame}
     
         \begin{frame}{Userbase/minerbase}
-     \say{The sample may not be representative of the Monero
+     \color{aquamarine}\say{The sample may not be representative of the Monero
 userbase/minerbase at all. Can we at least make a comparison to some general Monero stats?}
 \begin{itemize}
 \item Přímo uživatelů - vzhledem k principu fungování Monera reprezentativně ne.
@@ -925,7 +982,7 @@ userbase/minerbase at all. Can we at least make a comparison to some general Mon
     \end{frame}
     
             \begin{frame}{Userbase/minerbase}
-     \say{What countries seem Monero users to dominantly be
+     \color{aquamarine}\say{What countries seem Monero users to dominantly be
 from? (At least an estimate based on the forums, etc.) Could your sample mislead the results?
 In what way precisely?}
 \begin{itemize}
@@ -941,11 +998,12 @@ In what way precisely?}
     
 
     \begin{frame}{Research questions}
-      \say{\begin{small}
+      \color{aquamarine}\say{\begin{small}
       What parts of the
 study address what research questions? What are the conclusions regarding the individual
 questions?).
       \end{small}}
+      \color{white}
        \begin{multicols}{2}
        Research questions
       \begin{small}
@@ -969,46 +1027,16 @@ deal with them?
     \end{frame}
     
         \begin{frame}{Survey Methodology}
-     \say{However, I see some deficiencies in survey methodology: Where did the
+     \color{aquamarine}\say{However, I see some deficiencies in survey methodology: Where did the
 answer options to the individual questions come from? E.g. is there really a difference in
 the answers for profit and as an investment?). }
 \begin{itemize}
-\item Tyto možnosti, jak odpovědět, byly vytvořeny mnou na základě toho, za co se může kromě Monera i jiný druh měny použít. Obecné kategorie + přidány specifické věci, pro které by mohlo být Monero použito (gambling, illegal use cases).
+\item Tyto možnosti, jak odpovědět, byly vytvořeny mnou na základě toho, na jaké účely lze normálně platbu kryptoměnou použít. 
+\item Obecné kategorie + přidány specifické věci, pro které by mohlo být Monero použito (gambling, illegal use cases).
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Survey Methodology - pokračování}
 
-\say{Furthermore, I miss the options indicating the
-participant does not know or thinks the question does not apply to them (details why this may
-be a problem described later).}
-
-\begin{itemize}
-\item Problém - rozdílnost online formuláře vs jeho export v PDF verzi pro tisk diplomové práce.
-\item Reálně tuto možnost měli viz další slidy.
-\end{itemize}
-    \end{frame}
-        \begin{frame}{Survey Methodology - pokračování}
-     	\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{survey-answer.png}
-% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
-\end{figure}
-    \end{frame}
-            \begin{frame}{Survey Methodology - pokračování}
-     	\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{survey-answernext.png}
-% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
-\end{figure}
-    \end{frame}
-            \begin{frame}{Survey Methodology - pokračování}
-     	\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{survey-answernextanother.png}
-% \caption{Specifické požadavky respondentů.}  \label{fig:xray}
-\end{figure}
-    \end{frame}
 
     
 
